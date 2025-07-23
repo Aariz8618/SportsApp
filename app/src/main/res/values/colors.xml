@@ -1,5 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Primary Brand Colors -->
+    <color name="primary_green">#1B5E20</color>
+    <color name="primary_green_light">#2E7D32</color>
+    <color name="primary_green_dark">#0D3A0F</color>
+    
+    <!-- Secondary Colors -->
+    <color name="cricket_orange">#FF6F00</color>
+    <color name="cricket_orange_light">#FF8F00</color>
+    <color name="cricket_blue">#0D47A1</color>
+    
+    <!-- Background Colors -->
+    <color name="background_light">#F8F9FA</color>
+    <color name="background_white">#FFFFFF</color>
+    <color name="card_background">#FFFFFF</color>
+    
+    <!-- Text Colors -->
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="text_hint">#BDBDBD</color>
+    <color name="text_white">#FFFFFF</color>
+    
+    <!-- Status Colors -->
+    <color name="success_green">#4CAF50</color>
+    <color name="win_green">#2E7D32</color>
+    <color name="live_red">#F44336</color>
+    
+    <!-- Surface Colors -->
+    <color name="surface_elevated">#FFFFFF</color>
+    <color name="divider_color">#E0E0E0</color>
+    <color name="ripple_color">#E8F5E8</color>
+    
+    <!-- Standard Colors -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>
