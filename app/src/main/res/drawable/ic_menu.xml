@@ -1,11 +1,11 @@
-<!-- ic_menu.xml - Hamburger menu icon -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="30dp"
-    android:height="30dp"
-    android:viewportWidth="24"
-    android:viewportHeight="24"
+    android:width="35dp"
+    android:height="40dp"
+    android:viewportWidth="35"
+    android:viewportHeight="40"
     android:tint="?attr/colorOnSurface">
+
     <path
         android:fillColor="@android:color/white"
-        android:pathData="M3,18h18v-2L3,16v2zM3,13h18v-2L3,11v2zM3,6v2h18L21,6L3,6z"/>
+        android:pathData="M5,10h25v3H5zM5,18h25v3H5zM5,26h25v3H5z"/>
 </vector>
