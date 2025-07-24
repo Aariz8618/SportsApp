@@ -100,15 +100,15 @@
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="16dp"
-                            android:paddingBottom="8dp">
+                            android:padding="8dp"
+                            android:paddingBottom="4dp">
 
                             <TextView
                                 android:id="@+id/tv_match_series"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="4th ODI • India vs England"
-                                android:textSize="12sp"
+                                android:textSize="11sp"
                                 android:textColor="@color/text_secondary"
                                 android:textStyle="bold" />
 
@@ -120,8 +120,8 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
                             android:gravity="center_vertical"
-                            android:paddingHorizontal="16dp"
-                            android:paddingBottom="8dp">
+                            android:paddingHorizontal="8dp"
+                            android:paddingBottom="4dp">
 
                             <!-- India Team -->
                             <LinearLayout
@@ -136,7 +136,7 @@
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal"
                                     android:gravity="center_vertical"
-                                    android:layout_marginBottom="4dp">
+                                    android:layout_marginBottom="1dp">
 
                                     <TextView
                                         android:layout_width="24dp"
@@ -149,7 +149,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="India"
-                                        android:textSize="16sp"
+                                        android:textSize="14sp"
                                         android:textColor="@color/text_primary"
                                         android:textStyle="bold" />
 
@@ -158,8 +158,8 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="310/4 (45.2)"
-                                    android:textSize="18sp"
+                                    android:text="310/4 (50)"
+                                    android:textSize="16sp"
                                     android:textColor="@color/text_primary"
                                     android:textStyle="bold" />
 
@@ -196,13 +196,13 @@
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal"
                                     android:gravity="center_vertical"
-                                    android:layout_marginBottom="4dp">
+                                    android:layout_marginBottom="1dp">
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="England"
-                                        android:textSize="16sp"
+                                        android:textSize="14sp"
                                         android:textColor="@color/text_primary"
                                         android:textStyle="bold"
                                         android:layout_marginEnd="8dp" />
@@ -219,7 +219,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="280/10 (48.5)"
-                                    android:textSize="18sp"
+                                    android:textSize="16sp"
                                     android:textColor="@color/text_primary"
                                     android:textStyle="bold" />
 
@@ -233,19 +233,19 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
                             android:gravity="center"
-                            android:paddingHorizontal="16dp"
-                            android:paddingBottom="12dp">
+                            android:paddingHorizontal="8dp"
+                            android:paddingBottom="4dp">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="India won by 30 runs"
-                                android:textSize="14sp"
+                                android:textSize="13sp"
                                 android:textColor="@color/text_primary"
                                 android:textStyle="bold"
                                 android:gravity="center"
-                                android:paddingHorizontal="12dp"
-                                android:paddingVertical="6dp" />
+                                android:paddingHorizontal="8dp"
+                                android:paddingVertical="2dp" />
 
                         </LinearLayout>
 
@@ -256,8 +256,8 @@
                             android:orientation="horizontal"
                             android:gravity="end"
                             android:background="@color/background_light"
-                            android:paddingVertical="7dp"
-                            android:paddingHorizontal="16dp">
+                            android:paddingVertical="3dp"
+                            android:paddingHorizontal="8dp">
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -295,15 +295,15 @@
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="16dp"
-                            android:paddingBottom="8dp">
+                            android:padding="8dp"
+                            android:paddingBottom="4dp">
 
                             <TextView
                                 android:id="@+id/ranji_match"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Elite Group A • MUM vs BRD"
-                                android:textSize="12sp"
+                                android:textSize="11sp"
                                 android:textColor="@color/text_secondary"
                                 android:textStyle="bold" />
 
@@ -315,8 +315,8 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
                             android:gravity="center_vertical"
-                            android:paddingHorizontal="16dp"
-                            android:paddingBottom="8dp">
+                            android:paddingHorizontal="8dp"
+                            android:paddingBottom="4dp">
 
                             <!-- MUMBAI Team -->
                             <LinearLayout
@@ -331,7 +331,7 @@
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal"
                                     android:gravity="center_vertical"
-                                    android:layout_marginBottom="4dp">
+                                    android:layout_marginBottom="1dp">
 
                                     <TextView
                                         android:layout_width="24dp"
@@ -344,7 +344,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="Mumbai"
-                                        android:textSize="16sp"
+                                        android:textSize="14sp"
                                         android:textColor="@color/text_primary"
                                         android:textStyle="bold" />
 
@@ -354,7 +354,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="214 &amp; 177"
-                                    android:textSize="18sp"
+                                    android:textSize="16sp"
                                     android:textColor="@color/text_primary"
                                     android:textStyle="bold" />
 
@@ -391,13 +391,13 @@
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal"
                                     android:gravity="center_vertical"
-                                    android:layout_marginBottom="4dp">
+                                    android:layout_marginBottom="1dp">
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="Baroda"
-                                        android:textSize="16sp"
+                                        android:textSize="14sp"
                                         android:textColor="@color/text_primary"
                                         android:textStyle="bold"
                                         android:layout_marginEnd="8dp" />
@@ -414,7 +414,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="290 &amp; 185"
-                                    android:textSize="18sp"
+                                    android:textSize="16sp"
                                     android:textColor="@color/text_primary"
                                     android:textStyle="bold" />
 
@@ -428,19 +428,19 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
                             android:gravity="center"
-                            android:paddingHorizontal="16dp"
-                            android:paddingBottom="12dp">
+                            android:paddingHorizontal="8dp"
+                            android:paddingBottom="4dp">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Baroda won by 84 runs"
-                                android:textSize="14sp"
+                                android:textSize="13sp"
                                 android:textColor="@color/text_primary"
                                 android:textStyle="bold"
                                 android:gravity="center"
-                                android:paddingHorizontal="12dp"
-                                android:paddingVertical="6dp" />
+                                android:paddingHorizontal="8dp"
+                                android:paddingVertical="2dp" />
 
                         </LinearLayout>
 
@@ -451,8 +451,8 @@
                             android:orientation="horizontal"
                             android:gravity="end"
                             android:background="@color/background_light"
-                            android:paddingVertical="7dp"
-                            android:paddingHorizontal="16dp">
+                            android:paddingVertical="3dp"
+                            android:paddingHorizontal="8dp">
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -492,15 +492,15 @@
                                 <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:padding="16dp"
-                                    android:paddingBottom="8dp">
+                                    android:padding="8dp"
+                                    android:paddingBottom="4dp">
 
                                     <TextView
                                         android:id="@+id/ipl_match"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="FINAL • IPL"
-                                        android:textSize="12sp"
+                                        android:textSize="11sp"
                                         android:textColor="@color/text_secondary"
                                         android:textStyle="bold" />
 
@@ -512,8 +512,8 @@
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal"
                                     android:gravity="center_vertical"
-                                    android:paddingHorizontal="16dp"
-                                    android:paddingBottom="8dp">
+                                    android:paddingHorizontal="8dp"
+                                    android:paddingBottom="4dp">
 
                                     <!-- RCB Team -->
                                     <LinearLayout
@@ -528,7 +528,7 @@
                                             android:layout_height="wrap_content"
                                             android:orientation="horizontal"
                                             android:gravity="center_vertical"
-                                            android:layout_marginBottom="4dp">
+                                            android:layout_marginBottom="1dp">
 
                                             <TextView
                                                 android:layout_width="24dp"
@@ -541,7 +541,7 @@
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:text="RCB"
-                                                android:textSize="16sp"
+                                                android:textSize="14sp"
                                                 android:textColor="@color/text_primary"
                                                 android:textStyle="bold" />
 
@@ -551,7 +551,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="190-9 (20)"
-                                            android:textSize="18sp"
+                                            android:textSize="16sp"
                                             android:textColor="@color/text_primary"
                                             android:textStyle="bold" />
 
@@ -588,13 +588,13 @@
                                             android:layout_height="wrap_content"
                                             android:orientation="horizontal"
                                             android:gravity="center_vertical"
-                                            android:layout_marginBottom="4dp">
+                                            android:layout_marginBottom="1dp">
 
                                             <TextView
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:text="PBKS"
-                                                android:textSize="16sp"
+                                                android:textSize="14sp"
                                                 android:textColor="@color/text_primary"
                                                 android:textStyle="bold"
                                                 android:layout_marginEnd="8dp" />
@@ -611,7 +611,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="184-7 (20)"
-                                            android:textSize="18sp"
+                                            android:textSize="16sp"
                                             android:textColor="@color/text_primary"
                                             android:textStyle="bold" />
 
@@ -625,19 +625,19 @@
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal"
                                     android:gravity="center"
-                                    android:paddingHorizontal="16dp"
-                                    android:paddingBottom="12dp">
+                                    android:paddingHorizontal="8dp"
+                                    android:paddingBottom="4dp">
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="Royal Challengers Bengaluru won by 6 runs"
-                                        android:textSize="14sp"
+                                        android:textSize="13sp"
                                         android:textColor="@color/text_primary"
                                         android:textStyle="bold"
                                         android:gravity="center"
-                                        android:paddingHorizontal="12dp"
-                                        android:paddingVertical="6dp" />
+                                        android:paddingHorizontal="8dp"
+                                        android:paddingVertical="2dp" />
 
                                 </LinearLayout>
 
@@ -648,8 +648,8 @@
                                     android:orientation="horizontal"
                                     android:gravity="end"
                                     android:background="@color/background_light"
-                                    android:paddingVertical="7dp"
-                                    android:paddingHorizontal="16dp">
+                                    android:paddingVertical="3dp"
+                                    android:paddingHorizontal="8dp">
 
                                     <TextView
                                         android:layout_width="wrap_content"
