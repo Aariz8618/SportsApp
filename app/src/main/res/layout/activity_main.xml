@@ -139,26 +139,19 @@
                                     android:layout_marginBottom="4dp">
 
                                     <TextView
-                                        android:layout_width="24dp"
+                                        android:layout_width="match_parent"
                                         android:layout_height="24dp"
-                                        android:background="@drawable/ic_india_flag"
-                                        android:textSize="16sp"
+                                        android:text="🇮🇳  India"
+                                        android:textStyle="bold"
+                                        android:textSize="17sp"
                                         android:layout_marginEnd="8dp" />
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="India"
-                                        android:textSize="16sp"
-                                        android:textColor="@color/text_primary"
-                                        android:textStyle="bold" />
 
                                 </LinearLayout>
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="310/4 (45.2)"
+                                    android:text="310/4 (50.0)"
                                     android:textSize="18sp"
                                     android:textColor="@color/text_primary"
                                     android:textStyle="bold" />
@@ -198,20 +191,13 @@
                                     android:gravity="center_vertical"
                                     android:layout_marginBottom="4dp">
 
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="England"
-                                        android:textSize="16sp"
-                                        android:textColor="@color/text_primary"
-                                        android:textStyle="bold"
-                                        android:layout_marginEnd="8dp" />
 
                                     <TextView
-                                        android:layout_width="24dp"
+                                        android:layout_width="match_parent"
                                         android:layout_height="24dp"
-                                        android:background="@drawable/ic_england_flag"
-                                        android:textSize="16sp" />
+                                        android:text="England 🏴󠁧󠁢󠁥󠁮󠁧󠁿"
+                                        android:textStyle="bold"
+                                        android:textSize="17sp" />
 
                                 </LinearLayout>
 
