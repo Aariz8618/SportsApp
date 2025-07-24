@@ -378,7 +378,7 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cv_news_card"
                     android:layout_width="match_parent"
-                    android:layout_height="220dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="16dp"
@@ -391,29 +391,226 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:padding="16dp"
-                        android:gravity="center">
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
-
-                        <TextView
-                            android:layout_width="wrap_content"
+                        <!-- Header Section -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Latest Cricket News"
-                            android:textSize="16sp"
-                            android:textColor="@color/text_primary"
-                            android:textStyle="bold"
-                            android:gravity="center" />
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:padding="16dp"
+                            android:paddingBottom="8dp">
 
-                        <TextView
-                            android:layout_width="wrap_content"
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Latest Cricket News"
+                                android:textSize="18sp"
+                                android:textColor="@color/text_primary"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <!-- News Item 1 -->
+                        <LinearLayout
+                            android:id="@+id/ll_news_item_1"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Stay updated with breaking cricket news"
-                            android:textSize="12sp"
-                            android:textColor="@color/text_secondary"
-                            android:layout_marginTop="4dp"
-                            android:gravity="center" />
+                            android:orientation="horizontal"
+                            android:padding="12dp"
+                            android:paddingTop="8dp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:background="?android:attr/selectableItemBackground">
+
+                            <!-- News Image 1 -->
+                            <ImageView
+                                android:id="@+id/iv_news_image_1"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_marginEnd="12dp"
+                                android:scaleType="centerCrop"
+                                android:background="@color/background_light"
+                                android:src="@drawable/sai_sudarshan_61"
+                                android:contentDescription="Sai Sudarshan 61 runs" />
+
+                            <!-- News Content 1 -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:layout_gravity="center_vertical">
+
+                                <TextView
+                                    android:id="@+id/news1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Sai Sudharsan made the opportunity count in his comeback game with a fifty. He looked solid with his approach, but a loose pull shot ended his knock for 61"
+                                    android:textSize="14sp"
+                                    android:textColor="@color/text_primary"
+                                    android:textStyle="bold"
+                                    android:maxLines="2"
+                                    android:ellipsize="end" />
+
+                                <TextView
+                                    android:id="@+id/tv_news_time_1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="4 hours ago"
+                                    android:textSize="11sp"
+                                    android:textColor="@color/text_secondary"
+                                    android:layout_marginTop="4dp" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <!-- Divider -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/background_light"
+                            android:layout_marginHorizontal="16dp" />
+
+                        <!--  2 -->
+                        <LinearLayout
+                            android:id="@+id/_news_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="12dp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:background="?android:attr/selectableItemBackground">
+
+                            <!-- News Image 2 -->
+                            <ImageView
+                                android:id="@+id/iv_news_image_2"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_marginEnd="12dp"
+                                android:scaleType="centerCrop"
+                                android:background="@color/background_light"
+                                android:src="@drawable/nicholas_pooran"
+                                android:contentDescription="Nicholas Pooran" />
+
+                            <!-- News Content 2 -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:layout_gravity="center_vertical">
+
+                                <TextView
+                                    android:id="@+id/tv_news_title_2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="West Indies batsman moves from DSG to MI Cape Town in SA20......"
+                                    android:textSize="14sp"
+                                    android:textColor="@color/text_primary"
+                                    android:textStyle="bold"
+                                    android:maxLines="2"
+                                    android:ellipsize="end" />
+
+                                <TextView
+                                    android:id="@+id/tv_news_time_2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="7 hours ago"
+                                    android:textSize="11sp"
+                                    android:textColor="@color/text_secondary"
+                                    android:layout_marginTop="4dp" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <!-- Divider -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/background_light"
+                            android:layout_marginHorizontal="16dp" />
+
+                        <!-- News Item 3 -->
+                        <LinearLayout
+                            android:id="@+id/ll_news_item_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="12dp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:background="?android:attr/selectableItemBackground">
+
+                            <!-- News Image 3 -->
+                            <ImageView
+                                android:id="@+id/iv_news_image_3"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_marginEnd="12dp"
+                                android:scaleType="centerCrop"
+                                android:background="@color/background_light"
+                                android:src="@drawable/rishu"
+                                android:contentDescription="Rishabh Pant Injury" />
+
+                            <!-- News  3 -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:layout_gravity="center_vertical">
+
+                                <TextView
+                                    android:id="@+id/tv_news_title_3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="BCCI Breaks Silence On Rishabh Pant's Injury That Forced Him To Retire Hurt vs England: Hit On His Knee"
+                                    android:textSize="14sp"
+                                    android:textColor="@color/text_primary"
+                                    android:textStyle="bold"
+                                    android:maxLines="2"
+                                    android:ellipsize="end" />
+
+                                <TextView
+                                    android:id="@+id/tv_news_time_3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="8 hours ago"
+                                    android:textSize="11sp"
+                                    android:textColor="@color/text_secondary"
+                                    android:layout_marginTop="4dp" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <!-- View more section -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="end"
+                            android:background="@color/background_light"
+                            android:paddingVertical="8dp"
+                            android:paddingHorizontal="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="View All News"
+                                android:padding="4dp"
+                                android:gravity="end"
+                                android:textSize="13sp"
+                                android:textColor="@color/text_secondary"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -423,7 +620,7 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cv_memes_card"
                     android:layout_width="match_parent"
-                    android:layout_height="220dp"
+                    android:layout_height="300dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="16dp"
@@ -437,27 +634,39 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:padding="16dp"
-                        android:gravity="center">
+                        android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="wrap_content"
+                        <!-- header -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Cricket Memes"
-                            android:textSize="16sp"
-                            android:textColor="@color/text_primary"
-                            android:textStyle="bold"
-                            android:gravity="center" />
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:padding="16dp"
+                            android:paddingBottom="8dp">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Enjoy funny cricket moments and jokes"
-                            android:textSize="12sp"
-                            android:textColor="@color/text_secondary"
-                            android:layout_marginTop="4dp"
-                            android:gravity="center" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Cricket Memes"
+                                android:textSize="18sp"
+                                android:textColor="@color/text_primary"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <!-- Meme Image Section -->
+                        <ImageView
+                            android:id="@+id/iv_meme_image"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:layout_marginHorizontal="16dp"
+                            android:layout_marginBottom="16dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/meme"
+                            android:background="@color/background_light"
+                            android:contentDescription="Cricket Meme" />
 
                     </LinearLayout>
 
