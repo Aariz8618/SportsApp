@@ -15,6 +15,7 @@
 
         <!-- Enhanced Header with gradient background -->
         <LinearLayout
+            android:id="@+id/main_header"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:orientation="horizontal"
@@ -37,6 +38,7 @@
                 app:tint="@color/text_white" />
 
             <TextView
+                android:id="@+id/tv_header_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -47,15 +49,29 @@
                 android:gravity="center_horizontal"
                 android:letterSpacing="0.05" />
 
+            <!-- Add notification bell icon -->
+            <ImageView
+                android:id="@+id/iv_notifications"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_menu"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="4dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Notifications"
+                android:visibility="gone"
+                app:tint="@color/text_white" />
+
         </LinearLayout>
 
         <!-- Scrollable content area with bottom margin for navigation -->
         <androidx.core.widget.NestedScrollView
-            android:id="@+id/nested_scroll_view"
+            android:id="@+id/home_content"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:layout_marginBottom="60dp">
+            android:layout_marginBottom="64dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -267,10 +283,7 @@
                     android:layout_marginBottom="16dp"
                     app:cardCornerRadius="12dp"
                     app:cardElevation="6dp"
-                    app:cardBackgroundColor="@color/card_background"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground">
+                    app:cardBackgroundColor="@color/card_background">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -317,12 +330,16 @@
                             android:paddingHorizontal="16dp">
 
                             <TextView
+                                android:id="@+id/tv_gallery_view_more"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="View More"
                                 android:padding="3dp"
                                 android:gravity="end"
-                                android:textSize="14sp" />
+                                android:textSize="14sp"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:background="?android:attr/selectableItemBackground" />
 
                         </LinearLayout>
 
@@ -340,35 +357,65 @@
                     android:layout_marginBottom="16dp"
                     app:cardCornerRadius="12dp"
                     app:cardElevation="6dp"
-                    app:cardBackgroundColor="@color/card_background"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground">
+                    app:cardBackgroundColor="@color/card_background">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="16dp">
+                        android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="Match Highlights"
-                            android:textColor="@color/text_primary"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
+                        <!-- Main content area -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:padding="16dp"
+                            android:gravity="center">
 
-                        <TextView
-                            android:layout_width="wrap_content"
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="Match Highlights"
+                                android:textColor="@color/text_primary"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:gravity="center"
+                                android:text="Watch best moments and replays"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="12sp" />
+
+                        </LinearLayout>
+
+                        <!-- View more section -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:gravity="center"
-                            android:text="Watch best moments and replays"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="12sp" />
+                            android:orientation="horizontal"
+                            android:gravity="end"
+                            android:background="@color/background_light"
+                            android:paddingVertical="7dp"
+                            android:paddingHorizontal="16dp">
+
+                            <TextView
+                                android:id="@+id/tv_highlights_view_more"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="View More"
+                                android:padding="3dp"
+                                android:gravity="end"
+                                android:textSize="14sp"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:background="?android:attr/selectableItemBackground" />
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -384,36 +431,65 @@
                     android:layout_marginBottom="16dp"
                     app:cardCornerRadius="12dp"
                     app:cardElevation="6dp"
-                    app:cardBackgroundColor="@color/card_background"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground">
+                    app:cardBackgroundColor="@color/card_background">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:padding="16dp"
-                        android:gravity="center">
+                        android:orientation="vertical">
 
+                        <!-- Main content area -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:padding="16dp"
+                            android:gravity="center">
 
-                        <TextView
-                            android:layout_width="wrap_content"
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Latest Cricket News"
+                                android:textSize="16sp"
+                                android:textColor="@color/text_primary"
+                                android:textStyle="bold"
+                                android:gravity="center" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Stay updated with breaking cricket news"
+                                android:textSize="12sp"
+                                android:textColor="@color/text_secondary"
+                                android:layout_marginTop="4dp"
+                                android:gravity="center" />
+
+                        </LinearLayout>
+
+                        <!-- View more section -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Latest Cricket News"
-                            android:textSize="16sp"
-                            android:textColor="@color/text_primary"
-                            android:textStyle="bold"
-                            android:gravity="center" />
+                            android:orientation="horizontal"
+                            android:gravity="end"
+                            android:background="@color/background_light"
+                            android:paddingVertical="7dp"
+                            android:paddingHorizontal="16dp">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Stay updated with breaking cricket news"
-                            android:textSize="12sp"
-                            android:textColor="@color/text_secondary"
-                            android:layout_marginTop="4dp"
-                            android:gravity="center" />
+                            <TextView
+                                android:id="@+id/tv_news_view_more"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="View More"
+                                android:padding="3dp"
+                                android:gravity="end"
+                                android:textSize="14sp"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:background="?android:attr/selectableItemBackground" />
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -429,35 +505,65 @@
                     android:layout_marginBottom="16dp"
                     app:cardCornerRadius="12dp"
                     app:cardElevation="6dp"
-                    app:cardBackgroundColor="@color/card_background"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground">
+                    app:cardBackgroundColor="@color/card_background">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:padding="16dp"
-                        android:gravity="center">
+                        android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Cricket Memes"
-                            android:textSize="16sp"
-                            android:textColor="@color/text_primary"
-                            android:textStyle="bold"
-                            android:gravity="center" />
+                        <!-- Main content area -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:padding="16dp"
+                            android:gravity="center">
 
-                        <TextView
-                            android:layout_width="wrap_content"
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Cricket Memes"
+                                android:textSize="16sp"
+                                android:textColor="@color/text_primary"
+                                android:textStyle="bold"
+                                android:gravity="center" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Enjoy funny cricket moments and jokes"
+                                android:textSize="12sp"
+                                android:textColor="@color/text_secondary"
+                                android:layout_marginTop="4dp"
+                                android:gravity="center" />
+
+                        </LinearLayout>
+
+                        <!-- View more section -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Enjoy funny cricket moments and jokes"
-                            android:textSize="12sp"
-                            android:textColor="@color/text_secondary"
-                            android:layout_marginTop="4dp"
-                            android:gravity="center" />
+                            android:orientation="horizontal"
+                            android:gravity="end"
+                            android:background="@color/background_light"
+                            android:paddingVertical="7dp"
+                            android:paddingHorizontal="16dp">
+
+                            <TextView
+                                android:id="@+id/tv_memes_view_more"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="View More"
+                                android:padding="3dp"
+                                android:gravity="end"
+                                android:textSize="14sp"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:background="?android:attr/selectableItemBackground" />
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -466,6 +572,15 @@
             </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>
+
+        <!-- Fragment Container for navigation fragments -->
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="64dp"
+            android:visibility="gone" />
 
     </LinearLayout>
 
