@@ -31,12 +31,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="16dp"
+                    tools:ignore="ExtraText">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="India vs England - Final Over Thriller"
+                        android:text="India vs New Zealand -  CT Final "
+                        android:maxLines="1"
                         android:textSize="18sp"
                         android:textColor="@color/text_primary"
                         android:textStyle="bold"
@@ -45,7 +47,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Watch the incredible final over where India needed 12 runs to win. Amazing batting display under pressure..."
+                        android:text="India’s brilliance, Kiwis’ resistance – but the Men in Blue stood tall!"
                         android:textSize="14sp"
                         android:textColor="@color/text_secondary"
                         android:layout_marginBottom="8dp" />
@@ -60,7 +62,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Duration: 5:30"
+                            android:text="Duration: 9:30"
                             android:textSize="12sp"
                             android:textColor="@color/text_secondary"
                             android:textStyle="italic" />
@@ -99,7 +101,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Best Wickets of the Week"
+                        android:text="From heartbreak to glory — South Africa’s moment!"
                         android:textSize="18sp"
                         android:textColor="@color/text_primary"
                         android:textStyle="bold"
@@ -108,7 +110,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Compilation of the most spectacular wickets taken this week across different cricket matches..."
+                        android:text="History rewritten at The Oval! South Africa defeat mighty Australia in a thrilling WTC Final and lift their first ICC trophy ever. A legacy fulfilled, a nation united."
                         android:textSize="14sp"
                         android:textColor="@color/text_secondary"
                         android:layout_marginBottom="8dp" />
@@ -123,7 +125,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Duration: 3:45"
+                            android:text="Duration: 23:45"
                             android:textSize="12sp"
                             android:textColor="@color/text_secondary"
                             android:textStyle="italic" />
@@ -162,7 +164,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Century Celebration Moments"
+                        android:text="When history was tied – destiny chose England."
                         android:textSize="18sp"
                         android:textColor="@color/text_primary"
                         android:textStyle="bold"
@@ -171,7 +173,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Emotional moments when players reached their centuries. Pure joy and celebration captured..."
+                        android:text="Two teams gave it all. 100 overs tied. Super Over tied. England edged New Zealand by the finest margin in WC history....."
                         android:textSize="14sp"
                         android:textColor="@color/text_secondary"
                         android:layout_marginBottom="8dp" />
@@ -186,7 +188,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Duration: 4:15"
+                            android:text="Duration: 20:15"
                             android:textSize="12sp"
                             android:textColor="@color/text_secondary"
                             android:textStyle="italic" />

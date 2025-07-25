@@ -70,12 +70,21 @@
                     android:gravity="start|center_vertical"
                     android:layout_marginBottom="12dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="📸"
-                        android:textSize="24sp"
-                        android:layout_marginEnd="8dp" />
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginEnd="12dp"
+                        app:cardCornerRadius="30dp"
+                        app:cardElevation="2dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/pgallery"
+                            android:contentDescription="Gallery Icon" />
+
+                    </androidx.cardview.widget.CardView>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -100,11 +109,11 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/photo"
+                        android:src="@drawable/soon"
                         android:scaleType="centerCrop"
                         android:contentDescription="Photo Gallery Image" />
 
-                    <!-- Overlay for "Coming Soon" -->
+                    <!--  "Coming Soon"  -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
