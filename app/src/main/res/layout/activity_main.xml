@@ -734,7 +734,9 @@
                                 android:text="View More"
                                 android:padding="3dp"
                                 android:gravity="end"
-                                android:textSize="14sp" />
+                                android:textSize="14sp"
+                                android:clickable="true"
+                                android:focusable="true"/>
 
                         </LinearLayout>
 
@@ -871,7 +873,7 @@
                                     android:id="@+id/tv_news_time_1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="4 hours ago"
+                                    android:text="4 h ago"
                                     android:textSize="11sp"
                                     android:textColor="@color/text_secondary"
                                     android:layout_marginTop="4dp" />
