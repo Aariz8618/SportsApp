@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         // News "View More" click listener
-        binding.tvNewsViewMore.setOnClickListener {
+        binding.cvNewsCard.setOnClickListener {
             navigateToFragment(NewsFragment(), "Cricket News")
         }
 

@@ -73,7 +73,7 @@
             android:layout_weight="1"
             android:layout_marginBottom="64dp">
 
-            <RELayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -96,406 +96,381 @@
                         android:paddingStart="1dp"
                         android:paddingEnd="4dp">
 
-
                         <androidx.cardview.widget.CardView
-
                             android:id="@+id/cv_match_card_1"
                             android:layout_width="320dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="16dp"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="6dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    app:cardBackgroundColor="@color/card_background"
-                    android:foreground="?android:attr/selectableItemBackground">
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="6dp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            app:cardBackgroundColor="@color/card_background"
+                            android:foreground="?android:attr/selectableItemBackground">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical">
 
-                        <!-- Match Header with Live indicator -->
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="8dp"
-                            android:paddingBottom="4dp">
-
-                            <TextView
-                                android:id="@+id/tv_match_series"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="4th ODI • India vs England"
-                                android:textSize="11sp"
-                                android:textColor="@color/text_secondary"
-                                android:textStyle="bold" />
-
-                        </RelativeLayout>
-
-                        <!-- Teams and scores section -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:paddingHorizontal="8dp"
-                            android:paddingBottom="4dp">
-
-                            <!-- India Team -->
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="2"
-                                android:orientation="vertical"
-                                android:gravity="start">
-
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
+                                <!-- Match Header with Live indicator -->
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:gravity="center_vertical"
-                                    android:layout_marginBottom="1dp">
+                                    android:padding="8dp"
+                                    android:paddingBottom="4dp">
 
                                     <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="24dp"
-                                        android:text="🇮🇳  India"
-                                        android:textStyle="bold"
-                                        android:textSize="17sp"
-                                        android:layout_marginEnd="8dp" />
-
-
-                                    <TextView
+                                        android:id="@+id/tv_match_series"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="India"
-                                        android:textSize="14sp"
-                                        android:textColor="@color/text_primary"
+                                        android:text="4th ODI • India vs England"
+                                        android:textSize="11sp"
+                                        android:textColor="@color/text_secondary"
                                         android:textStyle="bold" />
 
-                    </LinearLayout>
+                                </RelativeLayout>
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-
-                                    android:text="310/4 (50)"
-                                    android:textSize="16sp"
-
-                                    android:textColor="@color/text_primary"
-                                    android:textStyle="bold" />
-
-                            </LinearLayout>
-
-                            <!-- VS Section -->
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="vertical"
-                                android:gravity="center">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="VS"
-                                    android:textSize="12sp"
-                                    android:textColor="@color/text_secondary"
-                                    android:textStyle="bold" />
-
-                            </LinearLayout>
-
-                            <!-- England Team -->
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="2"
-                                android:orientation="vertical"
-                                android:gravity="end">
-
+                                <!-- Teams and scores section -->
                                 <LinearLayout
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal"
                                     android:gravity="center_vertical"
-                                    android:layout_marginBottom="1dp">
+                                    android:paddingHorizontal="8dp"
+                                    android:paddingBottom="4dp">
 
-                                    <TextView
-                                        android:layout_width="wrap_content"
+                                    <!-- India Team -->
+                                    <LinearLayout
+                                        android:layout_width="0dp"
                                         android:layout_height="wrap_content"
-                                        android:text="England"
-                                        android:textSize="14sp"
-                                        android:textColor="@color/text_primary"
-                                        android:textStyle="bold"
-                                        android:layout_marginEnd="8dp" />
+                                        android:layout_weight="2"
+                                        android:orientation="vertical"
+                                        android:gravity="start">
 
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal"
+                                            android:gravity="center_vertical"
+                                            android:layout_marginBottom="1dp">
 
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="24dp"
-                                        android:text="England 🏴󠁧󠁢󠁥󠁮󠁧󠁿"
-                                        android:textStyle="bold"
-                                        android:textSize="17sp" />
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="24dp"
+                                                android:text="🇮🇳 India"
+                                                android:textStyle="bold"
+                                                android:textSize="17sp"
+                                                android:layout_marginEnd="8dp" />
+
+                                        </LinearLayout>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="310/4 (50)"
+                                            android:textSize="16sp"
+                                            android:textColor="@color/text_primary"
+                                            android:textStyle="bold" />
+
+                                    </LinearLayout>
+
+                                    <!-- VS Section -->
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical"
+                                        android:gravity="center">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="VS"
+                                            android:textSize="12sp"
+                                            android:textColor="@color/text_secondary"
+                                            android:textStyle="bold" />
+
+                                    </LinearLayout>
+
+                                    <!-- England Team -->
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="2"
+                                        android:orientation="vertical"
+                                        android:gravity="end">
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal"
+                                            android:gravity="center_vertical"
+                                            android:layout_marginBottom="1dp">
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="24dp"
+                                                android:text="England 🏴󠁧󠁢󠁥󠁮󠁧󠁿"
+                                                android:textStyle="bold"
+                                                android:textSize="17sp" />
+
+                                        </LinearLayout>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="280/10 (48.5)"
+                                            android:textSize="16sp"
+                                            android:textColor="@color/text_primary"
+                                            android:textStyle="bold" />
+
+                                    </LinearLayout>
 
                                 </LinearLayout>
 
-                                <TextView
-                                    android:layout_width="wrap_content"
+                                <!-- Match Result Section -->
+                                <LinearLayout
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="280/10 (48.5)"
-                                    android:textSize="16sp"
-                                    android:textColor="@color/text_primary"
-                                    android:textStyle="bold" />
+                                    android:orientation="horizontal"
+                                    android:gravity="center"
+                                    android:paddingHorizontal="8dp"
+                                    android:paddingBottom="4dp">
 
-                            </LinearLayout>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="India won by 30 runs"
+                                        android:textSize="13sp"
+                                        android:textColor="@color/text_primary"
+                                        android:textStyle="bold"
+                                        android:gravity="center"
+                                        android:paddingHorizontal="8dp"
+                                        android:paddingVertical="2dp" />
 
-                        </LinearLayout>
+                                </LinearLayout>
 
-                        <!-- Match Result Section - New dedicated section -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center"
-                            android:paddingHorizontal="8dp"
-                            android:paddingBottom="4dp">
+                                <!-- Schedule Button -->
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:gravity="end"
+                                    android:background="@color/background_light"
+                                    android:paddingVertical="3dp"
+                                    android:paddingHorizontal="8dp">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="India won by 30 runs"
-                                android:textSize="13sp"
-                                android:textColor="@color/text_primary"
-                                android:textStyle="bold"
-                                android:gravity="center"
-                                android:paddingHorizontal="8dp"
-                                android:paddingVertical="2dp" />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="SCHEDULE"
+                                        android:padding="3dp"
+                                        android:gravity="end"
+                                        android:textSize="13sp" />
 
-                        </LinearLayout>
-
-                        <!-- Match Result -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="end"
-                            android:background="@color/background_light"
-                            android:paddingVertical="3dp"
-                            android:paddingHorizontal="8dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="SCHEDULE"
-                                android:padding="3dp"
-                                android:gravity="end"
-                                android:textSize="13sp" />
-
-                        </LinearLayout>
+                                </LinearLayout>
 
                             </LinearLayout>
 
                         </androidx.cardview.widget.CardView>
 
-                        <!-- domestic scorecard card -->
+                        <!-- Domestic scorecard card -->
                         <androidx.cardview.widget.CardView
                             android:id="@+id/cv_match_card_2"
                             android:layout_width="320dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="16dp"
-                        app:cardCornerRadius="10dp"
-                        app:cardElevation="6dp"
-                        android:clickable="true"
-                        android:focusable="true"
-                        app:cardBackgroundColor="@color/card_background"
-                        android:foreground="?android:attr/selectableItemBackground">
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="6dp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            app:cardBackgroundColor="@color/card_background"
+                            android:foreground="?android:attr/selectableItemBackground">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical">
 
-                        <!-- Match Header with Live indicator -->
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="8dp"
-                            android:paddingBottom="4dp">
-
-                            <TextView
-                                android:id="@+id/ranji_match"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Elite Group A • MUM vs BRD"
-                                android:textSize="11sp"
-                                android:textColor="@color/text_secondary"
-                                android:textStyle="bold" />
-
-                        </RelativeLayout>
-
-                        <!-- Teams and scores section -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:paddingHorizontal="8dp"
-                            android:paddingBottom="4dp">
-
-                            <!-- MUMBAI Team -->
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="2"
-                                android:orientation="vertical"
-                                android:gravity="start">
-
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
+                                <!-- Match Header -->
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:gravity="center_vertical"
-                                    android:layout_marginBottom="1dp">
+                                    android:padding="8dp"
+                                    android:paddingBottom="4dp">
 
                                     <TextView
-                                        android:layout_width="24dp"
-                                        android:layout_height="24dp"
-                                        android:background="@drawable/mca"
-                                        android:textSize="16sp"
-                                        android:layout_marginEnd="8dp" />
-
-                                    <TextView
+                                        android:id="@+id/ranji_match"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Mumbai"
-                                        android:textSize="14sp"
-                                        android:textColor="@color/text_primary"
+                                        android:text="Elite Group A • MUM vs BRD"
+                                        android:textSize="11sp"
+                                        android:textColor="@color/text_secondary"
                                         android:textStyle="bold" />
 
-                                </LinearLayout>
+                                </RelativeLayout>
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="214 &amp; 177"
-                                    android:textSize="16sp"
-                                    android:textColor="@color/text_primary"
-                                    android:textStyle="bold" />
-
-                            </LinearLayout>
-
-                            <!-- VS Section -->
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="vertical"
-                                android:gravity="center">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="VS"
-                                    android:textSize="12sp"
-                                    android:textColor="@color/text_secondary"
-                                    android:textStyle="bold" />
-
-                            </LinearLayout>
-
-                            <!-- BARODA Team -->
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="2"
-                                android:orientation="vertical"
-                                android:gravity="end">
-
+                                <!-- Teams and scores section -->
                                 <LinearLayout
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal"
                                     android:gravity="center_vertical"
-                                    android:layout_marginBottom="1dp">
+                                    android:paddingHorizontal="8dp"
+                                    android:paddingBottom="4dp">
+
+                                    <!-- MUMBAI Team -->
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="2"
+                                        android:orientation="vertical"
+                                        android:gravity="start">
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal"
+                                            android:gravity="center_vertical"
+                                            android:layout_marginBottom="1dp">
+
+                                            <TextView
+                                                android:layout_width="24dp"
+                                                android:layout_height="24dp"
+                                                android:background="@drawable/mca"
+                                                android:textSize="16sp"
+                                                android:layout_marginEnd="8dp" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="Mumbai"
+                                                android:textSize="14sp"
+                                                android:textColor="@color/text_primary"
+                                                android:textStyle="bold" />
+
+                                        </LinearLayout>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="214 &amp; 177"
+                                            android:textSize="16sp"
+                                            android:textColor="@color/text_primary"
+                                            android:textStyle="bold" />
+
+                                    </LinearLayout>
+
+                                    <!-- VS Section -->
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical"
+                                        android:gravity="center">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="VS"
+                                            android:textSize="12sp"
+                                            android:textColor="@color/text_secondary"
+                                            android:textStyle="bold" />
+
+                                    </LinearLayout>
+
+                                    <!-- BARODA Team -->
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="2"
+                                        android:orientation="vertical"
+                                        android:gravity="end">
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal"
+                                            android:gravity="center_vertical"
+                                            android:layout_marginBottom="1dp">
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="Baroda"
+                                                android:textSize="14sp"
+                                                android:textColor="@color/text_primary"
+                                                android:textStyle="bold"
+                                                android:layout_marginEnd="8dp" />
+
+                                            <TextView
+                                                android:layout_width="24dp"
+                                                android:layout_height="24dp"
+                                                android:background="@drawable/baroda"
+                                                android:textSize="16sp" />
+
+                                        </LinearLayout>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="290 &amp; 185"
+                                            android:textSize="16sp"
+                                            android:textColor="@color/text_primary"
+                                            android:textStyle="bold" />
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <!-- Match Result Section -->
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:gravity="center"
+                                    android:paddingHorizontal="8dp"
+                                    android:paddingBottom="4dp">
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Baroda"
-                                        android:textSize="14sp"
+                                        android:text="Baroda won by 84 runs"
+                                        android:textSize="13sp"
                                         android:textColor="@color/text_primary"
                                         android:textStyle="bold"
-                                        android:layout_marginEnd="8dp" />
-
-                                    <TextView
-                                        android:layout_width="24dp"
-                                        android:layout_height="24dp"
-                                        android:background="@drawable/baroda"
-                                        android:textSize="16sp" />
+                                        android:gravity="center"
+                                        android:paddingHorizontal="8dp"
+                                        android:paddingVertical="2dp" />
 
                                 </LinearLayout>
 
-                                <TextView
-                                    android:layout_width="wrap_content"
+                                <!-- Schedule Button -->
+                                <LinearLayout
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="290 &amp; 185"
-                                    android:textSize="16sp"
-                                    android:textColor="@color/text_primary"
-                                    android:textStyle="bold" />
+                                    android:orientation="horizontal"
+                                    android:gravity="end"
+                                    android:background="@color/background_light"
+                                    android:paddingVertical="3dp"
+                                    android:paddingHorizontal="8dp">
 
-                            </LinearLayout>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="SCHEDULE"
+                                        android:padding="3dp"
+                                        android:gravity="end"
+                                        android:textSize="13sp" />
 
-                        </LinearLayout>
-
-                        <!-- Match Result Section -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center"
-                            android:paddingHorizontal="8dp"
-                            android:paddingBottom="4dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Baroda won by 84 runs"
-                                android:textSize="13sp"
-                                android:textColor="@color/text_primary"
-                                android:textStyle="bold"
-                                android:gravity="center"
-                                android:paddingHorizontal="8dp"
-                                android:paddingVertical="2dp" />
-
-                        </LinearLayout>
-
-                        <!-- Match Result -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="end"
-                            android:background="@color/background_light"
-                            android:paddingVertical="3dp"
-                            android:paddingHorizontal="8dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="SCHEDULE"
-                                android:padding="3dp"
-                                android:gravity="end"
-                                android:textSize="13sp" />
-
-                        </LinearLayout>
+                                </LinearLayout>
 
                             </LinearLayout>
 
                         </androidx.cardview.widget.CardView>
 
-
-
-                        <!-- ipl scorecard card -->
+                        <!-- IPL scorecard card -->
                         <androidx.cardview.widget.CardView
                             android:id="@+id/cv_match_card_3"
                             android:layout_width="320dp"
@@ -513,7 +488,7 @@
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical">
 
-                                <!-- Match Header with Live indicator -->
+                                <!-- Match Header -->
                                 <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -600,7 +575,7 @@
 
                                     </LinearLayout>
 
-                                    <!-- pbks Team -->
+                                    <!-- PBKS Team -->
                                     <LinearLayout
                                         android:layout_width="0dp"
                                         android:layout_height="wrap_content"
@@ -666,7 +641,7 @@
 
                                 </LinearLayout>
 
-                                <!-- Match Result -->
+                                <!-- Schedule Button -->
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -712,8 +687,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
-
-
                         <ImageView
                             android:id="@+id/iv_gallery_photo"
                             android:layout_width="match_parent"
@@ -723,10 +696,6 @@
                             android:contentDescription="Photo Gallery Image"
                             android:scaleType="centerCrop"
                             android:src="@drawable/photog" />
-
-
-                     
-
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -742,10 +711,7 @@
                             android:padding="8dp"
                             android:elevation="2dp" />
 
-
                         <!-- View More section at bottom -->
-
-                        
                         <LinearLayout
                             android:id="@+id/view"
                             android:layout_width="match_parent"
@@ -766,7 +732,6 @@
                                 android:gravity="end"
                                 android:textSize="14sp"
                                 android:clickable="true"
-
                                 android:focusable="true"/>
 
                         </LinearLayout>
@@ -792,7 +757,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
-                        
+
                         <ImageView
                             android:id="@+id/highlights"
                             android:layout_width="match_parent"
@@ -802,7 +767,7 @@
                             android:scaleType="centerCrop"
                             android:src="@drawable/wc"
                             android:contentDescription="Highlights" />
-                            
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -816,8 +781,6 @@
                             android:background="#80000000"
                             android:padding="8dp"
                             android:elevation="2dp" />
-
-
 
                         <!-- View more section -->
                         <LinearLayout
@@ -844,10 +807,8 @@
                                 android:background="?android:attr/selectableItemBackground" />
 
                         </LinearLayout>
-                </RelativeLayout>
 
-
-
+                    </RelativeLayout>
 
                 </androidx.cardview.widget.CardView>
 
@@ -865,7 +826,6 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
@@ -950,9 +910,9 @@
                             android:background="@color/background_light"
                             android:layout_marginHorizontal="16dp" />
 
-                        <!--  2 -->
+                        <!-- News Item 2 -->
                         <LinearLayout
-                            android:id="@+id/_news_2"
+                            android:id="@+id/ll_news_item_2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
@@ -1033,7 +993,7 @@
                                 android:src="@drawable/rishu"
                                 android:contentDescription="Rishabh Pant Injury" />
 
-                            <!-- News  3 -->
+                            <!-- News Content 3 -->
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
@@ -1085,7 +1045,6 @@
                                 android:textColor="@color/text_secondary"
                                 android:textStyle="bold" />
 
-
                         </LinearLayout>
 
                     </LinearLayout>
@@ -1104,18 +1063,16 @@
                     app:cardElevation="6dp"
                     app:cardBackgroundColor="@color/card_background">
 
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
 
-
-                        <!-- header -->
+                        <!-- Header -->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-              android:orientation="horizontal"
+                            android:orientation="horizontal"
                             android:gravity="center_vertical"
                             android:padding="16dp"
                             android:paddingBottom="8dp">
@@ -1137,11 +1094,21 @@
                             android:layout_height="0dp"
                             android:layout_weight="1"
                             android:layout_marginHorizontal="16dp"
-                            android:layout_marginBottom="16dp"
+                            android:layout_marginBottom="8dp"
                             android:scaleType="centerCrop"
                             android:src="@drawable/meme"
                             android:background="@color/background_light"
                             android:contentDescription="Cricket Meme" />
+
+                        <!-- View More Section -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="end"
+                            android:background="@color/background_light"
+                            android:paddingVertical="8dp"
+                            android:paddingHorizontal="16dp">
 
                             <TextView
                                 android:id="@+id/tv_memes_view_more"
@@ -1157,7 +1124,7 @@
 
                         </LinearLayout>
 
-                        </RelativeLayout>
+                    </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
