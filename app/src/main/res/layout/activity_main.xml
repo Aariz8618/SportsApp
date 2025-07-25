@@ -15,6 +15,7 @@
 
         <!-- Enhanced Header with gradient background -->
         <LinearLayout
+            android:id="@+id/main_header"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:orientation="horizontal"
@@ -37,6 +38,7 @@
                 app:tint="@color/text_white" />
 
             <TextView
+                android:id="@+id/tv_header_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -47,17 +49,31 @@
                 android:gravity="center_horizontal"
                 android:letterSpacing="0.05" />
 
+            <!-- Add notification bell icon -->
+            <ImageView
+                android:id="@+id/iv_notifications"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_menu"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="4dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Notifications"
+                android:visibility="gone"
+                app:tint="@color/text_white" />
+
         </LinearLayout>
 
         <!-- Scrollable content area with bottom margin for navigation -->
         <androidx.core.widget.NestedScrollView
-            android:id="@+id/nested_scroll_view"
+            android:id="@+id/home_content"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:layout_marginBottom="60dp">
+            android:layout_marginBottom="64dp">
 
-            <LinearLayout
+            <RELayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -142,11 +158,13 @@
                                     android:layout_marginBottom="1dp">
 
                                     <TextView
-                                        android:layout_width="24dp"
+                                        android:layout_width="match_parent"
                                         android:layout_height="24dp"
-                                        android:background="@drawable/ic_india_flag"
-                                        android:textSize="16sp"
+                                        android:text="🇮🇳  India"
+                                        android:textStyle="bold"
+                                        android:textSize="17sp"
                                         android:layout_marginEnd="8dp" />
+
 
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -156,13 +174,15 @@
                                         android:textColor="@color/text_primary"
                                         android:textStyle="bold" />
 
-                                </LinearLayout>
+                    </LinearLayout>
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+
                                     android:text="310/4 (50)"
                                     android:textSize="16sp"
+
                                     android:textColor="@color/text_primary"
                                     android:textStyle="bold" />
 
@@ -210,11 +230,13 @@
                                         android:textStyle="bold"
                                         android:layout_marginEnd="8dp" />
 
+
                                     <TextView
-                                        android:layout_width="24dp"
+                                        android:layout_width="match_parent"
                                         android:layout_height="24dp"
-                                        android:background="@drawable/ic_england_flag"
-                                        android:textSize="16sp" />
+                                        android:text="England 🏴󠁧󠁢󠁥󠁮󠁧󠁿"
+                                        android:textStyle="bold"
+                                        android:textSize="17sp" />
 
                                 </LinearLayout>
 
@@ -691,6 +713,7 @@
                         android:layout_height="match_parent">
 
 
+
                         <ImageView
                             android:id="@+id/iv_gallery_photo"
                             android:layout_width="match_parent"
@@ -700,6 +723,9 @@
                             android:contentDescription="Photo Gallery Image"
                             android:scaleType="centerCrop"
                             android:src="@drawable/photog" />
+
+
+                     
 
 
                         <TextView
@@ -716,7 +742,10 @@
                             android:padding="8dp"
                             android:elevation="2dp" />
 
+
                         <!-- View More section at bottom -->
+
+                        
                         <LinearLayout
                             android:id="@+id/view"
                             android:layout_width="match_parent"
@@ -729,6 +758,7 @@
                             android:paddingHorizontal="16dp">
 
                             <TextView
+                                android:id="@+id/tv_gallery_view_more"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="View More"
@@ -736,6 +766,7 @@
                                 android:gravity="end"
                                 android:textSize="14sp"
                                 android:clickable="true"
+
                                 android:focusable="true"/>
 
                         </LinearLayout>
@@ -754,37 +785,69 @@
                     android:layout_marginBottom="16dp"
                     app:cardCornerRadius="12dp"
                     app:cardElevation="6dp"
-                    app:cardBackgroundColor="@color/card_background"
                     android:clickable="true"
                     android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground">
+                    app:cardBackgroundColor="@color/card_background">
 
-                    <LinearLayout
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="16dp">
-
+                        android:layout_height="match_parent">
+                        
+                        <ImageView
+                            android:id="@+id/highlights"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_above="@+id/hview"
+                            android:background="@color/background_light"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/wc"
+                            android:contentDescription="Highlights" />
+                            
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="Match Highlights"
-                            android:textColor="@color/text_primary"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_margin="12dp"
+                            android:text="Highlights"
+                            android:textSize="14sp"
+                            android:textColor="@color/text_white"
+                            android:textStyle="bold"
+                            android:background="#80000000"
+                            android:padding="8dp"
+                            android:elevation="2dp" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
+
+
+                        <!-- View more section -->
+                        <LinearLayout
+                            android:id="@+id/hview"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:gravity="center"
-                            android:text="Watch best moments and replays"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="12sp" />
+                            android:layout_alignParentBottom="true"
+                            android:orientation="horizontal"
+                            android:gravity="end"
+                            android:background="@color/background_light"
+                            android:paddingVertical="7dp"
+                            android:paddingHorizontal="16dp">
 
-                    </LinearLayout>
+                            <TextView
+                                android:id="@+id/tv_highlights_view_more"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="View More"
+                                android:padding="3dp"
+                                android:gravity="end"
+                                android:textSize="14sp"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:background="?android:attr/selectableItemBackground" />
+
+                        </LinearLayout>
+                </RelativeLayout>
+
+
+
 
                 </androidx.cardview.widget.CardView>
 
@@ -798,13 +861,11 @@
                     android:layout_marginBottom="16dp"
                     app:cardCornerRadius="12dp"
                     app:cardElevation="6dp"
-                    app:cardBackgroundColor="@color/card_background"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground">
+                    app:cardBackgroundColor="@color/card_background">
 
                     <LinearLayout
                         android:layout_width="match_parent"
+
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
@@ -1024,6 +1085,7 @@
                                 android:textColor="@color/text_secondary"
                                 android:textStyle="bold" />
 
+
                         </LinearLayout>
 
                     </LinearLayout>
@@ -1040,21 +1102,20 @@
                     android:layout_marginBottom="16dp"
                     app:cardCornerRadius="12dp"
                     app:cardElevation="6dp"
-                    app:cardBackgroundColor="@color/card_background"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground">
+                    app:cardBackgroundColor="@color/card_background">
+
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
 
+
                         <!-- header -->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
+              android:orientation="horizontal"
                             android:gravity="center_vertical"
                             android:padding="16dp"
                             android:paddingBottom="8dp">
@@ -1082,13 +1143,36 @@
                             android:background="@color/background_light"
                             android:contentDescription="Cricket Meme" />
 
-                    </LinearLayout>
+                            <TextView
+                                android:id="@+id/tv_memes_view_more"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="View More"
+                                android:padding="3dp"
+                                android:gravity="end"
+                                android:textSize="14sp"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:background="?android:attr/selectableItemBackground" />
+
+                        </LinearLayout>
+
+                        </RelativeLayout>
 
                 </androidx.cardview.widget.CardView>
 
             </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>
+
+        <!-- Fragment Container for navigation fragments -->
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="64dp"
+            android:visibility="gone" />
 
     </LinearLayout>
 
