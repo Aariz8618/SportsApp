@@ -62,7 +62,32 @@
 
                 </androidx.cardview.widget.CardView>
 
-                <!-- Photo placeholder cards -->
+                <!-- Photo Gallery Section Title -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="start|center_vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📸"
+                        android:textSize="24sp"
+                        android:layout_marginEnd="8dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Photo Gallery"
+                        android:textSize="20sp"
+                        android:textColor="@color/text_primary"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <!-- Photo Gallery Card with Image -->
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
@@ -71,27 +96,33 @@
                     app:cardElevation="6dp"
                     app:cardBackgroundColor="@color/card_background">
 
+                    <!-- Image that fills the entire card -->
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/photo"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="Photo Gallery Image" />
+
+                    <!-- Optional: Overlay for "Coming Soon" if needed -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
                         android:gravity="center"
-                        android:padding="16dp">
+                        android:background="#80000000"
+                        android:visibility="visible">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="📸"
-                            android:textSize="48sp"
-                            android:layout_marginBottom="8dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Photo Gallery Coming Soon"
+                            android:text="Coming Soon"
                             android:textSize="16sp"
-                            android:textColor="@color/text_primary"
-                            android:textStyle="bold" />
+                            android:textColor="#FFFFFF"
+                            android:textStyle="bold"
+                            android:background="#AA000000"
+                            android:padding="8dp"
+                            android:layout_margin="8dp" />
 
                     </LinearLayout>
 
