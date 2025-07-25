@@ -20,26 +20,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
-        <activity
-            android:name=".GalleryActivity"
-            android:exported="false"
-            android:parentActivityName=".MainActivity" />
-            
-        <activity
-            android:name=".HighlightsActivity"
-            android:exported="false"
-            android:parentActivityName=".MainActivity" />
-            
-        <activity
-            android:name=".NewsActivity"
-            android:exported="false"
-            android:parentActivityName=".MainActivity" />
-            
-        <activity
-            android:name=".MemesActivity"
-            android:exported="false"
-            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>

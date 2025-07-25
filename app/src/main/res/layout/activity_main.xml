@@ -15,6 +15,7 @@
 
         <!-- Enhanced Header with gradient background -->
         <LinearLayout
+            android:id="@+id/main_header"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:orientation="horizontal"
@@ -37,6 +38,7 @@
                 app:tint="@color/text_white" />
 
             <TextView
+                android:id="@+id/tv_header_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -47,52 +49,85 @@
                 android:gravity="center_horizontal"
                 android:letterSpacing="0.05" />
 
+            <!-- Add notification bell icon -->
+            <ImageView
+                android:id="@+id/iv_notifications"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_menu"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="4dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Notifications"
+                android:visibility="gone"
+                app:tint="@color/text_white" />
+
         </LinearLayout>
 
         <!-- Scrollable content area with bottom margin for navigation -->
         <androidx.core.widget.NestedScrollView
-            android:id="@+id/nested_scroll_view"
+            android:id="@+id/home_content"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:layout_marginBottom="60dp">
+            android:layout_marginBottom="64dp">
 
-            <LinearLayout
+            <RELayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <!-- Enhanced Match Card -->
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cv_match_card_1"
+                <HorizontalScrollView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    app:cardCornerRadius="12dp"
+                    android:scrollbars="none"
+                    android:fadeScrollbars="true"
+                    android:fillViewport="true"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="0dp"
+                    android:clipToPadding="false">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingStart="1dp"
+                        android:paddingEnd="4dp">
+
+
+                        <androidx.cardview.widget.CardView
+
+                            android:id="@+id/cv_match_card_1"
+                            android:layout_width="320dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                    app:cardCornerRadius="10dp"
                     app:cardElevation="6dp"
                     android:clickable="true"
                     android:focusable="true"
                     app:cardBackgroundColor="@color/card_background"
                     android:foreground="?android:attr/selectableItemBackground">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
 
                         <!-- Match Header with Live indicator -->
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="16dp"
-                            android:paddingBottom="8dp">
+                            android:padding="8dp"
+                            android:paddingBottom="4dp">
 
                             <TextView
                                 android:id="@+id/tv_match_series"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="4th ODI • India vs England"
-                                android:textSize="12sp"
+                                android:textSize="11sp"
                                 android:textColor="@color/text_secondary"
                                 android:textStyle="bold" />
 
@@ -104,8 +139,8 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
                             android:gravity="center_vertical"
-                            android:paddingHorizontal="16dp"
-                            android:paddingBottom="8dp">
+                            android:paddingHorizontal="8dp"
+                            android:paddingBottom="4dp">
 
                             <!-- India Team -->
                             <LinearLayout
@@ -120,30 +155,34 @@
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal"
                                     android:gravity="center_vertical"
-                                    android:layout_marginBottom="4dp">
+                                    android:layout_marginBottom="1dp">
 
                                     <TextView
-                                        android:layout_width="24dp"
+                                        android:layout_width="match_parent"
                                         android:layout_height="24dp"
-                                        android:background="@drawable/ic_india_flag"
-                                        android:textSize="16sp"
+                                        android:text="🇮🇳  India"
+                                        android:textStyle="bold"
+                                        android:textSize="17sp"
                                         android:layout_marginEnd="8dp" />
+
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="India"
-                                        android:textSize="16sp"
+                                        android:textSize="14sp"
                                         android:textColor="@color/text_primary"
                                         android:textStyle="bold" />
 
-                                </LinearLayout>
+                    </LinearLayout>
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="310/4 (45.2)"
-                                    android:textSize="18sp"
+
+                                    android:text="310/4 (50)"
+                                    android:textSize="16sp"
+
                                     android:textColor="@color/text_primary"
                                     android:textStyle="bold" />
 
@@ -180,22 +219,24 @@
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal"
                                     android:gravity="center_vertical"
-                                    android:layout_marginBottom="4dp">
+                                    android:layout_marginBottom="1dp">
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="England"
-                                        android:textSize="16sp"
+                                        android:textSize="14sp"
                                         android:textColor="@color/text_primary"
                                         android:textStyle="bold"
                                         android:layout_marginEnd="8dp" />
 
+
                                     <TextView
-                                        android:layout_width="24dp"
+                                        android:layout_width="match_parent"
                                         android:layout_height="24dp"
-                                        android:background="@drawable/ic_england_flag"
-                                        android:textSize="16sp" />
+                                        android:text="England 🏴󠁧󠁢󠁥󠁮󠁧󠁿"
+                                        android:textStyle="bold"
+                                        android:textSize="17sp" />
 
                                 </LinearLayout>
 
@@ -203,7 +244,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="280/10 (48.5)"
-                                    android:textSize="18sp"
+                                    android:textSize="16sp"
                                     android:textColor="@color/text_primary"
                                     android:textStyle="bold" />
 
@@ -217,19 +258,19 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
                             android:gravity="center"
-                            android:paddingHorizontal="16dp"
-                            android:paddingBottom="12dp">
+                            android:paddingHorizontal="8dp"
+                            android:paddingBottom="4dp">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="India won by 30 runs"
-                                android:textSize="14sp"
+                                android:textSize="13sp"
                                 android:textColor="@color/text_primary"
                                 android:textStyle="bold"
                                 android:gravity="center"
-                                android:paddingHorizontal="12dp"
-                                android:paddingVertical="6dp" />
+                                android:paddingHorizontal="8dp"
+                                android:paddingVertical="2dp" />
 
                         </LinearLayout>
 
@@ -240,8 +281,8 @@
                             android:orientation="horizontal"
                             android:gravity="end"
                             android:background="@color/background_light"
-                            android:paddingVertical="7dp"
-                            android:paddingHorizontal="16dp">
+                            android:paddingVertical="3dp"
+                            android:paddingHorizontal="8dp">
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -253,9 +294,404 @@
 
                         </LinearLayout>
 
-                    </LinearLayout>
+                            </LinearLayout>
 
-                </androidx.cardview.widget.CardView>
+                        </androidx.cardview.widget.CardView>
+
+                        <!-- domestic scorecard card -->
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cv_match_card_2"
+                            android:layout_width="320dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="6dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:cardBackgroundColor="@color/card_background"
+                        android:foreground="?android:attr/selectableItemBackground">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                        <!-- Match Header with Live indicator -->
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="8dp"
+                            android:paddingBottom="4dp">
+
+                            <TextView
+                                android:id="@+id/ranji_match"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Elite Group A • MUM vs BRD"
+                                android:textSize="11sp"
+                                android:textColor="@color/text_secondary"
+                                android:textStyle="bold" />
+
+                        </RelativeLayout>
+
+                        <!-- Teams and scores section -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:paddingHorizontal="8dp"
+                            android:paddingBottom="4dp">
+
+                            <!-- MUMBAI Team -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:orientation="vertical"
+                                android:gravity="start">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:gravity="center_vertical"
+                                    android:layout_marginBottom="1dp">
+
+                                    <TextView
+                                        android:layout_width="24dp"
+                                        android:layout_height="24dp"
+                                        android:background="@drawable/mca"
+                                        android:textSize="16sp"
+                                        android:layout_marginEnd="8dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Mumbai"
+                                        android:textSize="14sp"
+                                        android:textColor="@color/text_primary"
+                                        android:textStyle="bold" />
+
+                                </LinearLayout>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="214 &amp; 177"
+                                    android:textSize="16sp"
+                                    android:textColor="@color/text_primary"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                            <!-- VS Section -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="VS"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/text_secondary"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                            <!-- BARODA Team -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:orientation="vertical"
+                                android:gravity="end">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:gravity="center_vertical"
+                                    android:layout_marginBottom="1dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Baroda"
+                                        android:textSize="14sp"
+                                        android:textColor="@color/text_primary"
+                                        android:textStyle="bold"
+                                        android:layout_marginEnd="8dp" />
+
+                                    <TextView
+                                        android:layout_width="24dp"
+                                        android:layout_height="24dp"
+                                        android:background="@drawable/baroda"
+                                        android:textSize="16sp" />
+
+                                </LinearLayout>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="290 &amp; 185"
+                                    android:textSize="16sp"
+                                    android:textColor="@color/text_primary"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <!-- Match Result Section -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:paddingHorizontal="8dp"
+                            android:paddingBottom="4dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Baroda won by 84 runs"
+                                android:textSize="13sp"
+                                android:textColor="@color/text_primary"
+                                android:textStyle="bold"
+                                android:gravity="center"
+                                android:paddingHorizontal="8dp"
+                                android:paddingVertical="2dp" />
+
+                        </LinearLayout>
+
+                        <!-- Match Result -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="end"
+                            android:background="@color/background_light"
+                            android:paddingVertical="3dp"
+                            android:paddingHorizontal="8dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="SCHEDULE"
+                                android:padding="3dp"
+                                android:gravity="end"
+                                android:textSize="13sp" />
+
+                        </LinearLayout>
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+
+
+                        <!-- ipl scorecard card -->
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cv_match_card_3"
+                            android:layout_width="320dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="6dp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            app:cardBackgroundColor="@color/card_background"
+                            android:foreground="?android:attr/selectableItemBackground">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <!-- Match Header with Live indicator -->
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="8dp"
+                                    android:paddingBottom="4dp">
+
+                                    <TextView
+                                        android:id="@+id/ipl_match"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="FINAL • IPL"
+                                        android:textSize="11sp"
+                                        android:textColor="@color/text_secondary"
+                                        android:textStyle="bold" />
+
+                                </RelativeLayout>
+
+                                <!-- Teams and scores section -->
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:gravity="center_vertical"
+                                    android:paddingHorizontal="8dp"
+                                    android:paddingBottom="4dp">
+
+                                    <!-- RCB Team -->
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="2"
+                                        android:orientation="vertical"
+                                        android:gravity="start">
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal"
+                                            android:gravity="center_vertical"
+                                            android:layout_marginBottom="1dp">
+
+                                            <TextView
+                                                android:layout_width="24dp"
+                                                android:layout_height="24dp"
+                                                android:background="@drawable/rcb"
+                                                android:textSize="16sp"
+                                                android:layout_marginEnd="8dp" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="RCB"
+                                                android:textSize="14sp"
+                                                android:textColor="@color/text_primary"
+                                                android:textStyle="bold" />
+
+                                        </LinearLayout>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="190-9 (20)"
+                                            android:textSize="16sp"
+                                            android:textColor="@color/text_primary"
+                                            android:textStyle="bold" />
+
+                                    </LinearLayout>
+
+                                    <!-- VS Section -->
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical"
+                                        android:gravity="center">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="VS"
+                                            android:textSize="12sp"
+                                            android:textColor="@color/text_secondary"
+                                            android:textStyle="bold" />
+
+                                    </LinearLayout>
+
+                                    <!-- pbks Team -->
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="2"
+                                        android:orientation="vertical"
+                                        android:gravity="end">
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal"
+                                            android:gravity="center_vertical"
+                                            android:layout_marginBottom="1dp">
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="PBKS"
+                                                android:textSize="14sp"
+                                                android:textColor="@color/text_primary"
+                                                android:textStyle="bold"
+                                                android:layout_marginEnd="8dp" />
+
+                                            <TextView
+                                                android:layout_width="24dp"
+                                                android:layout_height="24dp"
+                                                android:background="@drawable/pbks"
+                                                android:textSize="16sp" />
+
+                                        </LinearLayout>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="184-7 (20)"
+                                            android:textSize="16sp"
+                                            android:textColor="@color/text_primary"
+                                            android:textStyle="bold" />
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <!-- Match Result Section -->
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:gravity="center"
+                                    android:paddingHorizontal="8dp"
+                                    android:paddingBottom="4dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Royal Challengers Bengaluru won by 6 runs"
+                                        android:textSize="13sp"
+                                        android:textColor="@color/text_primary"
+                                        android:textStyle="bold"
+                                        android:gravity="center"
+                                        android:paddingHorizontal="8dp"
+                                        android:paddingVertical="2dp" />
+
+                                </LinearLayout>
+
+                                <!-- Match Result -->
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:gravity="end"
+                                    android:background="@color/background_light"
+                                    android:paddingVertical="3dp"
+                                    android:paddingHorizontal="8dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="SCHEDULE"
+                                        android:padding="3dp"
+                                        android:gravity="end"
+                                        android:textSize="13sp" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+                </HorizontalScrollView>
 
                 <!-- Gallery Card -->
                 <androidx.cardview.widget.CardView
@@ -272,44 +708,49 @@
                     android:focusable="true"
                     android:foreground="?android:attr/selectableItemBackground">
 
-                    <LinearLayout
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
+                        android:layout_height="match_parent">
 
-                        <!-- Main content area -->
-                        <LinearLayout
+
+
+                        <ImageView
+                            android:id="@+id/iv_gallery_photo"
                             android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:padding="16dp"
-                            android:gravity="center">
+                            android:layout_height="match_parent"
+                            android:layout_above="@+id/view"
+                            android:background="@color/background_light"
+                            android:contentDescription="Photo Gallery Image"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/photog" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Photo Gallery"
-                                android:textSize="16sp"
-                                android:textColor="@color/text_primary"
-                                android:textStyle="bold"
-                                android:gravity="center" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Browse stunning cricket moments"
-                                android:textSize="12sp"
-                                android:textColor="@color/text_secondary"
-                                android:layout_marginTop="4dp"
-                                android:gravity="center" />
+                     
 
-                        </LinearLayout>
 
-                        <!-- View more section -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_margin="12dp"
+                            android:text="Photo Gallery"
+                            android:textSize="14sp"
+                            android:textColor="@color/text_white"
+                            android:textStyle="bold"
+                            android:background="#80000000"
+                            android:padding="8dp"
+                            android:elevation="2dp" />
+
+
+                        <!-- View More section at bottom -->
+
+                        
                         <LinearLayout
+                            android:id="@+id/view"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
                             android:orientation="horizontal"
                             android:gravity="end"
                             android:background="@color/background_light"
@@ -317,16 +758,20 @@
                             android:paddingHorizontal="16dp">
 
                             <TextView
+                                android:id="@+id/tv_gallery_view_more"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="View More"
                                 android:padding="3dp"
                                 android:gravity="end"
-                                android:textSize="14sp" />
+                                android:textSize="14sp"
+                                android:clickable="true"
+
+                                android:focusable="true"/>
 
                         </LinearLayout>
 
-                    </LinearLayout>
+                    </RelativeLayout>
 
                 </androidx.cardview.widget.CardView>
 
@@ -340,37 +785,69 @@
                     android:layout_marginBottom="16dp"
                     app:cardCornerRadius="12dp"
                     app:cardElevation="6dp"
-                    app:cardBackgroundColor="@color/card_background"
                     android:clickable="true"
                     android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground">
+                    app:cardBackgroundColor="@color/card_background">
 
-                    <LinearLayout
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="16dp">
-
+                        android:layout_height="match_parent">
+                        
+                        <ImageView
+                            android:id="@+id/highlights"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_above="@+id/hview"
+                            android:background="@color/background_light"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/wc"
+                            android:contentDescription="Highlights" />
+                            
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="Match Highlights"
-                            android:textColor="@color/text_primary"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_margin="12dp"
+                            android:text="Highlights"
+                            android:textSize="14sp"
+                            android:textColor="@color/text_white"
+                            android:textStyle="bold"
+                            android:background="#80000000"
+                            android:padding="8dp"
+                            android:elevation="2dp" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
+
+
+                        <!-- View more section -->
+                        <LinearLayout
+                            android:id="@+id/hview"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:gravity="center"
-                            android:text="Watch best moments and replays"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="12sp" />
+                            android:layout_alignParentBottom="true"
+                            android:orientation="horizontal"
+                            android:gravity="end"
+                            android:background="@color/background_light"
+                            android:paddingVertical="7dp"
+                            android:paddingHorizontal="16dp">
 
-                    </LinearLayout>
+                            <TextView
+                                android:id="@+id/tv_highlights_view_more"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="View More"
+                                android:padding="3dp"
+                                android:gravity="end"
+                                android:textSize="14sp"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:background="?android:attr/selectableItemBackground" />
+
+                        </LinearLayout>
+                </RelativeLayout>
+
+
+
 
                 </androidx.cardview.widget.CardView>
 
@@ -378,42 +855,238 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cv_news_card"
                     android:layout_width="match_parent"
-                    android:layout_height="220dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="16dp"
                     app:cardCornerRadius="12dp"
                     app:cardElevation="6dp"
-                    app:cardBackgroundColor="@color/card_background"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground">
+                    app:cardBackgroundColor="@color/card_background">
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:padding="16dp"
-                        android:gravity="center">
 
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="wrap_content"
+                        <!-- Header Section -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Latest Cricket News"
-                            android:textSize="16sp"
-                            android:textColor="@color/text_primary"
-                            android:textStyle="bold"
-                            android:gravity="center" />
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:padding="16dp"
+                            android:paddingBottom="8dp">
 
-                        <TextView
-                            android:layout_width="wrap_content"
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Latest Cricket News"
+                                android:textSize="18sp"
+                                android:textColor="@color/text_primary"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <!-- News Item 1 -->
+                        <LinearLayout
+                            android:id="@+id/ll_news_item_1"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Stay updated with breaking cricket news"
-                            android:textSize="12sp"
-                            android:textColor="@color/text_secondary"
-                            android:layout_marginTop="4dp"
-                            android:gravity="center" />
+                            android:orientation="horizontal"
+                            android:padding="12dp"
+                            android:paddingTop="8dp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:background="?android:attr/selectableItemBackground">
+
+                            <!-- News Image 1 -->
+                            <ImageView
+                                android:id="@+id/iv_news_image_1"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_marginEnd="12dp"
+                                android:scaleType="centerCrop"
+                                android:background="@color/background_light"
+                                android:src="@drawable/sai_sudarshan_61"
+                                android:contentDescription="Sai Sudarshan 61 runs" />
+
+                            <!-- News Content 1 -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:layout_gravity="center_vertical">
+
+                                <TextView
+                                    android:id="@+id/news1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Sai Sudharsan made the opportunity count in his comeback game with a fifty. He looked solid with his approach, but a loose pull shot ended his knock for 61"
+                                    android:textSize="14sp"
+                                    android:textColor="@color/text_primary"
+                                    android:textStyle="bold"
+                                    android:maxLines="2"
+                                    android:ellipsize="end" />
+
+                                <TextView
+                                    android:id="@+id/tv_news_time_1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="4 h ago"
+                                    android:textSize="11sp"
+                                    android:textColor="@color/text_secondary"
+                                    android:layout_marginTop="4dp" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <!-- Divider -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/background_light"
+                            android:layout_marginHorizontal="16dp" />
+
+                        <!--  2 -->
+                        <LinearLayout
+                            android:id="@+id/_news_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="12dp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:background="?android:attr/selectableItemBackground">
+
+                            <!-- News Image 2 -->
+                            <ImageView
+                                android:id="@+id/iv_news_image_2"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_marginEnd="12dp"
+                                android:scaleType="centerCrop"
+                                android:background="@color/background_light"
+                                android:src="@drawable/nicholas_pooran"
+                                android:contentDescription="Nicholas Pooran" />
+
+                            <!-- News Content 2 -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:layout_gravity="center_vertical">
+
+                                <TextView
+                                    android:id="@+id/tv_news_title_2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="West Indies batsman moves from DSG to MI Cape Town in SA20......"
+                                    android:textSize="14sp"
+                                    android:textColor="@color/text_primary"
+                                    android:textStyle="bold"
+                                    android:maxLines="2"
+                                    android:ellipsize="end" />
+
+                                <TextView
+                                    android:id="@+id/tv_news_time_2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="7 h ago"
+                                    android:textSize="11sp"
+                                    android:textColor="@color/text_secondary"
+                                    android:layout_marginTop="4dp" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <!-- Divider -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/background_light"
+                            android:layout_marginHorizontal="16dp" />
+
+                        <!-- News Item 3 -->
+                        <LinearLayout
+                            android:id="@+id/ll_news_item_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="12dp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:background="?android:attr/selectableItemBackground">
+
+                            <!-- News Image 3 -->
+                            <ImageView
+                                android:id="@+id/iv_news_image_3"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_marginEnd="12dp"
+                                android:scaleType="centerCrop"
+                                android:background="@color/background_light"
+                                android:src="@drawable/rishu"
+                                android:contentDescription="Rishabh Pant Injury" />
+
+                            <!-- News  3 -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:layout_gravity="center_vertical">
+
+                                <TextView
+                                    android:id="@+id/tv_news_title_3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="BCCI Breaks Silence On Rishabh Pant's Injury That Forced Him To Retire Hurt vs England: Hit On His Knee"
+                                    android:textSize="14sp"
+                                    android:textColor="@color/text_primary"
+                                    android:textStyle="bold"
+                                    android:maxLines="2"
+                                    android:ellipsize="end" />
+
+                                <TextView
+                                    android:id="@+id/tv_news_time_3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="8 h ago"
+                                    android:textSize="11sp"
+                                    android:textColor="@color/text_secondary"
+                                    android:layout_marginTop="4dp" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <!-- View more section -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="end"
+                            android:background="@color/background_light"
+                            android:paddingVertical="8dp"
+                            android:paddingHorizontal="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="View All News"
+                                android:padding="4dp"
+                                android:gravity="end"
+                                android:textSize="13sp"
+                                android:textColor="@color/text_secondary"
+                                android:textStyle="bold" />
+
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -423,49 +1096,83 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cv_memes_card"
                     android:layout_width="match_parent"
-                    android:layout_height="220dp"
+                    android:layout_height="300dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="16dp"
                     app:cardCornerRadius="12dp"
                     app:cardElevation="6dp"
-                    app:cardBackgroundColor="@color/card_background"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground">
+                    app:cardBackgroundColor="@color/card_background">
+
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:padding="16dp"
-                        android:gravity="center">
+                        android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="wrap_content"
+
+                        <!-- header -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Cricket Memes"
-                            android:textSize="16sp"
-                            android:textColor="@color/text_primary"
-                            android:textStyle="bold"
-                            android:gravity="center" />
+              android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:padding="16dp"
+                            android:paddingBottom="8dp">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Enjoy funny cricket moments and jokes"
-                            android:textSize="12sp"
-                            android:textColor="@color/text_secondary"
-                            android:layout_marginTop="4dp"
-                            android:gravity="center" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Cricket Memes"
+                                android:textSize="18sp"
+                                android:textColor="@color/text_primary"
+                                android:textStyle="bold" />
 
-                    </LinearLayout>
+                        </LinearLayout>
+
+                        <!-- Meme Image Section -->
+                        <ImageView
+                            android:id="@+id/iv_meme_image"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:layout_marginHorizontal="16dp"
+                            android:layout_marginBottom="16dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/meme"
+                            android:background="@color/background_light"
+                            android:contentDescription="Cricket Meme" />
+
+                            <TextView
+                                android:id="@+id/tv_memes_view_more"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="View More"
+                                android:padding="3dp"
+                                android:gravity="end"
+                                android:textSize="14sp"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:background="?android:attr/selectableItemBackground" />
+
+                        </LinearLayout>
+
+                        </RelativeLayout>
 
                 </androidx.cardview.widget.CardView>
 
             </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>
+
+        <!-- Fragment Container for navigation fragments -->
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="64dp"
+            android:visibility="gone" />
 
     </LinearLayout>
 
