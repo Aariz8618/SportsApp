@@ -934,7 +934,7 @@
                                     android:id="@+id/tv_news_time_2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="7 hours ago"
+                                    android:text="7 h ago"
                                     android:textSize="11sp"
                                     android:textColor="@color/text_secondary"
                                     android:layout_marginTop="4dp" />
@@ -995,7 +995,7 @@
                                     android:id="@+id/tv_news_time_3"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="8 hours ago"
+                                    android:text="8 h ago"
                                     android:textSize="11sp"
                                     android:textColor="@color/text_secondary"
                                     android:layout_marginTop="4dp" />
