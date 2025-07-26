@@ -114,23 +114,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // Keep this method for future use if needed, but currently not using it
-    fun navigateToFragmentNoHeader(fragment: Fragment) {
-        if (currentFragment?.javaClass != fragment.javaClass) {
-            isOnHomeScreen = false
-            currentFragment = fragment
-
-            // Hide home content and header, show fragment container
-            binding.homeContent.visibility = android.view.View.GONE
-            binding.fragmentContainer.visibility = android.view.View.VISIBLE
-            binding.mainHeader.visibility = android.view.View.GONE
-
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, fragment)
-                .commit()
-        }
-    }
-
     private fun setupBackPressHandler() {
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
@@ -152,8 +135,7 @@ class MainActivity : AppCompatActivity() {
                 // If we're not on home screen, act as back button
                 showHomeScreen()
             } else {
-                // If we're on home screen, act as hamburger menu (you can add menu functionality here)
-                // For now, we'll just do nothing or you can implement a drawer menu
+                // If we're on home screen, act as hamburger menu
             }
         }
     }

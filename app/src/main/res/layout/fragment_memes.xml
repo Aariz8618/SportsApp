@@ -76,7 +76,7 @@
                         android:layout_height="match_parent"
                         android:contentDescription="Photo Gallery Image"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/meme3" />
+                        android:src="@drawable/meme14" />
                 </androidx.cardview.widget.CardView>
 
 
@@ -250,6 +250,23 @@
                         android:contentDescription="Photo Gallery Image"
                         android:scaleType="fitCenter"
                         android:src="@drawable/meme13" />
+                </androidx.cardview.widget.CardView>
+
+                <!-- meme14 -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:layout_marginBottom="16dp"
+                    app:cardBackgroundColor="@color/card_background"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="6dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="Photo Gallery Image"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/meme3" />
                 </androidx.cardview.widget.CardView>
 
 
