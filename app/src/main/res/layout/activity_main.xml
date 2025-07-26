@@ -1079,7 +1079,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:background="@color/background_light"
-                                android:scaleType="fitXY"
+                                android:scaleType="centerCrop"
                                 android:src="@drawable/meme"
                                 android:contentDescription="Cricket Memes" />
 
