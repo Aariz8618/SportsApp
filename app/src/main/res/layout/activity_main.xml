@@ -42,12 +42,13 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="CricTech"
-                android:textSize="24sp"
-                android:textColor="@color/text_white"
-                android:textStyle="bold"
+                android:fontFamily="@font/lato_bold"
                 android:gravity="center_horizontal"
-                android:letterSpacing="0.05" />
+                android:letterSpacing="0.05"
+                android:text="CricTech"
+                android:textColor="@color/text_white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -232,6 +233,7 @@
                                         android:textColor="@color/text_primary"
                                         android:textStyle="bold"
                                         android:gravity="center"
+                                        android:fontFamily="@font/lato"
                                         android:paddingHorizontal="8dp"
                                         android:paddingVertical="2dp" />
 
@@ -775,7 +777,7 @@
                                 android:textSize="14sp"
                                 android:textColor="@color/text_white"
                                 android:textStyle="bold"
-                                android:background="#08000000"
+                                android:background="#80000000"
                                 android:padding="8dp"
                                 android:elevation="2dp" />
 
@@ -881,12 +883,13 @@
                                     android:id="@+id/news1"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Sai Sudharsan made the opportunity count in his comeback game with a fifty. He looked solid with his approach, but a loose pull shot ended his knock for 61"
-                                    android:textSize="14sp"
-                                    android:textColor="@color/text_primary"
-                                    android:textStyle="bold"
+                                    android:ellipsize="end"
+                                    android:fontFamily="@font/lato_black"
                                     android:maxLines="2"
-                                    android:ellipsize="end" />
+                                    android:text="Sai Sudharsan made the opportunity count in his comeback game with a fifty. He looked solid with his approach, but a loose pull shot ended his knock for 61"
+                                    android:textColor="@color/text_primary"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
 
                                 <TextView
                                     android:id="@+id/tv_news_time_1"

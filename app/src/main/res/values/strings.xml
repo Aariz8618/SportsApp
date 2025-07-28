@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">SportsApp</string>
+    <string name="app_name">CricTech</string>
     <string name="hide_bottom_view_on_scroll_behavior" translatable="false">com.google.android.material.behavior.HideBottomViewOnScrollBehavior</string>
 </resources>
