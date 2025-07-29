@@ -10,57 +10,302 @@
     <!-- Scrollable content area -->
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="811dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
                 android:padding="16dp">
 
-                <!-- Gallery Grid using RecyclerView placeholder -->
-                <androidx.cardview.widget.CardView
+                <!--s-->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    app:cardCornerRadius="12dp"
-                    app:cardElevation="6dp"
-                    app:cardBackgroundColor="@color/card_background">
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="16dp">
 
+                    <!-- Teams Filter (No CardView) -->
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="120dp"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="16dp">
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="80dp"
+                        android:background="@drawable/rounded_filter_bg"
+                        android:elevation="4dp"
+                        android:orientation="vertical">
 
-                        <TextView
+                        <LinearLayout
+                            android:id="@+id/ll_teams_header"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Iconic Cricket Photos"
-                            android:textSize="18sp"
-                            android:textColor="@color/text_primary"
-                            android:textStyle="bold"
-                            android:layout_marginBottom="8dp" />
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:background="?android:attr/selectableItemBackground">
 
-                        <TextView
+                            <TextView
+                                android:id="@+id/tv_teams_header"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Teams"
+                                android:textSize="16sp"
+                                android:textColor="@color/text_primary"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/btn_teams_dropdown"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="▼"
+                                android:textSize="12sp"
+                                android:textColor="@color/text_primary"
+                                android:layout_marginStart="8dp" />
+
+                        </LinearLayout>
+
+                        <!-- Teams Dropdown List -->
+                        <LinearLayout
+                            android:id="@+id/ll_teams_dropdown"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="View amazing photos from recent cricket matches and tournaments..."
-                            android:textSize="14sp"
-                            android:textColor="@color/text_secondary"
-                            android:layout_marginBottom="8dp" />
+                            android:orientation="vertical"
+                            android:visibility="gone"
+                            android:background="@color/background_light">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Updated recently"
-                            android:textSize="12sp"
-                            android:textColor="@color/text_secondary"
-                            android:textStyle="italic" />
+                            <LinearLayout
+                                android:id="@+id/tv_india"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="start|center_vertical"
+                                android:padding="12dp"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:background="?android:attr/selectableItemBackground">
+
+                                <TextView
+                                    android:layout_width="16dp"
+                                    android:layout_height="16dp"
+                                    android:text="🇮🇳"
+                                    android:textSize="12sp"
+                                    android:layout_marginEnd="8dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="India"
+
+                                    android:fontFamily="@font/lato"
+                                    android:textSize="14sp"
+                                    android:textColor="@color/text_primary" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/tv_australia"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="start|center_vertical"
+                                android:padding="12dp"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:background="?android:attr/selectableItemBackground">
+
+                                <TextView
+                                    android:layout_width="16dp"
+                                    android:layout_height="16dp"
+                                    android:text="🇦🇺"
+                                    android:textSize="12sp"
+                                    android:layout_marginEnd="8dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Australia"
+                                    android:textSize="14sp"
+                                    android:textColor="@color/text_primary" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/tv_england"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="start|center_vertical"
+                                android:padding="12dp"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:background="?android:attr/selectableItemBackground">
+
+                                <TextView
+                                    android:layout_width="16dp"
+                                    android:layout_height="16dp"
+                                    android:text="🏴󠁧󠁢󠁥󠁮󠁧󠁿"
+                                    android:textSize="12sp"
+                                    android:layout_marginEnd="8dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="England"
+                                    android:textSize="14sp"
+                                    android:textColor="@color/text_primary" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/tv_newzealand"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="start|center_vertical"
+                                android:padding="12dp"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:background="?android:attr/selectableItemBackground">
+
+                                <TextView
+                                    android:layout_width="16dp"
+                                    android:layout_height="16dp"
+                                    android:text="🇳🇿"
+                                    android:textSize="12sp"
+                                    android:layout_marginEnd="8dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="New Zealand"
+                                    android:textSize="14sp"
+                                    android:textColor="@color/text_primary" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/tv_westindies"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="start|center_vertical"
+                                android:padding="12dp"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:background="?android:attr/selectableItemBackground">
+
+                                <TextView
+                                    android:layout_width="16dp"
+                                    android:layout_height="16dp"
+                                    android:text="🏏"
+                                    android:textSize="12sp"
+                                    android:layout_marginEnd="8dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="West Indies"
+                                    android:textSize="14sp"
+                                    android:textColor="@color/text_primary" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
-                </androidx.cardview.widget.CardView>
+                    <!-- Format Filter -->
+                    <LinearLayout
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_filter_bg"
+                        android:elevation="4dp"
+
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/ll_format_header"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:background="?android:attr/selectableItemBackground">
+
+                            <TextView
+                                android:id="@+id/tv_format_header"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Format"
+                                android:textSize="16sp"
+                                android:textColor="@color/text_primary"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/btn_format_dropdown"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="▼"
+                                android:textSize="12sp"
+                                android:textColor="@color/text_primary"
+                                android:layout_marginStart="8dp" />
+
+                        </LinearLayout>
+
+                        <!-- Format Dropdown List -->
+                        <LinearLayout
+                            android:id="@+id/ll_format_dropdown"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone"
+                            android:background="@color/background_light">
+
+                            <TextView
+                                android:id="@+id/tv_test"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Test"
+                                android:textSize="14sp"
+                                android:textColor="@color/text_primary"
+                                android:padding="12dp"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:background="?android:attr/selectableItemBackground" />
+
+                            <TextView
+                                android:id="@+id/tv_odi"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="ODI"
+                                android:textSize="14sp"
+                                android:textColor="@color/text_primary"
+                                android:padding="12dp"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:background="?android:attr/selectableItemBackground" />
+
+                            <TextView
+                                android:id="@+id/tv_t20"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="T20Is"
+                                android:textSize="14sp"
+                                android:textColor="@color/text_primary"
+                                android:padding="12dp"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:background="?android:attr/selectableItemBackground" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
 
                 <!-- Photo Gallery Section Title -->
                 <LinearLayout
@@ -70,74 +315,74 @@
                     android:gravity="start|center_vertical"
                     android:layout_marginBottom="12dp">
 
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_marginEnd="12dp"
-                        app:cardCornerRadius="300dp"
-                        app:cardElevation="2dp">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginEnd="12dp"
+                    app:cardCornerRadius="300dp"
+                    app:cardElevation="2dp">
 
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/pgallery"
-                            android:contentDescription="Gallery Icon" />
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="Gallery Icon"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/pgallery" />
 
-                    </androidx.cardview.widget.CardView>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Photo Gallery"
+                    android:textColor="@color/text_primary"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <!-- Photo Gallery Card with Image -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/card_background"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp">
+
+                <!-- Image that fills the entire card -->
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="Photo Gallery Image"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/soon" />
+
+                <!--  "Coming Soon"  -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#80000000"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:visibility="visible">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Photo Gallery"
-                        android:textSize="20sp"
-                        android:textColor="@color/text_primary"
+                        android:layout_margin="8dp"
+                        android:background="#AA000000"
+                        android:padding="8dp"
+                        android:text="Coming Soon"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
 
                 </LinearLayout>
 
-                <!-- Photo Gallery Card with Image -->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:layout_marginBottom="16dp"
-                    app:cardCornerRadius="12dp"
-                    app:cardElevation="6dp"
-                    app:cardBackgroundColor="@color/card_background">
+            </androidx.cardview.widget.CardView>
 
-                    <!-- Image that fills the entire card -->
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/soon"
-                        android:scaleType="centerCrop"
-                        android:contentDescription="Photo Gallery Image" />
-
-                    <!--  "Coming Soon"  -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:background="#80000000"
-                        android:visibility="visible">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Coming Soon"
-                            android:textSize="16sp"
-                            android:textColor="#FFFFFF"
-                            android:textStyle="bold"
-                            android:background="#AA000000"
-                            android:padding="8dp"
-                            android:layout_margin="8dp" />
-
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-            </LinearLayout>
+        </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
 

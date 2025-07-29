@@ -93,24 +93,30 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun navigateToFragment(fragment: Fragment, title: String = "CricTech") {
-        if (currentFragment?.javaClass != fragment.javaClass) {
-            isOnHomeScreen = false
-            currentFragment = fragment
+        try {
+            if (currentFragment?.javaClass != fragment.javaClass) {
+                isOnHomeScreen = false
+                currentFragment = fragment
 
-            // Hide home content, show fragment container
-            binding.homeContent.visibility = android.view.View.GONE
-            binding.fragmentContainer.visibility = android.view.View.VISIBLE
-            binding.mainHeader.visibility = android.view.View.VISIBLE
+                // Hide home content, show fragment container
+                binding.homeContent.visibility = android.view.View.GONE
+                binding.fragmentContainer.visibility = android.view.View.VISIBLE
+                binding.mainHeader.visibility = android.view.View.VISIBLE
 
-            // Show back arrow instead of hamburger menu
-            updateHeaderIcon(showBackArrow = true)
+                // Show back arrow instead of hamburger menu
+                updateHeaderIcon(showBackArrow = true)
 
-            // Update header title
-            updateHeaderTitle(title)
+                // Update header title
+                updateHeaderTitle(title)
 
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, fragment)
-                .commit()
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container, fragment)
+                    .commitAllowingStateLoss() // Use commitAllowingStateLoss to prevent crashes
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+            // Fallback: show home screen
+            showHomeScreen()
         }
     }
 
