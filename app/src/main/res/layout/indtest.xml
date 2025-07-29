@@ -50,6 +50,7 @@
                     />
 
                 <TextView
+                    android:id="@+id/bgtview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|end"
@@ -67,7 +68,6 @@
 
             <!-- Trophy name section -->
             <LinearLayout
-                android:id="@+id/bgtview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/background_light"
@@ -76,7 +76,7 @@
                 android:paddingHorizontal="16dp"
                 android:paddingVertical="7dp">
 
-                <TextView
+            <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Border Gavaskar Trophy 2020/21"
@@ -244,6 +244,7 @@
                     />
 
                 <TextView
+                    android:id="@+id/engview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|end"
@@ -264,7 +265,7 @@
 
             <!-- View more section -->
             <LinearLayout
-                android:id="@+id/engview"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/background_light"
@@ -277,7 +278,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Anderson - Tendulkar Trophy"
+                    android:text="Anderson - Tendulkar Trophy 2021/22"
                     android:textSize="14sp"
                     android:textStyle="bold"
                     android:gravity="start" />

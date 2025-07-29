@@ -9,40 +9,41 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 
-class IndTestFragment : Fragment() {
+class IndodiFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        Log.d("IndTestFragment", "onCreateView called - loading indtest.xml")
+        Log.d("IndodiFragment", "onCreateView called - loading indodi.xml")
         return try {
-            val view = inflater.inflate(R.layout.indtest, container, false)
-            Log.d("IndTestFragment", "indtest.xml layout inflated successfully")
+            val view = inflater.inflate(R.layout.indodi, container, false)
+            Log.d("IndodiFragment", "indodi.xml layout inflated successfully")
             
-            // Set up click listener for BGT 2020/21 View All button
-            val bgtViewAll = view.findViewById<TextView>(R.id.bgtview)
-            bgtViewAll?.setOnClickListener {
+            
+            // Set up click listener for World Cup View All button
+            val wcView = view.findViewById<TextView>(R.id.wcview)
+            wcView?.setOnClickListener {
                 try {
-                    // Navigate to IndtBgt20Fragment via MainActivity
+                    // Navigate to IndodiwcFragment via MainActivity
                     val mainActivity = activity as? MainActivity
                     if (mainActivity != null && isAdded && !isDetached) {
-                        mainActivity.navigateToFragment(IndtBgt20Fragment(), "Border Gavaskar Trophy 2020/21")
+                        mainActivity.navigateToFragment(IndodiwcFragment(), "India ODI World Cup")
                     }
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }
             }
             
-            // Set up click listener for Anderson - Tendulkar Trophy View All button
-            val engView = view.findViewById<TextView>(R.id.engview)
-            engView?.setOnClickListener {
+            // Set up click listener for Series View All button
+            val serView = view.findViewById<TextView>(R.id.serview)
+            serView?.setOnClickListener {
                 try {
-                    // Navigate to IndtAtFragment via MainActivity
+                    // Navigate to IndodiausFragment via MainActivity
                     val mainActivity = activity as? MainActivity
                     if (mainActivity != null && isAdded && !isDetached) {
-                        mainActivity.navigateToFragment(IndtAtFragment(), "Anderson - Tendulkar Trophy")
+                        mainActivity.navigateToFragment(IndodiausFragment(), "India vs Australia ODI Series")
                     }
                 } catch (e: Exception) {
                     e.printStackTrace()

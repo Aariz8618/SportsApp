@@ -1,6 +1,7 @@
 package com.aariz.sportsapp
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,7 +17,7 @@ class GalleryFragment : Fragment() {
     private lateinit var formatHeader: TextView
     private lateinit var teamsDropdown: LinearLayout
     private lateinit var formatDropdown: LinearLayout
-    
+
     // Track current selections
     private var selectedTeam: String? = null
     private var selectedFormat: String? = null
@@ -27,10 +28,10 @@ class GalleryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_gallery, container, false)
-        
+
         initViews(view)
         setupClickListeners(view)
-        
+
         return view
     }
 
@@ -44,7 +45,7 @@ class GalleryFragment : Fragment() {
             formatDropdown = view.findViewById(R.id.ll_format_dropdown)
         } catch (e: Exception) {
             e.printStackTrace()
-            // Log which views couldn't be found
+            Log.e("GalleryFragment", "Error initializing views", e)
         }
     }
 
@@ -111,18 +112,40 @@ class GalleryFragment : Fragment() {
         selectedFormat = format
         checkForNavigation()
     }
-    
+
     private fun checkForNavigation() {
-        // Add null safety checks
+        Log.d("GalleryFragment", "checkForNavigation: team=$selectedTeam, format=$selectedFormat")
+
+        // Navigation for India - Test
         if (selectedTeam == "India" && selectedFormat == "Test") {
+            Log.d("GalleryFragment", "Navigating to IndTestFragment")
             try {
-                // Navigate to IndTestFragment via MainActivity
                 val mainActivity = activity as? MainActivity
                 if (mainActivity != null && isAdded && !isDetached) {
+                    Log.d("GalleryFragment", "Calling navigateToFragment with IndTestFragment")
                     mainActivity.navigateToFragment(IndTestFragment(), "India - Test Matches")
+                } else {
+                    Log.e("GalleryFragment", "MainActivity is null or fragment not properly attached")
                 }
             } catch (e: Exception) {
-                // Log error but don't crash
+                Log.e("GalleryFragment", "Error navigating to IndTestFragment", e)
+                e.printStackTrace()
+            }
+        }
+
+        // Navigation for India - ODI
+        if (selectedTeam == "India" && selectedFormat == "ODI") {
+            Log.d("GalleryFragment", "Navigating to IndodiFragment")
+            try {
+                val mainActivity = activity as? MainActivity
+                if (mainActivity != null && isAdded && !isDetached) {
+                    Log.d("GalleryFragment", "Calling navigateToFragment with IndodiFragment")
+                    mainActivity.navigateToFragment(IndodiFragment(), "India - ODI Matches")
+                } else {
+                    Log.e("GalleryFragment", "MainActivity is null or fragment not properly attached")
+                }
+            } catch (e: Exception) {
+                Log.e("GalleryFragment", "Error navigating to IndodiFragment", e)
                 e.printStackTrace()
             }
         }
