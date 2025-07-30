@@ -1,7 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.SportsApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
+    <!-- Base application theme for DARK mode -->
+    <style name="Base.Theme.SportsApp" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Customize your dark theme here -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <!-- <item name="colorOnPrimary">@color/my_dark_on_primary</item> -->
     </style>
 </resources>

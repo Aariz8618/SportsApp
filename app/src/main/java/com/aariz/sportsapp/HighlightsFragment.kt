@@ -24,8 +24,6 @@ class HighlightsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Fragment content setup can go here
-        // Back navigation is now handled by the main header
     }
 
     override fun onDestroyView() {
