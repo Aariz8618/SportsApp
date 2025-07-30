@@ -674,9 +674,9 @@
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:src="@drawable/img_20"
+                        android:src="@android:drawable/ic_menu_info_details"
                         android:layout_marginEnd="16dp"
-                        app:tint="@null"
+                        app:tint="@color/text_primary"
                         android:contentDescription="Umpires" />
 
                     <TextView
@@ -920,11 +920,11 @@
                     android:background="?android:attr/selectableItemBackground">
 
                     <ImageView
-                        android:layout_width="27dp"
-                        android:layout_height="27dp"
-                        android:src="@drawable/img_21"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@android:drawable/ic_menu_report_image"
                         android:layout_marginEnd="16dp"
-                        app:tint="@null"
+                        app:tint="@color/text_primary"
                         android:contentDescription="Report Issue Icon" />
 
                     <TextView

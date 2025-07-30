@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_dark">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Player Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                app:cardCornerRadius="40dp"
+                app:cardElevation="4dp">
+
+                <ImageView
+                    android:id="@+id/iv_player_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_team_placeholder"
+                    android:contentDescription="Player Photo" />
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_player_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_white"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    tools:text="Virat Kohli" />
+
+                <TextView
+                    android:id="@+id/tv_player_country"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="16sp"
+                    tools:text="India" />
+
+                <TextView
+                    android:id="@+id/tv_player_position"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp"
+                    tools:text="Batsman" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Personal Details -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Personal Information"
+            android:textColor="@color/text_white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:stretchColumns="1">
+
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="First Name:"
+                    android:textColor="@color/text_secondary"
+                    android:paddingEnd="8dp" />
+                <TextView
+                    android:id="@+id/tv_player_first_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_white"
+                    tools:text="Virat" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Last Name:"
+                    android:textColor="@color/text_secondary"
+                    android:paddingEnd="8dp" />
+                <TextView
+                    android:id="@+id/tv_player_last_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_white"
+                    tools:text="Kohli" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Date of Birth:"
+                    android:textColor="@color/text_secondary"
+                    android:paddingEnd="8dp" />
+                <TextView
+                    android:id="@+id/tv_player_dob"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_white"
+                    tools:text="5 November 1988" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gender:"
+                    android:textColor="@color/text_secondary"
+                    android:paddingEnd="8dp" />
+                <TextView
+                    android:id="@+id/tv_player_gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_white"
+                    tools:text="Male" />
+            </TableRow>
+
+        </TableLayout>
+
+        <!-- Playing Style -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Playing Style"
+            android:textColor="@color/text_white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:stretchColumns="1">
+
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Batting Style:"
+                    android:textColor="@color/text_secondary"
+                    android:paddingEnd="8dp" />
+                <TextView
+                    android:id="@+id/tv_batting_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_white"
+                    tools:text="Right Handed Bat" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bowling Style:"
+                    android:textColor="@color/text_secondary"
+                    android:paddingEnd="8dp" />
+                <TextView
+                    android:id="@+id/tv_bowling_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_white"
+                    tools:text="Right Arm Medium" />
+            </TableRow>
+
+        </TableLayout>
+
+        <!-- Career Statistics -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Career Statistics"
+            android:textColor="@color/text_white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/layout_career_stats"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp">
+
+            <!-- Batting Stats -->
+            <LinearLayout
+                android:id="@+id/layout_batting_stats"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Batting Career"
+                    android:textColor="@color/text_white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:stretchColumns="1">
+
+                    <TableRow>
+                        <TextView android:text="Matches:" android:textColor="@color/text_secondary" android:paddingEnd="8dp" />
+                        <TextView android:id="@+id/tv_matches" android:textColor="@color/text_white" tools:text="279" />
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="Innings:" android:textColor="@color/text_secondary" android:paddingEnd="8dp" />
+                        <TextView android:id="@+id/tv_innings" android:textColor="@color/text_white" tools:text="267" />
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="Runs Scored:" android:textColor="@color/text_secondary" android:paddingEnd="8dp" />
+                        <TextView android:id="@+id/tv_runs_scored" android:textColor="@color/text_white" tools:text="12898" />
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="Not Outs:" android:textColor="@color/text_secondary" android:paddingEnd="8dp" />
+                        <TextView android:id="@+id/tv_not_outs" android:textColor="@color/text_white" tools:text="39" />
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="Highest Score:" android:textColor="@color/text_secondary" android:paddingEnd="8dp" />
+                        <TextView android:id="@+id/tv_highest_score" android:textColor="@color/text_white" tools:text="183" />
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="Average:" android:textColor="@color/text_secondary" android:paddingEnd="8dp" />
+                        <TextView android:id="@+id/tv_batting_average" android:textColor="@color/text_white" tools:text="57.32" />
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="Strike Rate:" android:textColor="@color/text_secondary" android:paddingEnd="8dp" />
+                        <TextView android:id="@+id/tv_strike_rate" android:textColor="@color/text_white" tools:text="93.62" />
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="Balls Faced:" android:textColor="@color/text_secondary" android:paddingEnd="8dp" />
+                        <TextView android:id="@+id/tv_balls_faced" android:textColor="@color/text_white" tools:text="13777" />
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="Fours:" android:textColor="@color/text_secondary" android:paddingEnd="8dp" />
+                        <TextView android:id="@+id/tv_fours" android:textColor="@color/text_white" tools:text="1211" />
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="Sixes:" android:textColor="@color/text_secondary" android:paddingEnd="8dp" />
+                        <TextView android:id="@+id/tv_sixes" android:textColor="@color/text_white" tools:text="137" />
+                    </TableRow>
+                </TableLayout>
+
+            </LinearLayout>
+
+            <!-- Bowling Stats -->
+            <LinearLayout
+                android:id="@+id/layout_bowling_stats"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bowling Career"
+                    android:textColor="@color/text_white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:stretchColumns="1">
+
+                    <TableRow>
+                        <TextView android:text="Matches:" android:textColor="@color/text_secondary" android:paddingEnd="8dp" />
+                        <TextView android:id="@+id/tv_bowling_matches" android:textColor="@color/text_white" tools:text="279" />
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="Innings:" android:textColor="@color/text_secondary" android:paddingEnd="8dp" />
+                        <TextView android:id="@+id/tv_bowling_innings" android:textColor="@color/text_white" tools:text="48" />
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="Overs:" android:textColor="@color/text_secondary" android:paddingEnd="8dp" />
+                        <TextView android:id="@+id/tv_overs" android:textColor="@color/text_white" tools:text="166.2" />
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="Maidens:" android:textColor="@color/text_secondary" android:paddingEnd="8dp" />
+                        <TextView android:id="@+id/tv_maidens" android:textColor="@color/text_white" tools:text="2" />
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="Runs Conceded:" android:textColor="@color/text_secondary" android:paddingEnd="8dp" />
+                        <TextView android:id="@+id/tv_runs_conceded" android:textColor="@color/text_white" tools:text="665" />
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="Wickets:" android:textColor="@color/text_secondary" android:paddingEnd="8dp" />
+                        <TextView android:id="@+id/tv_wickets" android:textColor="@color/text_white" tools:text="4" />
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="Average:" android:textColor="@color/text_secondary" android:paddingEnd="8dp" />
+                        <TextView android:id="@+id/tv_bowling_average" android:textColor="@color/text_white" tools:text="166.25" />
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="Economy Rate:" android:textColor="@color/text_secondary" android:paddingEnd="8dp" />
+                        <TextView android:id="@+id/tv_economy_rate" android:textColor="@color/text_white" tools:text="6.22" />
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="Strike Rate:" android:textColor="@color/text_secondary" android:paddingEnd="8dp" />
+                        <TextView android:id="@+id/tv_bowling_strike_rate" android:textColor="@color/text_white" tools:text="160.5" />
+                    </TableRow>
+                </TableLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_no_stats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="No career statistics available for this player."
+            android:textColor="@color/text_secondary"
+            android:textSize="16sp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+</ScrollView>

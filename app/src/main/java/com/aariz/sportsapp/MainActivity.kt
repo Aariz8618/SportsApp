@@ -53,9 +53,9 @@ class MainActivity : AppCompatActivity() {
             navigateToFragment(RankingsFragment(), "Team Rankings")
         }
 
-        // More navigation - with header
+        // Schedule navigation - with header
         binding.llNavMore.setOnClickListener {
-            navigateToFragment(MoreFragment(), "More Options")
+            navigateToFragment(ScheduleFragment(), "Match Schedule")
         }
     }
 
@@ -202,7 +202,7 @@ class MainActivity : AppCompatActivity() {
         // Browse Players
         findViewById<View>(R.id.nav_item_browse_players).setOnClickListener {
             closeNavigationDrawer()
-            // TODO: Navigate to Browse Players functionality
+            navigateToFragment(PlayersFragment(), "Browse Players")
         }
 
         // Browse Matches
@@ -394,7 +394,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun updateHeaderTitle(title: String) {
+    fun updateHeaderTitle(title: String) {
         binding.tvHeaderTitle.text = title
     }
 
