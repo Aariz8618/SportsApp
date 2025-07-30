@@ -27,8 +27,8 @@
 
             <ImageView
                 android:id="@+id/iv_hamburger_menu"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:src="@drawable/ic_menu"
                 android:clickable="true"
                 android:focusable="true"
@@ -1264,5 +1264,8 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <!-- Navigation Drawer Overlay -->
+    <include layout="@layout/nav_drawer_overlay" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

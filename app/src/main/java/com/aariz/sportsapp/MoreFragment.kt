@@ -23,6 +23,8 @@ class MoreFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // Cricket Basics and Beyond the Field sections are now in the navigation drawer
+        // No click listeners needed here anymore
     }
 
     override fun onDestroyView() {

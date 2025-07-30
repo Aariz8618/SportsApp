@@ -1,6 +1,14 @@
 package com.aariz.sportsapp
 
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
+import android.animation.ObjectAnimator
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.view.View
+import android.widget.EditText
+import android.widget.ImageView
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -11,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private var currentFragment: Fragment? = null
     private var isOnHomeScreen = true
+    private var isDrawerOpen = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         setupViewMoreClickListeners()
         setupBackPressHandler()
         setupHeaderNavigation()
+        setupNavigationDrawer()
     }
 
     private fun setupBottomNavigation() {
@@ -117,13 +127,20 @@ class MainActivity : AppCompatActivity() {
     private fun setupBackPressHandler() {
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                // If not on home screen, go back to home
-                if (!isOnHomeScreen) {
-                    showHomeScreen()
-                } else {
+                when {
+                    // If drawer is open, close it first
+                    isDrawerOpen -> {
+                        closeNavigationDrawer()
+                    }
+                    // If not on home screen, go back to home
+                    !isOnHomeScreen -> {
+                        showHomeScreen()
+                    }
                     // Let the system handle the back press (exit app)
-                    isEnabled = false
-                    onBackPressedDispatcher.onBackPressed()
+                    else -> {
+                        isEnabled = false
+                        onBackPressedDispatcher.onBackPressed()
+                    }
                 }
             }
         })
@@ -136,8 +153,235 @@ class MainActivity : AppCompatActivity() {
                 showHomeScreen()
             } else {
                 // If we're on home screen, act as hamburger menu
+                if (isDrawerOpen) {
+                    closeNavigationDrawer()
+                } else {
+                    openNavigationDrawer()
+                }
             }
         }
+    }
+
+    private fun setupNavigationDrawer() {
+        // Get navigation drawer overlay view
+        val navDrawerOverlay = findViewById<View>(R.id.nav_drawer_overlay)
+        val navDrawerContent = findViewById<View>(R.id.nav_drawer_content)
+        val navDrawerBackground = findViewById<View>(R.id.nav_drawer_background)
+
+        // Wait for layout to be complete before setting initial position
+        navDrawerContent.post {
+            // Initially set drawer content off screen (to the left)
+            navDrawerContent.translationX = -navDrawerContent.width.toFloat()
+        }
+
+        // Close drawer when clicking on the background overlay
+        navDrawerBackground.setOnClickListener {
+            closeNavigationDrawer()
+        }
+
+        // Setup navigation item click listeners
+        setupDrawerNavigationItems()
+        setupExpandableSections()
+        setupSearchFunctionality()
+    }
+
+    private fun setupDrawerNavigationItems() {
+
+        // Search Bar
+        findViewById<View>(R.id.nav_item_search_bar).setOnClickListener {
+            closeNavigationDrawer()
+            // TODO: Navigate to Search functionality
+        }
+
+        // Player Comparison
+        findViewById<View>(R.id.nav_item_player_comparison).setOnClickListener {
+            closeNavigationDrawer()
+            // TODO: Navigate to Player Comparison functionality
+        }
+
+        // Browse Players
+        findViewById<View>(R.id.nav_item_browse_players).setOnClickListener {
+            closeNavigationDrawer()
+            // TODO: Navigate to Browse Players functionality
+        }
+
+        // Browse Matches
+        findViewById<View>(R.id.nav_item_browse_matches).setOnClickListener {
+            closeNavigationDrawer()
+            // TODO: Navigate to Browse Matches functionality
+        }
+
+        // Teams
+        findViewById<View>(R.id.nav_item_teams).setOnClickListener {
+            closeNavigationDrawer()
+            // TODO: Navigate to Teams functionality
+        }
+
+        // Cricket Basics - History of cricket
+        findViewById<View>(R.id.nav_item_history_of_cricket).setOnClickListener {
+            closeNavigationDrawer()
+            // TODO: Navigate to History of cricket
+        }
+
+        // Cricket Basics - Rules of the game
+        findViewById<View>(R.id.nav_item_rules_of_the_game).setOnClickListener {
+            closeNavigationDrawer()
+            // TODO: Navigate to Rules of the game
+        }
+
+        // Cricket Basics - Player roles
+        findViewById<View>(R.id.nav_item_player_roles).setOnClickListener {
+            closeNavigationDrawer()
+            // TODO: Navigate to Player roles
+        }
+
+        // Cricket Basics - Match formats
+        findViewById<View>(R.id.nav_item_match_formats).setOnClickListener {
+            closeNavigationDrawer()
+            // TODO: Navigate to Match formats
+        }
+
+        // Cricket Basics - Scoring & terms
+        findViewById<View>(R.id.nav_item_scoring_terms).setOnClickListener {
+            closeNavigationDrawer()
+            // TODO: Navigate to Scoring & terms
+        }
+
+        // Cricket Basics - Fielding positions
+        findViewById<View>(R.id.nav_item_fielding_positions).setOnClickListener {
+            closeNavigationDrawer()
+            // TODO: Navigate to Fielding positions
+        }
+
+        // Cricket Basics - Strategy and tactics
+        findViewById<View>(R.id.nav_item_strategy_tactics).setOnClickListener {
+            closeNavigationDrawer()
+            // TODO: Navigate to Strategy and tactics
+        }
+
+        // Cricket Basics - Tournaments and leagues
+        findViewById<View>(R.id.nav_item_tournaments_leagues).setOnClickListener {
+            closeNavigationDrawer()
+            // TODO: Navigate to Tournaments and leagues
+        }
+
+        // Cricket Basics - How rankings work
+        findViewById<View>(R.id.nav_item_how_rankings_work).setOnClickListener {
+            closeNavigationDrawer()
+            // TODO: Navigate to How rankings work
+        }
+
+        // Beyond the Field - Grounds
+        findViewById<View>(R.id.nav_item_grounds).setOnClickListener {
+            closeNavigationDrawer()
+            // TODO: Navigate to Grounds
+        }
+
+        // Beyond the Field - Umpires
+        findViewById<View>(R.id.nav_item_umpires).setOnClickListener {
+            closeNavigationDrawer()
+            // TODO: Navigate to Umpires
+        }
+
+        // Beyond the Field - Commentators
+        findViewById<View>(R.id.nav_item_commentators).setOnClickListener {
+            closeNavigationDrawer()
+            // TODO: Navigate to Commentators
+        }
+
+        // Beyond the Field - Experts
+        findViewById<View>(R.id.nav_item_experts).setOnClickListener {
+            closeNavigationDrawer()
+            // TODO: Navigate to Experts
+        }
+
+        // Settings
+        findViewById<View>(R.id.nav_item_settings).setOnClickListener {
+            closeNavigationDrawer()
+            // TODO: Navigate to Settings
+        }
+
+        // About
+        findViewById<View>(R.id.nav_item_about).setOnClickListener {
+            closeNavigationDrawer()
+            // TODO: Navigate to About
+        }
+
+        // Help and Support
+        findViewById<View>(R.id.nav_item_help_support).setOnClickListener {
+            closeNavigationDrawer()
+            // TODO: Navigate to Help and Support
+        }
+
+        // Privacy Policy
+        findViewById<View>(R.id.nav_item_privacy_policy).setOnClickListener {
+            closeNavigationDrawer()
+            // TODO: Navigate to Privacy Policy
+        }
+
+        // Terms of Service
+        findViewById<View>(R.id.nav_item_terms_service).setOnClickListener {
+            closeNavigationDrawer()
+            // TODO: Navigate to Terms of Service
+        }
+
+        // Report Issue
+        findViewById<View>(R.id.nav_item_report_issue).setOnClickListener {
+            closeNavigationDrawer()
+            // TODO: Navigate to Report Issue
+        }
+
+        // Feedback
+        findViewById<View>(R.id.nav_item_feedback).setOnClickListener {
+            closeNavigationDrawer()
+            // TODO: Navigate to Feedback
+        }
+    }
+
+    private fun openNavigationDrawer() {
+        if (isDrawerOpen) return
+
+        isDrawerOpen = true
+        val navDrawerOverlay = findViewById<View>(R.id.nav_drawer_overlay)
+        val navDrawerContent = findViewById<View>(R.id.nav_drawer_content)
+
+        // Show the overlay
+        navDrawerOverlay.visibility = View.VISIBLE
+
+        // Animate the drawer sliding in from the left
+        val slideInAnimator = ObjectAnimator.ofFloat(navDrawerContent, "translationX", -navDrawerContent.width.toFloat(), 0f)
+        slideInAnimator.duration = 300
+        slideInAnimator.start()
+
+        // Animate the overlay fade in
+        val fadeInAnimator = ObjectAnimator.ofFloat(navDrawerOverlay, "alpha", 0f, 1f)
+        fadeInAnimator.duration = 300
+        fadeInAnimator.start()
+    }
+
+    private fun closeNavigationDrawer() {
+        if (!isDrawerOpen) return
+
+        isDrawerOpen = false
+        val navDrawerOverlay = findViewById<View>(R.id.nav_drawer_overlay)
+        val navDrawerContent = findViewById<View>(R.id.nav_drawer_content)
+
+        // Animate the drawer sliding out to the left
+        val slideOutAnimator = ObjectAnimator.ofFloat(navDrawerContent, "translationX", 0f, -navDrawerContent.width.toFloat())
+        slideOutAnimator.duration = 300
+
+        // Animate the overlay fade out
+        val fadeOutAnimator = ObjectAnimator.ofFloat(navDrawerOverlay, "alpha", 1f, 0f)
+        fadeOutAnimator.duration = 300
+
+        fadeOutAnimator.addListener(object : AnimatorListenerAdapter() {
+            override fun onAnimationEnd(animation: Animator) {
+                navDrawerOverlay.visibility = View.GONE
+            }
+        })
+
+        slideOutAnimator.start()
+        fadeOutAnimator.start()
     }
 
     private fun updateHeaderIcon(showBackArrow: Boolean) {
@@ -152,5 +396,182 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateHeaderTitle(title: String) {
         binding.tvHeaderTitle.text = title
+    }
+
+    private fun setupExpandableSections() {
+        // Cricket Basics expandable section
+        findViewById<View>(R.id.nav_item_cricket_basics).setOnClickListener {
+            val cricketBasicsContainer = findViewById<View>(R.id.cricket_basics_container)
+            val cricketBasicsArrow = findViewById<ImageView>(R.id.iv_cricket_basics_arrow)
+            toggleExpandCollapse(cricketBasicsContainer, cricketBasicsArrow)
+        }
+
+        // Beyond the Field expandable section
+        findViewById<View>(R.id.nav_item_beyond_field).setOnClickListener {
+            val beyondFieldContainer = findViewById<View>(R.id.beyond_field_container)
+            val beyondFieldArrow = findViewById<ImageView>(R.id.iv_beyond_field_arrow)
+            toggleExpandCollapse(beyondFieldContainer, beyondFieldArrow)
+        }
+    }
+
+    private fun toggleExpandCollapse(view: View, arrow: ImageView) {
+        if (view.visibility == View.GONE) {
+            // Expand with slide down animation
+            view.visibility = View.VISIBLE
+            val slideDown = ObjectAnimator.ofFloat(view, "alpha", 0f, 1f)
+            slideDown.duration = 200
+            slideDown.start()
+            
+            // Rotate arrow to point up
+            val rotateArrow = ObjectAnimator.ofFloat(arrow, "rotation", 0f, 180f)
+            rotateArrow.duration = 200
+            rotateArrow.start()
+        } else {
+            // Collapse with slide up animation
+            val slideUp = ObjectAnimator.ofFloat(view, "alpha", 1f, 0f)
+            slideUp.duration = 200
+            slideUp.addListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator) {
+                    view.visibility = View.GONE
+                }
+            })
+            slideUp.start()
+            
+            // Rotate arrow to point down
+            val rotateArrow = ObjectAnimator.ofFloat(arrow, "rotation", 180f, 0f)
+            rotateArrow.duration = 200
+            rotateArrow.start()
+        }
+    }
+
+    private fun setupSearchFunctionality() {
+        val searchEditText = findViewById<EditText>(R.id.et_nav_search)
+        val clearSearchButton = findViewById<ImageView>(R.id.iv_clear_search)
+
+        // Define all searchable navigation items
+        val navItems = mapOf(
+            "player comparison" to findViewById<View>(R.id.nav_item_player_comparison),
+            "browse players" to findViewById<View>(R.id.nav_item_browse_players),
+            "browse matches" to findViewById<View>(R.id.nav_item_browse_matches),
+            "teams" to findViewById<View>(R.id.nav_item_teams),
+            "cricket basics" to findViewById<View>(R.id.nav_item_cricket_basics),
+            "history of cricket" to findViewById<View>(R.id.nav_item_history_of_cricket),
+            "rules of the game" to findViewById<View>(R.id.nav_item_rules_of_the_game),
+            "player roles" to findViewById<View>(R.id.nav_item_player_roles),
+            "match formats" to findViewById<View>(R.id.nav_item_match_formats),
+            "scoring terms" to findViewById<View>(R.id.nav_item_scoring_terms),
+            "fielding positions" to findViewById<View>(R.id.nav_item_fielding_positions),
+            "strategy tactics" to findViewById<View>(R.id.nav_item_strategy_tactics),
+            "tournaments leagues" to findViewById<View>(R.id.nav_item_tournaments_leagues),
+            "rankings work" to findViewById<View>(R.id.nav_item_how_rankings_work),
+            "beyond field" to findViewById<View>(R.id.nav_item_beyond_field),
+            "inside cricket" to findViewById<View>(R.id.nav_item_beyond_field),
+            "grounds" to findViewById<View>(R.id.nav_item_grounds),
+            "umpires" to findViewById<View>(R.id.nav_item_umpires),
+            "commentators" to findViewById<View>(R.id.nav_item_commentators),
+            "experts" to findViewById<View>(R.id.nav_item_experts),
+            "settings" to findViewById<View>(R.id.nav_item_settings),
+            "about" to findViewById<View>(R.id.nav_item_about),
+            "help support" to findViewById<View>(R.id.nav_item_help_support),
+            "privacy policy" to findViewById<View>(R.id.nav_item_privacy_policy),
+            "terms service" to findViewById<View>(R.id.nav_item_terms_service),
+            "report issue" to findViewById<View>(R.id.nav_item_report_issue),
+            "feedback" to findViewById<View>(R.id.nav_item_feedback)
+        )
+
+        val expandableContainers = mapOf(
+            "cricket basics" to findViewById<View>(R.id.cricket_basics_container),
+            "beyond field" to findViewById<View>(R.id.beyond_field_container)
+        )
+
+        searchEditText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                val query = s.toString().lowercase().trim()
+                
+                // Show/hide clear button
+                clearSearchButton.visibility = if (query.isNotEmpty()) View.VISIBLE else View.GONE
+                
+                if (query.isEmpty()) {
+                    // Show all items when search is empty
+                    showAllNavItems(navItems, expandableContainers)
+                } else {
+                    // Filter items based on search query
+                    filterNavItems(query, navItems, expandableContainers)
+                }
+            }
+            
+            override fun afterTextChanged(s: Editable?) {}
+        })
+
+        // Clear search functionality
+        clearSearchButton.setOnClickListener {
+            searchEditText.text.clear()
+            searchEditText.clearFocus()
+        }
+    }
+
+    private fun showAllNavItems(navItems: Map<String, View>, expandableContainers: Map<String, View>) {
+        // Show all navigation items
+        navItems.values.forEach { it.visibility = View.VISIBLE }
+        
+        // Hide expandable containers (collapsed state)
+        expandableContainers.values.forEach { it.visibility = View.GONE }
+        
+        // Reset arrow rotations
+        findViewById<ImageView>(R.id.iv_cricket_basics_arrow).rotation = 0f
+        findViewById<ImageView>(R.id.iv_beyond_field_arrow).rotation = 0f
+    }
+
+    private fun filterNavItems(query: String, navItems: Map<String, View>, expandableContainers: Map<String, View>) {
+        var hasVisibleItems = false
+        var shouldExpandCricketBasics = false
+        var shouldExpandBeyondField = false
+        
+        navItems.forEach { (itemName, itemView) ->
+            val isVisible = itemName.contains(query)
+            itemView.visibility = if (isVisible) View.VISIBLE else View.GONE
+            
+            if (isVisible) {
+                hasVisibleItems = true
+                
+                // Check if we need to expand containers
+                when {
+                    itemName in listOf("history of cricket", "rules of the game", "player roles", 
+                                      "match formats", "scoring terms", "fielding positions", 
+                                      "strategy tactics", "tournaments leagues", "rankings work") -> {
+                        shouldExpandCricketBasics = true
+                    }
+                    itemName in listOf("grounds", "umpires", "commentators", "experts") -> {
+                        shouldExpandBeyondField = true
+                    }
+                }
+            }
+        }
+        
+        // Handle expandable containers
+        val cricketBasicsContainer = expandableContainers["cricket basics"]
+        val beyondFieldContainer = expandableContainers["beyond field"]
+        val cricketBasicsArrow = findViewById<ImageView>(R.id.iv_cricket_basics_arrow)
+        val beyondFieldArrow = findViewById<ImageView>(R.id.iv_beyond_field_arrow)
+        
+        // Show/hide and expand/collapse Cricket Basics
+        if (shouldExpandCricketBasics) {
+            cricketBasicsContainer?.visibility = View.VISIBLE
+            cricketBasicsArrow.rotation = 180f
+        } else {
+            cricketBasicsContainer?.visibility = View.GONE
+            cricketBasicsArrow.rotation = 0f
+        }
+        
+        // Show/hide and expand/collapse Beyond Field
+        if (shouldExpandBeyondField) {
+            beyondFieldContainer?.visibility = View.VISIBLE
+            beyondFieldArrow.rotation = 180f
+        } else {
+            beyondFieldContainer?.visibility = View.GONE
+            beyondFieldArrow.rotation = 0f
+        }
     }
 }
