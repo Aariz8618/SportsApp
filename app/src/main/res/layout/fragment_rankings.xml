@@ -1,441 +1,249 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_light"
-    tools:context=".RankingsFragment">
+    android:fillViewport="true">
 
-    <!-- Main content area -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-
-        <!-- Scrollable content area -->
-        <androidx.core.widget.NestedScrollView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
 
-            <LinearLayout
+            <!-- ODI Rankings -->
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:layout_marginBottom="16dp"
+                android:elevation="4dp">
 
-                <!-- ODI Rankings Card -->
-                <androidx.cardview.widget.CardView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    app:cardCornerRadius="12dp"
-                    app:cardElevation="6dp"
-                    app:cardBackgroundColor="@color/card_background">
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-                    <LinearLayout
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ODI Rankings"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="16dp">
+                        android:text="🥇 1. India - 122 points • 36 matches"
+                        android:textSize="16sp"
+                        android:padding="8dp" />
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="ODI Rankings"
-                            android:textSize="20sp"
-                            android:textColor="@color/text_primary"
-                            android:textStyle="bold"
-                            android:layout_marginBottom="16dp"
-                            android:gravity="center" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="🥈 2. Australia - 120 points • 34 matches"
+                        android:textSize="16sp"
+                        android:padding="8dp" />
 
-                        <!-- Ranking Item 1 -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:layout_marginBottom="12dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="🥉 3. England - 118 points • 32 matches"
+                        android:textSize="16sp"
+                        android:padding="8dp" />
 
-                            <TextView
-                                android:layout_width="30dp"
-                                android:layout_height="wrap_content"
-                                android:text="1"
-                                android:textSize="18sp"
-                                android:textColor="@color/text_primary"
-                                android:textStyle="bold"
-                                android:gravity="center" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="🏏 4. South Africa - 111 points • 26 matches"
+                        android:textSize="16sp"
+                        android:padding="8dp" />
 
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="🇮🇳 India"
-                                android:textSize="16sp"
-                                android:textColor="@color/text_primary"
-                                android:layout_marginStart="16dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="🏏 5. New Zealand - 106 points • 28 matches"
+                        android:textSize="16sp"
+                        android:padding="8dp" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="125 pts"
-                                android:textSize="14sp"
-                                android:textColor="@color/text_secondary" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="🏏 6. Pakistan - 94 points • 25 matches"
+                        android:textSize="16sp"
+                        android:padding="8dp" />
 
-                        </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="🏏 7. Bangladesh - 89 points • 24 matches"
+                        android:textSize="16sp"
+                        android:padding="8dp" />
 
-                        <!-- Ranking Item 2 -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:layout_marginBottom="12dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="🏏 8. Afghanistan - 81 points • 21 matches"
+                        android:textSize="16sp"
+                        android:padding="8dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-                            <TextView
-                                android:layout_width="30dp"
-                                android:layout_height="wrap_content"
-                                android:text="2"
-                                android:textSize="18sp"
-                                android:textColor="@color/text_primary"
-                                android:textStyle="bold"
-                                android:gravity="center" />
+            <!-- Test Rankings -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:elevation="4dp">
 
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="🇦🇺 Australia"
-                                android:textSize="16sp"
-                                android:textColor="@color/text_primary"
-                                android:layout_marginStart="16dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="118 pts"
-                                android:textSize="14sp"
-                                android:textColor="@color/text_secondary" />
-
-                        </LinearLayout>
-
-                        <!-- Ranking Item 3 -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:layout_marginBottom="12dp">
-
-                            <TextView
-                                android:layout_width="30dp"
-                                android:layout_height="wrap_content"
-                                android:text="3"
-                                android:textSize="18sp"
-                                android:textColor="@color/text_primary"
-                                android:textStyle="bold"
-                                android:gravity="center" />
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="🏴󠁧󠁢󠁥󠁮󠁧󠁿 England"
-                                android:textSize="16sp"
-                                android:textColor="@color/text_primary"
-                                android:layout_marginStart="16dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="110 pts"
-                                android:textSize="14sp"
-                                android:textColor="@color/text_secondary" />
-
-                        </LinearLayout>
-
-                        <!-- Ranking Item 4 -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:layout_marginBottom="12dp">
-
-                            <TextView
-                                android:layout_width="30dp"
-                                android:layout_height="wrap_content"
-                                android:text="4"
-                                android:textSize="18sp"
-                                android:textColor="@color/text_primary"
-                                android:textStyle="bold"
-                                android:gravity="center" />
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="🇳🇿 New Zealand"
-                                android:textSize="16sp"
-                                android:textColor="@color/text_primary"
-                                android:layout_marginStart="16dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="108 pts"
-                                android:textSize="14sp"
-                                android:textColor="@color/text_secondary" />
-
-                        </LinearLayout>
-
-                        <!-- Ranking Item 5 -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical">
-
-                            <TextView
-                                android:layout_width="30dp"
-                                android:layout_height="wrap_content"
-                                android:text="5"
-                                android:textSize="18sp"
-                                android:textColor="@color/text_primary"
-                                android:textStyle="bold"
-                                android:gravity="center" />
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="🇵🇰 Pakistan"
-                                android:textSize="16sp"
-                                android:textColor="@color/text_primary"
-                                android:layout_marginStart="16dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="95 pts"
-                                android:textSize="14sp"
-                                android:textColor="@color/text_secondary" />
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <!-- Test Rankings Card -->
-                <androidx.cardview.widget.CardView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    app:cardCornerRadius="12dp"
-                    app:cardElevation="6dp"
-                    app:cardBackgroundColor="@color/card_background">
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-                    <LinearLayout
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Test Rankings"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="16dp">
+                        android:text="🥇 1. India - 126 points • 40 matches"
+                        android:textSize="16sp"
+                        android:padding="8dp" />
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Test Rankings"
-                            android:textSize="20sp"
-                            android:textColor="@color/text_primary"
-                            android:textStyle="bold"
-                            android:layout_marginBottom="16dp"
-                            android:gravity="center" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="🥈 2. New Zealand - 123 points • 38 matches"
+                        android:textSize="16sp"
+                        android:padding="8dp" />
 
-                        <!-- Ranking Item 1 -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:layout_marginBottom="12dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="🥉 3. Australia - 120 points • 35 matches"
+                        android:textSize="16sp"
+                        android:padding="8dp" />
 
-                            <TextView
-                                android:layout_width="30dp"
-                                android:layout_height="wrap_content"
-                                android:text="1"
-                                android:textSize="18sp"
-                                android:textColor="@color/text_primary"
-                                android:textStyle="bold"
-                                android:gravity="center" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="🏏 4. England - 109 points • 22 matches"
+                        android:textSize="16sp"
+                        android:padding="8dp" />
 
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="🇦🇺 Australia"
-                                android:textSize="16sp"
-                                android:textColor="@color/text_primary"
-                                android:layout_marginStart="16dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="🏏 5. South Africa - 105 points • 16 matches"
+                        android:textSize="16sp"
+                        android:padding="8dp" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="125 pts"
-                                android:textSize="14sp"
-                                android:textColor="@color/text_secondary" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="🏏 6. Pakistan - 89 points • 17 matches"
+                        android:textSize="16sp"
+                        android:padding="8dp" />
 
-                        </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="🏏 7. Sri Lanka - 78 points • 13 matches"
+                        android:textSize="16sp"
+                        android:padding="8dp" />
 
-                        <!-- Ranking Item 2 -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:layout_marginBottom="12dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="🏏 8. West Indies - 72 points • 19 matches"
+                        android:textSize="16sp"
+                        android:padding="8dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-                            <TextView
-                                android:layout_width="30dp"
-                                android:layout_height="wrap_content"
-                                android:text="2"
-                                android:textSize="18sp"
-                                android:textColor="@color/text_primary"
-                                android:textStyle="bold"
-                                android:gravity="center" />
+            <!-- T20I Rankings -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:elevation="4dp">
 
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="🇿🇦 South Africa"
-                                android:textSize="16sp"
-                                android:textColor="@color/text_primary"
-                                android:layout_marginStart="16dp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="118 pts"
-                                android:textSize="14sp"
-                                android:textColor="@color/text_secondary" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="T20I Rankings"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
-                        </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="🥇 1. Pakistan - 280 points • 45 matches"
+                        android:textSize="16sp"
+                        android:padding="8dp" />
 
-                        <!-- Ranking Item 3 -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:layout_marginBottom="12dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="🥈 2. England - 275 points • 44 matches"
+                        android:textSize="16sp"
+                        android:padding="8dp" />
 
-                            <TextView
-                                android:layout_width="30dp"
-                                android:layout_height="wrap_content"
-                                android:text="3"
-                                android:textSize="18sp"
-                                android:textColor="@color/text_primary"
-                                android:textStyle="bold"
-                                android:gravity="center" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="🥉 3. South Africa - 272 points • 42 matches"
+                        android:textSize="16sp"
+                        android:padding="8dp" />
 
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="🏴󠁧󠁢󠁥󠁮󠁧󠁿 England"
-                                android:textSize="16sp"
-                                android:textColor="@color/text_primary"
-                                android:layout_marginStart="16dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="🏏 4. India - 267 points • 39 matches"
+                        android:textSize="16sp"
+                        android:padding="8dp" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="110 pts"
-                                android:textSize="14sp"
-                                android:textColor="@color/text_secondary" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="🏏 5. Australia - 263 points • 38 matches"
+                        android:textSize="16sp"
+                        android:padding="8dp" />
 
-                        </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="🏏 6. New Zealand - 241 points • 36 matches"
+                        android:textSize="16sp"
+                        android:padding="8dp" />
 
-                        <!-- Ranking Item 4 -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:layout_marginBottom="12dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="🏏 7. West Indies - 229 points • 41 matches"
+                        android:textSize="16sp"
+                        android:padding="8dp" />
 
-                            <TextView
-                                android:layout_width="30dp"
-                                android:layout_height="wrap_content"
-                                android:text="4"
-                                android:textSize="18sp"
-                                android:textColor="@color/text_primary"
-                                android:textStyle="bold"
-                                android:gravity="center" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="🏏 8. Bangladesh - 203 points • 37 matches"
+                        android:textSize="16sp"
+                        android:padding="8dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="🇮🇳 India"
-                                android:textSize="16sp"
-                                android:textColor="@color/text_primary"
-                                android:layout_marginStart="16dp" />
+        </LinearLayout>
+</androidx.core.widget.NestedScrollView>
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="108 pts"
-                                android:textSize="14sp"
-                                android:textColor="@color/text_secondary" />
-
-                        </LinearLayout>
-
-                        <!-- Ranking Item 5 -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical">
-
-                            <TextView
-                                android:layout_width="30dp"
-                                android:layout_height="wrap_content"
-                                android:text="5"
-                                android:textSize="18sp"
-                                android:textColor="@color/text_primary"
-                                android:textStyle="bold"
-                                android:gravity="center" />
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="🇳🇿 New Zealand"
-                                android:textSize="16sp"
-                                android:textColor="@color/text_primary"
-                                android:layout_marginStart="16dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="95 pts"
-                                android:textSize="14sp"
-                                android:textColor="@color/text_secondary" />
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-            </LinearLayout>
-
-        </androidx.core.widget.NestedScrollView>
-
-    </LinearLayout>
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>

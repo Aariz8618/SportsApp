@@ -11,7 +11,8 @@ class RankingsFragment : Fragment() {
 
     private var _binding: FragmentRankingsBinding? = null
     private val binding get() = _binding!!
-
+    
+    
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -19,11 +20,6 @@ class RankingsFragment : Fragment() {
     ): View {
         _binding = FragmentRankingsBinding.inflate(inflater, container, false)
         return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
     }
 
     override fun onDestroyView() {

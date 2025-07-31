@@ -65,8 +65,9 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <!-- Enhanced Match Card -->
+                <!-- Live Matches Section - Hard Coded Scorecards -->
                 <HorizontalScrollView
+                    android:id="@+id/hsv_live_matches"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:scrollbars="none"
@@ -74,7 +75,8 @@
                     android:fillViewport="true"
                     android:paddingStart="0dp"
                     android:paddingEnd="0dp"
-                    android:clipToPadding="false">
+                    android:clipToPadding="false"
+                    android:visibility="visible">
 
                     <LinearLayout
                         android:layout_width="wrap_content"

@@ -13,6 +13,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.aariz.sportsapp.databinding.ActivityMainBinding
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     private var currentFragment: Fragment? = null
     private var isOnHomeScreen = true
     private var isDrawerOpen = false
+    
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -97,9 +99,10 @@ class MainActivity : AppCompatActivity() {
         updateHeaderTitle("CricTech")
 
         // Clear any fragment from container
-        supportFragmentManager.fragments.forEach { fragment ->
-            supportFragmentManager.beginTransaction().remove(fragment).commit()
-        }
+        // TODO: Fix this when needed
+        // supportFragmentManager.fragments.forEach { fragment ->
+        //     supportFragmentManager.beginTransaction().remove(fragment).commit()
+        // }
     }
 
     fun navigateToFragment(fragment: Fragment, title: String = "CricTech") {
@@ -202,7 +205,7 @@ class MainActivity : AppCompatActivity() {
         // Browse Players
         findViewById<View>(R.id.nav_item_browse_players).setOnClickListener {
             closeNavigationDrawer()
-            navigateToFragment(PlayersFragment(), "Browse Players")
+            Toast.makeText(this, "Browse Players feature is unavailable.", Toast.LENGTH_SHORT).show()
         }
 
         // Browse Matches
@@ -337,6 +340,7 @@ class MainActivity : AppCompatActivity() {
             // TODO: Navigate to Feedback
         }
     }
+
 
     private fun openNavigationDrawer() {
         if (isDrawerOpen) return
