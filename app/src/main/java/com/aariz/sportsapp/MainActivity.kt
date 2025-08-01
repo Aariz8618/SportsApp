@@ -10,6 +10,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private var currentFragment: Fragment? = null
+    private var previousFragment: Fragment? = null
     private var isOnHomeScreen = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -96,6 +97,9 @@ class MainActivity : AppCompatActivity() {
         try {
             if (currentFragment?.javaClass != fragment.javaClass) {
                 isOnHomeScreen = false
+
+                // Store the previous fragment before updating current
+                previousFragment = currentFragment
                 currentFragment = fragment
 
                 // Hide home content, show fragment container
@@ -123,9 +127,8 @@ class MainActivity : AppCompatActivity() {
     private fun setupBackPressHandler() {
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                // If not on home screen, go back to home
                 if (!isOnHomeScreen) {
-                    showHomeScreen()
+                    handleBackNavigation()
                 } else {
                     // Let the system handle the back press (exit app)
                     isEnabled = false
@@ -138,10 +141,108 @@ class MainActivity : AppCompatActivity() {
     private fun setupHeaderNavigation() {
         binding.ivHamburgerMenu.setOnClickListener {
             if (!isOnHomeScreen) {
-                // If we're not on home screen, act as back button
-                showHomeScreen()
+                handleBackNavigation()
             } else {
                 // If we're on home screen, act as hamburger menu
+            }
+        }
+    }
+
+    private fun handleBackNavigation() {
+        val currentFragmentName = currentFragment?.javaClass?.simpleName ?: ""
+
+        // Level 3: Specific tournament fragments - go back to their parent Level 2 fragment
+        when {
+            // India Test tournaments → IndTestFragment
+            currentFragmentName.startsWith("Indt") && (currentFragmentName.contains("Bgt") || currentFragmentName.contains(
+                "At"
+            )) -> {
+                navigateToFragment(IndTestFragment(), "India - Test Matches")
+            }
+
+            // India ODI specific tournaments → IndodiFragment  
+            currentFragmentName == "IndodiausFragment" || currentFragmentName == "IndodiwcFragment" -> {
+                navigateToFragment(IndodiFragment(), "India - ODI Matches")
+            }
+
+            // India T20 specific tournaments → IndT20Fragment
+            currentFragmentName == "IndT2024wcFragment" || currentFragmentName == "IndNz2020Fragment" -> {
+                navigateToFragment(IndT20Fragment(), "India - T20 Matches")
+            }
+
+            // Australia Test tournaments → AusTestFragment
+            currentFragmentName == "Ashes23Fragment" || currentFragmentName == "Wtc23ausFragment" -> {
+                navigateToFragment(AusTestFragment(), "Australia - Test Matches")
+            }
+
+            // Australia ODI tournaments → AusOdiFragment
+            currentFragmentName == "Chappell2020Fragment" || currentFragmentName == "Iccwc2023Fragment" -> {
+                navigateToFragment(AusOdiFragment(), "Australia - ODI Matches")
+            }
+
+            // Australia T20 tournaments → AusT20Fragment
+            currentFragmentName == "AusEngT20Fragment" || currentFragmentName == "T20wc2021Fragment" -> {
+                navigateToFragment(AusT20Fragment(), "Australia - T20 Matches")
+            }
+
+            // New Zealand Test tournaments → NzTestFragment
+            currentFragmentName == "WhitewashFragment" || currentFragmentName == "Wtc21Fragment" -> {
+                navigateToFragment(NzTestFragment(), "New Zealand - Test Matches")
+            }
+
+            // New Zealand ODI tournaments → NzOdiFragment
+            currentFragmentName == "NzIndOdiFragment" || currentFragmentName == "NzWc15Fragment" -> {
+                navigateToFragment(NzOdiFragment(), "New Zealand - ODI Matches")
+            }
+
+            // New Zealand T20 tournaments → NzT20iFragment
+            currentFragmentName == "NzTwc21Fragment" || currentFragmentName == "NzIndT20Fragment" -> {
+                navigateToFragment(NzT20iFragment(), "New Zealand - T20 Matches")
+            }
+
+            // West Indies Test tournaments → WiTestFragment
+            currentFragmentName == "ShamarausFragment" || currentFragmentName == "Lara400Fragment" -> {
+                navigateToFragment(WiTestFragment(), "West Indies - Test Matches")
+            }
+
+            // West Indies ODI tournaments → WiOdiFragment
+            currentFragmentName == "Winz12Fragment" || currentFragmentName == "Wieng07Fragment" -> {
+                navigateToFragment(WiOdiFragment(), "West Indies - ODI Matches")
+            }
+
+            // West Indies T20 tournaments → WiT20Fragment
+            currentFragmentName == "Wiwc12Fragment" || currentFragmentName == "Wiwc16Fragment" -> {
+                navigateToFragment(WiT20Fragment(), "West Indies - T20 Matches")
+            }
+
+            // England Test tournaments → EngTestFragment
+            currentFragmentName == "EngAshesFragment" || currentFragmentName == "EngInd12Fragment" -> {
+                navigateToFragment(EngTestFragment(), "England - Test Matches")
+            }
+
+            // England ODI tournaments → EngOdiFragment
+            currentFragmentName == "EngOdiWcFragment" || currentFragmentName == "EngAusOdiFragment" -> {
+                navigateToFragment(EngOdiFragment(), "England - ODI Matches")
+            }
+
+            // England T20 tournaments → EngT20iFragment
+            currentFragmentName == "EngNzT20Fragment" || currentFragmentName == "EngT20WcFragment" -> {
+                navigateToFragment(EngT20iFragment(), "England - T20 Matches")
+            }
+
+            // Level 2: Team/Format fragments (IndTestFragment, AusTestFragment, etc.) BUT NOT specific tournament fragments
+            // These should go back to GalleryFragment
+            (currentFragmentName == "IndTestFragment" || currentFragmentName == "IndodiFragment" || currentFragmentName == "IndT20Fragment" ||
+                    currentFragmentName == "AusTestFragment" || currentFragmentName == "AusOdiFragment" || currentFragmentName == "AusT20Fragment" ||
+                    currentFragmentName == "EngTestFragment" || currentFragmentName == "EngOdiFragment" || currentFragmentName == "EngT20iFragment" ||
+                    currentFragmentName == "NzTestFragment" || currentFragmentName == "NzOdiFragment" || currentFragmentName == "NzT20iFragment" ||
+                    currentFragmentName == "WiTestFragment" || currentFragmentName == "WiOdiFragment" || currentFragmentName == "WiT20Fragment") -> {
+                navigateToFragment(GalleryFragment(), "Photo Gallery")
+            }
+
+            // Level 1: Other fragments go back to home
+            else -> {
+                showHomeScreen()
             }
         }
     }

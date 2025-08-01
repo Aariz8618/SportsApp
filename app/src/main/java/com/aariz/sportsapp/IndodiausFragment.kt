@@ -45,46 +45,33 @@ class IndodiausFragment : Fragment() {
         for (id in imageViewIds) {
             val imageView = view.findViewById<ImageView>(id)
             imageView.setOnClickListener {
-                showFullScreenImage(it as ImageView)
+                showFullScreenImage(it as ImageView, id)
             }
         }
     }
 
-    private fun showFullScreenImage(imageView: ImageView) {
-        val dialog = Dialog(requireContext(), android.R.style.Theme_Black_NoTitleBar_Fullscreen)
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.BLACK))
-        dialog.setContentView(R.layout.dialog_fullscreen_image)
-
-        val fullScreenImageView = dialog.findViewById<ImageView>(R.id.fullscreen_image)
-
-        // Copy the image from the clicked ImageView
-        fullScreenImageView.setImageDrawable(imageView.drawable)
-
-        // Make dialog truly fullscreen
-        val window = dialog.window
-        window?.apply {
-            setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
-            addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
-            addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
-
-            // Use modern Window Insets API instead of deprecated systemUiVisibility
-            WindowCompat.setDecorFitsSystemWindows(this, false)
-            val controller = WindowInsetsControllerCompat(this, decorView)
-            controller.hide(WindowInsetsCompat.Type.systemBars())
-            controller.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
-        }
-
-        // Close dialog when clicked anywhere
-        fullScreenImageView.setOnClickListener {
-            dialog.dismiss()
-        }
-
-        // Also allow back button to close
-        dialog.setOnCancelListener {
-            dialog.dismiss()
-        }
-
-        dialog.show()
+    private fun showFullScreenImage(imageView: ImageView, clickedImageId: Int) {
+        // Define the list of images in order
+        val images = listOf(
+            R.drawable.vsaus1,  // aus_featured_image
+            R.drawable.vsaus2,  // aus_image_1
+            R.drawable.vsaus3,  // aus_image_2
+            R.drawable.vsaus6,  // aus_image_3
+            R.drawable.vsaus5,  // aus_image_4
+            R.drawable.vsaus4,  // aus_image_5
+            R.drawable.vsaus7   // aus_image_6
+        )
+        
+        // Find the position of the clicked image
+        val imageViewIds = listOf(
+            R.id.aus_featured_image, R.id.aus_image_1, R.id.aus_image_2,
+            R.id.aus_image_3, R.id.aus_image_4, R.id.aus_image_5,
+            R.id.aus_image_6
+        )
+        
+        val position = imageViewIds.indexOf(clickedImageId)
+        
+        // Launch the fullscreen activity with swipe functionality
+        FullscreenImageActivity.start(requireContext(), images, position)
     }
 }

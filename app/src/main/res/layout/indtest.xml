@@ -14,8 +14,6 @@
 
 
 
-
-
     <androidx.cardview.widget.CardView
         android:id="@+id/bgt21pic"
         android:layout_width="match_parent"

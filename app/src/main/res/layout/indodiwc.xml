@@ -34,7 +34,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/wc23"
+                    android:src="@drawable/wc6"
                     android:clickable="true"
                     android:focusable="true" />
 
@@ -59,11 +59,10 @@
                         android:id="@+id/wc_image_1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/odiwc11"
+                        android:src="@drawable/wc1"
                         android:clickable="true"
-                        android:contentDescription="World Cup Action 1"
                         android:focusable="true"
-                        android:scaleType="centerCrop" />
+                        android:scaleType="fitXY" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -79,7 +78,7 @@
                         android:id="@+id/wc_image_2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:scaleType="centerCrop"
+                        android:scaleType="fitXY"
                        android:src="@drawable/wc2"
                         android:clickable="true"
                         android:focusable="true" />
@@ -108,8 +107,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:background="#2196F3"
-                        android:contentDescription="World Cup Action 3"
+                        android:src="@drawable/wc7"
                         android:clickable="true"
                         android:focusable="true" />
 
@@ -128,7 +126,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:background="#FF9800"
+                      android:src="@drawable/wc9"
                         android:clickable="true"
                         android:focusable="true" />
 
@@ -156,8 +154,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:background="#9C27B0"
-                        android:contentDescription="Celebration 5"
+                        android:src="@drawable/wc5"
                         android:clickable="true"
                         android:focusable="true" />
 
@@ -176,8 +173,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:background="#E91E63"
-                        android:contentDescription="Team Spirit 6"
+                       android:src="@drawable/wc3"
                         android:clickable="true"
                         android:focusable="true" />
 
@@ -205,8 +201,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:background="#795548"
-                        android:contentDescription="Victory Moment 7"
+                        android:src="@drawable/wc4"
                         android:clickable="true"
                         android:focusable="true" />
 
@@ -225,8 +220,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:background="#607D8B"
-                        android:contentDescription="Final Celebration 8"
+                        android:src="@drawable/wc8"
                         android:clickable="true"
                         android:focusable="true" />
 

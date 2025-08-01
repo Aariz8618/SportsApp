@@ -36,7 +36,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/vsaus1"
+                    android:src="@drawable/bgt3"
                     android:clickable="true"
                     android:focusable="true" />
 
@@ -61,9 +61,8 @@
                         android:id="@+id/bgt_image_1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/vsaus2"
+                        android:src="@drawable/bgt2"
                         android:clickable="true"
-                        android:contentDescription="Match Action 1"
                         android:focusable="true"
                         android:scaleType="centerCrop" />
 
@@ -82,8 +81,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                         android:src="@drawable/vsaus3"
-                        android:contentDescription="Match Action 2"
+                        android:src="@drawable/bgt1"
                         android:clickable="true"
                         android:focusable="true" />
 
@@ -111,8 +109,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                       android:src="@drawable/vsaus4"
-                        android:contentDescription="Match Action 3"
+                        android:src="@drawable/bgt4"
                         android:clickable="true"
                         android:focusable="true" />
 
@@ -131,8 +128,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/vsaus5"
-
+                        android:src="@drawable/bgt5"
                         android:clickable="true"
                         android:focusable="true" />
 
@@ -160,8 +156,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:background="#FFEAA7"
-                        android:contentDescription="Celebration 5"
+                        android:src="@drawable/bgt6"
                         android:clickable="true"
                         android:focusable="true" />
 
@@ -180,8 +175,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:background="#DDA0DD"
-                        android:contentDescription="Team Spirit 6"
+                        android:src="@drawable/bgt7"
                         android:clickable="true"
                         android:focusable="true" />
 
@@ -208,9 +202,8 @@
                         android:id="@+id/bgt_image_7"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:scaleType="centerCrop"
-                        android:background="#74B9FF"
-                        android:contentDescription="Player Performance 7"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/bgt8"
                         android:clickable="true"
                         android:focusable="true" />
 
@@ -229,8 +222,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:background="#A29BFE"
-                        android:contentDescription="Stadium Atmosphere 8"
+                       android:src="@drawable/bgt9"
                         android:clickable="true"
                         android:focusable="true" />
 
@@ -258,8 +250,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:background="#FD79A8"
-                        android:contentDescription="Panoramic View 9"
+                        android:src="@drawable/bgt10"
                         android:clickable="true"
                         android:focusable="true" />
 
@@ -278,8 +269,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:background="#FDCB6E"
-                        android:contentDescription="Victory Moment 10"
+                        android:src="@drawable/bgt11"
                         android:clickable="true"
                         android:focusable="true" />
 
@@ -307,8 +297,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:background="#6C5CE7"
-                        android:contentDescription="Team Huddle 11"
+                        android:src="@drawable/bgt12"
                         android:clickable="true"
                         android:focusable="true" />
 
@@ -327,8 +316,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:background="#55A3FF"
-                        android:contentDescription="Final Celebration 12"
+                        android:src="@drawable/bgt13"
                         android:clickable="true"
                         android:focusable="true" />
 
@@ -356,8 +344,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:background="#FF7675"
-                        android:contentDescription="Historic Moment 13"
+                        android:src="@drawable/bgt14"
                         android:clickable="true"
                         android:focusable="true" />
 
@@ -376,8 +363,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:background="#00B894"
-                        android:contentDescription="Trophy Lift 14"
+                       android:src="@drawable/bgt15"
                         android:clickable="true"
                         android:focusable="true" />
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,314 +7,310 @@
     android:background="@color/background_light"
     tools:context=".GalleryFragment">
 
-    <!-- Scrollable content area -->
+    <!-- Teams Filter -->
+    <LinearLayout
+        android:id="@+id/ll_teams_filter_container"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_filter_bg"
+        android:elevation="4dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_teams_header"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:padding="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?android:attr/selectableItemBackground">
+
+            <TextView
+                android:id="@+id/tv_teams_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Teams"
+                android:textSize="16sp"
+                android:textColor="@color/text_primary"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/btn_teams_dropdown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="▼"
+                android:textSize="12sp"
+                android:textColor="@color/text_primary"
+                android:layout_marginStart="12dp" />
+
+        </LinearLayout>
+
+        <!-- Teams Dropdown List -->
+        <LinearLayout
+            android:id="@+id/ll_teams_dropdown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:background="@color/background_light">
+
+            <LinearLayout
+                android:id="@+id/tv_india"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="start|center_vertical"
+                android:padding="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?android:attr/selectableItemBackground">
+
+                <TextView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:text="🇮🇳"
+                    android:textSize="12sp"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="India"
+                    android:fontFamily="@font/lato"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_primary" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tv_australia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="start|center_vertical"
+                android:padding="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?android:attr/selectableItemBackground">
+
+                <TextView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:text="🇦🇺"
+                    android:textSize="12sp"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Australia"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_primary" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tv_england"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="start|center_vertical"
+                android:padding="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?android:attr/selectableItemBackground">
+
+                <TextView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:text="🏴󠁧󠁢󠁥󠁮󠁧󠁿"
+                    android:textSize="12sp"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="England"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_primary" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tv_newzealand"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="start|center_vertical"
+                android:padding="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?android:attr/selectableItemBackground">
+
+                <TextView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:text="🇳🇿"
+                    android:textSize="12sp"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Zealand"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_primary" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tv_westindies"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="start|center_vertical"
+                android:padding="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?android:attr/selectableItemBackground">
+
+                <TextView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:text="🏏"
+                    android:textSize="12sp"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="West Indies"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_primary" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Format Filter -->
+    <LinearLayout
+        android:id="@+id/ll_format_filter_container"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/ll_teams_filter_container"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_filter_bg"
+        android:elevation="4dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_format_header"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:padding="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?android:attr/selectableItemBackground">
+
+            <TextView
+                android:id="@+id/tv_format_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Format"
+                android:textSize="16sp"
+                android:textColor="@color/text_primary"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/btn_format_dropdown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="▼"
+                android:textSize="12sp"
+                android:textColor="@color/text_primary"
+                android:layout_marginStart="12dp" />
+
+        </LinearLayout>
+
+        <!-- Format Dropdown List -->
+        <LinearLayout
+            android:id="@+id/ll_format_dropdown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:background="@color/background_light">
+
+            <TextView
+                android:id="@+id/tv_test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Test"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:padding="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?android:attr/selectableItemBackground" />
+
+            <TextView
+                android:id="@+id/tv_odi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ODI"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:padding="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?android:attr/selectableItemBackground" />
+
+            <TextView
+                android:id="@+id/tv_t20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="T20Is"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:padding="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?android:attr/selectableItemBackground" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <!-- Scrollable content area (below the filter) -->
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="811dp">
+        android:layout_height="match_parent"
+        android:paddingTop="80dp"
+        android:clipToPadding="false">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-                android:padding="16dp">
+            android:padding="16dp">
 
-                <!--s-->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="16dp">
-
-                    <!-- Teams  -->
-                    <LinearLayout
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginEnd="80dp"
-                        android:background="@drawable/rounded_filter_bg"
-                        android:elevation="4dp"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:id="@+id/ll_teams_header"
-                            android:layout_width="150dp"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:clickable="true"
-                            android:focusable="true"
-                            android:background="?android:attr/selectableItemBackground">
-
-                            <TextView
-                                android:id="@+id/tv_teams_header"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Teams"
-                                android:textSize="16sp"
-                                android:textColor="@color/text_primary"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/btn_teams_dropdown"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="▼"
-                                android:textSize="12sp"
-                                android:textColor="@color/text_primary"
-                                android:layout_marginStart="12dp" />
-
-                        </LinearLayout>
-
-                        <!-- Teams Dropdown List -->
-                        <LinearLayout
-                            android:id="@+id/ll_teams_dropdown"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:visibility="gone"
-                            android:background="@color/background_light">
-
-                            <LinearLayout
-                                android:id="@+id/tv_india"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:gravity="start|center_vertical"
-                                android:padding="12dp"
-                                android:clickable="true"
-                                android:focusable="true"
-                                android:background="?android:attr/selectableItemBackground">
-
-                                <TextView
-                                    android:layout_width="16dp"
-                                    android:layout_height="16dp"
-                                    android:text="🇮🇳"
-                                    android:textSize="12sp"
-                                    android:layout_marginEnd="8dp" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="India"
-
-                                    android:fontFamily="@font/lato"
-                                    android:textSize="14sp"
-                                    android:textColor="@color/text_primary" />
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:id="@+id/tv_australia"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:gravity="start|center_vertical"
-                                android:padding="12dp"
-                                android:clickable="true"
-                                android:focusable="true"
-                                android:background="?android:attr/selectableItemBackground">
-
-                                <TextView
-                                    android:layout_width="16dp"
-                                    android:layout_height="16dp"
-                                    android:text="🇦🇺"
-                                    android:textSize="12sp"
-                                    android:layout_marginEnd="8dp" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Australia"
-                                    android:textSize="14sp"
-                                    android:textColor="@color/text_primary" />
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:id="@+id/tv_england"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:gravity="start|center_vertical"
-                                android:padding="12dp"
-                                android:clickable="true"
-                                android:focusable="true"
-                                android:background="?android:attr/selectableItemBackground">
-
-                                <TextView
-                                    android:layout_width="16dp"
-                                    android:layout_height="16dp"
-                                    android:text="🏴󠁧󠁢󠁥󠁮󠁧󠁿"
-                                    android:textSize="12sp"
-                                    android:layout_marginEnd="8dp" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="England"
-                                    android:textSize="14sp"
-                                    android:textColor="@color/text_primary" />
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:id="@+id/tv_newzealand"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:gravity="start|center_vertical"
-                                android:padding="12dp"
-                                android:clickable="true"
-                                android:focusable="true"
-                                android:background="?android:attr/selectableItemBackground">
-
-                                <TextView
-                                    android:layout_width="16dp"
-                                    android:layout_height="16dp"
-                                    android:text="🇳🇿"
-                                    android:textSize="12sp"
-                                    android:layout_marginEnd="8dp" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="New Zealand"
-                                    android:textSize="14sp"
-                                    android:textColor="@color/text_primary" />
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:id="@+id/tv_westindies"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:gravity="start|center_vertical"
-                                android:padding="12dp"
-                                android:clickable="true"
-                                android:focusable="true"
-                                android:background="?android:attr/selectableItemBackground">
-
-                                <TextView
-                                    android:layout_width="16dp"
-                                    android:layout_height="16dp"
-                                    android:text="🏏"
-                                    android:textSize="12sp"
-                                    android:layout_marginEnd="8dp" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="West Indies"
-                                    android:textSize="14sp"
-                                    android:textColor="@color/text_primary" />
-
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                    <!-- Format Filter -->
-                    <LinearLayout
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/rounded_filter_bg"
-                        android:elevation="4dp"
-
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:id="@+id/ll_format_header"
-                            android:layout_width="150dp"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:clickable="true"
-                            android:focusable="true"
-                            android:background="?android:attr/selectableItemBackground">
-
-                            <TextView
-                                android:id="@+id/tv_format_header"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Format"
-                                android:textSize="16sp"
-                                android:textColor="@color/text_primary"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/btn_format_dropdown"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="▼"
-
-                                android:textSize="12sp"
-                                android:textColor="@color/text_primary"
-                                android:layout_marginStart="12dp" />
-
-                        </LinearLayout>
-
-                        <!-- Format Dropdown List -->
-                        <LinearLayout
-                            android:id="@+id/ll_format_dropdown"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:visibility="gone"
-                            android:background="@color/background_light">
-
-                            <TextView
-                                android:id="@+id/tv_test"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Test"
-                                android:textSize="14sp"
-                                android:textColor="@color/text_primary"
-                                android:padding="12dp"
-                                android:clickable="true"
-                                android:focusable="true"
-                                android:background="?android:attr/selectableItemBackground" />
-
-                            <TextView
-                                android:id="@+id/tv_odi"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="ODI"
-                                android:textSize="14sp"
-                                android:textColor="@color/text_primary"
-                                android:padding="12dp"
-                                android:clickable="true"
-                                android:focusable="true"
-                                android:background="?android:attr/selectableItemBackground" />
-
-                            <TextView
-                                android:id="@+id/tv_t20"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="T20Is"
-                                android:textSize="14sp"
-                                android:textColor="@color/text_primary"
-                                android:padding="12dp"
-                                android:clickable="true"
-                                android:focusable="true"
-                                android:background="?android:attr/selectableItemBackground" />
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <!-- Photo Gallery Section Title -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="start|center_vertical"
-                    android:layout_marginBottom="12dp">
+            <!-- Photo Gallery Section Title -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="start|center_vertical"
+                android:layout_marginBottom="12dp">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="60dp"
@@ -359,7 +355,7 @@
                     android:scaleType="centerCrop"
                     android:src="@drawable/soon" />
 
-                <!--  "Coming Soon"  -->
+                <!-- "Coming Soon" -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -387,4 +383,4 @@
 
     </androidx.core.widget.NestedScrollView>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</RelativeLayout>

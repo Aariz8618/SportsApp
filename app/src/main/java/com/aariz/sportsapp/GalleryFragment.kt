@@ -71,32 +71,16 @@ class GalleryFragment : Fragment() {
         }
 
         // Teams dropdown item clicks
-        view.findViewById<LinearLayout>(R.id.tv_india)?.setOnClickListener {
-            selectTeam("India")
-        }
-        view.findViewById<LinearLayout>(R.id.tv_australia)?.setOnClickListener {
-            selectTeam("Australia")
-        }
-        view.findViewById<LinearLayout>(R.id.tv_england)?.setOnClickListener {
-            selectTeam("England")
-        }
-        view.findViewById<LinearLayout>(R.id.tv_newzealand)?.setOnClickListener {
-            selectTeam("New Zealand")
-        }
-        view.findViewById<LinearLayout>(R.id.tv_westindies)?.setOnClickListener {
-            selectTeam("West Indies")
-        }
+        view.findViewById<LinearLayout>(R.id.tv_india)?.setOnClickListener { selectTeam("India") }
+        view.findViewById<LinearLayout>(R.id.tv_australia)?.setOnClickListener { selectTeam("Australia") }
+        view.findViewById<LinearLayout>(R.id.tv_england)?.setOnClickListener { selectTeam("England") }
+        view.findViewById<LinearLayout>(R.id.tv_newzealand)?.setOnClickListener { selectTeam("New Zealand") }
+        view.findViewById<LinearLayout>(R.id.tv_westindies)?.setOnClickListener { selectTeam("West Indies") }
 
         // Format dropdown item clicks
-        view.findViewById<TextView>(R.id.tv_test)?.setOnClickListener {
-            selectFormat("Test")
-        }
-        view.findViewById<TextView>(R.id.tv_odi)?.setOnClickListener {
-            selectFormat("ODI")
-        }
-        view.findViewById<TextView>(R.id.tv_t20)?.setOnClickListener {
-            selectFormat("T20Is")
-        }
+        view.findViewById<TextView>(R.id.tv_test)?.setOnClickListener { selectFormat("Test") }
+        view.findViewById<TextView>(R.id.tv_odi)?.setOnClickListener { selectFormat("ODI") }
+        view.findViewById<TextView>(R.id.tv_t20)?.setOnClickListener { selectFormat("T20Is") }
     }
 
     private fun selectTeam(team: String) {
@@ -146,6 +130,228 @@ class GalleryFragment : Fragment() {
                 }
             } catch (e: Exception) {
                 Log.e("GalleryFragment", "Error navigating to IndodiFragment", e)
+                e.printStackTrace()
+            }
+        }
+
+        // Navigation for India - T20Is
+        if (selectedTeam == "India" && selectedFormat == "T20Is") {
+            Log.d("GalleryFragment", "Navigating to IndT20Fragment")
+            try {
+                val mainActivity = activity as? MainActivity
+                if (mainActivity != null && isAdded && !isDetached) {
+                    Log.d("GalleryFragment", "Calling navigateToFragment with IndT20Fragment")
+                    mainActivity.navigateToFragment(IndT20Fragment(), "India - T20 Matches")
+                } else {
+                    Log.e("GalleryFragment", "MainActivity is null or fragment not properly attached")
+                }
+            } catch (e: Exception) {
+                Log.e("GalleryFragment", "Error navigating to IndT20Fragment", e)
+                e.printStackTrace()
+            }
+        }
+
+        // Navigation for Australia - Test
+        if (selectedTeam == "Australia" && selectedFormat == "Test") {
+            Log.d("GalleryFragment", "Navigating to AusTestFragment")
+            try {
+                val mainActivity = activity as? MainActivity
+                if (mainActivity != null && isAdded && !isDetached) {
+                    Log.d("GalleryFragment", "Calling navigateToFragment with AusTestFragment")
+                    mainActivity.navigateToFragment(AusTestFragment(), "Australia - Test Matches")
+                } else {
+                    Log.e("GalleryFragment", "MainActivity is null or fragment not properly attached")
+                }
+            } catch (e: Exception) {
+                Log.e("GalleryFragment", "Error navigating to AusTestFragment", e)
+                e.printStackTrace()
+            }
+        }
+
+        // Navigation for Australia - ODI
+        if (selectedTeam == "Australia" && selectedFormat == "ODI") {
+            Log.d("GalleryFragment", "Navigating to AusOdiFragment")
+            try {
+                val mainActivity = activity as? MainActivity
+                if (mainActivity != null && isAdded && !isDetached) {
+                    Log.d("GalleryFragment", "Calling navigateToFragment with AusOdiFragment")
+                    mainActivity.navigateToFragment(AusOdiFragment(), "Australia - ODI Matches")
+                } else {
+                    Log.e("GalleryFragment", "MainActivity is null or fragment not properly attached")
+                }
+            } catch (e: Exception) {
+                Log.e("GalleryFragment", "Error navigating to AusOdiFragment", e)
+                e.printStackTrace()
+            }
+        }
+
+        // Navigation for Australia - T20Is
+        if (selectedTeam == "Australia" && selectedFormat == "T20Is") {
+            Log.d("GalleryFragment", "Navigating to AusT20Fragment")
+            try {
+                val mainActivity = activity as? MainActivity
+                if (mainActivity != null && isAdded && !isDetached) {
+                    Log.d("GalleryFragment", "Calling navigateToFragment with AusT20Fragment")
+                    mainActivity.navigateToFragment(AusT20Fragment(), "Australia - T20 Matches")
+                } else {
+                    Log.e("GalleryFragment", "MainActivity is null or fragment not properly attached")
+                }
+            } catch (e: Exception) {
+                Log.e("GalleryFragment", "Error navigating to AusT20Fragment", e)
+                e.printStackTrace()
+            }
+        }
+
+        // Navigation for England  - TEST
+        if (selectedTeam == "England" && selectedFormat == "Test") {
+            Log.d("GalleryFragment", "Navigating to EngTestFragment")
+            try {
+                val mainActivity = activity as? MainActivity
+                if (mainActivity != null && isAdded && !isDetached) {
+                    Log.d("GalleryFragment", "Calling navigateToFragment with ENGtestFragment")
+                    mainActivity.navigateToFragment(EngTestFragment(), "England Test")
+                } else {
+                    Log.e("GalleryFragment", "MainActivity is null or fragment not properly attached")
+                }
+            } catch (e: Exception) {
+                Log.e("GalleryFragment", "Error navigating to EngTestFragment", e)
+                e.printStackTrace()
+            }
+        }
+
+
+        // Navigation for England - ODI
+        if (selectedTeam == "England" && selectedFormat == "ODI") {
+            Log.d("GalleryFragment", "Navigating to EngOdiFragment")
+            try {
+                val mainActivity = activity as? MainActivity
+                if (mainActivity != null && isAdded && !isDetached) {
+                    Log.d("GalleryFragment", "Calling navigateToFragment with EngOdiFragment")
+                    mainActivity.navigateToFragment(EngOdiFragment(), "England- ODI Matches")
+                } else {
+                    Log.e("GalleryFragment", "MainActivity is null or fragment not properly attached")
+                }
+            } catch (e: Exception) {
+                Log.e("GalleryFragment", "Error navigating to EngOdiFragment", e)
+                e.printStackTrace()
+            }
+        }
+
+        // Navigation for England - T20Is
+        if (selectedTeam == "England" && selectedFormat == "T20Is") {
+            Log.d("GalleryFragment", "Navigating to EngT20iFragment")
+            try {
+                val mainActivity = activity as? MainActivity
+                if (mainActivity != null && isAdded && !isDetached) {
+                    Log.d("GalleryFragment", "Calling navigateToFragment with EngT20iFragment")
+                    mainActivity.navigateToFragment(EngT20iFragment(), "England- T20 Matches")
+                } else {
+                    Log.e("GalleryFragment", "MainActivity is null or fragment not properly attached")
+                }
+            } catch (e: Exception) {
+                Log.e("GalleryFragment", "Error navigating to EngT20iFragment", e)
+                e.printStackTrace()
+            }
+        }
+
+        // Navigation for New Zealand - Test
+        if (selectedTeam == "New Zealand" && selectedFormat == "Test") {
+            Log.d("GalleryFragment", "Navigating to NzTestFragment")
+            try {
+                val mainActivity = activity as? MainActivity
+                if (mainActivity != null && isAdded && !isDetached) {
+                    Log.d("GalleryFragment", "Calling navigateToFragment with NzTestFragment")
+                    mainActivity.navigateToFragment(NzTestFragment(), "New Zealand - Test Matches")
+                } else {
+                    Log.e("GalleryFragment", "MainActivity is null or fragment not properly attached")
+                }
+            } catch (e: Exception) {
+                Log.e("GalleryFragment", "Error navigating to NzTestFragment", e)
+                e.printStackTrace()
+            }
+        }
+
+        // Navigation for New Zealand - ODI
+        if (selectedTeam == "New Zealand" && selectedFormat == "ODI") {
+            Log.d("GalleryFragment", "Navigating to NzOdiFragment")
+            try {
+                val mainActivity = activity as? MainActivity
+                if (mainActivity != null && isAdded && !isDetached) {
+                    Log.d("GalleryFragment", "Calling navigateToFragment with NzOdiFragment")
+                    mainActivity.navigateToFragment(NzOdiFragment(), "New Zealand - ODI Matches")
+                } else {
+                    Log.e("GalleryFragment", "MainActivity is null or fragment not properly attached")
+                }
+            } catch (e: Exception) {
+                Log.e("GalleryFragment", "Error navigating to NzOdiFragment", e)
+                e.printStackTrace()
+            }
+        }
+
+        // Navigation for New Zealand - T20Is
+        if (selectedTeam == "New Zealand" && selectedFormat == "T20Is") {
+            Log.d("GalleryFragment", "Navigating to NzT20iFragment")
+            try {
+                val mainActivity = activity as? MainActivity
+                if (mainActivity != null && isAdded && !isDetached) {
+                    Log.d("GalleryFragment", "Calling navigateToFragment with NzT20iFragment")
+                    mainActivity.navigateToFragment(NzT20iFragment(), "New Zealand - T20 Matches")
+                } else {
+                    Log.e("GalleryFragment", "MainActivity is null or fragment not properly attached")
+                }
+            } catch (e: Exception) {
+                Log.e("GalleryFragment", "Error navigating to NzT20iFragment", e)
+                e.printStackTrace()
+            }
+        }
+
+        // Navigation for West Indies - Test
+        if (selectedTeam == "West Indies" && selectedFormat == "Test") {
+            Log.d("GalleryFragment", "Navigating to WiTestFragment")
+            try {
+                val mainActivity = activity as? MainActivity
+                if (mainActivity != null && isAdded && !isDetached) {
+                    Log.d("GalleryFragment", "Calling navigateToFragment with WiTestFragment")
+                    mainActivity.navigateToFragment(WiTestFragment(), "West Indies - Test Matches")
+                } else {
+                    Log.e("GalleryFragment", "MainActivity is null or fragment not properly attached")
+                }
+            } catch (e: Exception) {
+                Log.e("GalleryFragment", "Error navigating to WiTestFragment", e)
+                e.printStackTrace()
+            }
+        }
+
+        // Navigation for West Indies - ODI
+        if (selectedTeam == "West Indies" && selectedFormat == "ODI") {
+            Log.d("GalleryFragment", "Navigating to WiOdiFragment")
+            try {
+                val mainActivity = activity as? MainActivity
+                if (mainActivity != null && isAdded && !isDetached) {
+                    Log.d("GalleryFragment", "Calling navigateToFragment with WiOdiFragment")
+                    mainActivity.navigateToFragment(WiOdiFragment(), "West Indies - ODI Matches")
+                } else {
+                    Log.e("GalleryFragment", "MainActivity is null or fragment not properly attached")
+                }
+            } catch (e: Exception) {
+                Log.e("GalleryFragment", "Error navigating to WiOdiFragment", e)
+                e.printStackTrace()
+            }
+        }
+
+        // Navigation for West Indies - T20Is
+        if (selectedTeam == "West Indies" && selectedFormat == "T20Is") {
+            Log.d("GalleryFragment", "Navigating to WiT20Fragment")
+            try {
+                val mainActivity = activity as? MainActivity
+                if (mainActivity != null && isAdded && !isDetached) {
+                    Log.d("GalleryFragment", "Calling navigateToFragment with WiT20Fragment")
+                    mainActivity.navigateToFragment(WiT20Fragment(), "West Indies - T20 Matches")
+                } else {
+                    Log.e("GalleryFragment", "MainActivity is null or fragment not properly attached")
+                }
+            } catch (e: Exception) {
+                Log.e("GalleryFragment", "Error navigating to WiT20Fragment", e)
                 e.printStackTrace()
             }
         }

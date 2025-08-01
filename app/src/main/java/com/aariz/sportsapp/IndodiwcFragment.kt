@@ -1,19 +1,11 @@
 package com.aariz.sportsapp
 
-import android.app.Dialog
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.Window
-import android.view.WindowManager
 import android.widget.ImageView
-import androidx.core.view.WindowCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.Fragment
 
 class IndodiwcFragment : Fragment() {
@@ -45,46 +37,26 @@ class IndodiwcFragment : Fragment() {
         for (id in imageViewIds) {
             val imageView = view.findViewById<ImageView>(id)
             imageView.setOnClickListener {
-                showFullScreenImage(it as ImageView)
+                showFullScreenImage(it as ImageView, id)
             }
         }
     }
 
-    private fun showFullScreenImage(imageView: ImageView) {
-        val dialog = Dialog(requireContext(), android.R.style.Theme_Black_NoTitleBar_Fullscreen)
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.BLACK))
-        dialog.setContentView(R.layout.dialog_fullscreen_image)
+    private fun showFullScreenImage(imageView: ImageView, clickedImageId: Int) {
+        val images = listOf(
+            R.drawable.wc6, R.drawable.wc1, R.drawable.wc2,
+            R.drawable.wc7, R.drawable.wc9, R.drawable.wc5,
+            R.drawable.wc3, R.drawable.wc4, R.drawable.wc8
+        )
 
-        val fullScreenImageView = dialog.findViewById<ImageView>(R.id.fullscreen_image)
+        val imageViewIds = listOf(
+            R.id.wc_featured_image, R.id.wc_image_1, R.id.wc_image_2,
+            R.id.wc_image_3, R.id.wc_image_4, R.id.wc_image_5,
+            R.id.wc_image_6, R.id.wc_image_7, R.id.wc_image_8
+        )
 
-        // Copy the image from the clicked ImageView
-        fullScreenImageView.setImageDrawable(imageView.drawable)
+        val position = imageViewIds.indexOf(clickedImageId)
 
-        // Make dialog truly fullscreen
-        val window = dialog.window
-        window?.apply {
-            setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
-            addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
-            addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
-
-            // Use modern Window Insets API instead of deprecated systemUiVisibility
-            WindowCompat.setDecorFitsSystemWindows(this, false)
-            val controller = WindowInsetsControllerCompat(this, decorView)
-            controller.hide(WindowInsetsCompat.Type.systemBars())
-            controller.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
-        }
-
-        // Close dialog when clicked anywhere
-        fullScreenImageView.setOnClickListener {
-            dialog.dismiss()
-        }
-
-        // Also allow back button to close
-        dialog.setOnCancelListener {
-            dialog.dismiss()
-        }
-
-        dialog.show()
+        FullscreenImageActivity.start(requireContext(), images, position)
     }
 }

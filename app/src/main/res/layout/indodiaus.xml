@@ -109,7 +109,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/vsaus4"
+                        android:src="@drawable/vsaus6"
                         android:clickable="true"
                         android:focusable="true" />
 
@@ -155,8 +155,8 @@
                         android:id="@+id/aus_image_5"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:scaleType="centerCrop"
-                        android:background="#9E9E9E"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/vsaus4"
                         android:contentDescription="Stadium View 5"
                         android:clickable="true"
                         android:focusable="true" />
@@ -176,8 +176,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:background="#673AB7"
-                        android:contentDescription="Action Shot 6"
+
+                     android:src="@drawable/vsaus7"
                         android:clickable="true"
                         android:focusable="true" />
 
