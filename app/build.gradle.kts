@@ -51,14 +51,9 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation("androidx.cardview:cardview:1.0.0")
     implementation("androidx.coordinatorlayout:coordinatorlayout:1.2.0")
-    
-    
-    // Glide for image loading
     implementation("com.github.bumptech.glide:glide:4.16.0")
-    
-    // RecyclerView
     implementation("androidx.recyclerview:recyclerview:1.3.2")
-    
-    // SwipeRefreshLayout
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+
+
 }

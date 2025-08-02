@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/card_background">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Rules of the Game"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:fontFamily="@font/lato_bold"
+                    android:layout_marginBottom="16dp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/tv_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cricket is played between two teams of eleven players each on a field with a 22-yard pitch at the center.\n\nBasic Equipment:\n• Bat: Made of wood, maximum 38 inches long\n• Ball: Leather ball, circumference 8⅞ to 9 inches\n• Wickets: Three wooden stumps topped by two bails\n• Protective gear: Pads, gloves, helmet\n\nBasic Rules:\n• Each team bats and bowls alternately\n• The batting team tries to score runs\n• The bowling team tries to dismiss batters\n• Match formats vary: Test (5 days), ODI (50 overs), T20 (20 overs)\n\nWays to Get Out:\n• Bowled: Ball hits the stumps\n• Caught: Ball caught before hitting ground\n• LBW (Leg Before Wicket): Ball would hit stumps but hits leg first\n• Run out: Stumps broken while batsmen running\n• Stumped: Wicket-keeper breaks stumps while batter out of crease\n• Hit wicket: Batter accidentally hits own stumps\n\nScoring:\n• Runs scored by running between wickets\n• Boundaries: 4 runs (ball reaches boundary) or 6 runs (ball crosses boundary in air)\n• Extras: Byes, leg-byes, wides, no-balls, penalties\n\nOfficials:\n• Two on-field umpires make decisions\n• Third umpire for video reviews\n• Match referee oversees conduct"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_primary"
+                    android:fontFamily="@font/lato"
+                    android:lineSpacingExtra="4dp"
+                    android:justificationMode="inter_word" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</ScrollView>

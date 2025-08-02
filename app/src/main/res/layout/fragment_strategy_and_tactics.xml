@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/card_background">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Strategy and Tactics"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:fontFamily="@font/lato_bold"
+                    android:layout_marginBottom="16dp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/tv_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cricket is a game of strategy where tactical decisions can make the difference between winning and losing.\n\nBatting Strategies:\n• Building Partnerships: Rotating strike, supporting partner\n• Aggressive Approach: Taking risks to score quickly\n• Defensive Play: Preserving wickets, wearing down bowlers\n• Situation-based: Adapting to match conditions\n\nBowling Strategies:\n• Line and Length: Bowling consistently in good areas\n• Varying Pace: Mixing fast and slow deliveries\n• Field Placements: Setting traps for batsmen\n• Pressure Building: Creating dot balls to force mistakes\n\nFielding Tactics:\n• Attacking Fields: Close catchers to take wickets\n• Defensive Fields: Boundary riders to save runs\n• Pressure Points: Strategic positioning for run-outs\n• Communication: Constant updates and encouragement\n\nCaptain's Role:\n• Reading the Game: Understanding match situations\n• Player Management: Utilizing each player's strengths\n• Decision Making: Bowling changes, field settings\n• Psychological Warfare: Mental pressure on opponents\n\nMatch Situations:\n• Powerplay Tactics: Maximizing restricted fielding\n• Death Overs: Bowling yorkers, wide lines\n• Chase Strategy: Required run rate calculations\n• Weather Conditions: Adapting to pitch and weather\n\nModern Analytics:\n• Data-driven decisions\n• Player performance analysis\n• Opposition study\n• Predictive modeling"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_primary"
+                    android:fontFamily="@font/lato"
+                    android:lineSpacingExtra="4dp"
+                    android:justificationMode="inter_word" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</ScrollView>

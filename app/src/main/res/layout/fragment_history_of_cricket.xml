@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light"
+    android:orientation="vertical">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <!-- Buttons for Topics -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnOrigins"
+                style="@style/CustomRoundedButton"
+                android:layout_width="match_parent"
+                android:text="Origins and early development" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnDerivation"
+                style="@style/CustomRoundedButton"
+                android:layout_width="match_parent"
+                android:text="Derivation of the name  &quot;cricket&quot;" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnGambling"
+                style="@style/CustomRoundedButton"
+                android:layout_width="match_parent"
+                android:text="Gambling and Patronage" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnExpansion"
+                android:layout_width="match_parent"
+                style="@style/CustomRoundedButton"
+                android:text="Cricket expands beyond England" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnLaws"
+                android:layout_width="match_parent"
+                style="@style/CustomRoundedButton"
+                android:text="Development of the Laws" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnInternationalBegins"
+                android:layout_width="match_parent"
+                style="@style/CustomRoundedButton"
+                android:text="19th Century cricket" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnInternational"
+                android:layout_width="match_parent"
+                style="@style/CustomRoundedButton"
+                android:text="International cricket begins" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnColonies"
+                android:layout_width="match_parent"
+                style="@style/CustomRoundedButton"
+                android:text="Growth in colonies" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnNational"
+                android:layout_width="match_parent"
+                style="@style/CustomRoundedButton"
+                android:text="National championships" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnGrowthInternational"
+                android:layout_width="match_parent"
+                style="@style/CustomRoundedButton"
+                android:text="Growth of international cricket" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnWorldSeries"
+                android:layout_width="match_parent"
+                style="@style/CustomRoundedButton"
+                android:text="World Series Cricket" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnGameExpansion"
+                android:layout_width="match_parent"
+                style="@style/CustomRoundedButton"
+                android:text="Expansion of the game" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnT20Growth"
+                android:layout_width="match_parent"
+                style="@style/CustomRoundedButton"
+                android:text="T20 cricket and shorter formats' growth" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
+

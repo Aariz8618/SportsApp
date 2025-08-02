@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/card_background">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Match Formats"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:fontFamily="@font/lato_bold"
+                    android:layout_marginBottom="16dp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/tv_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cricket is played in three main formats, each with unique characteristics and appeal.\n\nTest Cricket (5 Days):\n• Duration: Up to 5 days, 6 hours per day\n• Overs: Unlimited (90 overs minimum per day)\n• Innings: Each team bats twice\n• Clothing: Traditional whites\n• Ball: Red leather ball\n• Features: Ultimate test of skill, endurance, and strategy\n\nOne Day Internationals - ODI (1 Day):\n• Duration: 1 day, approximately 8 hours\n• Overs: 50 overs per team\n• Innings: Each team bats once\n• Clothing: Colored uniforms\n• Ball: White leather ball\n• Features: Balance of skill and entertainment\n\nTwenty20 - T20 (3 Hours):\n• Duration: 3 hours approximately\n• Overs: 20 overs per team\n• Innings: Each team bats once\n• Clothing: Colored uniforms\n• Ball: White leather ball\n• Features: Fast-paced, high entertainment\n\nAdditional Formats:\n• The Hundred: 100 balls per team\n• T10: 10 overs per team\n• First-Class: Multi-day domestic cricket\n• List A: One-day domestic cricket\n\nKey Differences:\n• Strategy varies significantly between formats\n• Player roles adapt to format requirements\n• Scoring rates increase in shorter formats\n• Field restrictions vary by format"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_primary"
+                    android:fontFamily="@font/lato"
+                    android:lineSpacingExtra="4dp"
+                    android:justificationMode="inter_word" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</ScrollView>

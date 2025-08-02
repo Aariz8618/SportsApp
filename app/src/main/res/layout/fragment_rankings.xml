@@ -33,56 +33,56 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="🥇 1. India - 122 points • 36 matches"
+                        android:text=" 1. 🇮🇳  India - 122 points "
                         android:textSize="16sp"
                         android:padding="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="🥈 2. Australia - 120 points • 34 matches"
+                        android:text=" 2. 🇦🇺  Australia - 120 points "
                         android:textSize="16sp"
                         android:padding="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="🥉 3. England - 118 points • 32 matches"
+                        android:text=" 3. 🏴󠁧󠁢󠁥󠁮󠁧󠁿  England - 118 points "
                         android:textSize="16sp"
                         android:padding="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="🏏 4. South Africa - 111 points • 26 matches"
+                        android:text=" 4. 🇿🇦 South Africa - 111 points "
                         android:textSize="16sp"
                         android:padding="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="🏏 5. New Zealand - 106 points • 28 matches"
+                        android:text=" 5. 🇳🇿 New Zealand - 106 points "
                         android:textSize="16sp"
                         android:padding="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="🏏 6. Pakistan - 94 points • 25 matches"
+                        android:text=" 6. 🇵🇰 Pakistan - 94 points "
                         android:textSize="16sp"
                         android:padding="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="🏏 7. Bangladesh - 89 points • 24 matches"
+                        android:text=" 7. 🇧🇩 Bangladesh - 89 points "
                         android:textSize="16sp"
                         android:padding="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="🏏 8. Afghanistan - 81 points • 21 matches"
+                        android:text=" 8. 🇦🇫 Afghanistan - 81 points "
                         android:textSize="16sp"
                         android:padding="8dp" />
                 </LinearLayout>
@@ -111,56 +111,56 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="🥇 1. India - 126 points • 40 matches"
+                        android:text=" 1. 🇦🇺 Australia - 126 points  "
                         android:textSize="16sp"
                         android:padding="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="🥈 2. New Zealand - 123 points • 38 matches"
+                        android:text=" 2. 🇳🇿 New Zealand - 123 points "
                         android:textSize="16sp"
                         android:padding="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="🥉 3. Australia - 120 points • 35 matches"
+                        android:text=" 3. 🇮🇳 India - 120 points "
                         android:textSize="16sp"
                         android:padding="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="🏏 4. England - 109 points • 22 matches"
+                        android:text=" 4. 🏴󠁧󠁢󠁥󠁮󠁧󠁿  England - 109 points "
                         android:textSize="16sp"
                         android:padding="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="🏏 5. South Africa - 105 points • 16 matches"
+                        android:text=" 5. 🇿🇦 South Africa - 105 points "
                         android:textSize="16sp"
                         android:padding="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="🏏 6. Pakistan - 89 points • 17 matches"
+                        android:text=" 6. 🇵🇰 Pakistan - 89 points "
                         android:textSize="16sp"
                         android:padding="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="🏏 7. Sri Lanka - 78 points • 13 matches"
+                        android:text=" 7. 🇱🇰 Sri Lanka - 78 points "
                         android:textSize="16sp"
                         android:padding="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="🏏 8. West Indies - 72 points • 19 matches"
+                        android:text=" 8. 🇧🇩 Bangladesh - 72 points "
                         android:textSize="16sp"
                         android:padding="8dp" />
                 </LinearLayout>
@@ -189,56 +189,56 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="🥇 1. Pakistan - 280 points • 45 matches"
+                        android:text=" 1. 🇮🇳 India - 280 points • 45 matches"
                         android:textSize="16sp"
                         android:padding="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="🥈 2. England - 275 points • 44 matches"
+                        android:text=" 2. 🏴󠁧󠁢󠁥󠁮󠁧󠁿 England - 275 points • 44 matches"
                         android:textSize="16sp"
                         android:padding="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="🥉 3. South Africa - 272 points • 42 matches"
+                        android:text=" 3. 🇿🇦 South Africa - 272 points "
                         android:textSize="16sp"
                         android:padding="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="🏏 4. India - 267 points • 39 matches"
+                        android:text=" 4. 🇦🇺 Australia - 267 points "
                         android:textSize="16sp"
                         android:padding="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="🏏 5. Australia - 263 points • 38 matches"
+                        android:text=" 5. 🇵🇰 Pakistan  - 263 points "
                         android:textSize="16sp"
                         android:padding="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="🏏 6. New Zealand - 241 points • 36 matches"
+                        android:text=" 6. 🇳🇿 New Zealand - 241 points "
                         android:textSize="16sp"
                         android:padding="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="🏏 7. West Indies - 229 points • 41 matches"
+                        android:text=" 7. 🇱🇰 Sri Lanka - 229 points "
                         android:textSize="16sp"
                         android:padding="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="🏏 8. Bangladesh - 203 points • 37 matches"
+                        android:text=" 8. 🇧🇩 Bangladesh - 203 points "
                         android:textSize="16sp"
                         android:padding="8dp" />
                 </LinearLayout>

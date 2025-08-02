@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/card_background">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tournaments and Leagues"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:fontFamily="@font/lato_bold"
+                    android:layout_marginBottom="16dp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/tv_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cricket features numerous prestigious tournaments and leagues worldwide.\n\nInternational Tournaments:\n• ICC Cricket World Cup: Premier ODI tournament (every 4 years)\n• ICC T20 World Cup: Global T20 championship (every 2 years)\n• ICC Champions Trophy: Elite ODI tournament\n• ICC World Test Championship: Test cricket's pinnacle\n\nPremier Domestic Leagues:\n• Indian Premier League (IPL): World's richest T20 league\n• Big Bash League (BBL): Australia's premier T20 competition\n• Caribbean Premier League (CPL): West Indies T20 league\n• Pakistan Super League (PSL): Pakistan's premier T20 league\n\nTraditional Competitions:\n• The Ashes: Historic England vs Australia Test series\n• Border-Gavaskar Trophy: India vs Australia Test series\n• County Championship: England's premier first-class competition\n• Sheffield Shield: Australia's premier first-class competition\n\nWomen's Cricket:\n• ICC Women's World Cup: Premier women's ODI tournament\n• ICC Women's T20 World Cup: Global women's T20 championship\n• Women's Big Bash League (WBBL): Australia's women's T20 league\n• The Hundred Women's Competition: England's premier women's league\n\nRegional Tournaments:\n• Asia Cup: Asian nations ODI/T20 tournament\n• Tri-Series: Three-nation tournaments\n• Bilateral Series: Two-nation competitions\n• Youth World Cups: Under-19 global competitions\n\nTournament Formats:\n• Round Robin: All teams play each other\n• Knockout: Elimination-based progression\n• League + Playoffs: Combined format\n• Points System: Based on wins, ties, no-results"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_primary"
+                    android:fontFamily="@font/lato"
+                    android:lineSpacingExtra="4dp"
+                    android:justificationMode="inter_word" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</ScrollView>

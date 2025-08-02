@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <!-- Enhanced Header with gradient background -->
+        <!-- Header -->
         <LinearLayout
             android:id="@+id/main_header"
             android:layout_width="match_parent"

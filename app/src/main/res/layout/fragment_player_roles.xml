@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/card_background">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Player Roles"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:fontFamily="@font/lato_bold"
+                    android:layout_marginBottom="16dp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/tv_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cricket teams consist of 11 players, each with specific roles and responsibilities.\n\nBatting Roles:\n• Openers: Face new ball, build foundation\n• Top Order (1-3): Steady run-scoring\n• Middle Order (4-7): Accelerate scoring, build partnerships\n• Lower Order (8-11): Quick runs, support main batsmen\n\nBowling Roles:\n• Fast Bowlers: Pace 130+ km/h, intimidate batsmen\n• Medium Pacers: Swing and seam movement\n• Spin Bowlers: Turn ball off pitch, flight and guile\n• All-rounders: Contribute with both bat and ball\n\nSpecialist Positions:\n• Wicket-keeper: Behind stumps, catches, stumpings\n• Captain: Leads team, makes tactical decisions\n• Vice-captain: Supports captain, backup leader\n\nFielding Positions:\n• Close catchers: Slips, gully, silly point\n• Ring fielders: Point, cover, mid-wicket\n• Boundary riders: Long-on, long-off, fine leg\n\nSkills Required:\n• Batsmen: Hand-eye coordination, footwork, shot selection\n• Bowlers: Accuracy, pace/spin, stamina\n• Fielders: Agility, catching, throwing\n• Wicket-keeper: Reflexes, glove work, leadership\n\nModern Specializations:\n• Power-play specialists\n• Death bowlers\n• Pinch hitters\n• Finishers"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_primary"
+                    android:fontFamily="@font/lato"
+                    android:lineSpacingExtra="4dp"
+                    android:justificationMode="inter_word" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</ScrollView>

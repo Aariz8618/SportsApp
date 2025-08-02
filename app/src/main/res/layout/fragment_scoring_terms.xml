@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/card_background">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Scoring &amp; Terms"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:fontFamily="@font/lato_bold"
+                    android:layout_marginBottom="16dp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/tv_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Understanding cricket scoring and terminology is essential for following the game.\n\nBasic Scoring:\n• Single: 1 run (batsmen swap ends)\n• Double: 2 runs\n• Triple: 3 runs (rare)\n• Boundary: 4 runs (ball reaches boundary)\n• Six: 6 runs (ball crosses boundary in air)\n\nExtras (Awarded to batting team):\n• Wide: Ball bowled outside batter's reach (1 run + re-bowl)\n• No-ball: Illegal delivery (1 run + free hit in limited overs)\n• Bye: Runs scored without bat touching ball\n• Leg-bye: Runs scored off body (not bat)\n• Penalty: 5 runs for various infringements\n\nBowling Terms:\n• Over: 6 legal deliveries by one bowler\n• Maiden: Over with no runs scored\n• Hat-trick: 3 wickets in 3 consecutive balls\n• Yorker: Ball pitched at batsman's feet\n• Bouncer: High, short-pitched delivery\n\nBatting Terms:\n• Duck: Batsman out for 0 runs\n• Golden Duck: Out on first ball faced\n• Century: 100 runs by one batsman\n• Half-century: 50 runs by one batsman\n• Double Century: 200+ runs\n\nCommon Abbreviations:\n• LBW: Leg Before Wicket\n• DRS: Decision Review System\n• SR: Strike Rate (runs per 100 balls)\n• RR: Run Rate (runs per over)\n• RPO: Runs Per Over"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_primary"
+                    android:fontFamily="@font/lato"
+                    android:lineSpacingExtra="4dp"
+                    android:justificationMode="inter_word" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</ScrollView>

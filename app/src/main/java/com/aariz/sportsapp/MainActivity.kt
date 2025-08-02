@@ -13,12 +13,13 @@ import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.aariz.sportsapp.databinding.ActivityMainBinding
-import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private var currentFragment: Fragment? = null
+    private var previousFragment: Fragment? = null
+    private var previousTitle: String? = null
     private var isOnHomeScreen = true
     private var isDrawerOpen = false
     
@@ -98,16 +99,18 @@ class MainActivity : AppCompatActivity() {
         // Reset header title to app name
         updateHeaderTitle("CricTech")
 
-        // Clear any fragment from container
-        // TODO: Fix this when needed
-        // supportFragmentManager.fragments.forEach { fragment ->
-        //     supportFragmentManager.beginTransaction().remove(fragment).commit()
-        // }
     }
 
     fun navigateToFragment(fragment: Fragment, title: String = "CricTech") {
         if (currentFragment?.javaClass != fragment.javaClass) {
             isOnHomeScreen = false
+            
+            // Store current fragment as previous for back navigation
+            if (currentFragment != null) {
+                previousFragment = currentFragment
+                previousTitle = getCurrentTitle()
+            }
+            
             currentFragment = fragment
 
             // Hide home content, show fragment container
@@ -135,9 +138,13 @@ class MainActivity : AppCompatActivity() {
                     isDrawerOpen -> {
                         closeNavigationDrawer()
                     }
-                    // If not on home screen, go back to home
+                    // If not on home screen, check if we have a previous fragment
                     !isOnHomeScreen -> {
-                        showHomeScreen()
+                        if (shouldNavigateBackToPrevious()) {
+                            navigateBackToPrevious()
+                        } else {
+                            showHomeScreen()
+                        }
                     }
                     // Let the system handle the back press (exit app)
                     else -> {
@@ -153,7 +160,11 @@ class MainActivity : AppCompatActivity() {
         binding.ivHamburgerMenu.setOnClickListener {
             if (!isOnHomeScreen) {
                 // If we're not on home screen, act as back button
-                showHomeScreen()
+                if (shouldNavigateBackToPrevious()) {
+                    navigateBackToPrevious()
+                } else {
+                    showHomeScreen()
+                }
             } else {
                 // If we're on home screen, act as hamburger menu
                 if (isDrawerOpen) {
@@ -193,151 +204,144 @@ class MainActivity : AppCompatActivity() {
         // Search Bar
         findViewById<View>(R.id.nav_item_search_bar).setOnClickListener {
             closeNavigationDrawer()
-            // TODO: Navigate to Search functionality
         }
 
         // Player Comparison
         findViewById<View>(R.id.nav_item_player_comparison).setOnClickListener {
             closeNavigationDrawer()
-            // TODO: Navigate to Player Comparison functionality
         }
 
         // Browse Players
         findViewById<View>(R.id.nav_item_browse_players).setOnClickListener {
             closeNavigationDrawer()
-            Toast.makeText(this, "Browse Players feature is unavailable.", Toast.LENGTH_SHORT).show()
         }
 
         // Browse Matches
         findViewById<View>(R.id.nav_item_browse_matches).setOnClickListener {
             closeNavigationDrawer()
-            // TODO: Navigate to Browse Matches functionality
         }
 
         // Teams
         findViewById<View>(R.id.nav_item_teams).setOnClickListener {
             closeNavigationDrawer()
-            // TODO: Navigate to Teams functionality
         }
 
         // Cricket Basics - History of cricket
         findViewById<View>(R.id.nav_item_history_of_cricket).setOnClickListener {
             closeNavigationDrawer()
-            // TODO: Navigate to History of cricket
+            navigateToFragment(HistoryOfCricketFragment(), "History of Cricket")
         }
 
         // Cricket Basics - Rules of the game
         findViewById<View>(R.id.nav_item_rules_of_the_game).setOnClickListener {
             closeNavigationDrawer()
-            // TODO: Navigate to Rules of the game
+            navigateToFragment(RulesOfTheGameFragment(), "Rules of the Game")
         }
 
         // Cricket Basics - Player roles
         findViewById<View>(R.id.nav_item_player_roles).setOnClickListener {
             closeNavigationDrawer()
-            // TODO: Navigate to Player roles
+            navigateToFragment(PlayerRolesFragment(), "Player Roles")
         }
 
         // Cricket Basics - Match formats
         findViewById<View>(R.id.nav_item_match_formats).setOnClickListener {
             closeNavigationDrawer()
-            // TODO: Navigate to Match formats
+            navigateToFragment(MatchFormatsFragment(), "Match Formats")
         }
 
         // Cricket Basics - Scoring & terms
         findViewById<View>(R.id.nav_item_scoring_terms).setOnClickListener {
             closeNavigationDrawer()
-            // TODO: Navigate to Scoring & terms
+            navigateToFragment(ScoringTermsFragment(), "Scoring & Terms")
         }
 
         // Cricket Basics - Fielding positions
         findViewById<View>(R.id.nav_item_fielding_positions).setOnClickListener {
             closeNavigationDrawer()
-            // TODO: Navigate to Fielding positions
+            navigateToFragment(FieldingPositionsFragment(), "Fielding Positions")
         }
 
         // Cricket Basics - Strategy and tactics
         findViewById<View>(R.id.nav_item_strategy_tactics).setOnClickListener {
             closeNavigationDrawer()
-            // TODO: Navigate to Strategy and tactics
+            navigateToFragment(StrategyAndTacticsFragment(), "Strategy and Tactics")
         }
 
         // Cricket Basics - Tournaments and leagues
         findViewById<View>(R.id.nav_item_tournaments_leagues).setOnClickListener {
             closeNavigationDrawer()
-            // TODO: Navigate to Tournaments and leagues
+            navigateToFragment(TournamentsAndLeaguesFragment(), "Tournaments and Leagues")
         }
 
         // Cricket Basics - How rankings work
         findViewById<View>(R.id.nav_item_how_rankings_work).setOnClickListener {
             closeNavigationDrawer()
-            // TODO: Navigate to How rankings work
+            navigateToFragment(HowRankingsWorkFragment(), "How Rankings Work")
         }
 
         // Beyond the Field - Grounds
         findViewById<View>(R.id.nav_item_grounds).setOnClickListener {
             closeNavigationDrawer()
-            // TODO: Navigate to Grounds
+            navigateToFragment(GroundsFragment(), "Cricket Grounds")
         }
 
         // Beyond the Field - Umpires
         findViewById<View>(R.id.nav_item_umpires).setOnClickListener {
             closeNavigationDrawer()
-            // TODO: Navigate to Umpires
+            navigateToFragment(UmpiresFragment(), "Umpires")
         }
 
         // Beyond the Field - Commentators
         findViewById<View>(R.id.nav_item_commentators).setOnClickListener {
             closeNavigationDrawer()
-            // TODO: Navigate to Commentators
+            navigateToFragment(CommentatorsFragment(), "Commentators")
         }
 
         // Beyond the Field - Experts
         findViewById<View>(R.id.nav_item_experts).setOnClickListener {
             closeNavigationDrawer()
-            // TODO: Navigate to Experts
+            navigateToFragment(ExpertsFragment(), "Cricket Experts")
         }
 
         // Settings
         findViewById<View>(R.id.nav_item_settings).setOnClickListener {
             closeNavigationDrawer()
-            // TODO: Navigate to Settings
+            navigateToFragment(SettingsFragment(), "Settings")
         }
 
         // About
         findViewById<View>(R.id.nav_item_about).setOnClickListener {
             closeNavigationDrawer()
-            // TODO: Navigate to About
+            navigateToFragment(AboutFragment(), "About Us")
         }
 
         // Help and Support
         findViewById<View>(R.id.nav_item_help_support).setOnClickListener {
             closeNavigationDrawer()
-            // TODO: Navigate to Help and Support
+            navigateToFragment(HelpSupportFragment(), "Help and Support")
         }
 
         // Privacy Policy
         findViewById<View>(R.id.nav_item_privacy_policy).setOnClickListener {
             closeNavigationDrawer()
-            // TODO: Navigate to Privacy Policy
+            navigateToFragment(PrivacyPolicyFragment(), "Privacy Policy")
         }
 
         // Terms of Service
         findViewById<View>(R.id.nav_item_terms_service).setOnClickListener {
             closeNavigationDrawer()
-            // TODO: Navigate to Terms of Service
+            navigateToFragment(TermsAndConditionsFragment(), "Terms and Conditions")
         }
 
         // Report Issue
         findViewById<View>(R.id.nav_item_report_issue).setOnClickListener {
             closeNavigationDrawer()
-            // TODO: Navigate to Report Issue
         }
 
         // Feedback
         findViewById<View>(R.id.nav_item_feedback).setOnClickListener {
             closeNavigationDrawer()
-            // TODO: Navigate to Feedback
         }
     }
 
@@ -400,6 +404,43 @@ class MainActivity : AppCompatActivity() {
 
     fun updateHeaderTitle(title: String) {
         binding.tvHeaderTitle.text = title
+    }
+    
+    private fun shouldNavigateBackToPrevious(): Boolean {
+        return previousFragment != null && isCricketTopicFragment(currentFragment)
+    }
+    
+    private fun navigateBackToPrevious() {
+        previousFragment?.let { fragment ->
+            val title = previousTitle ?: "CricTech"
+            
+            // Clear previous fragment references to avoid infinite loops
+            previousFragment = null
+            previousTitle = null
+            
+            // Navigate back to the previous fragment
+            navigateToFragment(fragment, title)
+        }
+    }
+    
+    private fun getCurrentTitle(): String {
+        return binding.tvHeaderTitle.text.toString()
+    }
+    
+    private fun isCricketTopicFragment(fragment: Fragment?): Boolean {
+        return fragment is OriginsAndEarlyDevelopmentFragment ||
+               fragment is DerivationOfNameCricketFragment ||
+               fragment is GamblingAndPatronageFragment ||
+               fragment is CricketExpandsBeyondEnglandFragment ||
+               fragment is DevelopmentOfLawsFragment ||
+               fragment is InternationalCricketBeginsFragment ||
+               fragment is NineteenthCenturyCricket ||
+               fragment is GrowthInColoniesFragment ||
+               fragment is NationalChampionshipsFragment ||
+               fragment is GrowthOfInternationalCricketFragment ||
+               fragment is WorldSeriesCricketFragment ||
+               fragment is ExpansionOfGameFragment ||
+               fragment is T20CricketShorterFormatsFragment
     }
 
     private fun setupExpandableSections() {

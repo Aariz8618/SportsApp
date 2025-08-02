@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Custom Button Style -->
+    <style name="CustomRoundedButton" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/rounded_button</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:fontFamily">@font/lato_bold</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:drawableEnd">@drawable/ic_arrow</item>
+
+    </style>
+</resources>

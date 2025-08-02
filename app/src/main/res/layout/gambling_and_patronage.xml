@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Content Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/card_background"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#DEDEDE"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="170dp"
+                            android:layout_marginBottom="10dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/hist_6"
+                            android:contentDescription="History of cricket" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/lato_bold"
+                            android:text="The First Instance Of Match Fixing Was In 1975 By Pakistan captain Intikhab Alam Against West Indies" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Gambling and press coverage"
+                        android:textSize="25sp"
+                        android:fontFamily="@font/lato_black"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="10dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/background_dark"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginTop="5dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lato"
+                        android:justificationMode="inter_word"
+                        android:lineSpacingExtra="4dp"
+                        android:padding="10dp"
+                        android:text="@string/gambling"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Patronage and Players"
+                        android:textSize="25sp"
+                        android:fontFamily="@font/lato_black"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="10dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/background_dark"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginTop="5dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lato"
+                        android:justificationMode="inter_word"
+                        android:lineSpacingExtra="4dp"
+                        android:padding="10dp"
+                        android:text="@string/gambling"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Notable moments in the modern history of allegations of betting, match-fixing and corruption in cricket:"
+                        android:textSize="25sp"
+                        android:fontFamily="@font/lato_black"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="10dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/background_dark"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginTop="5dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lato_bold"
+                        android:justificationMode="inter_word"
+                        android:lineSpacingExtra="4dp"
+                        android:padding="10dp"
+                        android:text="1. 1st Test: Pakistan v West Indies at Lahore, 15-20 Feb 1975\n2.  6th Test: India v Pakistan at Calcutta, 29 Jan-3 Feb 1980\n3.  3rd Test: England v Australia at Leeds, 16-21 Jul 1981\n4. 1st Semi Final: Australia v Pakistan at Lahore, 4 Nov 1987\n5. 6th Match: India v Pakistan at Sharjah, 23 Oct 1991\n6. Final: India v Pakistan at Sharjah, 25 Oct 1991\n7. 1st Test: Sri Lanka v Australia at Colombo (SSC), 17-22 Aug 1992\n8.  5th Test: England v Australia at Birmingham, 5-9 Aug 1993\n9. 5th ODI: New Zealand v Pakistan at Christchurch, 16 Mar 1994\n10. One-off Test: New Zealand v India at Hamilton, 19-23 Mar 1994"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
