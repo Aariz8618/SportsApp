@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header Section -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:background="@drawable/law_2">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/overlay_dark" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/lato_bold"
+                        android:gravity="center"
+                        android:text="LAW 2"
+                        android:textColor="@color/text_white"
+                        android:textSize="32sp" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/primary_blue"
+                    android:fontFamily="@font/lato_bold"
+                    android:gravity="center"
+                    android:padding="12dp"
+                    android:text="THE UMPIRES"
+                    android:textColor="@color/text_white"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Content Section -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <!-- Section 2.1 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="2.1 Appointment and attendance"
+                    android:textColor="@color/primary_purple"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/lato_regular"
+                    android:lineSpacingExtra="4dp"
+                    android:text="2.1.1 Before the match, two umpires shall be appointed, one for each end, to control the match as required by these Laws."
+                    android:textColor="@color/text_dark"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/lato_regular"
+                    android:lineSpacingExtra="4dp"
+                    android:text="2.1.2 The umpires shall be present on the ground and report to the Ground Authority at least 45 minutes before the scheduled start of play."
+                    android:textColor="@color/text_dark"
+                    android:textSize="16sp" />
+
+                <!-- Section 2.2 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="2.2 Change of umpire"
+                    android:textColor="@color/primary_purple"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/lato_regular"
+                    android:lineSpacingExtra="4dp"
+                    android:text="An umpire shall not be changed during the match, other than in exceptional circumstances, unless he is injured or ill."
+                    android:textColor="@color/text_dark"
+                    android:textSize="16sp" />
+
+                <!-- Section 2.3 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="2.3 Consultation between umpires and with scorers"
+                    android:textColor="@color/primary_purple"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/lato_regular"
+                    android:lineSpacingExtra="4dp"
+                    android:text="Each umpire shall answer appeals on matters within his jurisdiction. An umpire may consult with the other umpire on a point of fact."
+                    android:textColor="@color/text_dark"
+                    android:textSize="16sp" />
+
+                <!-- Section 2.4 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="2.4 Fitness for play"
+                    android:textColor="@color/primary_purple"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_regular"
+                    android:lineSpacingExtra="4dp"
+                    android:text="It is solely for the umpires together to decide whether either conditions of ground, weather or light or exceptional circumstances mean that it would be dangerous or unreasonable for play to take place."
+                    android:textColor="@color/text_dark"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</ScrollView>

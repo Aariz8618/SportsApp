@@ -52,4 +52,16 @@
     <string name="expansion">"  In June 2001, the ICC introduced a "Test Championship Table" and, in October 2002, a "One-day International Championship Table". As indicated by ICC rankings,[63] the various cricket formats have continued to be a major competitive sport in most former British Empire countries, notably the Indian subcontinent, and new participants including the Netherlands. In 2017, the number of countries with full ICC membership was increased to twelve by the addition of Afghanistan and Ireland.[64] The ICC expanded its development programme, aiming to produce more national teams capable of competing at the various formats. Development efforts are focused on African and Asian nations, and on the United States. In 2004, the ICC Intercontinental Cup brought first-class cricket to 12 nations, mostly for the first time."</string>
 
     <string name="ipl">"  In April 2007, Essel Group launched the Indian Cricket League (ICL), in partnership with IL&amp;FS. The ICL was not recognized by the Board of Control for Cricket in India (BCCI) or the International Cricket Council (ICC). Moreover, the BCCI was unhappy about its committee members joining the ICL executive board. In response, the BCCI increased the prize money for its domestic tournaments and imposed lifetime bans on players who joined the ICL, which it considered a rebel league."</string>
+    
+    <string name="no_of_players">"  A match is played between two sides, each of eleven players, one of whom shall be captain. By agreement a match may be played between sides of fewer than, or more than, eleven players, but not more than eleven players may field at any time. If, during the match and for whatever reason, a side is reduced to fewer than the original number of nominated players, the match shall continue as long as it is possible to do so under the Laws or any agreements made before the toss."</string>
+    
+    <string name="nom_and_rep1">"<b>1.2.1</b> Each captain shall nominate his/her players in writing to one of the umpires before the toss."</string>
+    <string name="nom_and_rep2">"<b>1.2.2</b> No player may be replaced after the nomination without the consent of the opposing captain."</string>
+    <string name="nom_and_rep3">"<b>1.2.3</b> Any replacement player shall be considered the same player as the nominated player he/she replaced for the purposes of these Laws.\n"</string>
+    <string name="nom_and_rep4">"<b>1.2.3.1</b> A replacement shall not bat in an innings in which the nominated player he/she is replacing has completed his/her innings.\n "</string>
+    <string name="nom_and_rep5">"<b>1.2.3.2</b> Any unserved Penalty time, warnings or suspensions, that applied to the original nominated player will be inherited by his/her replacement."</string>
+
+    <string name="captain">"  <b>1.3.1</b> If at any time the captain is not available, a deputy shall act for him/her.\n
+        <b>1.3.2</b> If a captain is not available to nominate the players, then any person associated with that team may act as his/her deputy to do so. See 1.2.\n
+        <b>1.3.3</b> At any time after the nomination of the players, only a nominated player can act as deputy in discharging the duties and responsibilities of the captain as stated in these Laws, including at the toss. See Law 13.4 (The toss)."</string>
 </resources>
