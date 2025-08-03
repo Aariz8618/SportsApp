@@ -58,10 +58,94 @@
     <string name="nom_and_rep1">"<b>1.2.1</b> Each captain shall nominate his/her players in writing to one of the umpires before the toss."</string>
     <string name="nom_and_rep2">"<b>1.2.2</b> No player may be replaced after the nomination without the consent of the opposing captain."</string>
     <string name="nom_and_rep3">"<b>1.2.3</b> Any replacement player shall be considered the same player as the nominated player he/she replaced for the purposes of these Laws.\n"</string>
-    <string name="nom_and_rep4">"<b>1.2.3.1</b> A replacement shall not bat in an innings in which the nominated player he/she is replacing has completed his/her innings.\n "</string>
-    <string name="nom_and_rep5">"<b>1.2.3.2</b> Any unserved Penalty time, warnings or suspensions, that applied to the original nominated player will be inherited by his/her replacement."</string>
+    <string name="nom_and_rep4">"1.2.3.1 A replacement shall not bat in an innings in which the nominated player he/she is replacing has completed his/her innings.\n "</string>
+    <string name="nom_and_rep5">"1.2.3.2 Any unserved Penalty time, warnings or suspensions, that applied to the original nominated player will be inherited by his/her replacement."</string>
 
     <string name="captain">"  <b>1.3.1</b> If at any time the captain is not available, a deputy shall act for him/her.\n
         <b>1.3.2</b> If a captain is not available to nominate the players, then any person associated with that team may act as his/her deputy to do so. See 1.2.\n
         <b>1.3.3</b> At any time after the nomination of the players, only a nominated player can act as deputy in discharging the duties and responsibilities of the captain as stated in these Laws, including at the toss. See Law 13.4 (The toss)."</string>
+
+    <string name="ump1">"Before the match, two umpires shall be appointed, one for each end, to control the match as required by the Laws, with absolute impartiality.  The umpires shall be present on the ground and report to the Executive of the ground at least 45 minutes before the scheduled start of each day’s play."</string>
+
+    <string name="ump2">"An umpire shall not be changed during the match, other than in exceptional circumstances, unless he/she is injured or ill.  If there has to be a change of umpire, the replacement shall act only as the striker’s end umpire unless the captains agree that the replacement should take full responsibility as an umpire. "</string>
+
+    <string name="ump3">"Before the toss the umpires shall\n<b>2.3.1</b> meet with the captains; the umpires shall determine"</string>
+
+    <string name="ump3.1">"2.3.1.1 the balls to be used during the match.  See Law 4 (The ball)."</string>
+    <string name="ump3.2">"2.3.1.2 the hours of play and the times and durations of any agreed intervals.  In a match of one day’s duration, no specific time need be agreed for the tea interval.  It may be agreed instead to take this interval between innings.  See Law 11 (Intervals)."</string>
+    <string name="ump3.3">"2.3.1.3 which clock or watch and back-up time piece is to be used during the match."</string>
+    <string name="ump3.4">"2.3.1.4 the boundary of the field of play and allowances for boundaries, including whether any obstacle within the field of play is to be regarded as a boundary.  See Law 19 (Boundaries)."</string>
+    <string name="ump3.5">"2.3.1.5 the use of covers. See Law 10 (Covering the pitch)."</string>
+    <string name="ump3.6">"2.3.1.6 any special conditions of play affecting the conduct of the match."</string>
+    <string name="ump3.7">"<b>2.3.2</b>  inform the scorers of agreements in 2.3.1.2, 2.3.1.3, 2.3.1.4 and 2.3.1.6."</string>
+    
+    <string name="ump4">"Before the toss and during the match, the umpires shall satisfy themselves that\n<b>2.4.1</b> the wickets are properly pitched.  See Law 8 (The wickets)"</string>
+    <string name="ump4.1">"<b>2.4.2</b> the creases are correctly marked.  See Law 7 (The creases)."</string>
+    <string name="ump4.2">"<b>2.4.3</b> the boundary of the field of play complies with the requirements of Laws 19.1 (Determining the boundary of the field of play), 19.2 (Identifying and marking the boundary) and 19.3 (Restoring the boundary)."</string>
+
+    <string name="ump5">"Before the toss and during the match, the umpires shall satisfy themselves that\n<b>2.5.1</b> the conduct of the match is strictly in accordance with the Laws."</string>
+    <string name="ump5.1">"<b>2.5.2</b> the implements used in the match conform to the following:"</string>
+    <string name="ump5.2">"2.5.2.1 Law 4 (The ball)."</string>
+    <string name="ump5.3">"2.5.2.2 externally visible requirements of Law 5 (The bat) and Appendix B."</string>
+    <string name="ump5.4">"2.5.2.3 either Laws 8.2 (Size of stumps) and 8.3 (The bails) or, if applicable, Law 8.4 (Junior cricket)."</string>
+    <string name="ump5.5">"<b>2.5.3</b> no player uses equipment other than that permitted.  See Appendix A.2.  Note particularly therein the interpretation of ‘protective helmet’."</string>
+    <string name="ump5.6">"<b>2.5.4</b> the wicket-keeper’s gloves comply with the requirements of Law 27.2 (Gloves)."</string>
+
+    <string name="ump6">"The umpires shall be the sole judges of fair and unfair play."</string>
+
+    <string name="ump7">"<b>2.7.1</b> It is solely for the umpires together to decide whether either conditions of ground, weather or light or exceptional circumstances mean that it would be dangerous or unreasonable for play to take place.
+        Conditions shall not be regarded as either dangerous or unreasonable merely because they are not ideal.
+        The fact that the grass and the ball are wet does not warrant the ground conditions being regarded as unreasonable or dangerous."</string>
+
+    <string name="ump7.1">"<b>2.7.2</b> Conditions shall be regarded as dangerous if there is actual and foreseeable risk to the safety of any player or umpire."</string>
+    <string name="ump7.2">"<b>2.7.3</b> Conditions shall be regarded as unreasonable if, although posing no risk to safety, it would not be sensible for play to proceed."</string>
+    <string name="ump7.3">"<b>2.7.4</b> If the umpires consider the ground is so wet or slippery as to deprive the bowler of a reasonable foothold, the fielders of the power of free movement, or the batter of the ability to play their strokes or to run between the wickets, then these conditions shall be regarded as so bad that it would be dangerous and unreasonable for play to take place."</string>
+
+    <string name="ump8">"<b>2.8.1</b> All references to ground include the pitch.  See Law 6.1 (Area of pitch)."</string>
+    <string name="ump8.1">"<b>2.8.2</b> The Umpires shall immediately suspend play, or not allow play to start or to recommence, if either umpire considers that the conditions of ground, weather or light, or any other circumstances are either dangerous or unreasonable."</string>
+    <string name="ump8.2">"<b>2.8.3</b> When there is a suspension of play it is the responsibility of the umpires to monitor conditions.  They shall make inspections as often as appropriate, unaccompanied by any players or officials.  Immediately the umpires together agree that the conditions are no longer dangerous or unreasonable they shall call upon the players to resume play."</string>
+
+    <string name="ump9">"The umpires shall stand where they can best see any act upon which their decision may be required.
+        Subject to this over-riding consideration, the bowler’s end umpire shall stand in a position so as not to interfere with either the bowler’s run-up or the striker’s view.
+        The striker’s end umpire may elect to stand on the off side instead of the on side of the pitch, provided he/she informs the captain of the fielding side, the striker and the other umpire."</string>
+
+    <string name="ump10">"The umpires shall change ends after each side has had one completed innings.  See Law 13.3 (Completed innings)."</string>
+
+    <string name="ump11">"Where there is disagreement or dispute about any matter, the umpires together shall make the final decision.  See also Law 31.6 (Consultation by umpires)."</string>
+
+    <string name="ump12">"An umpire may alter any decision provided that such alteration is made promptly and does not contradict Law 20.6 (Dead ball not to be revoked). This apart, an umpire’s decision, once made, is final."</string>
+
+    <string name="ump13">"<b>2.13.1</b> The following code of signals shall be used by umpires:
+        2.13.1.1 Signals made while the ball is in play
+        Dead ball - by crossing and re-crossing the wrists below the waist.
+        No ball - by extending one arm horizontally.
+        Out - by raising an index finger above the head. (If not out, the umpire shall call Not out.)
+        Wide - by extending both arms horizontally.
+        2.13.1.2 When the ball is dead, the bowler’s end umpire shall repeat the signals in 2.13.1.1, with the exception of the signal for Out, to the scorers.
+        2.13.1.3  The signals listed below shall be made to the scorers only when the ball is dead.
+        Boundary 4 - by waving an arm from side to side finishing with the arm across the chest.
+        Boundary 6 - by raising both arms above the head.
+        Bye - by raising an open hand above the head.
+        Commencement of last hour - by pointing to a raised wrist with the other hand.
+        Five Penalty runs awarded to the batting side - by repeated tapping of one shoulder with the opposite hand.
+        Five Penalty runs awarded to the fielding side - by placing one hand on the opposite shoulder.
+        Leg bye - by touching a raised knee with the hand.
+        New ball - by holding the ball above the head.
+        Revoke the last decision - by touching both shoulders, each with the opposite hand.
+        Short run - by bending one arm upwards and touching the nearer shoulder with the tips of the fingers.
+        The following signals are for Levels 3 and 4 of the player conduct offences.  Each signal has two parts, both of which should be acknowledged separately by the scorers.
+        Level 3 conduct
+        Part 1 - by putting one arm out to the side of the body and repeatedly raising it and lowering it.
+        Part 2 - by raising both hands, all fingers spread, to shoulder height, palms facing towards the scorers.
+        Level 4 conduct
+        Part 1 - by putting one arm out to the side of the body and repeatedly raising it and lowering it.
+        Part 2 - by raising an index finger, held at shoulder height, to the side of the body.
+        2.13.1.4  All the signals in 2.13.1.3 are to be made by the bowler’s end umpire except that for Short run, which is to be signalled by the umpire at the end where short running occurs.  However, the bowler’s end umpire shall be responsible both for the final signal of Short run to the scorers and, if more than one run is short, for informing them as to the number of runs to be recorded."</string>
+
+    <string name="ump13.1">"<b>2.13.2</b> The umpire shall wait until each signal to the scorers has been separately acknowledged by a scorer before allowing play to proceed.
+        If several signals are to be used, they SHALL be given in the order that the events occurred."</string>
+
+    <string name="unp14">"Throughout the Laws, wherever the umpires are to receive information from captains or other players, it will be sufficient for one umpire to be so informed and for him/her to inform the other umpire."</string>
+
+    <string name="ump15">"Consultation between umpires and scorers on doubtful points is essential.  The umpires shall, throughout the match, satisfy themselves as to the correctness of the number of runs scored, the wickets that have fallen and, where appropriate, the number of overs bowled.  They shall agree these with the scorers at least at every interval, other than a drinks interval, and at the conclusion of the match.  See Laws 3.2 (Correctness of scores), 16.8 (Correctness of result) and 16.10 (Result not to be changed)."</string>
 </resources>
