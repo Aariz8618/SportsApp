@@ -146,6 +146,62 @@
         If several signals are to be used, they SHALL be given in the order that the events occurred."</string>
 
     <string name="unp14">"Throughout the Laws, wherever the umpires are to receive information from captains or other players, it will be sufficient for one umpire to be so informed and for him/her to inform the other umpire."</string>
-
     <string name="ump15">"Consultation between umpires and scorers on doubtful points is essential.  The umpires shall, throughout the match, satisfy themselves as to the correctness of the number of runs scored, the wickets that have fallen and, where appropriate, the number of overs bowled.  They shall agree these with the scorers at least at every interval, other than a drinks interval, and at the conclusion of the match.  See Laws 3.2 (Correctness of scores), 16.8 (Correctness of result) and 16.10 (Result not to be changed)."</string>
+
+    <string name="score">"Two scorers shall be appointed to record all runs scored, all wickets taken and, where appropriate, number of overs bowled."</string>
+    <string name="score1">"The scorers shall frequently check to ensure that their records agree. They shall agree with the umpires, at least at every interval, other than drinks intervals, and at the conclusion of the match, the runs scored, the wickets that have fallen and, where appropriate, the number of overs bowled. See Law 2.15 (Correctness of scores)."</string>
+    <string name="score2">"The scorers shall accept all instructions and signals given to them by the umpires and shall immediately acknowledge each separate signal."</string>
+
+    <string name="ball">"The ball, when new, shall weigh not less than 5.5 ounces/155.9 g, nor more than 5.75 ounces/163 g, and shall measure not less than 8.81 in/22.4 cm, nor more than 9 in/22.9 cm in circumference."</string>
+    <string name="ball1">"<b>4.2.1</b> All balls to be used in the match, having been determined by the umpires, shall be in the possession of the umpires before the toss and shall remain under their control throughout the match."</string>
+    <string name="ball2">"<b>4.2.2</b> The umpire shall take possession of the ball in use at the fall of each wicket, at the start of any interval and at any interruption of play."</string>
+    <string name="ball3">"Unless an agreement to the contrary has been made before the match, either captain may demand a new ball at the start of each innings."</string>
+    <string name="ball4">"In a match of more than one day’s duration, the captain of the fielding side may demand a new ball when the number of overs, excluding any part overs, bowled with the old one is equal to or greater than 80 overs. The umpire shall inform the other umpire and indicate to the batters and the scorers whenever a new ball is taken into play."</string>
+    <string name="ball5">"If, during play, the ball cannot be found or recovered or the umpires agree that it has become unfit for play through normal use, the umpires shall replace it with a ball which has had wear comparable with that which the previous ball had received before the need for its replacement. When the ball is replaced, the umpire shall inform the batters and the fielding captain.</string>
+    <string name="ball6">"The specifications as described in 4.1 shall apply to men’s cricket only. The following specifications shall apply to:\n\n<b>4.6.1</b> Women’s cricket"</string>
+    <string name="ball7">"Weight: from 4.94 ounces/140 g to 5.31 ounces/151 g\nCircumference: from 8.25 in/21.0 cm to 8.88 in/22.5 cm."</string>
+    <string name="ball8">"<b>4.6.2</b> Junior cricket – Under 13"</string>
+    <string name="ball9">" Weight: from 4.69 ounces/133 g to 5.06 ounces/144 g\nCircumference: from 8.06 in/20.5 cm to 8.69 in/22.0 cm."</string>
+    
+    <string name="bat">"<b>5.1.1</b> The bat consists of two parts, a handle and a blade."</string>
+    <string name="bat1">"<b>5.1.2</b> The basic requirements and measurements of the bat are set out in this Law with detailed specifications in Appendix B."</string>
+    <string name="bat2">"<b>5.2.1</b> The handle is to be made principally of cane and/or wood."</string>
+    <string name="bat3">"<b>5.2.2</b> The part of the handle that is wholly outside the blade is defined to be the upper portion of the handle.  It is a straight shaft for holding the bat."</string>
+    <string name="bat4">"<b>5.2.3</b> The upper portion of the handle may be covered with a grip as defined in Appendix B.2.2."</string>
+    <string name="bat5">"<b>5.3.1</b> The blade comprises the whole of the bat apart from the handle as defined 5.2 and in Appendix B.3."</string>
+    <string name="bat6">"<b>5.3.2</b> The blade shall consist solely of wood."</string>
+    <string name="bat7">"<b>5.3.3</b> All bats may have commercial identifications on the blade, the size of which must comply with the relevant specification in Appendix B.6."</string>
+    <string name="bat8">" Subject to the specifications in Appendix B.4 and providing 5.5 is not contravened,\n<b>5.4.1</b> solely for the purposes of
+        either protection from surface damage to the face, sides and shoulders of the blade
+        or repair to the blade after surface damage,
+        material that is not rigid, either at the time of its application to the blade or subsequently, may be placed on these surfaces."</string>
+    <string name="bat9">"<b>5.4.2</b> for repair of the blade after damage other than surface damage "</string>
+    <string name="bat10">"5.4.2.1 solid material may be inserted into the blade."</string>
+    <string name="bat11">"5.4.2.2 The only material permitted for any insertion is wood with minimal essential adhesives."</string>
+    <string name="bat12">"<b>5.4.3</b>  to prevent damage to the toe, material may be placed on that part of the blade but shall not extend over any part of the face, back or sides of the blade."</string>
+    <string name="bat13">"<b>5.5.1</b>  For any part of the bat, covered or uncovered, the hardness of the constituent materials and the surface texture thereof shall not be such that either or both could cause unacceptable damage to the ball."</string>
+    <string name="bat14">"<b>5.5.2</b> Any material placed on any part of the bat, for whatever purpose, shall similarly not be such that it could cause unacceptable damage to the ball."</string>
+    <string name="bat15">"<b>5.5.3</b> For the purpose of this Law, unacceptable damage is any change that is greater than normal wear and tear caused by the ball striking the uncovered wooden surface of the blade."</string>
+    <string name="bat16">"In these Laws,\n<b>5.6.1</b> reference to the bat shall imply that the bat is held in the batter’s hand or a glove worn on his/her hand, unless stated otherwise."</string>
+    <string name="bat17">"<b>5.6.2</b> contact between the ball and any of 5.6.2.1 to 5.6.2.4"</string>
+    <string name="bat18">"5.6.2.1 the bat itself\n5.6.2.2 the batter’s hand holding the bat\n5.6.2.3 any part of a glove worn on the batter’s hand holding the bat\n5.6.2.4 any additional materials permitted under 5.4 shall be regarded as the ball striking or touching the bat or being struck by the bat."</string>
+    <string name="bat19">"<b>5.7.1</b> The overall length of the bat, when the lower portion of the handle is inserted, shall not be more than 38 in/96.52 cm."</string>
+    <string name="bat20">"<b>5.7.2</b> The blade of the bat shall not exceed the following dimensions:</string>
+    <string name="bat21">"Width: 4.25in / 10.8 cm\nDepth: 2.64in / 6.7 cm\nEdges: 1.56in / 4.0cm.\nFurthermore, it should also be able to pass through a bat gauge as described in Appendix B.8. "</string>
+    <string name="bat22">"<b>5.7.3</b> Except for bats of size 6 and less, the handle shall not exceed 52% of the overall length of the bat.."</string>
+    <string name="bat23">"<b>5.7.4</b> The material permitted for covering the blade in 5.4.1 shall not exceed 0.04 in/0.1 cm in thickness."</string>
+    <string name="bat24">"<b>5.7.5</b> The maximum permitted thickness of protective material placed on the toe of the blade is 0.12 in/0.3 cm."</string>
+    <string name="bat25">"<b>5.8.1</b> Types A, B and C are bats conforming to 5.1 to 5.7 inclusive. "</string>
+    <string name="bat26">"<b>5.8.2</b> Type A bats may be used at any level of cricket. "</string>
+    <string name="bat27">"<b>5.8.3</b> 5.8.3 The specifications for Type D bats are described in Appendix B.7 and are for use by junior players in junior cricket only. "</string>
+    <string name="bat28">"<b>5.8.4</b> Bats of Type B, Type C, Type D and any other bats may be used only at or below levels determined by the Governing Body for cricket in the country concerned. "</string>
+    <string name="bat29">"<b>5.8.5</b> 5.8.5 Bats that do not qualify for any of the four categories A to D are not recognised in the Laws. "</string>
+
+    <string name="pitch">"The pitch is a rectangular area of the ground 22 yards/20.12 m in length and 10 ft/3.05 m in width.  It is bounded at either end by the bowling creases and on either side by imaginary lines, one each side of the imaginary line joining the centres of the two middle stumps, each parallel to it and 5 ft/1.52 m from it.  If the pitch is next to an artificial pitch which is closer than 5 ft/1.52 m from the middle stumps, the pitch on that side will extend only to the junction of the two surfaces.  See Laws 8.1 (Description, width and pitching), 8.4 (Junior cricket) and 7.2 (The bowling crease)."</string>
+    <string name="pitch1">"The umpires shall be the sole judges of the fitness of the pitch for play.  See Laws 2.7 (Fitness for play) and 2.8 (Suspension of play in dangerous or unreasonable conditions)."</string>
+    <string name="pitch2">"Before the match, the Ground Authority shall be responsible for the selection and preparation of the pitch.  During the match, the umpires shall control its use and maintenance."</string>
+    <string name="pitch3">"The pitch shall not be changed during the match unless the umpires decide that it is dangerous or unreasonable for play to continue on it and then only with the consent of both captains."</string>
+    <string name="pitch4">"In the event of a non-turf pitch being used, the artificial surface shall conform to the following measurements:\nLength – a minimum of 58 ft/17.68 m\nWidth – a minimum of 6 ft/1.83 m\nSee Law 9.8 (Non-turf pitches)."</string>
+    <string name="pitch5">"The Governing Body for cricket in the country concerned shall determine the length of the pitch for junior cricket."</string>
+
 </resources>

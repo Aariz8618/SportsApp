@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
     private var previousTitle: String? = null
     private var isOnHomeScreen = true
     private var isDrawerOpen = false
+    private var wasNavigatedFromDrawer = false
     
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -89,9 +90,9 @@ class MainActivity : AppCompatActivity() {
         currentFragment = null
 
         // Show home content and header
-        binding.homeContent.visibility = android.view.View.VISIBLE
-        binding.fragmentContainer.visibility = android.view.View.GONE
-        binding.mainHeader.visibility = android.view.View.VISIBLE
+        binding.homeContent.visibility = View.VISIBLE
+        binding.fragmentContainer.visibility = View.GONE
+        binding.mainHeader.visibility = View.VISIBLE
 
         // Show hamburger menu, hide back arrow
         updateHeaderIcon(showBackArrow = false)
@@ -130,6 +131,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun navigateFromDrawer(fragment: Fragment, title: String) {
+        wasNavigatedFromDrawer = true
+        navigateToFragment(fragment, title)
+    }
+
     private fun setupBackPressHandler() {
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
@@ -142,6 +148,11 @@ class MainActivity : AppCompatActivity() {
                     !isOnHomeScreen -> {
                         if (shouldNavigateBackToPrevious()) {
                             navigateBackToPrevious()
+                        } else if (wasNavigatedFromDrawer) {
+                            // If we came from drawer, go back to home and open drawer
+                            wasNavigatedFromDrawer = false
+                            showHomeScreen()
+                            openNavigationDrawer()
                         } else {
                             showHomeScreen()
                         }
@@ -162,6 +173,11 @@ class MainActivity : AppCompatActivity() {
                 // If we're not on home screen, act as back button
                 if (shouldNavigateBackToPrevious()) {
                     navigateBackToPrevious()
+                } else if (wasNavigatedFromDrawer) {
+                    // If we came from drawer, go back to home and open drawer
+                    wasNavigatedFromDrawer = false
+                    showHomeScreen()
+                    openNavigationDrawer()
                 } else {
                     showHomeScreen()
                 }
@@ -229,109 +245,109 @@ class MainActivity : AppCompatActivity() {
         // Cricket Basics - History of cricket
         findViewById<View>(R.id.nav_item_history_of_cricket).setOnClickListener {
             closeNavigationDrawer()
-            navigateToFragment(HistoryOfCricketFragment(), "History of Cricket")
+            navigateFromDrawer(HistoryOfCricketFragment(), "History of Cricket")
         }
 
         // Cricket Basics - Rules of the game
         findViewById<View>(R.id.nav_item_rules_of_the_game).setOnClickListener {
             closeNavigationDrawer()
-            navigateToFragment(RulesOfTheGameFragment(), "Rules of the Game")
+            navigateFromDrawer(RulesOfTheGameFragment(), "Laws of the Game")
         }
 
         // Cricket Basics - Player roles
         findViewById<View>(R.id.nav_item_player_roles).setOnClickListener {
             closeNavigationDrawer()
-            navigateToFragment(PlayerRolesFragment(), "Player Roles")
+            navigateFromDrawer(PlayerRolesFragment(), "Player Roles")
         }
 
         // Cricket Basics - Match formats
         findViewById<View>(R.id.nav_item_match_formats).setOnClickListener {
             closeNavigationDrawer()
-            navigateToFragment(MatchFormatsFragment(), "Match Formats")
+            navigateFromDrawer(MatchFormatsFragment(), "Match Formats")
         }
 
         // Cricket Basics - Scoring & terms
         findViewById<View>(R.id.nav_item_scoring_terms).setOnClickListener {
             closeNavigationDrawer()
-            navigateToFragment(ScoringTermsFragment(), "Scoring & Terms")
+            navigateFromDrawer(ScoringTermsFragment(), "Scoring & Terms")
         }
 
         // Cricket Basics - Fielding positions
         findViewById<View>(R.id.nav_item_fielding_positions).setOnClickListener {
             closeNavigationDrawer()
-            navigateToFragment(FieldingPositionsFragment(), "Fielding Positions")
+            navigateFromDrawer(FieldingPositionsFragment(), "Fielding Positions")
         }
 
         // Cricket Basics - Strategy and tactics
         findViewById<View>(R.id.nav_item_strategy_tactics).setOnClickListener {
             closeNavigationDrawer()
-            navigateToFragment(StrategyAndTacticsFragment(), "Strategy and Tactics")
+            navigateFromDrawer(StrategyAndTacticsFragment(), "Strategy and Tactics")
         }
 
         // Cricket Basics - Tournaments and leagues
         findViewById<View>(R.id.nav_item_tournaments_leagues).setOnClickListener {
             closeNavigationDrawer()
-            navigateToFragment(TournamentsAndLeaguesFragment(), "Tournaments and Leagues")
+            navigateFromDrawer(TournamentsAndLeaguesFragment(), "Tournaments and Leagues")
         }
 
         // Cricket Basics - How rankings work
         findViewById<View>(R.id.nav_item_how_rankings_work).setOnClickListener {
             closeNavigationDrawer()
-            navigateToFragment(HowRankingsWorkFragment(), "How Rankings Work")
+            navigateFromDrawer(HowRankingsWorkFragment(), "How Rankings Work")
         }
 
         // Beyond the Field - Grounds
         findViewById<View>(R.id.nav_item_grounds).setOnClickListener {
             closeNavigationDrawer()
-            navigateToFragment(GroundsFragment(), "Cricket Grounds")
+            navigateFromDrawer(GroundsFragment(), "Cricket Grounds")
         }
 
         // Beyond the Field - Umpires
         findViewById<View>(R.id.nav_item_umpires).setOnClickListener {
             closeNavigationDrawer()
-            navigateToFragment(UmpiresFragment(), "Umpires")
+            navigateFromDrawer(UmpiresFragment(), "Umpires")
         }
 
         // Beyond the Field - Commentators
         findViewById<View>(R.id.nav_item_commentators).setOnClickListener {
             closeNavigationDrawer()
-            navigateToFragment(CommentatorsFragment(), "Commentators")
+            navigateFromDrawer(CommentatorsFragment(), "Commentators")
         }
 
         // Beyond the Field - Experts
         findViewById<View>(R.id.nav_item_experts).setOnClickListener {
             closeNavigationDrawer()
-            navigateToFragment(ExpertsFragment(), "Cricket Experts")
+            navigateFromDrawer(ExpertsFragment(), "Cricket Experts")
         }
 
         // Settings
         findViewById<View>(R.id.nav_item_settings).setOnClickListener {
             closeNavigationDrawer()
-            navigateToFragment(SettingsFragment(), "Settings")
+            navigateFromDrawer(SettingsFragment(), "Settings")
         }
 
         // About
         findViewById<View>(R.id.nav_item_about).setOnClickListener {
             closeNavigationDrawer()
-            navigateToFragment(AboutFragment(), "About Us")
+            navigateFromDrawer(AboutFragment(), "About Us")
         }
 
         // Help and Support
         findViewById<View>(R.id.nav_item_help_support).setOnClickListener {
             closeNavigationDrawer()
-            navigateToFragment(HelpSupportFragment(), "Help and Support")
+            navigateFromDrawer(HelpSupportFragment(), "Help and Support")
         }
 
         // Privacy Policy
         findViewById<View>(R.id.nav_item_privacy_policy).setOnClickListener {
             closeNavigationDrawer()
-            navigateToFragment(PrivacyPolicyFragment(), "Privacy Policy")
+            navigateFromDrawer(PrivacyPolicyFragment(), "Privacy Policy")
         }
 
         // Terms of Service
         findViewById<View>(R.id.nav_item_terms_service).setOnClickListener {
             closeNavigationDrawer()
-            navigateToFragment(TermsAndConditionsFragment(), "Terms and Conditions")
+            navigateFromDrawer(TermsAndConditionsFragment(), "Terms and Conditions")
         }
 
         // Report Issue
@@ -440,7 +456,21 @@ class MainActivity : AppCompatActivity() {
                fragment is GrowthOfInternationalCricketFragment ||
                fragment is WorldSeriesCricketFragment ||
                fragment is ExpansionOfGameFragment ||
-               fragment is T20CricketShorterFormatsFragment
+               fragment is T20CricketShorterFormatsFragment ||
+               fragment is Law1Fragment ||
+               fragment is Law2Fragment ||
+               fragment is Law3Fragment ||
+               fragment is Law4Fragment ||
+               fragment is Law5Fragment ||
+               fragment is Law6Fragment ||
+               fragment is Law7Fragment ||
+               fragment is Law8Fragment ||
+               fragment is Law9Fragment ||
+               fragment is Law10Fragment ||
+               fragment is Law11Fragment ||
+               fragment is Law12Fragment ||
+               fragment is Law13Fragment ||
+               fragment is Law14Fragment
     }
 
     private fun setupExpandableSections() {
