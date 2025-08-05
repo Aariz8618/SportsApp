@@ -50,7 +50,7 @@
                 android:text="Development of the Laws" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnInternationalBegins"
+                android:id="@+id/btnNineteenth"
                 android:layout_width="match_parent"
                 style="@style/CustomRoundedButton"
                 android:text="19th Century cricket" />

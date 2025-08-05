@@ -1,9 +1,13 @@
 package com.aariz.sportsapp
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import com.aariz.sportsapp.databinding.FragmentLawsOfTheGameBinding
 
@@ -23,7 +27,111 @@ class RulesOfTheGameFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupFilterSpinner()
+        setupSearchFunctionality()
         setupLawClickListeners()
+    }
+
+    private fun setupFilterSpinner() {
+        val adapter = ArrayAdapter.createFromResource(
+            requireContext(),
+            R.array.filter_categories,
+            android.R.layout.simple_spinner_item
+        )
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.spinnerFilter.adapter = adapter
+
+        binding.spinnerFilter.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                val categories = resources.getStringArray(R.array.filter_categories)
+                if (position > 0) { // Skip "FILTER LAWS" option
+                    filterByCategory(categories[position])
+                } else {
+                    showAllLaws() // Show all laws when "FILTER LAWS" is selected
+                }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+        }
+    }
+
+    private fun setupSearchFunctionality() {
+        binding.searchBar.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {}
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                filterLaws(s.toString())
+            }
+        })
+
+        binding.buttonSearch.setOnClickListener {
+            filterLaws(binding.searchBar.text.toString())
+        }
+    }
+
+    private fun filterLaws(query: String) {
+        val lowercaseQuery = query.lowercase()
+        
+        // Define law data structure for searching
+        val lawData = mapOf(
+            "law_title_1" to "the players",
+            "law_title_2" to "the umpires",
+            "law_title_3" to "the scorers",
+            "law_title_4" to "the ball",
+            "law_title_5" to "the bat",
+            "law_title_6" to "the pitch",
+            "law_title_7" to "the creases",
+            "law_title_8" to "the wickets",
+            "law_title_9" to "preparation and maintenance of the playing area",
+            "law_title_10" to "covering the pitch",
+            "law_title_11" to "intervals",
+            "law_title_12" to "start of play cessation of play",
+            "law_title_13" to "innings",
+            "law_title_14" to "the follow-on"
+        )
+        
+        // Show/hide law cards based on search query
+        for ((lawId, lawTitle) in lawData) {
+            val lawCard = binding.root.findViewById<View>(resources.getIdentifier(lawId, "id", requireContext().packageName))?.parent?.parent as? View
+            lawCard?.visibility = if (lowercaseQuery.isEmpty() || lawTitle.contains(lowercaseQuery)) {
+                View.VISIBLE
+            } else {
+                View.GONE
+            }
+        }
+    }
+
+    private fun filterByCategory(category: String) {
+        // Define which laws belong to which categories based on the existing layout
+        val categoryLaws = when (category) {
+            "Setting Up" -> listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12) // Laws 1-12
+            "Innings and Result" -> listOf(13, 14, 15, 16) // Laws 13-16 (based on existing layout colors)
+            "The Over, Scoring Runs, Dead Ball and Extras" -> listOf(17, 18, 19, 20, 21, 22, 23) // Laws 17-23
+            "Players, Substitutes, Runners and Practice" -> listOf(24, 25, 26, 27, 28) // Laws 24-28
+            "Appeals and Dismissals" -> listOf(29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40) // Laws 29-40
+            "Unfair Play" -> listOf(41, 42) // Laws 41-42
+            else -> (1..42).toList() // Show all laws for any other case
+        }
+
+        // Show/hide law cards based on category
+        for (i in 1..42) {
+            val lawCard = binding.root.findViewById<View>(resources.getIdentifier("law_title_$i", "id", requireContext().packageName))?.parent?.parent as? View
+            lawCard?.visibility = if (categoryLaws.contains(i)) {
+                View.VISIBLE
+            } else {
+                View.GONE
+            }
+        }
+    }
+
+    private fun showAllLaws() {
+        // Show all law cards
+        for (i in 1..42) {
+            val lawCard = binding.root.findViewById<View>(resources.getIdentifier("law_title_$i", "id", requireContext().packageName))?.parent?.parent as? View
+            lawCard?.visibility = View.VISIBLE
+        }
     }
 
     private fun setupLawClickListeners() {

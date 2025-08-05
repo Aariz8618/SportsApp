@@ -39,11 +39,11 @@ class HistoryOfCricketFragment : Fragment() {
         binding.btnLaws.setOnClickListener {
             navigateToFragment(DevelopmentOfLawsFragment())
         }
-        binding.btnInternationalBegins.setOnClickListener {
-            navigateToFragment(InternationalCricketBeginsFragment())
+        binding.btnNineteenth.setOnClickListener {
+            navigateToFragment(NineteenthCenturyCricket())
         }
         binding.btnInternational.setOnClickListener {
-            navigateToFragment(NineteenthCenturyCricket())
+            navigateToFragment(InternationalCricketBeginsFragment())
         }
         binding.btnColonies.setOnClickListener {
             navigateToFragment(GrowthInColoniesFragment())

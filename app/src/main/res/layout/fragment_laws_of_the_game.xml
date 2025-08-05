@@ -11,6 +11,112 @@
         android:orientation="vertical"
         android:padding="8dp">
 
+        <!-- Filter and Search Bar -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            card_view:cardCornerRadius="12dp"
+            card_view:cardElevation="6dp"
+            android:background="@android:color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Filter Section -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Filter by:"
+                        android:textSize="14sp"
+                        android:textColor="#2A003F"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginRight="12dp" />
+
+                    <Spinner
+                        android:id="@+id/spinner_filter"
+                        android:layout_width="0dp"
+                        android:layout_height="44dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:paddingHorizontal="16dp"
+                        android:entries="@array/filter_categories"
+                        android:popupBackground="@android:color/white" />
+
+                </LinearLayout>
+
+                <!-- Search Section -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Search:"
+                        android:textSize="14sp"
+                        android:textColor="#2A003F"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="12dp" />
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp"
+                        card_view:cardCornerRadius="8dp"
+                        card_view:cardElevation="2dp">
+
+                        <EditText
+                            android:id="@+id/search_bar"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:hint="Type to search laws..."
+                            android:background="@android:color/transparent"
+                            android:paddingHorizontal="16dp"
+                            android:paddingVertical="12dp"
+                            android:textSize="14sp"
+                            android:textColorHint="#888888"
+                            android:textColor="#333333"
+                            android:maxLines="1"
+                            android:inputType="text"
+                            android:drawableStart="@android:drawable/ic_menu_search"
+                            android:drawablePadding="8dp"
+                            android:drawableTint="#888888" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/button_search"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:background="@drawable/rounded_button"
+                        android:text="SEARCH"
+                        android:textColor="@android:color/white"
+                        android:paddingHorizontal="20dp"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:elevation="4dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
         <!-- First Row -->
         <LinearLayout
             android:layout_width="match_parent"

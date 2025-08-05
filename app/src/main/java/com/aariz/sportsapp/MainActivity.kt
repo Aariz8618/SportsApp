@@ -3,16 +3,19 @@ package com.aariz.sportsapp
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.animation.ObjectAnimator
+import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ImageView
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.aariz.sportsapp.databinding.ActivityMainBinding
+import com.google.firebase.FirebaseApp
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,6 +30,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        
+        // Initialize Firebase
+        FirebaseApp.initializeApp(this)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -67,21 +73,25 @@ class MainActivity : AppCompatActivity() {
         // Gallery "View More" click listener
         binding.tvGalleryViewMore.setOnClickListener {
             navigateToFragment(GalleryFragment(), "Photo Gallery")
+            hideBottomNavigation()
         }
 
         // Highlights "View More" click listener
         binding.tvHighlightsViewMore.setOnClickListener {
             navigateToFragment(HighlightsFragment(), "Match Highlights")
+            hideBottomNavigation()
         }
 
         // News "View More" click listener
         binding.cvNewsCard.setOnClickListener {
             navigateToFragment(NewsFragment(), "Cricket News")
+            hideBottomNavigation()
         }
 
         // Memes "View More" click listener
         binding.tvMemesViewMore.setOnClickListener {
             navigateToFragment(MemesFragment(), "Cricket Memes")
+            hideBottomNavigation()
         }
     }
 
@@ -99,7 +109,9 @@ class MainActivity : AppCompatActivity() {
 
         // Reset header title to app name
         updateHeaderTitle("CricTech")
-
+        
+        // Show bottom navigation when returning to home
+        showBottomNavigation()
     }
 
     fun navigateToFragment(fragment: Fragment, title: String = "CricTech") {
@@ -133,6 +145,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun navigateFromDrawer(fragment: Fragment, title: String) {
         wasNavigatedFromDrawer = true
+        
+        // Hide bottom navigation when navigating from drawer
+        hideBottomNavigation()
+        
         navigateToFragment(fragment, title)
     }
 
@@ -146,6 +162,8 @@ class MainActivity : AppCompatActivity() {
                     }
                     // If not on home screen, check if we have a previous fragment
                     !isOnHomeScreen -> {
+                        // Hide keyboard before navigating
+                        hideKeyboard()
                         if (shouldNavigateBackToPrevious()) {
                             navigateBackToPrevious()
                         } else if (wasNavigatedFromDrawer) {
@@ -171,6 +189,8 @@ class MainActivity : AppCompatActivity() {
         binding.ivHamburgerMenu.setOnClickListener {
             if (!isOnHomeScreen) {
                 // If we're not on home screen, act as back button
+                // Hide keyboard before navigating
+                hideKeyboard()
                 if (shouldNavigateBackToPrevious()) {
                     navigateBackToPrevious()
                 } else if (wasNavigatedFromDrawer) {
@@ -358,6 +378,7 @@ class MainActivity : AppCompatActivity() {
         // Feedback
         findViewById<View>(R.id.nav_item_feedback).setOnClickListener {
             closeNavigationDrawer()
+            navigateFromDrawer(FeedbackFragment(), "Feedback")
         }
     }
 
@@ -386,6 +407,9 @@ class MainActivity : AppCompatActivity() {
     private fun closeNavigationDrawer() {
         if (!isDrawerOpen) return
 
+        // Hide keyboard when closing drawer
+        hideKeyboard()
+        
         isDrawerOpen = false
         val navDrawerOverlay = findViewById<View>(R.id.nav_drawer_overlay)
         val navDrawerContent = findViewById<View>(R.id.nav_drawer_content)
@@ -470,7 +494,28 @@ class MainActivity : AppCompatActivity() {
                fragment is Law11Fragment ||
                fragment is Law12Fragment ||
                fragment is Law13Fragment ||
-               fragment is Law14Fragment
+               fragment is Law14Fragment ||
+                fragment is Law15Fragment ||
+                fragment is Law16Fragment ||
+                fragment is Law17Fragment ||
+                fragment is Law18Fragment ||
+                fragment is Law19Fragment ||
+                fragment is Law20Fragment ||
+                fragment is Law21Fragment ||
+                fragment is Law22Fragment ||
+                fragment is Law23Fragment ||
+                fragment is Law24Fragment ||
+                fragment is Law25Fragment ||
+                fragment is Law26Fragment ||
+                fragment is Law27Fragment ||
+                fragment is Law28Fragment ||
+                fragment is Law29Fragment ||
+                fragment is Law30Fragment ||
+                fragment is Law31Fragment ||
+                fragment is Law32Fragment ||
+                fragment is Law33Fragment ||
+                fragment is Law34Fragment ||
+                fragment is Law35Fragment
     }
 
     private fun setupExpandableSections() {
@@ -647,6 +692,26 @@ class MainActivity : AppCompatActivity() {
         } else {
             beyondFieldContainer?.visibility = View.GONE
             beyondFieldArrow.rotation = 0f
+        }
+    }
+    
+    private fun hideBottomNavigation() {
+        // Find the bottom navigation container and hide it
+        val bottomNav = findViewById<View>(R.id.bottom_navigation)
+        bottomNav?.visibility = View.GONE
+    }
+    
+    private fun showBottomNavigation() {
+        // Find the bottom navigation container and show it
+        val bottomNav = findViewById<View>(R.id.bottom_navigation)
+        bottomNav?.visibility = View.VISIBLE
+    }
+    
+    private fun hideKeyboard() {
+        val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        val currentFocusedView = currentFocus
+        currentFocusedView?.let {
+            inputMethodManager.hideSoftInputFromWindow(it.windowToken, 0)
         }
     }
 }

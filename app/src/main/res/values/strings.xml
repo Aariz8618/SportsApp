@@ -204,4 +204,20 @@
     <string name="pitch4">"In the event of a non-turf pitch being used, the artificial surface shall conform to the following measurements:\nLength – a minimum of 58 ft/17.68 m\nWidth – a minimum of 6 ft/1.83 m\nSee Law 9.8 (Non-turf pitches)."</string>
     <string name="pitch5">"The Governing Body for cricket in the country concerned shall determine the length of the pitch for junior cricket."</string>
 
+    <!-- Filter Categories Array -->
+    <string-array name="filter_categories">
+        <item>Filter Laws</item>
+        <item>Setting Up</item>
+        <item>Innings and Result</item>
+        <item>The Over, Scoring Runs, Dead Ball and Extras</item>
+        <item>Players, Substitutes, Runners and Practice</item>
+        <item>Appeals and Dismissals</item>
+        <item>Unfair Play</item>
+    </string-array>
+    
+    <string name="crease">"The positions of a bowling crease, a popping crease and two return creases shall be marked by white lines, as set out in 7.2, 7.3 and 7.4, at each end of the pitch.  See Appendix C."</string>
+    <string name="crease2">"The bowling crease, which is the back edge of the crease marking, is the line that marks the end of the pitch, as in Law 6.1 (Area of pitch).  It shall be 8 ft 8 in/2.64 m in length."</string>
+    <string name="crease3">"The popping crease, which is the back edge of the crease marking, shall be in front of and parallel to the bowling crease and shall be 4 ft/1.22 m from it.  The popping crease shall be marked to a minimum of 6 ft/1.83 m on either side of the imaginary line joining the centres of the two middle stumps and shall be considered to be unlimited in length."</string>
+    <string name="crease4">"The return creases, which are the inside edges of the crease markings, shall be at right angles to the popping crease at a distance of 4 ft 4 in/1.32 m either side of the imaginary line joining the centres of the two middle stumps.  Each return crease shall be marked from the popping crease to a minimum of 8 ft/2.44 m behind it and shall be considered to be unlimited in length."</string>
+
 </resources>

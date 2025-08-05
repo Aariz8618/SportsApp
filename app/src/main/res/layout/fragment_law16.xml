@@ -12,6 +12,7 @@
         android:orientation="vertical"
         android:padding="16dp">
 
+
         <!-- Content Section -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -24,13 +25,14 @@
                 android:orientation="vertical"
                 android:padding="20dp">
 
-                <!-- Section 3.1 -->
+                <!-- Section 16.1 -->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:fontFamily="@font/lato_black"
-                    android:text="7.1 The creases"
+                    android:text="16.1 Law 16 - Section 1"
+                    android:textColor="@color/black"
                     android:textSize="20sp" />
 
                 <TextView
@@ -39,64 +41,28 @@
                     android:layout_marginBottom="16dp"
                     android:fontFamily="@font/lato"
                     android:lineSpacingExtra="4dp"
-                    android:text="@string/crease"
+                    android:text="Content for Law 16, Section 1"
+                    android:textColor="@color/black"
                     android:textSize="16sp" />
 
-                <!-- Section 3.2 -->
+                <!-- Section 16.2 -->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:fontFamily="@font/lato_black"
-                    android:text="7.2 The bowling crease"
+                    android:text="16.2 Law 16 - Section 2"
+                    android:textColor="@color/black"
                     android:textSize="20sp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
                     android:fontFamily="@font/lato"
                     android:lineSpacingExtra="4dp"
-                    android:text="@string/crease2"
+                    android:text="Content for Law 16, Section 2"
+                    android:textColor="@color/black"
                     android:textSize="16sp" />
-
-                <!-- Section 3.3 -->
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:fontFamily="@font/lato_black"
-                    android:text="7.3 The popping crease"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    android:fontFamily="@font/lato"
-                    android:lineSpacingExtra="4dp"
-                    android:text="@string/crease3"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:fontFamily="@font/lato_black"
-                    android:text="7.4 The return creases"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    android:fontFamily="@font/lato"
-                    android:lineSpacingExtra="4dp"
-                    android:text="@string/crease4"
-                    android:textSize="16sp" />
-
-
-
 
             </LinearLayout>
 

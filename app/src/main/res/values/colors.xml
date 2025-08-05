@@ -4,6 +4,8 @@
     <color name="primary_green">#1B5E20</color>
     <color name="primary_green_light">#2E7D32</color>
     <color name="primary_green_dark">#0D3A0F</color>
+    <color name="colorPrimary">#FF5722</color>
+    <color name="colorAccent">#E91E63</color>
     
     <!-- Secondary Colors -->
     <color name="cricket_orange">#FF6F00</color>

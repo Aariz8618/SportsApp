@@ -1,15 +1,15 @@
-package com.aariz.sportsapp
+﻿package com.aariz.sportsapp
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.aariz.sportsapp.databinding.InternationalCricketBeginsBinding
+import com.aariz.sportsapp.databinding.FragmentLaw33Binding
 
-class InternationalCricketBeginsFragment : Fragment() {
+class Law33Fragment : Fragment() {
 
-    private var _binding: InternationalCricketBeginsBinding ?= null
+    private var _binding: FragmentLaw33Binding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -17,13 +17,13 @@ class InternationalCricketBeginsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = InternationalCricketBeginsBinding.inflate(inflater, container, false)
+        _binding = FragmentLaw33Binding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        // Layout content is already defined in XML
     }
 
     override fun onDestroyView() {
