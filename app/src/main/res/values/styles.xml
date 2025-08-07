@@ -12,5 +12,11 @@
 
     </style>
 
+    <style name="SpinnerTheme" parent="Theme.AppCompat.Light">
+        <item name="android:popupBackground">@color/white</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+
 
 </resources>

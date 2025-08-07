@@ -373,6 +373,7 @@ class MainActivity : AppCompatActivity() {
         // Report Issue
         findViewById<View>(R.id.nav_item_report_issue).setOnClickListener {
             closeNavigationDrawer()
+            navigateFromDrawer(ReportIssueFragment(), "Report Issue")
         }
 
         // Feedback
@@ -515,7 +516,13 @@ class MainActivity : AppCompatActivity() {
                 fragment is Law32Fragment ||
                 fragment is Law33Fragment ||
                 fragment is Law34Fragment ||
-                fragment is Law35Fragment
+                fragment is Law35Fragment ||
+                fragment is Law37Fragment ||
+                fragment is Law38Fragment ||
+                fragment is Law39Fragment ||
+                fragment is Law40Fragment ||
+                fragment is Law41Fragment ||
+                fragment is Law42Fragment
     }
 
     private fun setupExpandableSections() {

@@ -220,4 +220,15 @@
     <string name="crease3">"The popping crease, which is the back edge of the crease marking, shall be in front of and parallel to the bowling crease and shall be 4 ft/1.22 m from it.  The popping crease shall be marked to a minimum of 6 ft/1.83 m on either side of the imaginary line joining the centres of the two middle stumps and shall be considered to be unlimited in length."</string>
     <string name="crease4">"The return creases, which are the inside edges of the crease markings, shall be at right angles to the popping crease at a distance of 4 ft 4 in/1.32 m either side of the imaginary line joining the centres of the two middle stumps.  Each return crease shall be marked from the popping crease to a minimum of 8 ft/2.44 m behind it and shall be considered to be unlimited in length."</string>
 
+    <string-array name="issue_categories">
+        <item>Select Category</item>
+        <item>Bug Report</item>
+        <item>Feature Request</item>
+        <item>Performance Issue</item>
+        <item>UI/UX Issue</item>
+        <item>Crash Report</item>
+        <item>Data Sync Issue</item>
+        <item>Login/Authentication</item>
+        <item>Other</item>
+    </string-array>
 </resources>
