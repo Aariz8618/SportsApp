@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    card_view:cardCornerRadius="12dp"
+    card_view:cardElevation="6dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Background image -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="160dp">
+
+            <ImageView
+                android:id="@+id/imageGround"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:contentDescription="ground" />
+
+        </RelativeLayout>
+
+        <!-- Country/Location bar -->
+        <TextView
+            android:id="@+id/tvGroundLocation"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="Location"
+            android:fontFamily="@font/lato_bold"
+            android:textColor="@android:color/white"
+            android:background="#2196F3"
+            android:textSize="16sp" />
+
+        <!-- Optional additional text (like ground name again) -->
+        <TextView
+
+
+
+            android:id="@+id/tvGroundFooter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Ground Name"
+            android:fontFamily="@font/lato_bold"
+            android:textColor="#4A148C"
+            android:textSize="16sp"
+            android:padding="12dp"
+            android:background="@android:color/white" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

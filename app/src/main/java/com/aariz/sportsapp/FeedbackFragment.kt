@@ -151,21 +151,25 @@ class FeedbackFragment : Fragment() {
         // Validate input
         if (name.isEmpty()) {
             binding.etFeedbackName.error = "Name is required"
+            binding.etFeedbackName.requestFocus()
             return
         }
 
         if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             binding.etFeedbackEmail.error = "Valid email is required"
+            binding.etFeedbackEmail.requestFocus()
             return
         }
 
         if (subject.isEmpty()) {
             binding.etFeedbackSubject.error = "Subject is required"
+            binding.etFeedbackSubject.requestFocus()
             return
         }
 
         if (message.isEmpty()) {
             binding.etFeedbackMessage.error = "Message is required"
+            binding.etFeedbackMessage.requestFocus()
             return
         }
 
@@ -178,6 +182,7 @@ class FeedbackFragment : Fragment() {
         hideKeyboard()
         
         // Show loading
+        binding.progressBar.visibility = View.VISIBLE
         binding.btnSubmitFeedback.isEnabled = false
         binding.btnSubmitFeedback.text = "Submitting..."
 
@@ -200,6 +205,7 @@ class FeedbackFragment : Fragment() {
             clearForm()
             
             // Reset button state
+            binding.progressBar.visibility = View.GONE
             binding.btnSubmitFeedback.isEnabled = true
             binding.btnSubmitFeedback.text = "SUBMIT"
         }, 2000) // 2 second delay
