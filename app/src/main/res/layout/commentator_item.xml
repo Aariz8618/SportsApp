@@ -14,18 +14,18 @@
 
         <!-- Image of Umpire -->
         <ImageView
-            android:id="@+id/umpireImage"
+            android:id="@+id/commentatorImage"
             android:layout_width="match_parent"
             android:layout_height="160dp"
             android:scaleType="centerCrop" />
 
         <!-- Country in Center -->
         <TextView
-            android:id="@+id/umpireCountry"
+            android:id="@+id/commentatorCountry"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:gravity="center"
-            android:background="#57958B"
+            android:background="#5A6DD7"
             android:text="Country"
             android:fontFamily="@font/lato_bold"
             android:textColor="@color/white"
@@ -34,7 +34,7 @@
 
         <!-- Umpire Name at Bottom -->
         <TextView
-            android:id="@+id/umpireName"
+            android:id="@+id/commentatorName"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:gravity="center"
