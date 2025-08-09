@@ -5,34 +5,51 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.aariz.sportsapp.databinding.FragmentCommentatorsBinding
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.aariz.sportsapp.models.Commentator
 
 class CommentatorsFragment : Fragment() {
 
-    private var _binding: FragmentCommentatorsBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var commentatorRecyclerView: RecyclerView
+    private lateinit var commentatorAdapter: CommentatorAdapter
+    private lateinit var commentatorList: List<Commentator>
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentCommentatorsBinding.inflate(inflater, container, false)
-        return binding.root
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_commentators, container, false)
+
+        setupRecyclerView(view)
+
+        return view
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        setupContent()
+    private fun setupRecyclerView(view: View) {
+        commentatorRecyclerView = view.findViewById(R.id.commentatorRecyclerView)
+
+        // Grid layout with 2 columns like the image
+        commentatorRecyclerView.layoutManager = GridLayoutManager(context, 2)
+
+        // Initialize commentator data
+        commentatorList = getCommentatorList()
+
+        // Set adapter
+        commentatorAdapter = CommentatorAdapter(commentatorList)
+        commentatorRecyclerView.adapter = commentatorAdapter
     }
 
-    private fun setupContent() {
-        // Content is now loaded from XML layout
-        // No need to set text programmatically
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    private fun getCommentatorList(): List<Commentator> {
+        return listOf(
+            Commentator("Harsha Bhogle", "India", R.drawable.harsha),
+            Commentator("Michael Holding", "West Indies", R.drawable.michael_holding),
+            Commentator("Nasser Hussain", "England", R.drawable.nasser_hussain),
+            Commentator("Ian Bishop", "West Indies", R.drawable.ian_bishop),
+            Commentator("Ravi Shastri", "India", R.drawable.ravi_shastri),
+            Commentator("Mark Nicholas", "England", R.drawable.mark_nicholas),
+            Commentator("Danny Morrison", "New Zealand", R.drawable.danny_morrison),
+            Commentator("Simon Doull", "New Zealand", R.drawable.simon_doull)
+        )
     }
 }

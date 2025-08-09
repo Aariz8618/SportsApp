@@ -24,24 +24,24 @@ class UmpiresFragment : Fragment() {
         recyclerView.layoutManager = GridLayoutManager(context, 2)
 
         umpireList = listOf(
-            Umpire("Chris Gaffaney", "New Zealand", R.drawable.chris),
-            Umpire("Michael Gough", "England", R.drawable.gough),
-            Umpire("Richard Illingworth", "England", R.drawable.illingworth),
-            Umpire("Richard Kettleborough", "England", R.drawable.kettleborough),
-            Umpire("Nitin Menon", "India", R.drawable.nitin),
-            Umpire("Ahsan Raza", "Pakistan", R.drawable.ahsan),
-            Umpire("Paul Reiffel", "Australia", R.drawable.paul),
-            Umpire("Adrian Holdstock", "South Africa", R.drawable.adrian),
-            Umpire("Kumar Dharmasena", "Sri Lanka", R.drawable.kumar_dharmasena),
-            Umpire("Sharfuddoula", "Bangladesh", R.drawable.sharfuddoula),
-            Umpire("Rod Tucker", "Australia", R.drawable.tucker),
-            Umpire("Joel Wilson", "West Indies", R.drawable.joel),
-            Umpire("David Boon", "West Indies", R.drawable.david),
-            Umpire("Ranjan Madugalle", "West Indies", R.drawable.ranjan),
-            Umpire("Andy Pycroft", "West Indies", R.drawable.andy),
-            Umpire("Richie Richardson", "West Indies", R.drawable.richie),
-            Umpire("Javagal Srinath", "West Indies", R.drawable.javagal),
-            Umpire("Jeff Crowe", "West Indies", R.drawable.jeff),
+            Umpire("Chris Gaffaney", "New Zealand", R.drawable.chris1),
+            Umpire("Michael Gough", "England", R.drawable.michael1),
+            Umpire("Richard Illingworth", "England", R.drawable.illingworth1),
+            Umpire("Richard Kettleborough", "England", R.drawable.kettleborough1),
+            Umpire("Nitin Menon", "India", R.drawable.nitin1),
+            Umpire("Ahsan Raza", "Pakistan", R.drawable.ahsan1),
+            Umpire("Paul Reiffel", "Australia", R.drawable.paul1),
+            Umpire("Adrian Holdstock", "South Africa", R.drawable.adrian1),
+            Umpire("Kumar Dharmasena", "Sri Lanka", R.drawable.kumar_dharmsena1),
+            Umpire("Sharfuddoula", "Bangladesh", R.drawable.sharfuddoula1),
+            Umpire("Rod Tucker", "Australia", R.drawable.tucker1),
+            Umpire("Joel Wilson", "West Indies", R.drawable.joel1),
+            Umpire("Anil Chaudhary", "India", R.drawable.anil),
+            Umpire("Simon Taufel", "Australia", R.drawable.simon),
+            Umpire("Aleem Dar", "Pakistan", R.drawable.aleem),
+            Umpire("Steve Bucknor", "Jamaica", R.drawable.buckner),
+            Umpire("Brian Jerling", "South Africa", R.drawable.brian),
+            Umpire("Bruce Oxenford", "Australia", R.drawable.bruce)
 
             )
 
