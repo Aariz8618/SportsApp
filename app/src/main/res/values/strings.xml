@@ -219,6 +219,7 @@
     <string name="crease2">"The bowling crease, which is the back edge of the crease marking, is the line that marks the end of the pitch, as in Law 6.1 (Area of pitch).  It shall be 8 ft 8 in/2.64 m in length."</string>
     <string name="crease3">"The popping crease, which is the back edge of the crease marking, shall be in front of and parallel to the bowling crease and shall be 4 ft/1.22 m from it.  The popping crease shall be marked to a minimum of 6 ft/1.83 m on either side of the imaginary line joining the centres of the two middle stumps and shall be considered to be unlimited in length."</string>
     <string name="crease4">"The return creases, which are the inside edges of the crease markings, shall be at right angles to the popping crease at a distance of 4 ft 4 in/1.32 m either side of the imaginary line joining the centres of the two middle stumps.  Each return crease shall be marked from the popping crease to a minimum of 8 ft/2.44 m behind it and shall be considered to be unlimited in length."</string>
+    <string name="elite_group_a_mum_vs_brd">Elite Group A • MUM vs BRD</string>
 
     <string-array name="issue_categories">
         <item>Select Category</item>
