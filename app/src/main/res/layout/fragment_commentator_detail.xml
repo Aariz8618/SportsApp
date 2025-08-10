@@ -70,11 +70,12 @@
                             android:layout_height="wrap_content"
                             android:background="@drawable/country_badge_white"
                             android:paddingHorizontal="16dp"
-                            android:paddingVertical="8dp"
+                            android:paddingVertical="4dp"
                             android:text="Country"
                             android:textColor="#FF6200EA"
                             android:textSize="16sp"
-                            android:fontFamily="@font/lato_bold" />
+                            android:fontFamily="@font/lato_bold"
+                            android:gravity="center"/>
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
