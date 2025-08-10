@@ -231,4 +231,51 @@
         <item>Login/Authentication</item>
         <item>Other</item>
     </string-array>
+
+    <string name="sachin_born">"24 April 1973, Mumbai, India"</string>
+    <string name="sachin_education">"Sharadashram Vidyamandir School, Mumbai"</string>
+    <string name="sachin_occupation">"Former Indian Cricketer, Cricket Mentor"</string>
+    <string name="sachin_highlights">"Highest run scorer in international cricket, 100 international centuries, 2011 World Cup winner"</string>
+
+    <!-- Shane Warne -->
+    <string name="shane_born">"13 September 1969, Victoria, Australia"</string>
+    <string name="shane_education">"Mentone Grammar School, Victoria"</string>
+    <string name="shane_occupation">"Former Australian Cricketer, Cricket Commentator"</string>
+    <string name="shane_highlights">"Over 700 Test wickets, 1999 World Cup winner, Leg-spin legend"</string>
+
+    <!-- Ricky Ponting -->
+    <string name="ricky_born">"19 December 1974, Launceston, Tasmania</string>
+    <string name="ricky_education">"Brooks High School, Tasmania</string>
+    <string name="ricky_occupation">"Former Australian Captain, Cricket Coach</string>
+    <string name="ricky_highlights">"Three-time World Cup winner, Second-highest run scorer in Tests, Successful Australian captain</string>
+
+    <!-- Brian Lara -->
+    <string name="brian_born">2 May 1969, Santa Cruz, Trinidad and Tobago</string>
+    <string name="brian_education">Fatima College, Trinidad</string>
+    <string name="brian_occupation">Former West Indies Cricketer</string>
+    <string name="brian_highlights">Highest individual Test score (400*), Over 11,000 Test runs</string>
+
+    <!-- Wasim Akram -->
+    <string name="wasim_born">3 June 1966, Lahore, Pakistan</string>
+    <string name="wasim_education">Government Islamia College, Lahore</string>
+    <string name="wasim_occupation">Former Pakistani Cricketer, Cricket Commentator</string>
+    <string name="wasim_highlights">Over 900 international wickets, 1992 World Cup winner, Sultan of Swing</string>
+
+    <!-- Jacques Kallis -->
+    <string name="jacques_born">"16 October 1975, Cape Town, South Africa"</string>
+    <string name="jacques_education">"Wynberg Boys' High School, Cape Town"</string>
+    <string name="jacques_occupation">"Former South African Cricketer"</string>
+    <string name="jacques_highlights">"Over 10,000 runs and 250 wickets in both Tests and ODIs"</string>
+
+    <!-- Adam Gilchrist -->
+    <string name="adam_born">"14 November 1971, Bellingen, Australia"</string>
+    <string name="adam_education">"Kadina High School, New South Wales"</string>
+    <string name="adam_occupation">"Former Australian Cricketer, Commentator"</string>
+    <string name="adam_highlights">"Three-time World Cup winner, Over 5,500 Test runs as wicketkeeper-batsman"</string>
+
+    <!-- Muttiah Muralitharan -->
+    <string name="murali_born">"17 April 1972, Kandy, Sri Lanka"</string>
+    <string name="murali_education">"St. Anthony's College, Kandy"</string>
+    <string name="murali_occupation">"Former Sri Lankan Cricketer"</string>
+    <string name="murali_highlights">"Highest wicket-taker in Tests (800 wickets) and ODIs (534 wickets)"</string>
 </resources>
