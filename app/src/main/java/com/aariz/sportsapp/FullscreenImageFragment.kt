@@ -1,6 +1,7 @@
 package com.aariz.sportsapp
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,8 +30,12 @@ class FullscreenImageFragment : Fragment() {
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            imageResId = it.getInt(ARG_IMAGE_RES_ID)
+        try {
+            arguments?.let {
+                imageResId = it.getInt(ARG_IMAGE_RES_ID)
+            }
+        } catch (e: Exception) {
+            Log.e("FullscreenImageFragment", "Error getting image resource ID", e)
         }
     }
     
@@ -39,14 +44,28 @@ class FullscreenImageFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentFullscreenImageBinding.inflate(inflater, container, false)
-        return binding.root
+        try {
+            _binding = FragmentFullscreenImageBinding.inflate(inflater, container, false)
+            return binding.root
+        } catch (e: Exception) {
+            Log.e("FullscreenImageFragment", "Error inflating layout", e)
+            // Return a simple view as fallback
+            return View(requireContext())
+        }
     }
     
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.swipeableImageView.setImageResource(imageResId)
-        binding.swipeableImageView.scaleType = ImageView.ScaleType.FIT_CENTER
+        try {
+            if (imageResId != 0) {
+                binding.swipeableImageView.setImageResource(imageResId)
+                binding.swipeableImageView.scaleType = ImageView.ScaleType.FIT_CENTER
+            } else {
+                Log.e("FullscreenImageFragment", "Invalid image resource ID")
+            }
+        } catch (e: Exception) {
+            Log.e("FullscreenImageFragment", "Error setting image", e)
+        }
     }
     
     override fun onDestroyView() {

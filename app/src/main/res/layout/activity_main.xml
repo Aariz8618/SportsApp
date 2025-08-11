@@ -14,7 +14,7 @@
         android:orientation="vertical">
 
         <!-- Header -->
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/main_header"
             android:layout_width="match_parent"
             android:layout_height="64dp"
@@ -33,24 +33,26 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:padding="8dp"
+                android:layout_centerVertical="true"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:contentDescription="Menu"
                 app:tint="@color/text_white" />
 
             <TextView
                 android:id="@+id/tv_header_title"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/lato_bold"
                 android:gravity="center_horizontal"
                 android:letterSpacing="0.05"
                 android:text="CricTech"
+                android:layout_centerVertical="true"
                 android:textColor="@color/text_white"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
         <!-- Scrollable content area with proper behavior -->
         <androidx.core.widget.NestedScrollView
@@ -296,7 +298,7 @@
                                         android:id="@+id/ranji_match"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Elite Group A • MUM vs BRD"
+                                        android:text="@string/elite_group_a_mum_vs_brd"
                                         android:textSize="11sp"
                                         android:textColor="@color/text_secondary"
                                         android:textStyle="bold" />
