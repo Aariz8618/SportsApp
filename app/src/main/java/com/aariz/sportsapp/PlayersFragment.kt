@@ -1,125 +1,167 @@
-package com.aariz.sportsapp
+package com.aariz.sportsapp.ui.players
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.aariz.sportsapp.adapters.PlayerAdapter
-import com.aariz.sportsapp.api.RetrofitInstance
+import com.aariz.sportsapp.api.CricApiClient
+import com.aariz.sportsapp.databinding.FragmentPlayersBinding
 import com.aariz.sportsapp.models.Player
+import com.aariz.sportsapp.models.PlayerDetailResponse
 import com.aariz.sportsapp.models.PlayerResponse
+import com.aariz.sportsapp.ui.PlayerDetailActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class PlayersFragment : Fragment() {
 
-    private lateinit var recyclerView: RecyclerView
+    private var _binding: FragmentPlayersBinding? = null
+    private val binding get() = _binding!!
+
     private lateinit var adapter: PlayerAdapter
-    private lateinit var etSearchPlayer: EditText
+    private val playersList = mutableListOf<Player>()
 
-    private val API_KEY = "37abfde8-ac7d-4b87-98de-f602486ccb0b"
+    private val apiKey = "37abfde8-ac7d-4b87-98de-f602486ccb0b"
 
-    private var allPlayers = mutableListOf<Player>()
-    private var filteredPlayers = mutableListOf<Player>()
-    private var offset = 0
+    // Pagination variables
+    private var currentPage = 0
     private var isLoading = false
-    private var allPlayersLoaded = false
-    private val PAGE_SIZE = 25
+    private var lastQuery = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_players, container, false)
+    ): View {
+        _binding = FragmentPlayersBinding.inflate(inflater, container, false)
+        setupRecyclerView()
+        setupSearchBar()
 
-        recyclerView = view.findViewById(R.id.recyclerViewPlayers)
-        etSearchPlayer = view.findViewById(R.id.etSearchPlayer)
+        // Load initial players
+        fetchPlayersFromApi(lastQuery, reset = true)
 
-        recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
-        adapter = PlayerAdapter(filteredPlayers)
-        recyclerView.adapter = adapter
-
-        setupSearch()
-        setupScrollListener()
-        fetchPlayers()
-
-        return view
+        return binding.root
     }
 
-    private fun setupSearch() {
-        etSearchPlayer.addTextChangedListener(object : TextWatcher {
+    private fun setupRecyclerView() {
+        val layoutManager = GridLayoutManager(requireContext(), 2)
+        adapter = PlayerAdapter(playersList) { player ->
+            val intent = Intent(requireContext(), PlayerDetailActivity::class.java)
+            intent.putExtra("PLAYER_ID", player.id)
+            startActivity(intent)
+        }
+        binding.recyclerView.layoutManager = layoutManager
+        binding.recyclerView.adapter = adapter
+
+        // Scroll listener for pagination
+        binding.recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+
+                if (dy > 0) { // Scrolling down
+                    val visibleItemCount = layoutManager.childCount
+                    val totalItemCount = layoutManager.itemCount
+                    val firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition()
+
+                    // Trigger loading before reaching end (buffer of 4 items)
+                    if (!isLoading && (visibleItemCount + firstVisibleItemPosition >= totalItemCount - 4)) {
+                        currentPage++
+                        fetchPlayersFromApi(lastQuery, reset = false)
+                    }
+                }
+            }
+        })
+    }
+
+    private fun setupSearchBar() {
+        binding.searchEditText.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {}
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                val query = s.toString().trim().lowercase()
-                filteredPlayers.clear()
-                if (query.isEmpty()) {
-                    filteredPlayers.addAll(allPlayers)
-                } else {
-                    filteredPlayers.addAll(allPlayers.filter {
-                        it.name.lowercase().contains(query)
-                    })
-                }
-                adapter.updateData(filteredPlayers)
-            }
-            override fun afterTextChanged(s: Editable?) {}
-        })
-    }
-
-    private fun setupScrollListener() {
-        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrolled(rv: RecyclerView, dx: Int, dy: Int) {
-                super.onScrolled(rv, dx, dy)
-                val layoutManager = rv.layoutManager as GridLayoutManager
-                val totalItemCount = layoutManager.itemCount
-                val lastVisibleItem = layoutManager.findLastVisibleItemPosition()
-
-                if (!isLoading && !allPlayersLoaded && lastVisibleItem >= totalItemCount - 4) {
-                    fetchPlayers()
+                val query = s.toString().trim()
+                if (query.length >= 2 || query.isEmpty()) {
+                    lastQuery = query
+                    currentPage = 0
+                    fetchPlayersFromApi(query, reset = true)
                 }
             }
         })
     }
 
-    private fun fetchPlayers() {
+    private fun fetchPlayersFromApi(searchQuery: String, reset: Boolean) {
+        if (isLoading) return
         isLoading = true
-        RetrofitInstance.api.getPlayers(API_KEY, offset)
+
+        if (reset) {
+            binding.progressBar.visibility = View.VISIBLE
+        } else {
+            binding.paginationProgress.visibility = View.VISIBLE
+        }
+
+        CricApiClient.apiService.getPlayers(apiKey, currentPage, searchQuery.ifBlank { null })
             .enqueue(object : Callback<PlayerResponse> {
                 override fun onResponse(
                     call: Call<PlayerResponse>,
                     response: Response<PlayerResponse>
                 ) {
+                    binding.progressBar.visibility = View.GONE
+                    binding.paginationProgress.visibility = View.GONE
                     isLoading = false
-                    if (response.isSuccessful) {
-                        val newPlayers = response.body()?.data ?: emptyList()
 
-                        if (newPlayers.isEmpty()) {
-                            allPlayersLoaded = true
-                            return
+                    if (response.isSuccessful && response.body()?.data != null) {
+                        if (reset) playersList.clear()
+
+                        val newPlayers = response.body()!!.data
+                        playersList.addAll(newPlayers)
+                        adapter.notifyDataSetChanged()
+
+                        // Fetch player images in background
+                        for (player in newPlayers) {
+                            fetchPlayerImage(player)
                         }
-
-                        allPlayers.addAll(newPlayers)
-                        filteredPlayers.clear()
-                        filteredPlayers.addAll(allPlayers)
-                        adapter.updateData(filteredPlayers)
-
-                        offset += PAGE_SIZE
                     } else {
-                        Toast.makeText(requireContext(), "Error: ${response.code()}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), "No players found", Toast.LENGTH_SHORT).show()
                     }
                 }
 
                 override fun onFailure(call: Call<PlayerResponse>, t: Throwable) {
+                    binding.progressBar.visibility = View.GONE
+                    binding.paginationProgress.visibility = View.GONE
                     isLoading = false
-                    Toast.makeText(requireContext(), "Failed: ${t.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Error: ${t.message}", Toast.LENGTH_SHORT).show()
                 }
             })
+    }
+
+    private fun fetchPlayerImage(player: Player) {
+        CricApiClient.apiService.getPlayerInfo(apiKey, player.id)
+            .enqueue(object : Callback<PlayerDetailResponse> {
+                override fun onResponse(
+                    call: Call<PlayerDetailResponse>,
+                    response: Response<PlayerDetailResponse>
+                ) {
+                    if (response.isSuccessful && response.body()?.data != null) {
+                        player.playerImg = response.body()!!.data.playerImg
+                        adapter.notifyDataSetChanged()
+                    }
+                }
+
+                override fun onFailure(call: Call<PlayerDetailResponse>, t: Throwable) {
+                    // Ignore image fetch errors
+                }
+            })
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

@@ -49,14 +49,14 @@
                     <TextView
                         android:id="@+id/section_1"
                         android:layout_width="match_parent"
-                        android:layout_height="64dp"
+                        android:layout_height="wrap_content"
                         android:background="#102E45"
                         android:text="HISTORY OF CRICKET"
                         android:textColor="@android:color/white"
                         android:textStyle="bold"
                         android:textSize="14sp"
                         android:gravity="center"
-                        android:padding="6dp"
+                        android:padding="16dp"
                         />
 
                     <TextView
@@ -104,14 +104,14 @@
                     <TextView
                         android:id="@+id/section_2"
                         android:layout_width="match_parent"
-                        android:layout_height="64dp"
+                        android:layout_height="wrap_content"
                         android:background="#102E45"
                         android:text="HISTORY OF CRICKET"
                         android:textColor="@android:color/white"
                         android:textStyle="bold"
                         android:textSize="14sp"
                         android:gravity="center"
-                        android:padding="6dp" />
+                        android:padding="16dp" />
 
                     <TextView
                         android:id="@+id/title_2"
@@ -163,14 +163,14 @@
                     <TextView
                         android:id="@+id/section_3"
                         android:layout_width="match_parent"
-                        android:layout_height="64dp"
+                        android:layout_height="wrap_content"
                         android:background="#102E45"
                         android:text="HISTORY OF CRICKET"
                         android:textColor="@android:color/white"
                         android:textStyle="bold"
                         android:textSize="14sp"
                         android:gravity="center"
-                        android:padding="6dp" />
+                        android:padding="16dp" />
 
                     <TextView
                         android:id="@+id/title_3"
@@ -215,14 +215,13 @@
                     <TextView
                         android:id="@+id/section_4"
                         android:layout_width="match_parent"
-                        android:layout_height="64dp"
-                        android:background="#102E45"
+                        android:layout_height="wrap_content"                        android:background="#102E45"
                         android:text="HISTORY OF CRICKET"
                         android:textColor="@android:color/white"
                         android:textStyle="bold"
                         android:textSize="14sp"
                         android:gravity="center"
-                        android:padding="6dp" />
+                        android:padding="16dp" />
 
                     <TextView
                         android:id="@+id/title_4"
@@ -274,14 +273,13 @@
                     <TextView
                         android:id="@+id/section_5"
                         android:layout_width="match_parent"
-                        android:layout_height="64dp"
-                        android:background="#102E45"
+                        android:layout_height="wrap_content"                        android:background="#102E45"
                         android:text="HISTORY OF CRICKET"
                         android:textColor="@android:color/white"
                         android:textStyle="bold"
                         android:textSize="14sp"
                         android:gravity="center"
-                        android:padding="6dp" />
+                        android:padding="16dp" />
 
                     <TextView
                         android:id="@+id/title_5"
@@ -327,14 +325,13 @@
                     <TextView
                         android:id="@+id/section_6"
                         android:layout_width="match_parent"
-                        android:layout_height="64dp"
-                        android:background="#102E45"
+                        android:layout_height="wrap_content"                        android:background="#102E45"
                         android:text="HISTORY OF CRICKET"
                         android:textColor="@android:color/white"
                         android:textStyle="bold"
                         android:textSize="14sp"
                         android:gravity="center"
-                        android:padding="6dp" />
+                        android:padding="16dp" />
 
                     <TextView
                         android:id="@+id/title_6"
@@ -387,14 +384,13 @@
                     <TextView
                         android:id="@+id/section_7"
                         android:layout_width="match_parent"
-                        android:layout_height="64dp"
-                        android:background="#102E45"
+                        android:layout_height="wrap_content"                        android:background="#102E45"
                         android:text="HISTORY OF CRICKET"
                         android:textColor="@android:color/white"
                         android:textStyle="bold"
                         android:textSize="14sp"
                         android:gravity="center"
-                        android:padding="6dp" />
+                        android:padding="16dp" />
 
                     <TextView
                         android:id="@+id/title_7"
@@ -440,14 +436,13 @@
                     <TextView
                         android:id="@+id/section_8"
                         android:layout_width="match_parent"
-                        android:layout_height="64dp"
-                        android:background="#102E45"
+                        android:layout_height="wrap_content"                        android:background="#102E45"
                         android:text="HISTORY OF CRICKET"
                         android:textColor="@android:color/white"
                         android:textStyle="bold"
                         android:textSize="14sp"
                         android:gravity="center"
-                        android:padding="6dp" />
+                        android:padding="16dp" />
 
                     <TextView
                         android:id="@+id/title_8"
@@ -500,14 +495,13 @@
                     <TextView
                         android:id="@+id/section_9"
                         android:layout_width="match_parent"
-                        android:layout_height="64dp"
-                        android:background="#102E45"
+                        android:layout_height="wrap_content"                        android:background="#102E45"
                         android:text="HISTORY OF CRICKET"
                         android:textColor="@android:color/white"
                         android:textStyle="bold"
                         android:textSize="14sp"
                         android:gravity="center"
-                        android:padding="6dp" />
+                        android:padding="16dp" />
 
                     <TextView
                         android:id="@+id/title_9"
@@ -553,14 +547,13 @@
                     <TextView
                         android:id="@+id/section_10"
                         android:layout_width="match_parent"
-                        android:layout_height="64dp"
-                        android:background="#102E45"
+                        android:layout_height="wrap_content"                        android:background="#102E45"
                         android:text="HISTORY OF CRICKET"
                         android:textColor="@android:color/white"
                         android:textStyle="bold"
                         android:textSize="14sp"
                         android:gravity="center"
-                        android:padding="6dp" />
+                        android:padding="16dp" />
 
                     <TextView
                         android:id="@+id/title_10"
@@ -613,14 +606,13 @@
                     <TextView
                         android:id="@+id/section_11"
                         android:layout_width="match_parent"
-                        android:layout_height="64dp"
-                        android:background="#102E45"
+                        android:layout_height="wrap_content"                        android:background="#102E45"
                         android:text="HISTORY OF CRICKET"
                         android:textColor="@android:color/white"
                         android:textStyle="bold"
                         android:textSize="14sp"
                         android:gravity="center"
-                        android:padding="6dp" />
+                        android:padding="16dp" />
 
                     <TextView
                         android:id="@+id/title_11"
@@ -665,14 +657,13 @@
                     <TextView
                         android:id="@+id/section_12"
                         android:layout_width="match_parent"
-                        android:layout_height="64dp"
-                        android:background="#102E45"
+                        android:layout_height="wrap_content"                        android:background="#102E45"
                         android:text="HISTORY OF CRICKET"
                         android:textColor="@android:color/white"
                         android:textStyle="bold"
                         android:textSize="14sp"
                         android:gravity="center"
-                        android:padding="6dp" />
+                        android:padding="16dp" />
 
                     <TextView
                         android:id="@+id/title_12"
@@ -725,14 +716,13 @@
                     <TextView
                         android:id="@+id/section_13"
                         android:layout_width="match_parent"
-                        android:layout_height="64dp"
-                        android:background="#102E45"
+                        android:layout_height="wrap_content"                        android:background="#102E45"
                         android:text="HISTORY OF CRICKET"
                         android:textColor="@android:color/white"
                         android:textStyle="bold"
                         android:textSize="14sp"
                         android:gravity="center"
-                        android:padding="6dp" />
+                        android:padding="16dp" />
 
                     <TextView
                         android:id="@+id/title_13"
@@ -776,13 +766,11 @@
                     <TextView
                         android:id="@+id/section_14"
                         android:layout_width="match_parent"
-                        android:layout_height="64dp"
-
-                        android:textColor="@android:color/white"
+                        android:layout_height="wrap_content"                        android:textColor="@android:color/white"
                         android:textStyle="bold"
                         android:textSize="14sp"
                         android:gravity="center"
-                        android:padding="6dp" />
+                        android:padding="16dp" />
 
                     <TextView
                         android:id="@+id/title_14"

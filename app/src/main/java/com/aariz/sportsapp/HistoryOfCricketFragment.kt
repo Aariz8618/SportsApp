@@ -79,7 +79,7 @@ class HistoryOfCricketFragment : Fragment() {
             is CricketExpandsBeyondEnglandFragment -> "Cricket Expands Beyond England"
             is DevelopmentOfLawsFragment -> "Development of the Laws"
             is InternationalCricketBeginsFragment -> "International Cricket Begins"
-            is NineteenthCenturyCricket -> "International Cricket"
+            is NineteenthCenturyCricket -> "19th Century Cricket"
             is GrowthInColoniesFragment -> "Growth in Colonies"
             is NationalChampionshipsFragment -> "National Championships"
             is GrowthOfInternationalCricketFragment -> "Growth of International Cricket"

@@ -9,5 +9,5 @@ data class Player(
     val id: String,
     val name: String,
     val country: String,
-    val image: String? // Player image URL
+    var playerImg: String? = null
 )

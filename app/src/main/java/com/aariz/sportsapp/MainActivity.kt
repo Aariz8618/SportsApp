@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.aariz.sportsapp.databinding.ActivityMainBinding
 import com.aariz.sportsapp.ui.ScheduleFragment
+import com.aariz.sportsapp.ui.players.PlayersFragment
 import com.google.firebase.FirebaseApp
 
 class MainActivity : AppCompatActivity() {
@@ -261,6 +262,8 @@ class MainActivity : AppCompatActivity() {
         // Browse Players
         findViewById<View>(R.id.nav_item_browse_players).setOnClickListener {
             closeNavigationDrawer()
+            navigateFromDrawer(PlayersFragment(), "Browse Players")
+
         }
 
         // Browse Matches
@@ -384,6 +387,7 @@ class MainActivity : AppCompatActivity() {
         // Report Issue
         findViewById<View>(R.id.nav_item_report_issue).setOnClickListener {
             closeNavigationDrawer()
+            navigateFromDrawer(ReportIssueFragment(), "Report Issue")
         }
 
         // Feedback

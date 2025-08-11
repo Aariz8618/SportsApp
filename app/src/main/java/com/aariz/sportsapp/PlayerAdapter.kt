@@ -10,10 +10,12 @@ import com.aariz.sportsapp.R
 import com.aariz.sportsapp.models.Player
 import com.bumptech.glide.Glide
 
-class PlayerAdapter(private var playerList: List<Player>) :
-    RecyclerView.Adapter<PlayerAdapter.PlayerViewHolder>() {
+class PlayerAdapter(
+    private var playerList: List<Player>,
+    private val onPlayerClick: ((Player) -> Unit)? = null
+) : RecyclerView.Adapter<PlayerAdapter.PlayerViewHolder>() {
 
-    class PlayerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class PlayerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val ivImage: ImageView = itemView.findViewById(R.id.ivPlayerImage)
         val tvName: TextView = itemView.findViewById(R.id.tvPlayerName)
         val tvCountry: TextView = itemView.findViewById(R.id.tvPlayerCountry)
@@ -31,10 +33,14 @@ class PlayerAdapter(private var playerList: List<Player>) :
         holder.tvCountry.text = player.country
 
         Glide.with(holder.itemView.context)
-            .load(player.image)
+            .load(player.playerImg)
             .placeholder(R.drawable.ic_player_placeholder)
             .error(R.drawable.ic_player_placeholder)
             .into(holder.ivImage)
+
+        holder.itemView.setOnClickListener {
+            onPlayerClick?.invoke(player)
+        }
     }
 
     override fun getItemCount(): Int = playerList.size
