@@ -56,7 +56,8 @@
                         android:textStyle="bold"
                         android:textSize="14sp"
                         android:gravity="center"
-                        android:padding="16dp"
+                        android:paddingVertical="16dp"
+                        android:paddingHorizontal="10dp"
                         />
 
                     <TextView
@@ -111,7 +112,8 @@
                         android:textStyle="bold"
                         android:textSize="14sp"
                         android:gravity="center"
-                        android:padding="16dp" />
+                        android:paddingVertical="16dp"
+                        android:paddingHorizontal="10dp" />
 
                     <TextView
                         android:id="@+id/title_2"
@@ -170,7 +172,8 @@
                         android:textStyle="bold"
                         android:textSize="14sp"
                         android:gravity="center"
-                        android:padding="16dp" />
+                        android:paddingVertical="16dp"
+                        android:paddingHorizontal="10dp" />
 
                     <TextView
                         android:id="@+id/title_3"
@@ -221,7 +224,8 @@
                         android:textStyle="bold"
                         android:textSize="14sp"
                         android:gravity="center"
-                        android:padding="16dp" />
+                        android:paddingVertical="16dp"
+                        android:paddingHorizontal="10dp" />
 
                     <TextView
                         android:id="@+id/title_4"
@@ -279,7 +283,8 @@
                         android:textStyle="bold"
                         android:textSize="14sp"
                         android:gravity="center"
-                        android:padding="16dp" />
+                        android:paddingVertical="16dp"
+                        android:paddingHorizontal="10dp" />
 
                     <TextView
                         android:id="@+id/title_5"
@@ -331,7 +336,8 @@
                         android:textStyle="bold"
                         android:textSize="14sp"
                         android:gravity="center"
-                        android:padding="16dp" />
+                        android:paddingVertical="16dp"
+                        android:paddingHorizontal="10dp" />
 
                     <TextView
                         android:id="@+id/title_6"
@@ -390,7 +396,8 @@
                         android:textStyle="bold"
                         android:textSize="14sp"
                         android:gravity="center"
-                        android:padding="16dp" />
+                        android:paddingVertical="16dp"
+                        android:paddingHorizontal="10dp" />
 
                     <TextView
                         android:id="@+id/title_7"
@@ -442,7 +449,8 @@
                         android:textStyle="bold"
                         android:textSize="14sp"
                         android:gravity="center"
-                        android:padding="16dp" />
+                        android:paddingVertical="16dp"
+                        android:paddingHorizontal="10dp" />
 
                     <TextView
                         android:id="@+id/title_8"
@@ -501,7 +509,8 @@
                         android:textStyle="bold"
                         android:textSize="14sp"
                         android:gravity="center"
-                        android:padding="16dp" />
+                        android:paddingVertical="16dp"
+                        android:paddingHorizontal="10dp" />
 
                     <TextView
                         android:id="@+id/title_9"
@@ -553,7 +562,8 @@
                         android:textStyle="bold"
                         android:textSize="14sp"
                         android:gravity="center"
-                        android:padding="16dp" />
+                        android:paddingVertical="16dp"
+                        android:paddingHorizontal="10dp" />
 
                     <TextView
                         android:id="@+id/title_10"
@@ -612,7 +622,8 @@
                         android:textStyle="bold"
                         android:textSize="14sp"
                         android:gravity="center"
-                        android:padding="16dp" />
+                        android:paddingVertical="16dp"
+                        android:paddingHorizontal="10dp" />
 
                     <TextView
                         android:id="@+id/title_11"
@@ -663,7 +674,8 @@
                         android:textStyle="bold"
                         android:textSize="14sp"
                         android:gravity="center"
-                        android:padding="16dp" />
+                        android:paddingVertical="16dp"
+                        android:paddingHorizontal="10dp" />
 
                     <TextView
                         android:id="@+id/title_12"
@@ -722,7 +734,8 @@
                         android:textStyle="bold"
                         android:textSize="14sp"
                         android:gravity="center"
-                        android:padding="16dp" />
+                        android:paddingVertical="16dp"
+                        android:paddingHorizontal="10dp" />
 
                     <TextView
                         android:id="@+id/title_13"

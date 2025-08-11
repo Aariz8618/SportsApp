@@ -21,7 +21,7 @@
     
     <!-- Text Colors -->
     <color name="text_primary">#212121</color>
-    <color name="text_secondary">#757575</color>
+    <color name="text_secondary">#777777</color>
     <color name="text_hint">#BDBDBD</color>
     <color name="text_white">#FFFFFF</color>
     
@@ -32,7 +32,7 @@
     
     <!-- Surface Colors -->
     <color name="surface_elevated">#FFFFFF</color>
-    <color name="divider_color">#E0E0E0</color>
+    <color name="divider_color">#EEEEEE</color>
     <color name="ripple_color">#E8F5E8</color>
     
     <!-- Standard Colors -->
@@ -40,5 +40,30 @@
     <color name="white">#FFFFFFFF</color>
     <color name="button_1">#001262</color>
     <color name="button_2">#D0A7A7</color>
+
+    <!-- Filter Container Colors -->
+    <color name="filter_container_bg">#FFFFFF</color>
+    <color name="filter_border_color">#E0E0E0</color>
+    <color name="filter_bg">#FAFAFA</color>
+    <color name="filter_item_border">#F0F0F0</color>
+    <color name="filter_pressed_bg">#F5F5F5</color>
+
+    <!-- Dropdown Colors -->
+    <color name="dropdown_bg">#FFFFFF</color>
+    <color name="dropdown_border_color">#E0E0E0</color>
+    <color name="dropdown_item_pressed">#E3F2FD</color>
+    <color name="dropdown_item_focused">#F3E5F5</color>
+
+    <!-- Text Colors -->
+    <color name="filter_text_color">#333333</color>
+    <color name="dropdown_text_color">#444444</color>
+
+    <!-- Icon Colors -->
+    <color name="icon_color">#666666</color>
+    <color name="format_icon_color">#2196F3</color>
+
+
+    <!-- Primary Color (adjust as needed) -->
+    <color name="primary_color">#2196F3</color>
 
 </resources>
