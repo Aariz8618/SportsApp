@@ -20,23 +20,19 @@ class CommentatorsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_commentators, container, false)
-
         setupRecyclerView(view)
-
         return view
     }
 
     private fun setupRecyclerView(view: View) {
         commentatorRecyclerView = view.findViewById(R.id.commentatorRecyclerView)
-
-        // Grid layout with 2 columns like the image
         commentatorRecyclerView.layoutManager = GridLayoutManager(context, 2)
 
-        // Initialize commentator data
         commentatorList = getCommentatorList()
 
-        // Set adapter
-        commentatorAdapter = CommentatorAdapter(commentatorList)
+        commentatorAdapter = CommentatorAdapter(commentatorList) { selectedCommentator ->
+            openCommentatorDetail(selectedCommentator)
+        }
         commentatorRecyclerView.adapter = commentatorAdapter
     }
 
@@ -51,5 +47,13 @@ class CommentatorsFragment : Fragment() {
             Commentator("Danny Morrison", "New Zealand", R.drawable.danny_morrison),
             Commentator("Simon Doull", "New Zealand", R.drawable.simon_doull)
         )
+    }
+
+    private fun openCommentatorDetail(commentator: Commentator) {
+        val fragment = CommentatorDetailFragment.newInstance(commentator)
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment) // container from your MainActivity
+            .addToBackStack(null)
+            .commit()
     }
 }

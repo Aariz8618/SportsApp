@@ -15,6 +15,8 @@ import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.aariz.sportsapp.databinding.ActivityMainBinding
+import com.aariz.sportsapp.ui.ScheduleFragment
+import com.aariz.sportsapp.ui.players.PlayersFragment
 import com.google.firebase.FirebaseApp
 
 class MainActivity : AppCompatActivity() {
@@ -114,34 +116,37 @@ class MainActivity : AppCompatActivity() {
         showBottomNavigation()
     }
 
-    fun navigateToFragment(fragment: Fragment, title: String = "CricTech") {
-        if (currentFragment?.javaClass != fragment.javaClass) {
+    fun navigateToFragment(fragment: Fragment, title: String = "CricTech", addToBackStack: Boolean = false
+    ) {
+        if (currentFragment?.javaClass != fragment.javaClass || addToBackStack) {
             isOnHomeScreen = false
-            
-            // Store current fragment as previous for back navigation
-            if (currentFragment != null) {
+
+            // Store current fragment only if we're not adding to back stack
+            if (!addToBackStack && currentFragment != null) {
                 previousFragment = currentFragment
                 previousTitle = getCurrentTitle()
             }
-            
+
             currentFragment = fragment
 
-            // Hide home content, show fragment container
-            binding.homeContent.visibility = android.view.View.GONE
-            binding.fragmentContainer.visibility = android.view.View.VISIBLE
-            binding.mainHeader.visibility = android.view.View.VISIBLE
+            binding.homeContent.visibility = View.GONE
+            binding.fragmentContainer.visibility = View.VISIBLE
+            binding.mainHeader.visibility = View.VISIBLE
 
-            // Show back arrow instead of hamburger menu
             updateHeaderIcon(showBackArrow = true)
-
-            // Update header title
             updateHeaderTitle(title)
 
-            supportFragmentManager.beginTransaction()
+            val transaction = supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, fragment)
-                .commit()
+
+            if (addToBackStack) {
+                transaction.addToBackStack(null)
+            }
+
+            transaction.commit()
         }
     }
+
 
     private fun navigateFromDrawer(fragment: Fragment, title: String) {
         wasNavigatedFromDrawer = true
@@ -160,11 +165,17 @@ class MainActivity : AppCompatActivity() {
                     isDrawerOpen -> {
                         closeNavigationDrawer()
                     }
-                    // If not on home screen, check if we have a previous fragment
+                    // If not on home screen, check if we have fragments in backstack first
                     !isOnHomeScreen -> {
                         // Hide keyboard before navigating
                         hideKeyboard()
-                        if (shouldNavigateBackToPrevious()) {
+
+                        // Check if there are fragments in the back stack
+                        if (supportFragmentManager.backStackEntryCount > 0) {
+                            // Pop from back stack (this will handle CommentatorDetailFragment -> CommentatorsFragment)
+                            supportFragmentManager.popBackStack()
+                        } else if (shouldNavigateBackToPrevious()) {
+                            // Handle custom navigation for cricket topic fragments
                             navigateBackToPrevious()
                         } else if (wasNavigatedFromDrawer) {
                             // If we came from drawer, go back to home and open drawer
@@ -172,6 +183,7 @@ class MainActivity : AppCompatActivity() {
                             showHomeScreen()
                             openNavigationDrawer()
                         } else {
+                            // Default: go back to home
                             showHomeScreen()
                         }
                     }
@@ -250,6 +262,8 @@ class MainActivity : AppCompatActivity() {
         // Browse Players
         findViewById<View>(R.id.nav_item_browse_players).setOnClickListener {
             closeNavigationDrawer()
+            navigateFromDrawer(PlayersFragment(), "Browse Players")
+
         }
 
         // Browse Matches
@@ -373,6 +387,7 @@ class MainActivity : AppCompatActivity() {
         // Report Issue
         findViewById<View>(R.id.nav_item_report_issue).setOnClickListener {
             closeNavigationDrawer()
+            navigateFromDrawer(ReportIssueFragment(), "Report Issue")
         }
 
         // Feedback
@@ -515,7 +530,8 @@ class MainActivity : AppCompatActivity() {
                 fragment is Law32Fragment ||
                 fragment is Law33Fragment ||
                 fragment is Law34Fragment ||
-                fragment is Law35Fragment
+                fragment is Law35Fragment ||
+                fragment is CommentatorDetailFragment
     }
 
     private fun setupExpandableSections() {
