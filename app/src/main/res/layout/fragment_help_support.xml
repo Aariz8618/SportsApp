@@ -30,7 +30,7 @@
                     android:id="@+id/tv_content"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/help_and_support_content"
+                    android:text="help_and_support_content"
                     android:textSize="16sp"
                     android:textColor="@color/text_primary" />
             </LinearLayout>

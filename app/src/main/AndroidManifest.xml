@@ -16,14 +16,16 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Fixed FullscreenImageActivity with proper AppCompat theme -->
         <activity
             android:name=".FullscreenImageActivity"
             android:exported="false"
             android:theme="@style/Theme.SportsApp.Fullscreen" />
+
     </application>
 
 </manifest>

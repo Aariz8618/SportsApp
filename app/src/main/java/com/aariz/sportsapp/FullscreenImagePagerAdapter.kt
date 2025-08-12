@@ -6,23 +6,49 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
 class FullscreenImagePagerAdapter(
-    fragmentActivity: FragmentActivity,
+    activity: FragmentActivity,
     private val images: List<Int>
-) : FragmentStateAdapter(fragmentActivity) {
-    
-    override fun getItemCount(): Int = images.size
-    
-    override fun createFragment(position: Int): Fragment {
-        return try {
-            if (position in images.indices) {
-                FullscreenImageFragment.newInstance(images[position])
-            } else {
-                Log.e("FullscreenImagePagerAdapter", "Invalid position: $position")
-                FullscreenImageFragment.newInstance(0)
-            }
-        } catch (e: Exception) {
-            Log.e("FullscreenImagePagerAdapter", "Error creating fragment for position: $position", e)
-            FullscreenImageFragment.newInstance(0)
+) : FragmentStateAdapter(activity) {
+
+    companion object {
+        private const val TAG = "FullscreenImagePagerAdapter"
+    }
+
+    init {
+        Log.d(TAG, "Adapter created with ${images.size} images")
+        if (images.isEmpty()) {
+            Log.w(TAG, "Warning: Empty images list provided to adapter")
+        }
+
+        // Log all image resource IDs for debugging
+        images.forEachIndexed { index, imageResId ->
+            Log.d(TAG, "Image $index: $imageResId")
         }
     }
-} 
+
+    override fun getItemCount(): Int {
+        val count = images.size
+        Log.d(TAG, "getItemCount: $count")
+        return count
+    }
+
+    override fun createFragment(position: Int): Fragment {
+        Log.d(TAG, "createFragment called for position: $position")
+
+        return try {
+            if (position >= 0 && position < images.size) {
+                val imageResId = images[position]
+                Log.d(TAG, "Creating fragment for position $position with imageResId: $imageResId")
+                FullscreenImageFragment.newInstance(imageResId)
+            } else {
+                Log.e(TAG, "Invalid position: $position, images size: ${images.size}")
+                // Return empty fragment as fallback
+                FullscreenImageFragment.newInstance(android.R.drawable.ic_menu_gallery)
+            }
+        } catch (e: Exception) {
+            Log.e(TAG, "Error creating fragment for position $position", e)
+            // Return fallback fragment
+            FullscreenImageFragment.newInstance(android.R.drawable.ic_menu_gallery)
+        }
+    }
+}
