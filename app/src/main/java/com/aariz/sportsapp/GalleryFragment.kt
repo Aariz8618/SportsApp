@@ -72,15 +72,71 @@ class GalleryFragment : Fragment() {
 
         // Teams dropdown item clicks
         view.findViewById<LinearLayout>(R.id.tv_india)?.setOnClickListener { selectTeam("India") }
-        view.findViewById<LinearLayout>(R.id.tv_australia)?.setOnClickListener { selectTeam("Australia") }
-        view.findViewById<LinearLayout>(R.id.tv_england)?.setOnClickListener { selectTeam("England") }
-        view.findViewById<LinearLayout>(R.id.tv_newzealand)?.setOnClickListener { selectTeam("New Zealand") }
-        view.findViewById<LinearLayout>(R.id.tv_westindies)?.setOnClickListener { selectTeam("West Indies") }
+        view.findViewById<LinearLayout>(R.id.tv_australia)
+            ?.setOnClickListener { selectTeam("Australia") }
+        view.findViewById<LinearLayout>(R.id.tv_england)
+            ?.setOnClickListener { selectTeam("England") }
+        view.findViewById<LinearLayout>(R.id.tv_newzealand)
+            ?.setOnClickListener { selectTeam("New Zealand") }
+        view.findViewById<LinearLayout>(R.id.tv_westindies)
+            ?.setOnClickListener { selectTeam("West Indies") }
 
         // Format dropdown item clicks
         view.findViewById<TextView>(R.id.tv_test)?.setOnClickListener { selectFormat("Test") }
         view.findViewById<TextView>(R.id.tv_odi)?.setOnClickListener { selectFormat("ODI") }
         view.findViewById<TextView>(R.id.tv_t20)?.setOnClickListener { selectFormat("T20Is") }
+
+        // Champions Trophy 2025 card click
+        view.findViewById<TextView>(R.id.ctview)?.setOnClickListener {
+            try {
+                val mainActivity = activity as? MainActivity
+                if (mainActivity != null && isAdded && !isDetached) {
+                    mainActivity.navigateToFragment(CT25Fragment(), "Champions Trophy 2025")
+                }
+            } catch (e: Exception) {
+                Log.e("GalleryFragment", "Error navigating to CT25Fragment", e)
+                e.printStackTrace()
+            }
+        }
+
+        // WTC 2025 card click
+        view.findViewById<TextView>(R.id.wtcview)?.setOnClickListener {
+            try {
+                val mainActivity = activity as? MainActivity
+                if (mainActivity != null && isAdded && !isDetached) {
+                    mainActivity.navigateToFragment(WTC25Fragment(), "World Test Championship 2025")
+                }
+            } catch (e: Exception) {
+                Log.e("GalleryFragment", "Error navigating to WTC25Fragment", e)
+                e.printStackTrace()
+            }
+        }
+
+        // India vs England Test card click
+        view.findViewById<TextView>(R.id.inenggview)?.setOnClickListener {
+            try {
+                val mainActivity = activity as? MainActivity
+                if (mainActivity != null && isAdded && !isDetached) {
+                    mainActivity.navigateToFragment(IndEngTestFragment(), "India vs England Test Series")
+                }
+            } catch (e: Exception) {
+                Log.e("GalleryFragment", "Error navigating to IndEngTestFragment", e)
+                e.printStackTrace()
+            }
+        }
+
+        // Australia vs West Indies card click
+        view.findViewById<TextView>(R.id.auwiview)?.setOnClickListener {
+            try {
+                val mainActivity = activity as? MainActivity
+                if (mainActivity != null && isAdded && !isDetached) {
+                    mainActivity.navigateToFragment(AusWiTestFragment(), "Australia vs West Indies Test Series")
+                }
+            } catch (e: Exception) {
+                Log.e("GalleryFragment", "Error navigating to AusWiTestFragment", e)
+                e.printStackTrace()
+            }
+        }
     }
 
     private fun selectTeam(team: String) {
