@@ -105,6 +105,8 @@
                                 android:orientation="vertical">
 
                                 <!-- Match Header with Live indicator -->
+
+                                <!-- Teams and scores section -->
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -117,13 +119,12 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="4th ODI • India vs England"
-                                        android:textSize="11sp"
                                         android:textColor="@color/text_secondary"
+                                        android:textSize="11sp"
                                         android:textStyle="bold" />
 
                                 </LinearLayout>
 
-                                <!-- Teams and scores section -->
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -298,7 +299,7 @@
                                         android:id="@+id/ranji_match"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="@string/elite_group_a_mum_vs_brd"
+                                        android:text="Elite Group A • MUM vs BRD"
                                         android:textSize="11sp"
                                         android:textColor="@color/text_secondary"
                                         android:textStyle="bold" />
