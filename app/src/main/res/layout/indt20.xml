@@ -14,7 +14,6 @@
 
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/bgt21pic"
                 android:layout_width="match_parent"
                 android:layout_height="220dp"
                 android:layout_marginStart="16dp"
@@ -192,7 +191,6 @@
             <!-- anderson tendulakar -->
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/eng21"
                 android:layout_width="410dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -209,7 +207,6 @@
 
             <!-- album of att -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/at21pic"
                 android:layout_width="match_parent"
                 android:layout_height="220dp"
                 android:layout_marginStart="16dp"
