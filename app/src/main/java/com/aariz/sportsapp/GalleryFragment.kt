@@ -130,7 +130,7 @@ class GalleryFragment : Fragment() {
             try {
                 val mainActivity = activity as? MainActivity
                 if (mainActivity != null && isAdded && !isDetached) {
-                    mainActivity.navigateToFragment(AusWiTestFragment(), "Australia vs West Indies Test Series")
+                    mainActivity.navigateToFragment(AusWiTestFragment(), "Australia vs West Indies 2025")
                 }
             } catch (e: Exception) {
                 Log.e("GalleryFragment", "Error navigating to AusWiTestFragment", e)

@@ -30,11 +30,11 @@
                 app:cardElevation="12dp">
 
                 <ImageView
-                    android:id="@+id/att_featured_image"
+                    android:id="@+id/inde_featured_image"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/att1"
+                    android:src="@drawable/inde1"
                     android:clickable="true"
                     android:focusable="true" />
 
@@ -56,11 +56,11 @@
                     app:cardElevation="10dp">
 
                     <ImageView
-                        android:id="@+id/att_image_1"
+                        android:id="@+id/inde_image_1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/att2"
+                        android:src="@drawable/inde2"
                         android:clickable="true"
                         android:focusable="true" />
 
@@ -75,11 +75,11 @@
                     app:cardElevation="10dp">
 
                     <ImageView
-                        android:id="@+id/att_image_2"
+                        android:id="@+id/inde_image_2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/att3"
+                        android:src="@drawable/inde3"
                         android:clickable="true"
                         android:focusable="true" />
 
@@ -103,11 +103,11 @@
                     app:cardElevation="10dp">
 
                     <ImageView
-                        android:id="@+id/att_image_3"
+                        android:id="@+id/inde_image_3"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/att4"
+                        android:src="@drawable/inde4"
                         android:clickable="true"
                         android:focusable="true" />
 
@@ -122,11 +122,11 @@
                     app:cardElevation="10dp">
 
                     <ImageView
-                        android:id="@+id/att_image_4"
+                        android:id="@+id/inde_image_4"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/att5"
+                        android:src="@drawable/inde5"
                         android:clickable="true"
                         android:focusable="true" />
 
@@ -150,11 +150,11 @@
                     app:cardElevation="10dp">
 
                     <ImageView
-                        android:id="@+id/att_image_5"
+                        android:id="@+id/inde_image_5"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/att6"
+                        android:src="@drawable/inde6"
                         android:clickable="true"
                         android:focusable="true" />
 
@@ -169,11 +169,11 @@
                     app:cardElevation="10dp">
 
                     <ImageView
-                        android:id="@+id/att_image_6"
+                        android:id="@+id/inde_image_6"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/att7"
+                        android:src="@drawable/inde7"
                         android:clickable="true"
                         android:focusable="true" />
 
@@ -197,11 +197,11 @@
                     app:cardElevation="10dp">
 
                     <ImageView
-                        android:id="@+id/att_image_7"
+                        android:id="@+id/inde_image_7"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/att8"
+                        android:src="@drawable/inde8"
                         android:clickable="true"
                         android:focusable="true" />
 
@@ -216,11 +216,11 @@
                     app:cardElevation="10dp">
 
                     <ImageView
-                        android:id="@+id/att_image_8"
+                        android:id="@+id/inde_image_8"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/att9"
+                        android:src="@drawable/inde9"
                         android:clickable="true"
                         android:focusable="true" />
 
@@ -244,11 +244,11 @@
                     app:cardElevation="10dp">
 
                     <ImageView
-                        android:id="@+id/att_image_9"
+                        android:id="@+id/inde_image_9"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/att10"
+                        android:src="@drawable/inde10"
                         android:clickable="true"
                         android:focusable="true" />
 
@@ -263,11 +263,11 @@
                     app:cardElevation="10dp">
 
                     <ImageView
-                        android:id="@+id/att_image_10"
+                        android:id="@+id/inde_image_10"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/att11"
+                        android:src="@drawable/inde11"
                         android:clickable="true"
                         android:focusable="true" />
 

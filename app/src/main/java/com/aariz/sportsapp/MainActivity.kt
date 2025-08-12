@@ -515,7 +515,11 @@ class MainActivity : AppCompatActivity() {
                 fragment is Law32Fragment ||
                 fragment is Law33Fragment ||
                 fragment is Law34Fragment ||
-                fragment is Law35Fragment
+                fragment is Law35Fragment ||
+               fragment is CT25Fragment ||
+               fragment is WTC25Fragment ||
+               fragment is IndEngTestFragment ||
+               fragment is AusWiTestFragment
     }
 
     private fun setupExpandableSections() {
