@@ -30,11 +30,11 @@
                 app:cardElevation="12dp">
 
                 <ImageView
-                    android:id="@+id/att_featured_image"
+                    android:id="@+id/ct_featured_image"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/att1"
+                    android:src="@drawable/ct1"
                     android:clickable="true"
                     android:focusable="true" />
 
@@ -56,11 +56,11 @@
                     app:cardElevation="10dp">
 
                     <ImageView
-                        android:id="@+id/att_image_1"
+                        android:id="@+id/ct_image_1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/att2"
+                        android:src="@drawable/ct2"
                         android:clickable="true"
                         android:focusable="true" />
 
@@ -75,11 +75,11 @@
                     app:cardElevation="10dp">
 
                     <ImageView
-                        android:id="@+id/att_image_2"
+                        android:id="@+id/ct_image_2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/att3"
+                        android:src="@drawable/ct3"
                         android:clickable="true"
                         android:focusable="true" />
 
@@ -103,11 +103,11 @@
                     app:cardElevation="10dp">
 
                     <ImageView
-                        android:id="@+id/att_image_3"
+                        android:id="@+id/ct_image_3"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/att4"
+                        android:src="@drawable/ct4"
                         android:clickable="true"
                         android:focusable="true" />
 
@@ -122,11 +122,11 @@
                     app:cardElevation="10dp">
 
                     <ImageView
-                        android:id="@+id/att_image_4"
+                        android:id="@+id/ct_image_4"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/att5"
+                        android:src="@drawable/ct5"
                         android:clickable="true"
                         android:focusable="true" />
 
@@ -150,11 +150,11 @@
                     app:cardElevation="10dp">
 
                     <ImageView
-                        android:id="@+id/att_image_5"
+                        android:id="@+id/ct_image_5"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/att6"
+                        android:src="@drawable/ct6"
                         android:clickable="true"
                         android:focusable="true" />
 
@@ -169,11 +169,11 @@
                     app:cardElevation="10dp">
 
                     <ImageView
-                        android:id="@+id/att_image_6"
+                        android:id="@+id/ct_image_6"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/att7"
+                        android:src="@drawable/ct7"
                         android:clickable="true"
                         android:focusable="true" />
 
@@ -197,11 +197,11 @@
                     app:cardElevation="10dp">
 
                     <ImageView
-                        android:id="@+id/att_image_7"
+                        android:id="@+id/ct_image_7"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/att8"
+                        android:src="@drawable/ct8"
                         android:clickable="true"
                         android:focusable="true" />
 
@@ -216,11 +216,11 @@
                     app:cardElevation="10dp">
 
                     <ImageView
-                        android:id="@+id/att_image_8"
+                        android:id="@+id/ct_image_8"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/att9"
+                        android:src="@drawable/ct9"
                         android:clickable="true"
                         android:focusable="true" />
 
@@ -244,11 +244,11 @@
                     app:cardElevation="10dp">
 
                     <ImageView
-                        android:id="@+id/att_image_9"
+                        android:id="@+id/ct_image_9"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/att10"
+                        android:src="@drawable/ct10"
                         android:clickable="true"
                         android:focusable="true" />
 
@@ -263,11 +263,11 @@
                     app:cardElevation="10dp">
 
                     <ImageView
-                        android:id="@+id/att_image_10"
+                        android:id="@+id/ct_image_10"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/att11"
+                        android:src="@drawable/ct11"
                         android:clickable="true"
                         android:focusable="true" />
 
