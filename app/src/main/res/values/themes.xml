@@ -7,11 +7,15 @@
     </style>
 
     <style name="Theme.SportsApp" parent="Base.Theme.SportsApp" />
-    
-    <style name="Theme.SportsApp.Fullscreen" parent="Base.Theme.SportsApp">
+
+    <style name="Theme.SportsApp.Fullscreen" parent="Theme.SportsApp">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
         <item name="android:windowFullscreen">true</item>
-        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowBackground">@android:color/black</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
     </style>

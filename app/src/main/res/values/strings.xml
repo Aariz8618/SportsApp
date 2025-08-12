@@ -278,4 +278,7 @@
     <string name="murali_education">"St. Anthony's College, Kandy"</string>
     <string name="murali_occupation">"Former Sri Lankan Cricketer"</string>
     <string name="murali_highlights">"Highest wicket-taker in Tests (800 wickets) and ODIs (534 wickets)"</string>
+
+    <string name="close">Close</string>
+    <string name="fullscreen_image">Fullscreen Image</string>
 </resources>

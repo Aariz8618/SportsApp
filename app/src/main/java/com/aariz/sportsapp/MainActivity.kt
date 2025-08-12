@@ -531,7 +531,22 @@ class MainActivity : AppCompatActivity() {
                 fragment is Law33Fragment ||
                 fragment is Law34Fragment ||
                 fragment is Law35Fragment ||
-                fragment is CommentatorDetailFragment
+                fragment is CommentatorDetailFragment ||
+                fragment is IndTestFragment ||
+                fragment is IndodiFragment ||
+                fragment is IndT20Fragment ||
+                fragment is AusTestFragment ||
+                fragment is AusOdiFragment ||
+                fragment is AusT20Fragment ||
+                fragment is EngTestFragment ||
+                fragment is EngOdiFragment ||
+                fragment is EngT20iFragment ||
+                fragment is NzTestFragment ||
+                fragment is NzOdiFragment ||
+                fragment is NzT20iFragment ||
+                fragment is WiTestFragment ||
+                fragment is WiOdiFragment ||
+                fragment is WiT20Fragment
     }
 
     private fun setupExpandableSections() {
@@ -729,5 +744,10 @@ class MainActivity : AppCompatActivity() {
         currentFocusedView?.let {
             inputMethodManager.hideSoftInputFromWindow(it.windowToken, 0)
         }
+    }
+
+    fun setPreviousFragment(fragment: Fragment, title: String) {
+        previousFragment = fragment
+        previousTitle = title
     }
 }

@@ -321,6 +321,11 @@ class GalleryFragment : Fragment() {
             val mainActivity = activity as? MainActivity
             if (mainActivity != null && isAdded && !isDetached) {
                 Log.d("GalleryFragment", "Calling navigateToFragment with $title")
+
+                // Store GalleryFragment as the previous fragment for proper back navigation
+                mainActivity.setPreviousFragment(this@GalleryFragment, "Photo Gallery")
+
+                // Navigate to the new fragment
                 mainActivity.navigateToFragment(fragment, title)
             } else {
                 Log.e("GalleryFragment", "MainActivity is null or fragment not properly attached")
