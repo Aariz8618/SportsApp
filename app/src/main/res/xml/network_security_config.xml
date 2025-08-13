@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <network-security-config>
-    <domain-config cleartextTrafficPermitted="false">
-        <domain includeSubdomains="true">cricbuzz-cricket.p.rapidapi.com</domain>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">api.cricapi.com</domain>
+        <domain includeSubdomains="true">cricapi.com</domain>
     </domain-config>
-    <base-config cleartextTrafficPermitted="false">
+    <base-config cleartextTrafficPermitted="true">
         <trust-anchors>
             <certificates src="system"/>
         </trust-anchors>
