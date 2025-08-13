@@ -148,4 +148,7 @@
     <string name="unp14">"Throughout the Laws, wherever the umpires are to receive information from captains or other players, it will be sufficient for one umpire to be so informed and for him/her to inform the other umpire."</string>
 
     <string name="ump15">"Consultation between umpires and scorers on doubtful points is essential.  The umpires shall, throughout the match, satisfy themselves as to the correctness of the number of runs scored, the wickets that have fallen and, where appropriate, the number of overs bowled.  They shall agree these with the scorers at least at every interval, other than a drinks interval, and at the conclusion of the match.  See Laws 3.2 (Correctness of scores), 16.8 (Correctness of result) and 16.10 (Result not to be changed)."</string>
+    
+    <!-- Memes Section -->
+    <string name="meme_image_description">Meme image</string>
 </resources>

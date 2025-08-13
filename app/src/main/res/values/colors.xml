@@ -37,5 +37,23 @@
     <color name="white">#FFFFFFFF</color>
     <color name="button_1">#001262</color>
     <color name="button_2">#D0A7A7</color>
+    
+    <!-- Format Specific Colors -->
+    <color name="test_cricket_red">#C62828</color>
+    <color name="test_cricket_red_light">#EF5350</color>
+    <color name="odi_cricket_blue">#1976D2</color>
+    <color name="odi_cricket_blue_light">#42A5F5</color>
+    <color name="t20_cricket_green">#388E3C</color>
+    <color name="t20_cricket_green_light">#66BB6A</color>
+    <color name="the_hundred_purple">#7B1FA2</color>
+    <color name="the_hundred_purple_light">#BA68C8</color>
+    
+    <!-- Scoring Terms Colors -->
+    <color name="scoring_header_dark">#1A202C</color>
+    <color name="scoring_card_border">#E2E8F0</color>
+    <color name="scoring_text_secondary">#718096</color>
+    <color name="scoring_text_primary">#2D3748</color>
+    <color name="tab_unselected">#A0AEC0</color>
+    <color name="tab_text_muted">#CBD5E0</color>
 
 </resources>

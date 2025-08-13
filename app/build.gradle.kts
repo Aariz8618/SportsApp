@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("kotlin-parcelize")
 }
 
 android {
@@ -54,6 +55,8 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
-
+    implementation("androidx.viewpager2:viewpager2:1.0.0")
+    implementation("com.github.chrisbanes:PhotoView:2.3.0")
+    implementation("com.google.android.flexbox:flexbox:3.0.0")
 
 }
