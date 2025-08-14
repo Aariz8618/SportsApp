@@ -127,7 +127,7 @@ class IndodiFragment : Fragment() {
                 Log.d("IndodiFragment", "World Cup View All clicked - India ODI World Cup")
                 val mainActivity = activity as? MainActivity
                 if (mainActivity != null && isAdded && !isDetached) {
-                    mainActivity.navigateToFragment(IndodiwcFragment(), "India ODI World Cup")
+                    mainActivity.navigateToFragment(IndodiwcFragment(), "India ODI World Cup", addToBackStack = true)
                 }
             } catch (e: Exception) {
                 Log.e("IndodiFragment", "Error in World Cup view click", e)
@@ -142,7 +142,7 @@ class IndodiFragment : Fragment() {
                 Log.d("IndodiFragment", "Series View All clicked - India vs Australia ODI Series")
                 val mainActivity = activity as? MainActivity
                 if (mainActivity != null && isAdded && !isDetached) {
-                    mainActivity.navigateToFragment(IndodiausFragment(), "India vs Australia ODI Series")
+                    mainActivity.navigateToFragment(IndodiausFragment(), "India vs Australia ODI Series", addToBackStack = true)
                 }
             } catch (e: Exception) {
                 Log.e("IndodiFragment", "Error in Series view click", e)
@@ -374,8 +374,8 @@ class IndodiFragment : Fragment() {
                 // Store IndodiFragment as the previous fragment for proper back navigation
                 mainActivity.setPreviousFragment(this@IndodiFragment, "India - ODI Matches")
 
-                // Navigate to the new fragment
-                mainActivity.navigateToFragment(fragment, title)
+                // Navigate to the new fragment and add to back stack
+                mainActivity.navigateToFragment(fragment, title, addToBackStack = true)
             } else {
                 Log.e("IndodiFragment", "MainActivity is null or fragment not properly attached")
             }

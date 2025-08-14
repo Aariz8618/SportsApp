@@ -137,7 +137,7 @@ class WiTestFragment : Fragment() {
                 Log.d("WiTestFragment", "Clicked - West Indies Test Series 2024")
                 val mainActivity = activity as? MainActivity
                 if (mainActivity != null && isAdded && !isDetached) {
-                    mainActivity.navigateToFragment(ShamarausFragment(), "Shamar vs Australia")
+                    mainActivity.navigateToFragment(ShamarausFragment(), "Shamar vs Australia", addToBackStack = true)
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -150,7 +150,7 @@ class WiTestFragment : Fragment() {
                 Log.d("WiTestFragment", "Clicked - West Indies vs England 2022")
                 val mainActivity = activity as? MainActivity
                 if (mainActivity != null && isAdded && !isDetached) {
-                    mainActivity.navigateToFragment(Lara400Fragment(), "Lara 400 not out")
+                    mainActivity.navigateToFragment(Lara400Fragment(), "Lara 400 not out", addToBackStack = true)
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -382,8 +382,8 @@ class WiTestFragment : Fragment() {
                 // Store WiTestFragment as the previous fragment for proper back navigation
                 mainActivity.setPreviousFragment(this@WiTestFragment, "West Indies - Test Matches")
 
-                // Navigate to the new fragment
-                mainActivity.navigateToFragment(fragment, title)
+                // Navigate to the new fragment and add to back stack
+                mainActivity.navigateToFragment(fragment, title, addToBackStack = true)
             } else {
                 Log.e("WiTestFragment", "MainActivity is null or fragment not properly attached")
             }

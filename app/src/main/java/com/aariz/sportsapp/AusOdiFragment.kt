@@ -137,7 +137,7 @@ class AusOdiFragment : Fragment() {
                 Log.d("AusOdiFragment", "Clicked - ICC World Cup 2023")
                 val mainActivity = activity as? MainActivity
                 if (mainActivity != null && isAdded && !isDetached) {
-                    mainActivity.navigateToFragment(Iccwc2023Fragment(), "ICC World Cup 2023")
+                    mainActivity.navigateToFragment(Iccwc2023Fragment(), "ICC World Cup 2023", addToBackStack = true)
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -150,7 +150,7 @@ class AusOdiFragment : Fragment() {
                 Log.d("AusOdiFragment", "Clicked - Chappell-Hadlee Trophy 2020")
                 val mainActivity = activity as? MainActivity
                 if (mainActivity != null && isAdded && !isDetached) {
-                    mainActivity.navigateToFragment(Chappell2020Fragment(), "Chappell-Hadlee Trophy 2020")
+                    mainActivity.navigateToFragment(Chappell2020Fragment(), "Chappell-Hadlee Trophy 2020", addToBackStack = true)
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -382,8 +382,8 @@ class AusOdiFragment : Fragment() {
                 // Store AusOdiFragment as the previous fragment for proper back navigation
                 mainActivity.setPreviousFragment(this@AusOdiFragment, "Australia - ODI Matches")
 
-                // Navigate to the new fragment
-                mainActivity.navigateToFragment(fragment, title)
+                // Navigate to the new fragment and add to back stack
+                mainActivity.navigateToFragment(fragment, title, addToBackStack = true)
             } else {
                 Log.e("AusOdiFragment", "MainActivity is null or fragment not properly attached")
             }

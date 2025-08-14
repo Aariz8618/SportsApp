@@ -129,7 +129,7 @@ class IndT20Fragment : Fragment() {
                 // Navigate to T20 World Cup 2024 details fragment
                 val mainActivity = activity as? MainActivity
                 if (mainActivity != null && isAdded && !isDetached) {
-                    mainActivity.navigateToFragment(IndT2024wcFragment(), "ICC T20 World Cup 2024")
+                    mainActivity.navigateToFragment(IndT2024wcFragment(), "ICC T20 World Cup 2024", addToBackStack = true)
                 }
             } catch (e: Exception) {
                 Log.e("IndT20Fragment", "Error in t20wcview click", e)
@@ -147,7 +147,8 @@ class IndT20Fragment : Fragment() {
                 if (mainActivity != null && isAdded && !isDetached) {
                     mainActivity.navigateToFragment(
                         IndNz2020Fragment(),
-                        "India vs New Zealand 2020"
+                        "India vs New Zealand 2020",
+                        addToBackStack = true
                     )
                 }
             } catch (e: Exception) {
@@ -381,8 +382,8 @@ class IndT20Fragment : Fragment() {
                 // Store IndodiFragment as the previous fragment for proper back navigation
                 mainActivity.setPreviousFragment(this@IndT20Fragment, "India - ODI Matches")
 
-                // Navigate to the new fragment
-                mainActivity.navigateToFragment(fragment, title)
+                // Navigate to the new fragment and add to back stack
+                mainActivity.navigateToFragment(fragment, title, addToBackStack = true)
             } else {
                 Log.e("IndodiFragment", "MainActivity is null or fragment not properly attached")
             }

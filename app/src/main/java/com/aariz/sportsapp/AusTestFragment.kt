@@ -120,7 +120,7 @@ class AusTestFragment : Fragment() {
                 Log.d("AusTestFragment", "Australia Test View All 1 clicked - WTC 2023 Australia")
                 val mainActivity = activity as? MainActivity
                 if (mainActivity != null && isAdded && !isDetached) {
-                    mainActivity.navigateToFragment(Wtc23ausFragment(), "WTC 2023 Australia")
+                    mainActivity.navigateToFragment(Wtc23ausFragment(), "WTC 2023 Australia", addToBackStack = true)
                 }
             } catch (e: Exception) {
                 Log.e("AusTestFragment", "Error in Test view 1 click", e)
@@ -135,7 +135,7 @@ class AusTestFragment : Fragment() {
                 Log.d("AusTestFragment", "Australia Test View All 2 clicked - The Ashes 2023")
                 val mainActivity = activity as? MainActivity
                 if (mainActivity != null && isAdded && !isDetached) {
-                    mainActivity.navigateToFragment(Ashes23Fragment(), "The Ashes 2023")
+                    mainActivity.navigateToFragment(Ashes23Fragment(), "The Ashes 2023", addToBackStack = true)
                 }
             } catch (e: Exception) {
                 Log.e("AusTestFragment", "Error in Test view 2 click", e)
@@ -367,8 +367,8 @@ class AusTestFragment : Fragment() {
                 // Store AusTestFragment as the previous fragment for proper back navigation
                 mainActivity.setPreviousFragment(this@AusTestFragment, "Australia - Test Matches")
 
-                // Navigate to the new fragment
-                mainActivity.navigateToFragment(fragment, title)
+                // Navigate to the new fragment and add to back stack
+                mainActivity.navigateToFragment(fragment, title, addToBackStack = true)
             } else {
                 Log.e("AusTestFragment", "MainActivity is null or fragment not properly attached")
             }

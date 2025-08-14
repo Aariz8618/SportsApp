@@ -138,7 +138,7 @@ class NzT20iFragment : Fragment() {
                 val mainActivity = activity as? MainActivity
                 if (mainActivity != null && isAdded && !isDetached) {
                     Log.d("NzT20iFragment", "Calling navigateToFragment with NzTwc21Fragment")
-                    mainActivity.navigateToFragment(NzTwc21Fragment(), "New Zealand T20 World Cup 2021")
+                    mainActivity.navigateToFragment(NzTwc21Fragment(), "New Zealand T20 World Cup 2021", addToBackStack = true)
                 } else {
                     Log.e("NzT20iFragment", "MainActivity is null or fragment not properly attached")
                 }
@@ -155,7 +155,7 @@ class NzT20iFragment : Fragment() {
                 val mainActivity = activity as? MainActivity
                 if (mainActivity != null && isAdded && !isDetached) {
                     Log.d("NzT20iFragment", "Calling navigateToFragment with NzIndT20Fragment")
-                    mainActivity.navigateToFragment(NzIndT20Fragment(), "New Zealand vs India T20I")
+                    mainActivity.navigateToFragment(NzIndT20Fragment(), "New Zealand vs India T20I", addToBackStack = true)
                 } else {
                     Log.e("NzT20iFragment", "MainActivity is null or fragment not properly attached")
                 }
@@ -390,8 +390,8 @@ class NzT20iFragment : Fragment() {
                 // Store NzT20iFragment as the previous fragment for proper back navigation
                 mainActivity.setPreviousFragment(this@NzT20iFragment, "New Zealand - T20 Matches")
 
-                // Navigate to the new fragment
-                mainActivity.navigateToFragment(fragment, title)
+                // Navigate to the new fragment and add to back stack
+                mainActivity.navigateToFragment(fragment, title, addToBackStack = true)
             } else {
                 Log.e("NzT20iFragment", "MainActivity is null or fragment not properly attached")
             }

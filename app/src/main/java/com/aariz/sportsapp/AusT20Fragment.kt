@@ -117,7 +117,7 @@ class AusT20Fragment : Fragment() {
             Log.d("AusT20Fragment", "Clicked - T20 World Cup 2021")
             val mainActivity = activity as? MainActivity
             if (mainActivity != null && isAdded && !isDetached) {
-                mainActivity.navigateToFragment(T20wc2021Fragment(), "T20 World Cup 2021")
+                mainActivity.navigateToFragment(T20wc2021Fragment(), "T20 World Cup 2021", addToBackStack = true)
             }
         }
 
@@ -126,7 +126,7 @@ class AusT20Fragment : Fragment() {
             Log.d("AusT20Fragment", "Clicked - Australia vs England - T20 Series")
             val mainActivity = activity as? MainActivity
             if (mainActivity != null && isAdded && !isDetached) {
-                mainActivity.navigateToFragment(AusEngT20Fragment(), "Australia vs England - T20 Series")
+                mainActivity.navigateToFragment(AusEngT20Fragment(), "Australia vs England - T20 Series", addToBackStack = true)
             }
         }
     }
@@ -354,8 +354,8 @@ class AusT20Fragment : Fragment() {
                 // Store AusT20Fragment as the previous fragment for proper back navigation
                 mainActivity.setPreviousFragment(this@AusT20Fragment, "Australia - T20 Matches")
 
-                // Navigate to the new fragment
-                mainActivity.navigateToFragment(fragment, title)
+                // Navigate to the new fragment and add to back stack
+                mainActivity.navigateToFragment(fragment, title, addToBackStack = true)
             } else {
                 Log.e("AusT20Fragment", "MainActivity is null or fragment not properly attached")
             }
