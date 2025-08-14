@@ -1,0 +1,1022 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MEN'S TEST TEAM RANKINGS"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#1e3a8a"
+                android:gravity="center"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Last Updated - 31 July 2025"
+                android:textSize="14sp"
+                android:textColor="#6b7280"
+                android:layout_marginBottom="16dp" />
+
+        </LinearLayout>
+
+        <!-- Rankings Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ICC Test Rankings"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#374151"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Segmented Control: Test | ODI | T20I -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/segmentedContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="28dp"
+            app:cardElevation="6dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="6dp"
+                android:background="#F5F9FF"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tabTest"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingVertical="8dp"
+                    android:paddingHorizontal="16dp"
+                    android:gravity="center"
+                    android:text="\uD83C\uDF3F  Test"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_tab_selected" />
+
+                <TextView
+                    android:id="@+id/tabOdi"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingVertical="8dp"
+                    android:paddingHorizontal="16dp"
+                    android:gravity="center"
+                    android:text="\u26A1\uFE0F  ODI"
+                    android:textColor="#1e3a8a"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_tab_unselected"
+                    android:layout_marginStart="8dp" />
+
+                <TextView
+                    android:id="@+id/tabT20i"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingVertical="8dp"
+                    android:paddingHorizontal="16dp"
+                    android:gravity="center"
+                    android:text="\uD83D\uDD25  T20I"
+                    android:textColor="#1e3a8a"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_tab_unselected"
+                    android:layout_marginStart="8dp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Rankings Table -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="8dp"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Table Header -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#2563eb"
+                    android:padding="12dp"
+                    android:orientation="horizontal"
+                    android:weightSum="13">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Pos"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:gravity="center" />
+
+                    <!-- Change indicator header spacer -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text=""
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:text="Team"
+                        android:gravity="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="Mat"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="Pts"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text="Rating"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <!-- Test Rankings Data -->
+                
+                <!-- 1. Australia -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:orientation="horizontal"
+                    android:weightSum="13"
+                    android:background="#f9fafb">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="1"
+                        android:textStyle="bold"
+                        android:textColor="#fbbf24"
+                        android:gravity="center" />
+
+                    <!-- Change indicator -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="•"
+                        android:textColor="#9ca3af"
+                        android:gravity="center" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🇦🇺"
+                            android:textSize="20sp"
+                            android:layout_marginEnd="8dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Australia"
+                            android:textStyle="bold"
+                            android:textColor="#374151"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="30"
+                        android:textColor="#374151"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="3732"
+                        android:textColor="#374151"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text="124"
+                        android:textColor="#059669"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <!-- 2. South Africa -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:orientation="horizontal"
+                    android:weightSum="13"
+                    android:background="@android:color/white">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="2"
+                        android:textStyle="bold"
+                        android:textColor="#9ca3af"
+                        android:gravity="center" />
+
+                    <!-- Change indicator -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="•"
+                        android:textColor="#9ca3af"
+                        android:gravity="center" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🇿🇦"
+                            android:textSize="20sp"
+                            android:layout_marginEnd="8dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="South Africa"
+                            android:textStyle="bold"
+                            android:textColor="#374151"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="25"
+                        android:textColor="#374151"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="2873"
+                        android:textColor="#374151"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text="115"
+                        android:textColor="#059669"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <!-- Continue with remaining teams (3-11) with similar structure -->
+                <!-- For brevity, showing pattern for next few teams -->
+
+                <!-- 3. England -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:orientation="horizontal"
+                    android:weightSum="13"
+                    android:background="#f9fafb">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="3"
+                        android:textStyle="bold"
+                        android:textColor="#d97706"
+                        android:gravity="center" />
+
+                    <!-- Change indicator -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="↑1"
+                        android:textColor="#22c55e"
+                        android:textStyle="bold"
+                        android:gravity="center" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🏴󠁧󠁢󠁥󠁮󠁧󠁿"
+                            android:textSize="20sp"
+                            android:layout_marginEnd="8dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="England"
+                            android:textStyle="bold"
+                            android:textColor="#374151"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="40"
+                        android:textColor="#374151"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="4469"
+                        android:textColor="#374151"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text="112"
+                        android:textColor="#059669"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <!-- 4. India -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:orientation="horizontal"
+                    android:weightSum="13"
+                    android:background="@android:color/white">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="4"
+                        android:textStyle="bold"
+                        android:textColor="#3b82f6"
+                        android:gravity="center" />
+
+                    <!-- Change indicator -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="↓1"
+                        android:textColor="#dc2626"
+                        android:textStyle="bold"
+                        android:gravity="center" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🇮🇳"
+                            android:textSize="20sp"
+                            android:layout_marginEnd="8dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="India"
+                            android:textStyle="bold"
+                            android:textColor="#374151"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="33"
+                        android:textColor="#374151"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="3560"
+                        android:textColor="#374151"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text="108"
+                        android:textColor="#059669"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <!-- 5. New Zealand -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:orientation="horizontal"
+                    android:weightSum="13"
+                    android:background="#f9fafb">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="5"
+                        android:textStyle="bold"
+                        android:textColor="#10b981"
+                        android:gravity="center" />
+
+                    <!-- Change indicator -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="•"
+                        android:textColor="#9ca3af"
+                        android:gravity="center" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🇳🇿"
+                            android:textSize="20sp"
+                            android:layout_marginEnd="8dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="New Zealand"
+                            android:textStyle="bold"
+                            android:textColor="#374151"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="29"
+                        android:textColor="#374151"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="3150"
+                        android:textColor="#374151"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text="109"
+                        android:textColor="#059669"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <!-- 6. Pakistan -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:orientation="horizontal"
+                    android:weightSum="13"
+                    android:background="@android:color/white">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="6"
+                        android:textStyle="bold"
+                        android:textColor="#6366f1"
+                        android:gravity="center" />
+
+                    <!-- Change indicator -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="•"
+                        android:textColor="#9ca3af"
+                        android:gravity="center" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🇵🇰"
+                            android:textSize="20sp"
+                            android:layout_marginEnd="8dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pakistan"
+                            android:textStyle="bold"
+                            android:textColor="#374151"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="27"
+                        android:textColor="#374151"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="2850"
+                        android:textColor="#374151"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text="106"
+                        android:textColor="#059669"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <!-- 7. Sri Lanka -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:orientation="horizontal"
+                    android:weightSum="13"
+                    android:background="#f9fafb">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="7"
+                        android:textStyle="bold"
+                        android:textColor="#f97316"
+                        android:gravity="center" />
+
+                    <!-- Change indicator -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="•"
+                        android:textColor="#9ca3af"
+                        android:gravity="center" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🇱🇰"
+                            android:textSize="20sp"
+                            android:layout_marginEnd="8dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sri Lanka"
+                            android:textStyle="bold"
+                            android:textColor="#374151"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="26"
+                        android:textColor="#374151"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="2704"
+                        android:textColor="#374151"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text="104"
+                        android:textColor="#059669"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <!-- 8. West Indies -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:orientation="horizontal"
+                    android:weightSum="13"
+                    android:background="@android:color/white">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="8"
+                        android:textStyle="bold"
+                        android:textColor="#22c55e"
+                        android:gravity="center" />
+
+                    <!-- Change indicator -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="•"
+                        android:textColor="#9ca3af"
+                        android:gravity="center" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🇻🇨"
+                            android:textSize="20sp"
+                            android:layout_marginEnd="8dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="West Indies"
+                            android:textStyle="bold"
+                            android:textColor="#374151"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="24"
+                        android:textColor="#374151"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="2448"
+                        android:textColor="#374151"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text="102"
+                        android:textColor="#059669"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <!-- 9. Bangladesh -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:orientation="horizontal"
+                    android:weightSum="13"
+                    android:background="#f9fafb">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="9"
+                        android:textStyle="bold"
+                        android:textColor="#06b6d4"
+                        android:gravity="center" />
+
+                    <!-- Change indicator -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="•"
+                        android:textColor="#9ca3af"
+                        android:gravity="center" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🇧🇩"
+                            android:textSize="20sp"
+                            android:layout_marginEnd="8dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Bangladesh"
+                            android:textStyle="bold"
+                            android:textColor="#374151"
+                            android:textSize="16sp"
+                            android:maxLines="1"
+                            android:ellipsize="end" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="22"
+                        android:textColor="#374151"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="2145"
+                        android:textColor="#374151"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text="97"
+                        android:textColor="#059669"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <!-- 10. Afghanistan -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:orientation="horizontal"
+                    android:weightSum="13"
+                    android:background="@android:color/white">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="10"
+                        android:textStyle="bold"
+                        android:textColor="#14b8a6"
+                        android:gravity="center" />
+
+                    <!-- Change indicator -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="•"
+                        android:textColor="#9ca3af"
+                        android:gravity="center" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🇦🇫"
+                            android:textSize="20sp"
+                            android:layout_marginEnd="8dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Afghanistan"
+                            android:textStyle="bold"
+                            android:textColor="#374151"
+                            android:textSize="16sp"
+                            android:maxLines="1"
+                            android:ellipsize="end" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="20"
+                        android:textColor="#374151"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="1800"
+                        android:textColor="#374151"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text="90"
+                        android:textColor="#059669"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Footer -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rankings updated as per ICC official standings"
+            android:textSize="12sp"
+            android:textColor="#6b7280"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

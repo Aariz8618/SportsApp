@@ -60,9 +60,9 @@ class MainActivity : AppCompatActivity() {
             navigateToFragment(NewsFragment(), "Cricket News")
         }
 
-        // Rankings navigation - with header
+        // Rankings navigation - open Test Rankings directly
         binding.llNavRankings.setOnClickListener {
-            navigateToFragment(RankingsFragment(), "Team Rankings")
+            navigateToFragment(TestRankingsFragment(), "Test Team Rankings")
         }
 
         // Schedule navigation - with header
