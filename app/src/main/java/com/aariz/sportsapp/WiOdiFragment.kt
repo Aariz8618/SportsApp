@@ -137,7 +137,7 @@ class WiOdiFragment : Fragment() {
                 Log.d("WiOdiFragment", "Clicked - West Indies ODI World Cup 2023")
                 val mainActivity = activity as? MainActivity
                 if (mainActivity != null && isAdded && !isDetached) {
-                    mainActivity.navigateToFragment(Winz12Fragment(), "West Indies vs New Zealand 2012")
+                    mainActivity.navigateToFragment(Winz12Fragment(), "West Indies vs New Zealand 2012", addToBackStack = true)
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -150,7 +150,7 @@ class WiOdiFragment : Fragment() {
                 Log.d("WiOdiFragment", "Clicked - West Indies vs Sri Lanka 2017")
                 val mainActivity = activity as? MainActivity
                 if (mainActivity != null && isAdded && !isDetached) {
-                    mainActivity.navigateToFragment(Wieng07Fragment(), "West Indies vs Srilanka 2007")
+                    mainActivity.navigateToFragment(Wieng07Fragment(), "West Indies vs Srilanka 2007", addToBackStack = true)
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -373,7 +373,7 @@ class WiOdiFragment : Fragment() {
         }
     }
 
-    private fun navigateToFragment(fragment: Fragment, title: String) {
+    private fun navigateToFragment(fragment: Fragment, title: String, addToBackStack: Boolean = true) {
         try {
             val mainActivity = activity as? MainActivity
             if (mainActivity != null && isAdded && !isDetached) {
@@ -383,7 +383,7 @@ class WiOdiFragment : Fragment() {
                 mainActivity.setPreviousFragment(this@WiOdiFragment, "West Indies - ODI Matches")
 
                 // Navigate to the new fragment
-                mainActivity.navigateToFragment(fragment, title)
+                mainActivity.navigateToFragment(fragment, title, addToBackStack)
             } else {
                 Log.e("WiOdiFragment", "MainActivity is null or fragment not properly attached")
             }

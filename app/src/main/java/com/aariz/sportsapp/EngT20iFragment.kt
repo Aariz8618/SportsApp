@@ -121,7 +121,7 @@ class EngT20iFragment : Fragment() {
             try {
                 val mainActivity = activity as? MainActivity
                 if (mainActivity != null && isAdded && !isDetached) {
-                    mainActivity.navigateToFragment(EngNzT20Fragment(), "England vs New Zealand - T20")
+                    mainActivity.navigateToFragment(EngNzT20Fragment(), "England vs New Zealand - T20", addToBackStack = true)
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -134,7 +134,7 @@ class EngT20iFragment : Fragment() {
             try {
                 val mainActivity = activity as? MainActivity
                 if (mainActivity != null && isAdded && !isDetached) {
-                    mainActivity.navigateToFragment(EngT20WcFragment(), "T20 World Cup 2021")
+                    mainActivity.navigateToFragment(EngT20WcFragment(), "T20 World Cup 2021", addToBackStack = true)
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -365,8 +365,8 @@ class EngT20iFragment : Fragment() {
                 // Store EngT20iFragment as the previous fragment for proper back navigation
                 mainActivity.setPreviousFragment(this@EngT20iFragment, "England - T20 Matches")
 
-                // Navigate to the new fragment
-                mainActivity.navigateToFragment(fragment, title)
+                // Navigate to the new fragment and add to back stack
+                mainActivity.navigateToFragment(fragment, title, addToBackStack = true)
             } else {
                 Log.e("EngT20iFragment", "MainActivity is null or fragment not properly attached")
             }

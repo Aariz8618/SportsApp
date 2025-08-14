@@ -122,7 +122,7 @@ class EngTestFragment : Fragment() {
         engTestView1.setOnClickListener {
             val mainActivity = activity as? MainActivity
             if (mainActivity != null) {
-                mainActivity.navigateToFragment(EngAshesFragment(), "England Ashes")
+                mainActivity.navigateToFragment(EngAshesFragment(), "England Ashes", addToBackStack = true)
             }
         }
 
@@ -130,7 +130,7 @@ class EngTestFragment : Fragment() {
         engTestView3.setOnClickListener {
             val mainActivity = activity as? MainActivity
             if (mainActivity != null) {
-                mainActivity.navigateToFragment(EngInd12Fragment(), "England India 12")
+                mainActivity.navigateToFragment(EngInd12Fragment(), "England India 12", addToBackStack = true)
             }
         }
     }
@@ -357,8 +357,8 @@ class EngTestFragment : Fragment() {
                 // Store EngOdiFragment as the previous fragment for proper back navigation
                 mainActivity.setPreviousFragment(this@EngTestFragment, "England - ODI Matches")
 
-                // Navigate to the new fragment
-                mainActivity.navigateToFragment(fragment, title)
+                // Navigate to the new fragment and add to back stack
+                mainActivity.navigateToFragment(fragment, title, addToBackStack = true)
             } else {
                 Log.e("EngOdiFragment", "MainActivity is null or fragment not properly attached")
             }

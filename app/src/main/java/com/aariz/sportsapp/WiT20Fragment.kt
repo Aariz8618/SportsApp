@@ -138,7 +138,7 @@ class WiT20Fragment : Fragment() {
                 Log.d("WiT20Fragment", "Clicked - West Indies T20 World Cup 2012")
                 val mainActivity = activity as? MainActivity
                 if (mainActivity != null && isAdded && !isDetached) {
-                    mainActivity.navigateToFragment(Wiwc12Fragment(), "West Indies T20 World Cup 2012")
+                    mainActivity.navigateToFragment(Wiwc12Fragment(), "West Indies T20 World Cup 2012", addToBackStack = true)
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -163,7 +163,7 @@ class WiT20Fragment : Fragment() {
                 Log.d("WiT20Fragment", "Clicked - West Indies T20 World Cup 2016")
                 val mainActivity = activity as? MainActivity
                 if (mainActivity != null && isAdded && !isDetached) {
-                    mainActivity.navigateToFragment(Wiwc16Fragment(), "West Indies T20 World Cup 2016")
+                    mainActivity.navigateToFragment(Wiwc16Fragment(), "West Indies T20 World Cup 2016", addToBackStack = true)
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -395,8 +395,8 @@ class WiT20Fragment : Fragment() {
                 // Store WiT20Fragment as the previous fragment for proper back navigation
                 mainActivity.setPreviousFragment(this@WiT20Fragment, "West Indies - T20 Matches")
 
-                // Navigate to the new fragment
-                mainActivity.navigateToFragment(fragment, title)
+                // Navigate to the new fragment and add to back stack
+                mainActivity.navigateToFragment(fragment, title, addToBackStack = true)
             } else {
                 Log.e("WiT20Fragment", "MainActivity is null or fragment not properly attached")
             }

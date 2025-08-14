@@ -138,7 +138,7 @@ class IndTestFragment : Fragment() {
                 Log.d("IndTestFragment", "Clicked - Border Gavaskar Trophy 2020/21")
                 val mainActivity = activity as? MainActivity
                 if (mainActivity != null && isAdded && !isDetached) {
-                    mainActivity.navigateToFragment(IndtBgt20Fragment(), "Border Gavaskar Trophy 2020/21")
+                    mainActivity.navigateToFragment(IndtBgt20Fragment(), "Border Gavaskar Trophy 2020/21", addToBackStack = true)
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -152,7 +152,7 @@ class IndTestFragment : Fragment() {
                 Log.d("IndTestFragment", "Clicked - Anderson - Tendulkar Trophy")
                 val mainActivity = activity as? MainActivity
                 if (mainActivity != null && isAdded && !isDetached) {
-                    mainActivity.navigateToFragment(IndtAtFragment(), "Anderson - Tendulkar Trophy")
+                    mainActivity.navigateToFragment(IndtAtFragment(), "Anderson - Tendulkar Trophy", addToBackStack = true)
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -384,8 +384,8 @@ class IndTestFragment : Fragment() {
                 // Store IndTestFragment as the previous fragment for proper back navigation
                 mainActivity.setPreviousFragment(this@IndTestFragment, "India - Test Matches")
 
-                // Navigate to the new fragment
-                mainActivity.navigateToFragment(fragment, title)
+                // Navigate to the new fragment and add to back stack
+                mainActivity.navigateToFragment(fragment, title, addToBackStack = true)
             } else {
                 Log.e("IndTestFragment", "MainActivity is null or fragment not properly attached")
             }

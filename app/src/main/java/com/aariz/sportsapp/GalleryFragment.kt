@@ -112,7 +112,7 @@ class GalleryFragment : Fragment() {
             try {
                 val mainActivity = activity as? MainActivity
                 if (mainActivity != null && isAdded && !isDetached) {
-                    mainActivity.navigateToFragment(CT25Fragment(), "Champions Trophy 2025")
+                    mainActivity.navigateToFragment(CT25Fragment(), "Champions Trophy 2025", addToBackStack = true)
                 }
             } catch (e: Exception) {
                 Log.e("GalleryFragment", "Error navigating to CT25Fragment", e)
@@ -125,7 +125,7 @@ class GalleryFragment : Fragment() {
             try {
                 val mainActivity = activity as? MainActivity
                 if (mainActivity != null && isAdded && !isDetached) {
-                    mainActivity.navigateToFragment(WTC25Fragment(), "World Test Championship 2025")
+                    mainActivity.navigateToFragment(WTC25Fragment(), "World Test Championship 2025", addToBackStack = true)
                 }
             } catch (e: Exception) {
                 Log.e("GalleryFragment", "Error navigating to WTC25Fragment", e)
@@ -138,7 +138,7 @@ class GalleryFragment : Fragment() {
             try {
                 val mainActivity = activity as? MainActivity
                 if (mainActivity != null && isAdded && !isDetached) {
-                    mainActivity.navigateToFragment(IndEngTestFragment(), "India vs England Test Series")
+                    mainActivity.navigateToFragment(IndEngTestFragment(), "India vs England Test Series", addToBackStack = true)
                 }
             } catch (e: Exception) {
                 Log.e("GalleryFragment", "Error navigating to IndEngTestFragment", e)
@@ -151,7 +151,7 @@ class GalleryFragment : Fragment() {
             try {
                 val mainActivity = activity as? MainActivity
                 if (mainActivity != null && isAdded && !isDetached) {
-                    mainActivity.navigateToFragment(AusWiTestFragment(), "Australia vs West Indies Test Series")
+                    mainActivity.navigateToFragment(AusWiTestFragment(), "Australia vs West Indies Test Series", addToBackStack = true)
                 }
             } catch (e: Exception) {
                 Log.e("GalleryFragment", "Error navigating to AusWiTestFragment", e)
@@ -380,11 +380,11 @@ class GalleryFragment : Fragment() {
             if (mainActivity != null && isAdded && !isDetached) {
                 Log.d("GalleryFragment", "Calling navigateToFragment with $title")
 
-                // Store GalleryFragment as the previous fragment for proper back navigation
+                // Store GalleryFragment as the previous fragment for proper back navigation (optional safety)
                 mainActivity.setPreviousFragment(this@GalleryFragment, "Photo Gallery")
 
-                // Navigate to the new fragment
-                mainActivity.navigateToFragment(fragment, title)
+                // Navigate to the new fragment and add to back stack so back returns to Gallery
+                mainActivity.navigateToFragment(fragment, title, addToBackStack = true)
             } else {
                 Log.e("GalleryFragment", "MainActivity is null or fragment not properly attached")
             }

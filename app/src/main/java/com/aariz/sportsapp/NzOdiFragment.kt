@@ -138,7 +138,7 @@ class NzOdiFragment : Fragment() {
                 val mainActivity = activity as? MainActivity
                 if (mainActivity != null && isAdded && !isDetached) {
                     Log.d("NzOdiFragment", "Calling navigateToFragment with NzWc15Fragment")
-                    mainActivity.navigateToFragment(NzWc15Fragment(), "New Zealand World Cup 2015")
+                    mainActivity.navigateToFragment(NzWc15Fragment(), "New Zealand World Cup 2015", addToBackStack = true)
                 } else {
                     Log.e("NzOdiFragment", "MainActivity is null or fragment not properly attached")
                 }
@@ -155,7 +155,7 @@ class NzOdiFragment : Fragment() {
                 val mainActivity = activity as? MainActivity
                 if (mainActivity != null && isAdded && !isDetached) {
                     Log.d("NzOdiFragment", "Calling navigateToFragment with NzIndOdiFragment")
-                    mainActivity.navigateToFragment(NzIndOdiFragment(), "New Zealand vs India ODI")
+                    mainActivity.navigateToFragment(NzIndOdiFragment(), "New Zealand vs India ODI", addToBackStack = true)
                 } else {
                     Log.e("NzOdiFragment", "MainActivity is null or fragment not properly attached")
                 }
@@ -390,8 +390,8 @@ class NzOdiFragment : Fragment() {
                 // Store NzOdiFragment as the previous fragment for proper back navigation
                 mainActivity.setPreviousFragment(this@NzOdiFragment, "New Zealand - ODI Matches")
 
-                // Navigate to the new fragment
-                mainActivity.navigateToFragment(fragment, title)
+                // Navigate to the new fragment and add to back stack
+                mainActivity.navigateToFragment(fragment, title, addToBackStack = true)
             } else {
                 Log.e("NzOdiFragment", "MainActivity is null or fragment not properly attached")
             }

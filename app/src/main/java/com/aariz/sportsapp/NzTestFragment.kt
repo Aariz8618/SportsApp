@@ -138,7 +138,7 @@ class NzTestFragment : Fragment() {
                 val mainActivity = activity as? MainActivity
                 if (mainActivity != null && isAdded && !isDetached) {
                     Log.d("NzTestFragment", "Calling navigateToFragment with Wtc21Fragment")
-                    mainActivity.navigateToFragment(Wtc21Fragment(), "World Test Championship 2021")
+                    mainActivity.navigateToFragment(Wtc21Fragment(), "World Test Championship 2021", addToBackStack = true)
                 } else {
                     Log.e("NzTestFragment", "MainActivity is null or fragment not properly attached")
                 }
@@ -155,7 +155,7 @@ class NzTestFragment : Fragment() {
                 val mainActivity = activity as? MainActivity
                 if (mainActivity != null && isAdded && !isDetached) {
                     Log.d("NzTestFragment", "Calling navigateToFragment with WhitewashFragment")
-                    mainActivity.navigateToFragment(WhitewashFragment(), "Whitewash Series")
+                    mainActivity.navigateToFragment(WhitewashFragment(), "Whitewash Series", addToBackStack = true)
                 } else {
                     Log.e("NzTestFragment", "MainActivity is null or fragment not properly attached")
                 }
@@ -292,55 +292,55 @@ class NzTestFragment : Fragment() {
         // Navigation for India - Test
         if (selectedTeam == "India" && selectedFormat == "Test") {
             Log.d("NzTestFragment", "Navigating to IndTestFragment")
-            navigateToFragment(IndTestFragment(), "India - Test Matches")
+            navigateToFragment(IndTestFragment(), "India - Test Matches", addToBackStack = true)
         }
 
         // Navigation for India - ODI
         else if (selectedTeam == "India" && selectedFormat == "ODI") {
             Log.d("NzTestFragment", "Navigating to IndodiFragment")
-            navigateToFragment(IndodiFragment(), "India - ODI Matches")
+            navigateToFragment(IndodiFragment(), "India - ODI Matches", addToBackStack = true)
         }
 
         // Navigation for India - T20Is
         else if (selectedTeam == "India" && selectedFormat == "T20Is") {
             Log.d("NzTestFragment", "Navigating to IndT20Fragment")
-            navigateToFragment(IndT20Fragment(), "India - T20 Matches")
+            navigateToFragment(IndT20Fragment(), "India - T20 Matches", addToBackStack = true)
         }
 
         // Navigation for Australia - Test
         else if (selectedTeam == "Australia" && selectedFormat == "Test") {
             Log.d("NzTestFragment", "Navigating to AusTestFragment")
-            navigateToFragment(AusTestFragment(), "Australia - Test Matches")
+            navigateToFragment(AusTestFragment(), "Australia - Test Matches", addToBackStack = true)
         }
 
         // Navigation for Australia - ODI
         else if (selectedTeam == "Australia" && selectedFormat == "ODI") {
             Log.d("NzTestFragment", "Navigating to AusOdiFragment")
-            navigateToFragment(AusOdiFragment(), "Australia - ODI Matches")
+            navigateToFragment(AusOdiFragment(), "Australia - ODI Matches", addToBackStack = true)
         }
 
         // Navigation for Australia - T20Is
         else if (selectedTeam == "Australia" && selectedFormat == "T20Is") {
             Log.d("NzTestFragment", "Navigating to AusT20Fragment")
-            navigateToFragment(AusT20Fragment(), "Australia - T20 Matches")
+            navigateToFragment(AusT20Fragment(), "Australia - T20 Matches", addToBackStack = true)
         }
 
         // Navigation for England - Test
         else if (selectedTeam == "England" && selectedFormat == "Test") {
             Log.d("NzTestFragment", "Navigating to EngTestFragment")
-            navigateToFragment(EngTestFragment(), "England - Test Matches")
+            navigateToFragment(EngTestFragment(), "England - Test Matches", addToBackStack = true)
         }
 
         // Navigation for England - ODI
         else if (selectedTeam == "England" && selectedFormat == "ODI") {
             Log.d("NzTestFragment", "Navigating to EngOdiFragment")
-            navigateToFragment(EngOdiFragment(), "England - ODI Matches")
+            navigateToFragment(EngOdiFragment(), "England - ODI Matches", addToBackStack = true)
         }
 
         // Navigation for England - T20Is
         else if (selectedTeam == "England" && selectedFormat == "T20Is") {
             Log.d("NzTestFragment", "Navigating to EngT20iFragment")
-            navigateToFragment(EngT20iFragment(), "England - T20 Matches")
+            navigateToFragment(EngT20iFragment(), "England - T20 Matches", addToBackStack = true)
         }
 
         // Navigation for New Zealand - Test (already on this fragment)
@@ -353,35 +353,35 @@ class NzTestFragment : Fragment() {
         // Navigation for New Zealand - ODI
         else if (selectedTeam == "New Zealand" && selectedFormat == "ODI") {
             Log.d("NzTestFragment", "Navigating to NzOdiFragment")
-            navigateToFragment(NzOdiFragment(), "New Zealand - ODI Matches")
+            navigateToFragment(NzOdiFragment(), "New Zealand - ODI Matches", addToBackStack = true)
         }
 
         // Navigation for New Zealand - T20Is
         else if (selectedTeam == "New Zealand" && selectedFormat == "T20Is") {
             Log.d("NzTestFragment", "Navigating to NzT20iFragment")
-            navigateToFragment(NzT20iFragment(), "New Zealand - T20 Matches")
+            navigateToFragment(NzT20iFragment(), "New Zealand - T20 Matches", addToBackStack = true)
         }
 
         // Navigation for West Indies - Test
         else if (selectedTeam == "West Indies" && selectedFormat == "Test") {
             Log.d("NzTestFragment", "Navigating to WiTestFragment")
-            navigateToFragment(WiTestFragment(), "West Indies - Test Matches")
+            navigateToFragment(WiTestFragment(), "West Indies - Test Matches", addToBackStack = true)
         }
 
         // Navigation for West Indies - ODI
         else if (selectedTeam == "West Indies" && selectedFormat == "ODI") {
             Log.d("NzTestFragment", "Navigating to WiOdiFragment")
-            navigateToFragment(WiOdiFragment(), "West Indies - ODI Matches")
+            navigateToFragment(WiOdiFragment(), "West Indies - ODI Matches", addToBackStack = true)
         }
 
         // Navigation for West Indies - T20Is
         else if (selectedTeam == "West Indies" && selectedFormat == "T20Is") {
             Log.d("NzTestFragment", "Navigating to WiT20Fragment")
-            navigateToFragment(WiT20Fragment(), "West Indies - T20 Matches")
+            navigateToFragment(WiT20Fragment(), "West Indies - T20 Matches", addToBackStack = true)
         }
     }
 
-    private fun navigateToFragment(fragment: Fragment, title: String) {
+    private fun navigateToFragment(fragment: Fragment, title: String, addToBackStack: Boolean) {
         try {
             val mainActivity = activity as? MainActivity
             if (mainActivity != null && isAdded && !isDetached) {
@@ -391,7 +391,7 @@ class NzTestFragment : Fragment() {
                 mainActivity.setPreviousFragment(this@NzTestFragment, "New Zealand - Test Matches")
 
                 // Navigate to the new fragment
-                mainActivity.navigateToFragment(fragment, title)
+                mainActivity.navigateToFragment(fragment, title, addToBackStack)
             } else {
                 Log.e("NzTestFragment", "MainActivity is null or fragment not properly attached")
             }
