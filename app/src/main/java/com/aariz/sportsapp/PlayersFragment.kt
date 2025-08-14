@@ -30,7 +30,7 @@ class PlayersFragment : Fragment() {
     private lateinit var adapter: PlayerAdapter
     private val playersList = mutableListOf<Player>()
 
-    private val apiKey = "37abfde8-ac7d-4b87-98de-f602486ccb0b"
+    private val apiKey = "d048d0c6-efeb-4bf5-99e2-88f44cb23b82"
 
     // Pagination variables
     private var currentPage = 0
@@ -149,7 +149,7 @@ class PlayersFragment : Fragment() {
                     response: Response<PlayerDetailResponse>
                 ) {
                     if (response.isSuccessful && response.body()?.data != null) {
-                        player.playerImg = response.body()!!.data.playerImg
+                        player.playerImg = response.body()!!.data?.playerImg
                         adapter.notifyDataSetChanged()
                     }
                 }

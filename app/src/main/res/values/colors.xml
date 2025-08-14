@@ -66,4 +66,30 @@
     <!-- Primary Color (adjust as needed) -->
     <color name="primary_color">#2196F3</color>
 
+    <!-- Primary Theme Colors -->
+    <color name="primary_color_2">#2E7D32</color>
+    <color name="primary_dark">#1B5E20</color>
+    <color name="accent_color">#FF6F00</color>
+
+    <!-- Cricket Format Colors -->
+    <color name="test_color">#D32F2F</color>
+    <color name="odi_color">#1976D2</color>
+    <color name="t20_color">#7B1FA2</color>
+    <color name="ipl_color">#FF6F00</color>
+
+    <!-- Statistics Colors -->
+    <color name="wickets_color">#E53935</color>
+    <color name="runs_color">#43A047</color>
+    <color name="average_color">#FB8C00</color>
+
+    <!-- Background Colors -->
+    <color name="background_color">#FAFAFA</color>
+    <color name="gradient_start">#2E7D32</color>
+    <color name="gradient_end">#66BB6A</color>
+
+    <!-- Status Colors -->
+    <color name="success_color">#4CAF50</color>
+    <color name="error_color">#F44336</color>
+    <color name="warning_color">#FF9800</color>
+
 </resources>

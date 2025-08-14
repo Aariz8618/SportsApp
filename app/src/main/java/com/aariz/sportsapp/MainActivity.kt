@@ -15,6 +15,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.aariz.sportsapp.databinding.ActivityMainBinding
+import com.aariz.sportsapp.ui.BrowseMatchesFragment
 import com.aariz.sportsapp.ui.ScheduleFragment
 import com.aariz.sportsapp.ui.players.PlayersFragment
 import com.google.firebase.FirebaseApp
@@ -269,6 +270,7 @@ class MainActivity : AppCompatActivity() {
         // Browse Matches
         findViewById<View>(R.id.nav_item_browse_matches).setOnClickListener {
             closeNavigationDrawer()
+            navigateFromDrawer(BrowseMatchesFragment(), "Browse Matches")
         }
 
         // Teams

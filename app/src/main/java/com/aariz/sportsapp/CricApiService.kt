@@ -1,9 +1,6 @@
 package com.aariz.sportsapp.api
 
-import com.aariz.sportsapp.models.PlayerResponse
-import com.aariz.sportsapp.models.PlayerDetailResponse
-import com.aariz.sportsapp.models.CurrentMatchesResponse
-import com.aariz.sportsapp.models.MatchesListResponse
+import com.aariz.sportsapp.models.*
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -29,10 +26,35 @@ interface CricApiService {
         @Query("offset") offset: Int
     ): Call<MatchesListResponse>
 
-    // Player Info with image & stats
+    @GET("match_info")
+    fun getMatchInfo(
+        @Query("apikey") apiKey: String,
+        @Query("id") matchId: String
+    ): Call<MatchInfoResponse>
+
     @GET("players_info")
     fun getPlayerInfo(
         @Query("apikey") apiKey: String,
         @Query("id") playerId: String
     ): Call<PlayerDetailResponse>
+
+    @GET("match_squad")
+    fun getSquadInfo(
+        @Query("apikey") apiKey: String,
+        @Query("id") matchId: String
+    ): Call<SquadInfoResponse>
+
+    // Series Squad endpoint (uses series_id)
+    @GET("series_squad")
+    fun getSeriesSquad(
+        @Query("apikey") apiKey: String,
+        @Query("id") seriesId: String
+    ): Call<SquadInfoResponse>
+
+    // Scorecard endpoint (uses match id)
+    @GET("scorecard")
+    fun getScorecard(
+        @Query("apikey") apiKey: String,
+        @Query("id") matchId: String
+    ): Call<ScorecardResponse>
 }
