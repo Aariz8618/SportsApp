@@ -45,6 +45,12 @@ class GalleryFragment : Fragment() {
         return view
     }
 
+    override fun onResume() {
+        super.onResume()
+        // Reset filters when returning to this fragment
+        resetFiltersOnReturn()
+    }
+
     private fun initViews(view: View) {
         try {
             // Filter header layouts
@@ -99,6 +105,58 @@ class GalleryFragment : Fragment() {
         // Clear filters button
         clearFiltersBtn.setOnClickListener {
             clearAllFilters()
+        }
+
+        // Champions Trophy 2025 card click
+        view.findViewById<TextView>(R.id.ctview)?.setOnClickListener {
+            try {
+                val mainActivity = activity as? MainActivity
+                if (mainActivity != null && isAdded && !isDetached) {
+                    mainActivity.navigateToFragment(CT25Fragment(), "Champions Trophy 2025")
+                }
+            } catch (e: Exception) {
+                Log.e("GalleryFragment", "Error navigating to CT25Fragment", e)
+                e.printStackTrace()
+            }
+        }
+
+        // World Test Championship 2025 card click
+        view.findViewById<TextView>(R.id.wtcview)?.setOnClickListener {
+            try {
+                val mainActivity = activity as? MainActivity
+                if (mainActivity != null && isAdded && !isDetached) {
+                    mainActivity.navigateToFragment(WTC25Fragment(), "World Test Championship 2025")
+                }
+            } catch (e: Exception) {
+                Log.e("GalleryFragment", "Error navigating to WTC25Fragment", e)
+                e.printStackTrace()
+            }
+        }
+
+        // India vs England Test Series card click
+        view.findViewById<TextView>(R.id.inenggview)?.setOnClickListener {
+            try {
+                val mainActivity = activity as? MainActivity
+                if (mainActivity != null && isAdded && !isDetached) {
+                    mainActivity.navigateToFragment(IndEngTestFragment(), "India vs England Test Series")
+                }
+            } catch (e: Exception) {
+                Log.e("GalleryFragment", "Error navigating to IndEngTestFragment", e)
+                e.printStackTrace()
+            }
+        }
+
+        // Australia vs West Indies Test Series card click
+        view.findViewById<TextView>(R.id.auwiview)?.setOnClickListener {
+            try {
+                val mainActivity = activity as? MainActivity
+                if (mainActivity != null && isAdded && !isDetached) {
+                    mainActivity.navigateToFragment(AusWiTestFragment(), "Australia vs West Indies Test Series")
+                }
+            } catch (e: Exception) {
+                Log.e("GalleryFragment", "Error navigating to AusWiTestFragment", e)
+                e.printStackTrace()
+            }
         }
     }
 
@@ -355,5 +413,22 @@ class GalleryFragment : Fragment() {
             animateDropdownClose(formatDropdown)
             rotateArrow(formatDropdownArrow, false)
         }
+    }
+
+    // Reset filters when returning to this fragment (e.g., from back button)
+    private fun resetFiltersOnReturn() {
+        // Close any open dropdowns
+        closeAllDropdowns()
+        
+        // Clear selections
+        selectedTeam = null
+        selectedFormat = null
+        
+        // Reset header text
+        teamsHeader.text = "Select Team"
+        formatHeader.text = "Select Format"
+        
+        // Hide filter actions
+        filterActionsLayout.visibility = View.GONE
     }
 }

@@ -546,9 +546,13 @@ class MainActivity : AppCompatActivity() {
                 fragment is NzTestFragment ||
                 fragment is NzOdiFragment ||
                 fragment is NzT20iFragment ||
-                fragment is WiTestFragment ||
-                fragment is WiOdiFragment ||
-                fragment is WiT20Fragment
+                                 fragment is WiTestFragment ||
+                 fragment is WiOdiFragment ||
+                 fragment is WiT20Fragment ||
+                 fragment is CT25Fragment ||
+                 fragment is WTC25Fragment ||
+                 fragment is IndEngTestFragment ||
+                 fragment is AusWiTestFragment
     }
 
     private fun setupExpandableSections() {
