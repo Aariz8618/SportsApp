@@ -364,7 +364,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Rules of the game"
+                        android:text="Laws of the game"
                         android:fontFamily="@font/lato"
                         android:textColor="@color/text_primary"
                         android:textSize="14sp" />
@@ -674,7 +674,7 @@
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:src="@android:drawable/ic_menu_info_details"
+                        android:src="@drawable/img_21"
                         android:layout_marginEnd="16dp"
                         app:tint="@color/text_primary"
                         android:contentDescription="Umpires" />
@@ -922,7 +922,7 @@
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:src="@android:drawable/ic_menu_report_image"
+                        android:src="@drawable/img_20"
                         android:layout_marginEnd="16dp"
                         app:tint="@color/text_primary"
                         android:contentDescription="Report Issue Icon" />

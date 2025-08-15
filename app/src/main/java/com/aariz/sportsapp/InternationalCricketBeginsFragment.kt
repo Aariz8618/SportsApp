@@ -9,7 +9,7 @@ import com.aariz.sportsapp.databinding.InternationalCricketBeginsBinding
 
 class InternationalCricketBeginsFragment : Fragment() {
 
-    private var _binding: InternationalCricketBeginsBinding? = null
+    private var _binding: InternationalCricketBeginsBinding ?= null
     private val binding get() = _binding!!
 
     override fun onCreateView(

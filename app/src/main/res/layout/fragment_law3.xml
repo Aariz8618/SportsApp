@@ -16,7 +16,6 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="12dp"
             app:cardElevation="4dp">
 
             <LinearLayout
@@ -30,9 +29,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
-                    android:fontFamily="@font/lato_bold"
+                    android:fontFamily="@font/lato_black"
                     android:text="3.1 Appointment of scorers"
-                    android:textSize="18sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -40,7 +39,7 @@
                     android:layout_marginBottom="16dp"
                     android:fontFamily="@font/lato"
                     android:lineSpacingExtra="4dp"
-                    android:text="Two scorers shall be appointed to record all runs scored, all wickets taken and, where appropriate, number of overs bowled."
+                    android:text="@string/score"
                     android:textSize="16sp" />
 
                 <!-- Section 3.2 -->
@@ -48,9 +47,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
-                    android:fontFamily="@font/lato_bold"
+                    android:fontFamily="@font/lato_black"
                     android:text="3.2 Correctness of scores"
-                    android:textSize="18sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -58,7 +57,7 @@
                     android:layout_marginBottom="16dp"
                     android:fontFamily="@font/lato"
                     android:lineSpacingExtra="4dp"
-                    android:text="The scorers shall frequently check to ensure that their records agree. After each innings, the scorers are to check with the umpires that their records are correct."
+                    android:text="@string/score1"
                     android:textSize="16sp" />
 
                 <!-- Section 3.3 -->
@@ -66,27 +65,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
-                    android:fontFamily="@font/lato_bold"
-                    android:text="3.3 Consultation with umpires"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    android:fontFamily="@font/lato"
-                    android:lineSpacingExtra="4dp"
-                    android:text="Throughout the match, the umpires may consult with the scorers on any matter regarding the scoring."
-                    android:textSize="16sp" />
-
-                <!-- Section 3.4 -->
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:fontFamily="@font/lato_bold"
+                    android:fontFamily="@font/lato_black"
                     android:text="3.4 Acknowledging signals"
-                    android:textSize="18sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -94,25 +75,9 @@
                     android:layout_marginBottom="16dp"
                     android:fontFamily="@font/lato"
                     android:lineSpacingExtra="4dp"
-                    android:text="The scorers shall accept and acknowledge the signals from the umpires and make the appropriate entries in their records."
+                    android:text="@string/score2"
                     android:textSize="16sp" />
 
-                <!-- Section 3.5 -->
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:fontFamily="@font/lato_bold"
-                    android:text="3.5 Correctness of result"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/lato"
-                    android:lineSpacingExtra="4dp"
-                    android:text="Any query on the result of the match as defined in Laws 16.1, 16.2, 16.3, 16.4 and 16.5 shall be resolved as soon as possible."
-                    android:textSize="16sp" />
 
             </LinearLayout>
 

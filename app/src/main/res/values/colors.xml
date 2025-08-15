@@ -4,6 +4,9 @@
     <color name="primary_green">#1B5E20</color>
     <color name="primary_green_light">#2E7D32</color>
     <color name="primary_green_dark">#0D3A0F</color>
+    <color name="colorPrimary">#FF5722</color>
+    <color name="colorAccent">#E91E63</color>
+    <color name="gray">#7E7E7E</color>
     
     <!-- Secondary Colors -->
     <color name="cricket_orange">#FF6F00</color>
@@ -18,7 +21,7 @@
     
     <!-- Text Colors -->
     <color name="text_primary">#212121</color>
-    <color name="text_secondary">#757575</color>
+    <color name="text_secondary">#777777</color>
     <color name="text_hint">#BDBDBD</color>
     <color name="text_white">#FFFFFF</color>
     
@@ -29,7 +32,7 @@
     
     <!-- Surface Colors -->
     <color name="surface_elevated">#FFFFFF</color>
-    <color name="divider_color">#E0E0E0</color>
+    <color name="divider_color">#EEEEEE</color>
     <color name="ripple_color">#E8F5E8</color>
     
     <!-- Standard Colors -->
@@ -55,5 +58,56 @@
     <color name="scoring_text_primary">#2D3748</color>
     <color name="tab_unselected">#A0AEC0</color>
     <color name="tab_text_muted">#CBD5E0</color>
+
+    <!-- Filter Container Colors -->
+    <color name="filter_container_bg">#FFFFFF</color>
+    <color name="filter_border_color">#E0E0E0</color>
+    <color name="filter_bg">#FAFAFA</color>
+    <color name="filter_item_border">#F0F0F0</color>
+    <color name="filter_pressed_bg">#F5F5F5</color>
+
+    <!-- Dropdown Colors -->
+    <color name="dropdown_bg">#FFFFFF</color>
+    <color name="dropdown_border_color">#E0E0E0</color>
+    <color name="dropdown_item_pressed">#E3F2FD</color>
+    <color name="dropdown_item_focused">#F3E5F5</color>
+
+    <!-- Text Colors -->
+    <color name="filter_text_color">#333333</color>
+    <color name="dropdown_text_color">#444444</color>
+
+    <!-- Icon Colors -->
+    <color name="icon_color">#666666</color>
+    <color name="format_icon_color">#2196F3</color>
+
+
+    <!-- Primary Color (adjust as needed) -->
+    <color name="primary_color">#2196F3</color>
+
+    <!-- Primary Theme Colors -->
+    <color name="primary_color_2">#2E7D32</color>
+    <color name="primary_dark">#1B5E20</color>
+    <color name="accent_color">#FF6F00</color>
+
+    <!-- Cricket Format Colors -->
+    <color name="test_color">#D32F2F</color>
+    <color name="odi_color">#1976D2</color>
+    <color name="t20_color">#7B1FA2</color>
+    <color name="ipl_color">#FF6F00</color>
+
+    <!-- Statistics Colors -->
+    <color name="wickets_color">#E53935</color>
+    <color name="runs_color">#43A047</color>
+    <color name="average_color">#FB8C00</color>
+
+    <!-- Background Colors -->
+    <color name="background_color">#FAFAFA</color>
+    <color name="gradient_start">#2E7D32</color>
+    <color name="gradient_end">#66BB6A</color>
+
+    <!-- Status Colors -->
+    <color name="success_color">#4CAF50</color>
+    <color name="error_color">#F44336</color>
+    <color name="warning_color">#FF9800</color>
 
 </resources>

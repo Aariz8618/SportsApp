@@ -14,7 +14,7 @@
         android:orientation="vertical">
 
         <!-- Header -->
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/main_header"
             android:layout_width="match_parent"
             android:layout_height="64dp"
@@ -33,37 +33,40 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:padding="8dp"
+                android:layout_centerVertical="true"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:contentDescription="Menu"
                 app:tint="@color/text_white" />
 
             <TextView
                 android:id="@+id/tv_header_title"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/lato_bold"
                 android:gravity="center_horizontal"
                 android:letterSpacing="0.05"
                 android:text="CricTech"
+                android:layout_centerVertical="true"
                 android:textColor="@color/text_white"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
-        <!-- Scrollable content area with bottom margin for navigation -->
+        <!-- Scrollable content area with proper behavior -->
         <androidx.core.widget.NestedScrollView
             android:id="@+id/home_content"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:layout_marginBottom="64dp">
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingBottom="80dp">
 
                 <!-- Live Matches Section - Hard Coded Scorecards -->
                 <HorizontalScrollView
@@ -102,6 +105,8 @@
                                 android:orientation="vertical">
 
                                 <!-- Match Header with Live indicator -->
+
+                                <!-- Teams and scores section -->
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -114,13 +119,14 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="4th ODI • India vs England"
-                                        android:textSize="11sp"
                                         android:textColor="@color/text_secondary"
+                                        android:textSize="11sp"
                                         android:textStyle="bold" />
 
                                 </LinearLayout>
 
-                                <!-- Teams and scores section -->
+
+
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -1141,8 +1147,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:layout_marginBottom="64dp"
-            android:visibility="gone" />
+            android:visibility="gone"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     </LinearLayout>
 
@@ -1150,11 +1156,16 @@
     <LinearLayout
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
+
         android:layout_height="64dp"
         android:orientation="horizontal"
-        android:background="@color/background_white"
+        android:background="@drawable/nav_background"
         android:elevation="12dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginBottom="10dp"
         android:layout_gravity="bottom"
+        android:clipChildren="false"
+        android:clipToPadding="false"
         app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior">
 
         <LinearLayout
@@ -1166,15 +1177,28 @@
             android:gravity="center"
             android:clickable="true"
             android:focusable="true"
+            android:clipChildren="false"
+            android:clipToPadding="false"
             android:foreground="?android:attr/selectableItemBackground">
 
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_home"
-                android:contentDescription="Home" />
+            <FrameLayout
+                android:id="@+id/fl_nav_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:clipChildren="false"
+                android:clipToPadding="false">
+                <ImageView
+                    android:id="@+id/iv_nav_home"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/ic_home"
+                    android:scaleType="centerInside"
+                    android:contentDescription="Home" />
+            </FrameLayout>
 
             <TextView
+                android:id="@+id/tv_nav_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="HOME"
@@ -1193,15 +1217,28 @@
             android:gravity="center"
             android:clickable="true"
             android:focusable="true"
+            android:clipChildren="false"
+            android:clipToPadding="false"
             android:foreground="?android:attr/selectableItemBackground">
 
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_play"
-                android:contentDescription="News" />
+            <FrameLayout
+                android:id="@+id/fl_nav_news"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:clipChildren="false"
+                android:clipToPadding="false">
+                <ImageView
+                    android:id="@+id/iv_nav_news"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/ic_play"
+                    android:scaleType="centerInside"
+                    android:contentDescription="News" />
+            </FrameLayout>
 
             <TextView
+                android:id="@+id/tv_nav_news"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="NEWS"
@@ -1220,15 +1257,28 @@
             android:gravity="center"
             android:clickable="true"
             android:focusable="true"
+            android:clipChildren="false"
+            android:clipToPadding="false"
             android:foreground="?android:attr/selectableItemBackground">
 
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_ranking"
-                android:contentDescription="Rankings" />
+            <FrameLayout
+                android:id="@+id/fl_nav_rankings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:clipChildren="false"
+                android:clipToPadding="false">
+                <ImageView
+                    android:id="@+id/iv_nav_rankings"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/ic_ranking"
+                    android:scaleType="centerInside"
+                    android:contentDescription="Rankings" />
+            </FrameLayout>
 
             <TextView
+                android:id="@+id/tv_nav_rankings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="RANKINGS"
@@ -1247,15 +1297,28 @@
             android:gravity="center"
             android:clickable="true"
             android:focusable="true"
+            android:clipChildren="false"
+            android:clipToPadding="false"
             android:foreground="?android:attr/selectableItemBackground">
 
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_schedule"
-                android:contentDescription="Schedule" />
+            <FrameLayout
+                android:id="@+id/fl_nav_schedule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:clipChildren="false"
+                android:clipToPadding="false">
+                <ImageView
+                    android:id="@+id/iv_nav_schedule"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/ic_schedule"
+                    android:scaleType="centerInside"
+                    android:contentDescription="Schedule" />
+            </FrameLayout>
 
             <TextView
+                android:id="@+id/tv_nav_schedule"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="SCHEDULE"
@@ -1266,6 +1329,43 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <!-- Floating active nav bubble overlay at root -->
+    <FrameLayout
+        android:id="@+id/nav_bubble_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:clickable="false"
+        android:focusable="false">
+
+        <FrameLayout
+            android:id="@+id/active_nav_bubble"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_gravity="bottom|start"
+            android:visibility="gone"
+            android:background="@drawable/bg_nav_active_circle"
+            android:elevation="16dp"
+            android:translationZ="16dp"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:clickable="false"
+            android:focusable="false">
+
+            <ImageView
+                android:id="@+id/iv_active_nav"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:scaleType="centerInside"
+                android:contentDescription="ActiveNav"
+                android:clickable="false"
+                android:focusable="false" />
+
+        </FrameLayout>
+    </FrameLayout>
 
     <!-- Navigation Drawer Overlay -->
     <include layout="@layout/nav_drawer_overlay" />

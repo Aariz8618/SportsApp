@@ -146,9 +146,150 @@
         If several signals are to be used, they SHALL be given in the order that the events occurred."</string>
 
     <string name="unp14">"Throughout the Laws, wherever the umpires are to receive information from captains or other players, it will be sufficient for one umpire to be so informed and for him/her to inform the other umpire."</string>
-
     <string name="ump15">"Consultation between umpires and scorers on doubtful points is essential.  The umpires shall, throughout the match, satisfy themselves as to the correctness of the number of runs scored, the wickets that have fallen and, where appropriate, the number of overs bowled.  They shall agree these with the scorers at least at every interval, other than a drinks interval, and at the conclusion of the match.  See Laws 3.2 (Correctness of scores), 16.8 (Correctness of result) and 16.10 (Result not to be changed)."</string>
-    
-    <!-- Memes Section -->
+
+    <string name="score">"Two scorers shall be appointed to record all runs scored, all wickets taken and, where appropriate, number of overs bowled."</string>
+    <string name="score1">"The scorers shall frequently check to ensure that their records agree. They shall agree with the umpires, at least at every interval, other than drinks intervals, and at the conclusion of the match, the runs scored, the wickets that have fallen and, where appropriate, the number of overs bowled. See Law 2.15 (Correctness of scores)."</string>
+    <string name="score2">"The scorers shall accept all instructions and signals given to them by the umpires and shall immediately acknowledge each separate signal."</string>
+
+    <string name="ball">"The ball, when new, shall weigh not less than 5.5 ounces/155.9 g, nor more than 5.75 ounces/163 g, and shall measure not less than 8.81 in/22.4 cm, nor more than 9 in/22.9 cm in circumference."</string>
+    <string name="ball1">"<b>4.2.1</b> All balls to be used in the match, having been determined by the umpires, shall be in the possession of the umpires before the toss and shall remain under their control throughout the match."</string>
+    <string name="ball2">"<b>4.2.2</b> The umpire shall take possession of the ball in use at the fall of each wicket, at the start of any interval and at any interruption of play."</string>
+    <string name="ball3">"Unless an agreement to the contrary has been made before the match, either captain may demand a new ball at the start of each innings."</string>
+    <string name="ball4">"In a match of more than one day’s duration, the captain of the fielding side may demand a new ball when the number of overs, excluding any part overs, bowled with the old one is equal to or greater than 80 overs. The umpire shall inform the other umpire and indicate to the batters and the scorers whenever a new ball is taken into play."</string>
+    <string name="ball5">"If, during play, the ball cannot be found or recovered or the umpires agree that it has become unfit for play through normal use, the umpires shall replace it with a ball which has had wear comparable with that which the previous ball had received before the need for its replacement. When the ball is replaced, the umpire shall inform the batters and the fielding captain.</string>
+    <string name="ball6">"The specifications as described in 4.1 shall apply to men’s cricket only. The following specifications shall apply to:\n\n<b>4.6.1</b> Women’s cricket"</string>
+    <string name="ball7">"Weight: from 4.94 ounces/140 g to 5.31 ounces/151 g\nCircumference: from 8.25 in/21.0 cm to 8.88 in/22.5 cm."</string>
+    <string name="ball8">"<b>4.6.2</b> Junior cricket – Under 13"</string>
+    <string name="ball9">" Weight: from 4.69 ounces/133 g to 5.06 ounces/144 g\nCircumference: from 8.06 in/20.5 cm to 8.69 in/22.0 cm."</string>
+
+    <string name="bat">"<b>5.1.1</b> The bat consists of two parts, a handle and a blade."</string>
+    <string name="bat1">"<b>5.1.2</b> The basic requirements and measurements of the bat are set out in this Law with detailed specifications in Appendix B."</string>
+    <string name="bat2">"<b>5.2.1</b> The handle is to be made principally of cane and/or wood."</string>
+    <string name="bat3">"<b>5.2.2</b> The part of the handle that is wholly outside the blade is defined to be the upper portion of the handle.  It is a straight shaft for holding the bat."</string>
+    <string name="bat4">"<b>5.2.3</b> The upper portion of the handle may be covered with a grip as defined in Appendix B.2.2."</string>
+    <string name="bat5">"<b>5.3.1</b> The blade comprises the whole of the bat apart from the handle as defined 5.2 and in Appendix B.3."</string>
+    <string name="bat6">"<b>5.3.2</b> The blade shall consist solely of wood."</string>
+    <string name="bat7">"<b>5.3.3</b> All bats may have commercial identifications on the blade, the size of which must comply with the relevant specification in Appendix B.6."</string>
+    <string name="bat8">" Subject to the specifications in Appendix B.4 and providing 5.5 is not contravened,\n<b>5.4.1</b> solely for the purposes of
+        either protection from surface damage to the face, sides and shoulders of the blade
+        or repair to the blade after surface damage,
+        material that is not rigid, either at the time of its application to the blade or subsequently, may be placed on these surfaces."</string>
+    <string name="bat9">"<b>5.4.2</b> for repair of the blade after damage other than surface damage "</string>
+    <string name="bat10">"5.4.2.1 solid material may be inserted into the blade."</string>
+    <string name="bat11">"5.4.2.2 The only material permitted for any insertion is wood with minimal essential adhesives."</string>
+    <string name="bat12">"<b>5.4.3</b>  to prevent damage to the toe, material may be placed on that part of the blade but shall not extend over any part of the face, back or sides of the blade."</string>
+    <string name="bat13">"<b>5.5.1</b>  For any part of the bat, covered or uncovered, the hardness of the constituent materials and the surface texture thereof shall not be such that either or both could cause unacceptable damage to the ball."</string>
+    <string name="bat14">"<b>5.5.2</b> Any material placed on any part of the bat, for whatever purpose, shall similarly not be such that it could cause unacceptable damage to the ball."</string>
+    <string name="bat15">"<b>5.5.3</b> For the purpose of this Law, unacceptable damage is any change that is greater than normal wear and tear caused by the ball striking the uncovered wooden surface of the blade."</string>
+    <string name="bat16">"In these Laws,\n<b>5.6.1</b> reference to the bat shall imply that the bat is held in the batter’s hand or a glove worn on his/her hand, unless stated otherwise."</string>
+    <string name="bat17">"<b>5.6.2</b> contact between the ball and any of 5.6.2.1 to 5.6.2.4"</string>
+    <string name="bat18">"5.6.2.1 the bat itself\n5.6.2.2 the batter’s hand holding the bat\n5.6.2.3 any part of a glove worn on the batter’s hand holding the bat\n5.6.2.4 any additional materials permitted under 5.4 shall be regarded as the ball striking or touching the bat or being struck by the bat."</string>
+    <string name="bat19">"<b>5.7.1</b> The overall length of the bat, when the lower portion of the handle is inserted, shall not be more than 38 in/96.52 cm."</string>
+    <string name="bat20">"<b>5.7.2</b> The blade of the bat shall not exceed the following dimensions:</string>
+    <string name="bat21">"Width: 4.25in / 10.8 cm\nDepth: 2.64in / 6.7 cm\nEdges: 1.56in / 4.0cm.\nFurthermore, it should also be able to pass through a bat gauge as described in Appendix B.8. "</string>
+    <string name="bat22">"<b>5.7.3</b> Except for bats of size 6 and less, the handle shall not exceed 52% of the overall length of the bat.."</string>
+    <string name="bat23">"<b>5.7.4</b> The material permitted for covering the blade in 5.4.1 shall not exceed 0.04 in/0.1 cm in thickness."</string>
+    <string name="bat24">"<b>5.7.5</b> The maximum permitted thickness of protective material placed on the toe of the blade is 0.12 in/0.3 cm."</string>
+    <string name="bat25">"<b>5.8.1</b> Types A, B and C are bats conforming to 5.1 to 5.7 inclusive. "</string>
+    <string name="bat26">"<b>5.8.2</b> Type A bats may be used at any level of cricket. "</string>
+    <string name="bat27">"<b>5.8.3</b> 5.8.3 The specifications for Type D bats are described in Appendix B.7 and are for use by junior players in junior cricket only. "</string>
+    <string name="bat28">"<b>5.8.4</b> Bats of Type B, Type C, Type D and any other bats may be used only at or below levels determined by the Governing Body for cricket in the country concerned. "</string>
+    <string name="bat29">"<b>5.8.5</b> 5.8.5 Bats that do not qualify for any of the four categories A to D are not recognised in the Laws. "</string>
+
+    <string name="pitch">"The pitch is a rectangular area of the ground 22 yards/20.12 m in length and 10 ft/3.05 m in width.  It is bounded at either end by the bowling creases and on either side by imaginary lines, one each side of the imaginary line joining the centres of the two middle stumps, each parallel to it and 5 ft/1.52 m from it.  If the pitch is next to an artificial pitch which is closer than 5 ft/1.52 m from the middle stumps, the pitch on that side will extend only to the junction of the two surfaces.  See Laws 8.1 (Description, width and pitching), 8.4 (Junior cricket) and 7.2 (The bowling crease)."</string>
+    <string name="pitch1">"The umpires shall be the sole judges of the fitness of the pitch for play.  See Laws 2.7 (Fitness for play) and 2.8 (Suspension of play in dangerous or unreasonable conditions)."</string>
+    <string name="pitch2">"Before the match, the Ground Authority shall be responsible for the selection and preparation of the pitch.  During the match, the umpires shall control its use and maintenance."</string>
+    <string name="pitch3">"The pitch shall not be changed during the match unless the umpires decide that it is dangerous or unreasonable for play to continue on it and then only with the consent of both captains."</string>
+    <string name="pitch4">"In the event of a non-turf pitch being used, the artificial surface shall conform to the following measurements:\nLength – a minimum of 58 ft/17.68 m\nWidth – a minimum of 6 ft/1.83 m\nSee Law 9.8 (Non-turf pitches)."</string>
+    <string name="pitch5">"The Governing Body for cricket in the country concerned shall determine the length of the pitch for junior cricket."</string>
+
+    <!-- Filter Categories Array -->
+    <string-array name="filter_categories">
+        <item>Filter Laws</item>
+        <item>Setting Up</item>
+        <item>Innings and Result</item>
+        <item>The Over, Scoring Runs, Dead Ball and Extras</item>
+        <item>Players, Substitutes, Runners and Practice</item>
+        <item>Appeals and Dismissals</item>
+        <item>Unfair Play</item>
+    </string-array>
+
+    <string name="crease">"The positions of a bowling crease, a popping crease and two return creases shall be marked by white lines, as set out in 7.2, 7.3 and 7.4, at each end of the pitch.  See Appendix C."</string>
+    <string name="crease2">"The bowling crease, which is the back edge of the crease marking, is the line that marks the end of the pitch, as in Law 6.1 (Area of pitch).  It shall be 8 ft 8 in/2.64 m in length."</string>
+    <string name="crease3">"The popping crease, which is the back edge of the crease marking, shall be in front of and parallel to the bowling crease and shall be 4 ft/1.22 m from it.  The popping crease shall be marked to a minimum of 6 ft/1.83 m on either side of the imaginary line joining the centres of the two middle stumps and shall be considered to be unlimited in length."</string>
+    <string name="crease4">"The return creases, which are the inside edges of the crease markings, shall be at right angles to the popping crease at a distance of 4 ft 4 in/1.32 m either side of the imaginary line joining the centres of the two middle stumps.  Each return crease shall be marked from the popping crease to a minimum of 8 ft/2.44 m behind it and shall be considered to be unlimited in length."</string>
+
+    <string-array name="issue_categories">
+        <item>Select Category</item>
+        <item>Bug Report</item>
+        <item>Feature Request</item>
+        <item>Performance Issue</item>
+        <item>UI/UX Issue</item>
+        <item>Crash Report</item>
+        <item>Data Sync Issue</item>
+        <item>Login/Authentication</item>
+        <item>Other</item>
+    </string-array>
+
+    <string name="sachin_born">"24 April 1973, Mumbai, India"</string>
+    <string name="sachin_education">"Sharadashram Vidyamandir School, Mumbai"</string>
+    <string name="sachin_occupation">"Former Indian Cricketer, Cricket Mentor"</string>
+    <string name="sachin_highlights">"Highest run scorer in international cricket, 100 international centuries, 2011 World Cup winner"</string>
+
+    <!-- Shane Warne -->
+    <string name="shane_born">"13 September 1969, Victoria, Australia"</string>
+    <string name="shane_education">"Mentone Grammar School, Victoria"</string>
+    <string name="shane_occupation">"Former Australian Cricketer, Cricket Commentator"</string>
+    <string name="shane_highlights">"Over 700 Test wickets, 1999 World Cup winner, Leg-spin legend"</string>
+
+    <!-- Ricky Ponting -->
+    <string name="ricky_born">"19 December 1974, Launceston, Tasmania</string>
+    <string name="ricky_education">"Brooks High School, Tasmania</string>
+    <string name="ricky_occupation">"Former Australian Captain, Cricket Coach</string>
+    <string name="ricky_highlights">"Three-time World Cup winner, Second-highest run scorer in Tests, Successful Australian captain</string>
+
+    <!-- Brian Lara -->
+    <string name="brian_born">2 May 1969, Santa Cruz, Trinidad and Tobago</string>
+    <string name="brian_education">Fatima College, Trinidad</string>
+    <string name="brian_occupation">Former West Indies Cricketer</string>
+    <string name="brian_highlights">Highest individual Test score (400*), Over 11,000 Test runs</string>
+
+    <!-- Wasim Akram -->
+    <string name="wasim_born">3 June 1966, Lahore, Pakistan</string>
+    <string name="wasim_education">Government Islamia College, Lahore</string>
+    <string name="wasim_occupation">Former Pakistani Cricketer, Cricket Commentator</string>
+    <string name="wasim_highlights">Over 900 international wickets, 1992 World Cup winner, Sultan of Swing</string>
+
+    <!-- Jacques Kallis -->
+    <string name="jacques_born">"16 October 1975, Cape Town, South Africa"</string>
+    <string name="jacques_education">"Wynberg Boys' High School, Cape Town"</string>
+    <string name="jacques_occupation">"Former South African Cricketer"</string>
+    <string name="jacques_highlights">"Over 10,000 runs and 250 wickets in both Tests and ODIs"</string>
+
+    <!-- Adam Gilchrist -->
+    <string name="adam_born">"14 November 1971, Bellingen, Australia"</string>
+    <string name="adam_education">"Kadina High School, New South Wales"</string>
+    <string name="adam_occupation">"Former Australian Cricketer, Commentator"</string>
+    <string name="adam_highlights">"Three-time World Cup winner, Over 5,500 Test runs as wicketkeeper-batsman"</string>
+
+    <!-- Muttiah Muralitharan -->
+    <string name="murali_born">"17 April 1972, Kandy, Sri Lanka"</string>
+    <string name="murali_education">"St. Anthony's College, Kandy"</string>
+    <string name="murali_occupation">"Former Sri Lankan Cricketer"</string>
+    <string name="murali_highlights">"Highest wicket-taker in Tests (800 wickets) and ODIs (534 wickets)"</string>
+
+    <string name="close">Close</string>
+    <string name="fullscreen_image">Fullscreen Image</string>
+
+
+
+    <!-- privacy policy -->
+    <string name="privacy_policy_content">" Privacy Policy for CricTech Effective Date: August 7, 2025 Last Updated: August 7, 2025 CricTech Private Ltd ("CricTech", "we", "our", or "us") respects the privacy of users and is committed to protecting it through this Privacy Policy. This document outlines how we collect, use, store, and protect your data when you use our mobile application and related services (collectively referred to as the "App"). 1. Scope of this Policy This Privacy Policy applies to all users of the CricTech mobile application. By using the App, you agree to the terms of this policy. \n\n 2. Information We Collect As of now, CricTech does not collect any personal data from users. The App does not request, store, or transmit any personally identifiable information (such as name, email, age, location, etc.). In future updates, the App may integrate services such as Firebase and other APIs, which may involve data collection. This policy will be updated accordingly before such features go live. \n\n 3. Use of Information Since no personal information is currently collected, CricTech does not use any user data for personalization, targeting, analytics, or communication. \n\n 4. Sharing of Information We do not share any user data with third parties, advertisers, or service providers at this time. \n\n 5. Third-Party Services At present, CricTech does not integrate with any third-party analytics, advertising, or tracking services. However, in the future, we may include services such as: - Firebase (for analytics and crash reporting) - Cricket APIs (for live scores and data) Any integration will be governed by the privacy policies of those third parties, and users will be informed accordingly. \n\n 6. Children's Privacy CricTech is a general-purpose cricket information app and does not contain any harmful content, ads, or gambling features. It is safe for users of all ages, including children. We currently do not collect any personal data from any users, including minors. If that changes in future updates, we'll update this policy and ensure full compliance with relevant laws. \n\n 7. Security Measures We are committed to protecting your information and follow standard security practices to ensure that user data, if collected in the future, is handled safely and in accordance with applicable Indian laws. \n\n 8. User Rights As the App currently does not store or process any user data, user rights such as access, correction, or deletion are not applicable at this time. When data collection begins in future versions, appropriate rights and options will be offered. \n\n 9. Data Retention Since we do not collect any personal data currently, there is no data retained or stored on our servers or third-party services. Future data retention practices will be disclosed if features are added. \n\n 10. Changes to this Policy We reserve the right to update or modify this Privacy Policy at any time. Changes will be communicated via the App, and users are encouraged to review this policy regularly. \n\n 11. Grievance Redressal If you have any questions, concerns, or grievances regarding this Privacy Policy or the use of your data, you may contact our Grievance Officers: Grievance Officers: - Aariz - Krushna - Shravan - Ibrahim Grievance Email: ghulek13@gmail.com Registered Office Address: CricTech Private Ltd, Mumbai, Maharashtra, India \n\n 12. Governing Law This Privacy Policy is governed by and construed in accordance with the laws of India. Any disputes shall fall under the jurisdiction of courts located in Mumbai, Maharashtra, India.\n\n" </string>
+    <!--  about us  -->
+    <string name="about_us_content">"At CricTech, we believe cricket is more than a game — it's a passion, a culture, and a way of life. Our mission is to bring fans closer to the sport they love through deep insights, timeless content, and a clean, smooth app experience.\n\n While we currently don't provide live scores, our app is packed with powerful cricket content to keep you informed and entertained:\n\n • Ground Insights – Discover the stories and stats behind iconic stadiums worldwide.\n\n • Cricket Terms Simplified – From "Duck" to "Doosra", we decode the game for fans of all levels.\n\n • Tournament Deep Dives – Explore the history and context of IPL, World Cups, BGT, and more.\n\n • Photo Gallery – Relive the biggest moments in cricket with curated image collections.\n\n We're building CricTech as a reliable, blazing-fast platform that celebrates the game — and in the near future, we plan to bring you live scores, real-time updates, and match coverage to complete your cricket experience.\n\n Your feedback matters.\n Help us improve CricTech and shape the future of cricket apps, together.\n\n" </string>
+    <!--  Help And Support -->
+    <string name="help_and_support_content"> "Welcome to the Help &amp; Support section of CricTech. We are here to guide you and answer common questions about using the app.\n\n What does CricTech offer? \n\n CricTech provides a variety of features designed to enhance your cricket knowledge and experience: \n\n • Cricket Terms – Simplified definitions for fans of all levels. \n\n • Stadium Information – Learn about iconic grounds and their history. \n\n • Umpire &amp; Expert Info – Know more about the people behind the decisions.\n\n • Photo Gallery – View memorable moments in cricket through curated images.\n\n • Highlights &amp; Memes – Enjoy fun, engaging content beyond scores.\n\n • Cricket Basics – Understand the games origin, laws, player roles, match formats, and major tournaments &amp; +leagues. \n\n • Rules &amp; Feedback Guide – Helps users understand how to navigate and use the feedback form. \n\n Frequently Asked Questions (FAQ)\n\n Q1. What is CricTech? \n A. CricTech provides all the essential information about cricket, offering great knowledge and stunning photos to enrich your experience.\n\n Q2. Does CricTech follow official rules? \n A. Yes, CricTech respects and follows official cricket rules and guidelines.\n\n Q3. Can I give feedback or report issues? \n A. Yes, you can! We have a feedback form available in the hamburger menu for your suggestions and reports. \n\n Q4. Is CricTech safe to use? \n A. Yes, completely. CricTech boosts your knowledge about the game and does not promote gambling or contain any unsafe content. \n\n Contact Us \n\n If you have any other queries or suggestions, feel free to reach out to us at: crichtech@gmail.com \n\n We're constantly working to make CricTech better. \n \n Thank you for being a part of our journey!\n" </string>
     <string name="meme_image_description">Meme image</string>
+
 </resources>

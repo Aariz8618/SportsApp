@@ -24,43 +24,43 @@ class HistoryOfCricketFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.btnOrigins.setOnClickListener {
+        binding.title1.setOnClickListener {
             navigateToFragment(OriginsAndEarlyDevelopmentFragment())
         }
-        binding.btnDerivation.setOnClickListener {
+        binding.title2.setOnClickListener {
             navigateToFragment(DerivationOfNameCricketFragment())
         }
-        binding.btnGambling.setOnClickListener {
+        binding.title3.setOnClickListener {
             navigateToFragment(GamblingAndPatronageFragment())
         }
-        binding.btnExpansion.setOnClickListener {
+        binding.title4.setOnClickListener {
             navigateToFragment(CricketExpandsBeyondEnglandFragment())
         }
-        binding.btnLaws.setOnClickListener {
+        binding.title5.setOnClickListener {
             navigateToFragment(DevelopmentOfLawsFragment())
         }
-        binding.btnInternationalBegins.setOnClickListener {
-            navigateToFragment(InternationalCricketBeginsFragment())
-        }
-        binding.btnInternational.setOnClickListener {
+        binding.title6.setOnClickListener {
             navigateToFragment(NineteenthCenturyCricket())
         }
-        binding.btnColonies.setOnClickListener {
+        binding.title7.setOnClickListener {
+            navigateToFragment(InternationalCricketBeginsFragment())
+        }
+        binding.title8.setOnClickListener {
             navigateToFragment(GrowthInColoniesFragment())
         }
-        binding.btnNational.setOnClickListener {
+        binding.title9.setOnClickListener {
             navigateToFragment(NationalChampionshipsFragment())
         }
-        binding.btnGrowthInternational.setOnClickListener {
+        binding.title10.setOnClickListener {
             navigateToFragment(GrowthOfInternationalCricketFragment())
         }
-        binding.btnWorldSeries.setOnClickListener {
+        binding.title11.setOnClickListener {
             navigateToFragment(WorldSeriesCricketFragment())
         }
-        binding.btnGameExpansion.setOnClickListener {
+        binding.title12.setOnClickListener {
             navigateToFragment(ExpansionOfGameFragment())
         }
-        binding.btnT20Growth.setOnClickListener {
+        binding.title13.setOnClickListener {
             navigateToFragment(T20CricketShorterFormatsFragment())
         }
     }
@@ -79,7 +79,7 @@ class HistoryOfCricketFragment : Fragment() {
             is CricketExpandsBeyondEnglandFragment -> "Cricket Expands Beyond England"
             is DevelopmentOfLawsFragment -> "Development of the Laws"
             is InternationalCricketBeginsFragment -> "International Cricket Begins"
-            is NineteenthCenturyCricket -> "International Cricket"
+            is NineteenthCenturyCricket -> "19th Century Cricket"
             is GrowthInColoniesFragment -> "Growth in Colonies"
             is NationalChampionshipsFragment -> "National Championships"
             is GrowthOfInternationalCricketFragment -> "Growth of International Cricket"
