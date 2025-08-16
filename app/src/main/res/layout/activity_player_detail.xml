@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:gravity="center"
-            android:text="Virat Kohli"
+            android:text="Player Name"
             android:textColor="@android:color/white"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -48,7 +48,7 @@
             android:background="@drawable/role_badge_bg"
             android:paddingHorizontal="12dp"
             android:paddingVertical="4dp"
-            android:text="Batsman"
+            android:text="Role"
             android:textColor="@android:color/white"
             android:textSize="14sp"
             android:textStyle="bold" />
@@ -122,7 +122,7 @@
                                 android:id="@+id/tvBattingStyle"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Right Handed"
+                                android:text="N/A"
                                 android:textColor="#333333"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
@@ -160,7 +160,7 @@
                                 android:id="@+id/tvBowlingStyle"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Right-arm medium"
+                                android:text="N/A"
                                 android:textColor="#333333"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
@@ -198,7 +198,7 @@
                                 android:id="@+id/tvPlaceOfBirth"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Delhi, India"
+                                android:text="N/A"
                                 android:textColor="#333333"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
@@ -235,7 +235,7 @@
                                 android:id="@+id/tvCountry"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="India"
+                                android:text="N/A"
                                 android:textColor="#333333"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
@@ -269,7 +269,7 @@
                             android:id="@+id/TestBatting"
                             android:layout_width="300dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="16dp"
+                            android:layout_marginEnd="10dp"
                             app:cardCornerRadius="12dp"
                             app:cardElevation="4dp"
                             app:cardUseCompatPadding="true">
@@ -819,7 +819,7 @@
                             android:id="@+id/ODIBatting"
                             android:layout_width="300dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="16dp"
+                            android:layout_marginEnd="10dp"
                             app:cardCornerRadius="12dp"
                             app:cardElevation="4dp"
                             app:cardUseCompatPadding="true">
@@ -1916,7 +1916,7 @@
                             android:id="@+id/IPLBatting"
                             android:layout_width="300dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="16dp"
+                            android:layout_marginEnd="10dp"
                             app:cardCornerRadius="12dp"
                             app:cardElevation="4dp"
                             app:cardUseCompatPadding="true">

@@ -25,9 +25,9 @@ import androidx.core.view.ViewCompat
 import android.animation.ValueAnimator
 import android.animation.ArgbEvaluator
 import com.aariz.sportsapp.databinding.ActivityMainBinding
-import com.aariz.sportsapp.ui.BrowseMatchesFragment
-import com.aariz.sportsapp.ui.ScheduleFragment
-import com.aariz.sportsapp.ui.players.PlayersFragment
+import com.aariz.sportsapp.BrowseMatchesFragment
+import com.aariz.sportsapp.ScheduleFragment
+import com.aariz.sportsapp.PlayersFragment
 import com.google.firebase.FirebaseApp
 
 class MainActivity : AppCompatActivity() {
@@ -685,13 +685,13 @@ class MainActivity : AppCompatActivity() {
                 fragment is NzTestFragment ||
                 fragment is NzOdiFragment ||
                 fragment is NzT20iFragment ||
-                                 fragment is WiTestFragment ||
-                 fragment is WiOdiFragment ||
-                 fragment is WiT20Fragment ||
-                 fragment is CT25Fragment ||
-                 fragment is WTC25Fragment ||
-                 fragment is IndEngTestFragment ||
-                 fragment is AusWiTestFragment
+                fragment is WiTestFragment ||
+                fragment is WiOdiFragment ||
+                fragment is WiT20Fragment ||
+                fragment is CT25Fragment ||
+                fragment is WTC25Fragment ||
+                fragment is IndEngTestFragment ||
+                fragment is AusWiTestFragment
     }
 
     private fun setupExpandableSections() {

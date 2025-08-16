@@ -29,7 +29,7 @@
 
         <!-- Add PlayerDetailActivity -->
         <activity
-            android:name=".ui.PlayerDetailActivity"
+            android:name=".PlayerDetailActivity"
             android:exported="false"
             android:parentActivityName=".MainActivity" />
 
@@ -38,10 +38,6 @@
             android:name=".FullscreenImageActivity"
             android:exported="false"
             android:theme="@style/Theme.SportsApp.Fullscreen" />
-
-        <activity
-            android:name="com.aariz.sportsapp.ui.PlayerDetailActivity"
-            android:exported="false" />
 
     </application>
 

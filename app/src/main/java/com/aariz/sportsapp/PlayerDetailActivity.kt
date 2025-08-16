@@ -1,4 +1,4 @@
-package com.aariz.sportsapp.ui
+package com.aariz.sportsapp
 
 import android.os.Bundle
 import android.util.Log

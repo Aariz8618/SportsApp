@@ -77,7 +77,7 @@
                     android:paddingVertical="8dp"
                     android:paddingHorizontal="16dp"
                     android:gravity="center"
-                    android:text="\uD83C\uDF3F  Test"
+                    android:text="Test"
                     android:textColor="#1e3a8a"
                     android:textStyle="bold"
                     android:background="@drawable/bg_tab_unselected" />
@@ -90,7 +90,7 @@
                     android:paddingVertical="8dp"
                     android:paddingHorizontal="16dp"
                     android:gravity="center"
-                    android:text="\u26A1\uFE0F  ODI"
+                    android:text="ODI"
                     android:textColor="@android:color/white"
                     android:textStyle="bold"
                     android:background="@drawable/bg_tab_selected"
@@ -104,7 +104,7 @@
                     android:paddingVertical="8dp"
                     android:paddingHorizontal="16dp"
                     android:gravity="center"
-                    android:text="\uD83D\uDD25  T20I"
+                    android:text="T20I"
                     android:textColor="#1e3a8a"
                     android:textStyle="bold"
                     android:background="@drawable/bg_tab_unselected"
@@ -216,7 +216,6 @@
                         android:layout_weight="1"
                         android:text="1"
                         android:textStyle="bold"
-                        android:textColor="#fbbf24"
                         android:gravity="center" />
 
                     <!-- Change indicator -->
@@ -295,7 +294,6 @@
                         android:layout_weight="1"
                         android:text="2"
                         android:textStyle="bold"
-                        android:textColor="#9ca3af"
                         android:gravity="center" />
 
                     <!-- Change indicator -->
@@ -374,7 +372,6 @@
                         android:layout_weight="1"
                         android:text="3"
                         android:textStyle="bold"
-                        android:textColor="#d97706"
                         android:gravity="center" />
 
                     <!-- Change indicator -->
@@ -454,7 +451,6 @@
                         android:layout_weight="1"
                         android:text="4"
                         android:textStyle="bold"
-                        android:textColor="#3b82f6"
                         android:gravity="center" />
 
                     <!-- Change indicator -->
@@ -534,7 +530,6 @@
                         android:layout_weight="1"
                         android:text="5"
                         android:textStyle="bold"
-                        android:textColor="#3b82f6"
                         android:gravity="center" />
 
                     <!-- Change indicator -->
@@ -617,7 +612,6 @@
                         android:layout_weight="1"
                         android:text="6"
                         android:textStyle="bold"
-                        android:textColor="#10b981"
                         android:gravity="center" />
 
                     <!-- Change indicator -->
@@ -677,7 +671,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
                         android:text="96"
-                        android:textColor="#6b7280"
+                        android:textColor="#059669"
                         android:textStyle="bold"
                         android:textSize="18sp"
                         android:gravity="center" />
@@ -699,7 +693,6 @@
                         android:layout_weight="1"
                         android:text="7"
                         android:textStyle="bold"
-                        android:textColor="#10b981"
                         android:gravity="center" />
 
                     <!-- Change indicator -->
@@ -759,7 +752,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
                         android:text="91"
-                        android:textColor="#6b7280"
+                        android:textColor="#059669"
                         android:textStyle="bold"
                         android:textSize="18sp"
                         android:gravity="center" />
@@ -781,7 +774,6 @@
                         android:layout_weight="1"
                         android:text="8"
                         android:textStyle="bold"
-                        android:textColor="#10b981"
                         android:gravity="center" />
 
                     <!-- Change indicator -->
@@ -841,7 +833,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
                         android:text="88"
-                        android:textColor="#6b7280"
+                        android:textColor="#059669"
                         android:textStyle="bold"
                         android:textSize="18sp"
                         android:gravity="center" />
@@ -863,7 +855,6 @@
                         android:layout_weight="1"
                         android:text="9"
                         android:textStyle="bold"
-                        android:textColor="#6b7280"
                         android:gravity="center" />
 
                     <!-- Change indicator -->
@@ -923,7 +914,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
                         android:text="80"
-                        android:textColor="#6b7280"
+                        android:textColor="#059669"
                         android:textStyle="bold"
                         android:textSize="18sp"
                         android:gravity="center" />
@@ -945,7 +936,6 @@
                         android:layout_weight="1"
                         android:text="10"
                         android:textStyle="bold"
-                        android:textColor="#6b7280"
                         android:gravity="center" />
 
                     <!-- Change indicator -->
@@ -1005,7 +995,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
                         android:text="77"
-                        android:textColor="#6b7280"
+                        android:textColor="#059669"
                         android:textStyle="bold"
                         android:textSize="18sp"
                         android:gravity="center" />

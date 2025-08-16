@@ -28,6 +28,21 @@
     <!-- Status Colors -->
     <color name="success_green">#4CAF50</color>
     <color name="win_green">#2E7D32</color>
+    
+    <!-- New UI Colors -->
+    <color name="blue_500">#3B82F6</color>
+    <color name="blue_600">#2563EB</color>
+    <color name="green_500">#10B981</color>
+    <color name="green_600">#059669</color>
+    <color name="green_100">#DCFCE7</color>
+    <color name="orange_100">#FED7AA</color>
+    <color name="orange_50">#FFF7ED</color>
+    <color name="yellow_100">#FEF3C7</color>
+    <color name="yellow_50">#FEFCE8</color>
+    <color name="purple_600">#9333EA</color>
+    <color name="orange_gradient_start">#FED7AA</color>
+    <color name="yellow_gradient_start">#FEF3C7</color>
+    <color name="green_gradient_start">#10B981</color>
     <color name="live_red">#F44336</color>
     
     <!-- Surface Colors -->

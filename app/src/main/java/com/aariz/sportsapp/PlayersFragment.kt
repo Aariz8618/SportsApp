@@ -1,4 +1,4 @@
-package com.aariz.sportsapp.ui.players
+package com.aariz.sportsapp
 
 import android.content.Intent
 import android.os.Bundle
@@ -17,7 +17,7 @@ import com.aariz.sportsapp.databinding.FragmentPlayersBinding
 import com.aariz.sportsapp.models.Player
 import com.aariz.sportsapp.models.PlayerDetailResponse
 import com.aariz.sportsapp.models.PlayerResponse
-import com.aariz.sportsapp.ui.PlayerDetailActivity
+import com.aariz.sportsapp.PlayerDetailActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
