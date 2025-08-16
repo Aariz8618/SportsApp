@@ -30,6 +30,8 @@ class FieldingPositionsFragment : Fragment() {
         }
     }
 
+    // Optional: map field position name -> playerId if available
+    // Provide this mapping from the parent or ViewModel as needed
     private val positionToPlayerId: Map<String, String> = emptyMap()
 
     override fun onCreateView(
