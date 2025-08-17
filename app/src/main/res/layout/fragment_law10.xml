@@ -12,10 +12,10 @@
         android:orientation="vertical"
         android:padding="16dp">
 
+        <!-- Content Section -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="12dp"
             app:cardElevation="4dp">
 
             <LinearLayout
@@ -24,23 +24,89 @@
                 android:orientation="vertical"
                 android:padding="20dp">
 
+                <!-- Section 3.1 -->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:fontFamily="@font/lato_black"
-                    android:text="Law 10 - Covering the Pitch"
-                    android:textColor="@color/text_primary"
+                    android:text="10.1 Before the match"
                     android:textSize="20sp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
                     android:fontFamily="@font/lato"
                     android:lineSpacingExtra="4dp"
-                    android:text="Content for Law 10 - Covering the Pitch will be displayed here."
-                    android:textColor="@color/text_primary"
+                    android:text="@string/covering_the_pitch"
                     android:textSize="16sp" />
+
+                <!-- Section 3.2 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/lato_black"
+                    android:text="10.2 During the match"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/lato"
+                    android:lineSpacingExtra="4dp"
+                    android:text="@string/covering_the_pitch2"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/lato"
+                    android:lineSpacingExtra="4dp"
+                    android:text="@string/covering_the_pitch3"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/lato"
+                    android:lineSpacingExtra="4dp"
+                    android:text="@string/covering_the_pitch4"
+                    android:textSize="16sp" />
+
+                <!-- Section 3.3 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/lato_black"
+                    android:text="10.3 Removal of covers"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/lato"
+                    android:lineSpacingExtra="4dp"
+                    android:text="@string/covering_the_pitch5"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/lato"
+                    android:lineSpacingExtra="4dp"
+                    android:text="@string/covering_the_pitch6"
+                    android:textSize="16sp" />
+
+
+
 
             </LinearLayout>
 

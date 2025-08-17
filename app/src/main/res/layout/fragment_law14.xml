@@ -12,10 +12,10 @@
         android:orientation="vertical"
         android:padding="16dp">
 
+        <!-- Content Section -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="12dp"
             app:cardElevation="4dp">
 
             <LinearLayout
@@ -24,23 +24,71 @@
                 android:orientation="vertical"
                 android:padding="20dp">
 
+                <!-- Section 3.1 -->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:fontFamily="@font/lato_black"
-                    android:text="Law 14 - The Follow-on"
-                    android:textColor="@color/text_primary"
+                    android:text="14.1 Lead on first innings"
                     android:textSize="20sp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
                     android:fontFamily="@font/lato"
                     android:lineSpacingExtra="4dp"
-                    android:text="Content for Law 14 - The Follow-on will be displayed here."
-                    android:textColor="@color/text_primary"
+                    android:text="@string/follow_on"
                     android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/lato"
+                    android:lineSpacingExtra="4dp"
+                    android:text="@string/follow_on2"
+                    android:textSize="16sp" />
+
+                <!-- Section 3.2 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/lato_black"
+                    android:text="14.2 Notification"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/lato"
+                    android:lineSpacingExtra="4dp"
+                    android:text="@string/follow_on3"
+                    android:textSize="16sp" />
+
+                <!-- Section 3.3 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/lato_black"
+                    android:text="14.3 First day’s play lost"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/lato"
+                    android:lineSpacingExtra="4dp"
+                    android:text="@string/follow_on4"
+                    android:textSize="16sp" />
+
+
+
 
             </LinearLayout>
 
