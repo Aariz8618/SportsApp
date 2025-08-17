@@ -3,18 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_light">
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="30dp">
+        android:padding="24dp">
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="56dp"
             android:orientation="horizontal"
             android:background="@drawable/rounded_edit_text"
             android:paddingVertical="8dp"
@@ -36,7 +36,9 @@
                 android:layout_weight="1"
                 android:hint="Your Name"
                 android:fontFamily="@font/lato"
+                android:textSize="16sp"
                 android:paddingLeft="8dp"
+                android:layout_marginTop="10dp"
                 android:background="@android:color/transparent"
                 android:inputType="textPersonName"/>
 
@@ -44,7 +46,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="56dp"
             android:orientation="horizontal"
             android:background="@drawable/rounded_edit_text"
             android:paddingVertical="8dp"
@@ -65,8 +67,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="Email Id"
+                android:textSize="16sp"
                 android:fontFamily="@font/lato"
                 android:paddingLeft="8dp"
+                android:layout_marginTop="10dp"
                 android:background="@android:color/transparent"
                 android:inputType="textEmailAddress"/>
 
@@ -74,7 +78,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="56dp"
             android:orientation="horizontal"
             android:background="@drawable/rounded_edit_text"
             android:paddingVertical="8dp"
@@ -95,7 +99,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="Subject"
+                android:textSize="16sp"
                 android:fontFamily="@font/lato"
+                android:layout_marginTop="10dp"
                 android:paddingLeft="8dp"
                 android:background="@android:color/transparent"
                 android:inputType="text"/>
@@ -115,14 +121,15 @@
         <EditText
             android:id="@+id/etFeedbackMessage"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_height="140dp"
             android:hint="Within 400 Characters"
             android:fontFamily="@font/lato"
+            android:textSize="16sp"
             android:inputType="textMultiLine"
             android:background="@drawable/rounded_edit_text"
             android:padding="12dp"
             android:textColor="@color/text_primary"
-            android:maxLines="6"
+            android:maxLines="8"
             android:gravity="top" />
 
         <TextView
@@ -152,7 +159,7 @@
             style="@style/Widget.AppCompat.Button.Borderless"
             android:background="@drawable/button_rating_unselected"
             android:text="😡"
-            android:textSize="24sp" />
+            android:textSize="34sp" />
 
         <!-- Sad Emoji - Rating 2 -->
         <androidx.appcompat.widget.AppCompatButton
@@ -163,7 +170,7 @@
             style="@style/Widget.AppCompat.Button.Borderless"
             android:background="@drawable/button_rating_unselected"
             android:text="😔"
-            android:textSize="24sp" />
+            android:textSize="34sp" />
 
         <!-- Neutral Emoji - Rating 3 -->
         <androidx.appcompat.widget.AppCompatButton
@@ -174,7 +181,7 @@
             style="@style/Widget.AppCompat.Button.Borderless"
             android:background="@drawable/button_rating_unselected"
             android:text="😐"
-            android:textSize="24sp" />
+            android:textSize="34sp" />
 
         <!-- Happy Emoji - Rating 4 -->
         <androidx.appcompat.widget.AppCompatButton
@@ -185,7 +192,7 @@
             style="@style/Widget.AppCompat.Button.Borderless"
             android:background="@drawable/button_rating_unselected"
             android:text="🙂"
-            android:textSize="24sp" />
+            android:textSize="34sp" />
 
         <!-- Heart Eyes Emoji - Rating 5 -->
         <androidx.appcompat.widget.AppCompatButton
@@ -196,7 +203,7 @@
             style="@style/Widget.AppCompat.Button.Borderless"
             android:background="@drawable/button_rating_unselected"
             android:text="😍"
-            android:textSize="24sp" />
+            android:textSize="34sp" />
         </LinearLayout>
 
         <!-- Rating Description Text -->
@@ -215,27 +222,36 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnSubmitFeedback"
-            android:layout_width="200dp"
-            android:layout_height="45dp"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
             android:text="SUBMIT"
             android:fontFamily="@font/lato_black"
             android:textSize="16sp"
             android:layout_gravity="center"
             android:textColor="@color/white"
             android:layout_marginTop="8dp"
-            android:background="@drawable/rounded_button" />
+            android:background="@drawable/submit_button_background"/>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:indeterminate="true"
+            style="?android:attr/progressBarStyleLarge" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnClearFeedback"
-            android:layout_width="200dp"
-            android:layout_height="45dp"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
             android:text="Clear"
             android:fontFamily="@font/lato_black"
             android:textSize="16sp"
             android:layout_gravity="center"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:layout_marginTop="8dp"
-            android:background="@drawable/rounded_button" />
+            android:background="@drawable/clear_button_background" />
     </LinearLayout>
 
     </ScrollView>

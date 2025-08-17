@@ -4,6 +4,7 @@ import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.animation.ObjectAnimator
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -11,10 +12,22 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.core.content.ContextCompat
+import android.view.animation.AccelerateDecelerateInterpolator
+import android.view.animation.OvershootInterpolator
+import android.graphics.drawable.Drawable
+import android.content.res.ColorStateList
+import androidx.core.view.ViewCompat
+import android.animation.ValueAnimator
+import android.animation.ArgbEvaluator
 import com.aariz.sportsapp.databinding.ActivityMainBinding
+import com.aariz.sportsapp.BrowseMatchesFragment
+import com.aariz.sportsapp.ScheduleFragment
+import com.aariz.sportsapp.PlayersFragment
 import com.google.firebase.FirebaseApp
 
 class MainActivity : AppCompatActivity() {
@@ -37,6 +50,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Ensure the floating bubble overlay is drawn above everything
+        binding.navBubbleOverlay.bringToFront()
+
         // Show home screen by default
         showHomeScreen()
 
@@ -50,23 +66,137 @@ class MainActivity : AppCompatActivity() {
     private fun setupBottomNavigation() {
         // Home navigation
         binding.llNavHome.setOnClickListener {
+            animatePop(binding.ivNavHome)
+            updateBottomNavSelection(SelectedTab.HOME)
             showHomeScreen()
         }
 
         // News navigation - with header
         binding.llNavNews.setOnClickListener {
+            animatePop(binding.ivNavNews)
+            updateBottomNavSelection(SelectedTab.NEWS)
             navigateToFragment(NewsFragment(), "Cricket News")
         }
 
-        // Rankings navigation - with header
+        // Rankings navigation - open Test Rankings directly
         binding.llNavRankings.setOnClickListener {
-            navigateToFragment(RankingsFragment(), "Team Rankings")
+            animatePop(binding.ivNavRankings)
+            updateBottomNavSelection(SelectedTab.RANKINGS)
+            navigateToFragment(TestRankingsFragment(), "Test Team Rankings")
         }
 
         // Schedule navigation - with header
         binding.llNavMore.setOnClickListener {
+            animatePop(binding.ivNavSchedule)
+            updateBottomNavSelection(SelectedTab.SCHEDULE)
             navigateToFragment(ScheduleFragment(), "Match Schedule")
         }
+    }
+
+    private enum class SelectedTab { HOME, NEWS, RANKINGS, SCHEDULE }
+
+    private fun animatePop(view: View) {
+        // Keep icon exactly the same size; rely on lift animation only.
+        // No-op pop to retain call sites without visual scaling.
+    }
+
+    private fun updateBottomNavSelection(selected: SelectedTab) {
+        val labelActive = Color.parseColor("#2563EB") // label blue
+        val iconActive = Color.parseColor("#132A64")  // darker navy for icon
+        val inactive = Color.parseColor("#666666") // gray
+
+        fun setItem(tabRoot: View, icon: ImageView, label: TextView, isActive: Boolean) {
+            val targetIconColor = if (isActive) iconActive else inactive
+            val targetLabelColor = if (isActive) labelActive else inactive
+
+            // Smooth color transition
+            animateIconColor(icon, targetIconColor)
+            label.setTextColor(targetLabelColor)
+            label.paint.isFakeBoldText = isActive
+            // Do not animate/resize the container itself; we use a floating overlay bubble for perfection
+            tabRoot.background = null
+            tabRoot.setPadding(0, 0, 0, 0)
+            tabRoot.elevation = 0f
+            tabRoot.translationZ = 0f
+            tabRoot.translationY = 0f
+
+            if (isActive) {
+                // Keep the icon in place; show bubble behind; scale icon slightly bigger
+                icon.alpha = 1f
+                icon.animate().scaleX(1.18f).scaleY(1.18f)
+                    .setDuration(160)
+                    .setInterpolator(AccelerateDecelerateInterpolator())
+                    .start()
+                showActiveNavBubble(over = tabRoot, iconView = icon, bubbleColor = Color.parseColor("#FFFFFF"))
+            } else {
+                icon.animate().scaleX(1f).scaleY(1f)
+                    .setDuration(140)
+                    .setInterpolator(AccelerateDecelerateInterpolator())
+                    .start()
+                hideActiveNavBubble()
+            }
+        }
+
+        setItem(binding.llNavHome, binding.ivNavHome, binding.tvNavHome, selected == SelectedTab.HOME)
+        setItem(binding.llNavNews, binding.ivNavNews, binding.tvNavNews, selected == SelectedTab.NEWS)
+        setItem(binding.llNavRankings, binding.ivNavRankings, binding.tvNavRankings, selected == SelectedTab.RANKINGS)
+        setItem(binding.llNavMore, binding.ivNavSchedule, binding.tvNavSchedule, selected == SelectedTab.SCHEDULE)
+    }
+
+    private fun dpToPx(dp: Int): Int = (dp * resources.displayMetrics.density).toInt()
+
+    private fun showActiveNavBubble(over: View, iconView: ImageView, bubbleColor: Int) {
+        val bubble = binding.activeNavBubble
+        val bubbleIcon = binding.ivActiveNav
+        // We don't duplicate the icon; keep it in place
+        bubbleIcon.visibility = View.GONE
+
+        // Make visible and set tint color of bubble
+        if (bubble.visibility != View.VISIBLE) bubble.visibility = View.VISIBLE
+        ViewCompat.setBackgroundTintList(bubble, ColorStateList.valueOf(bubbleColor))
+
+        // Center the bubble on the icon's center; no lift/popping
+        bubble.post {
+            val iconLoc = IntArray(2)
+            val overlayLoc = IntArray(2)
+            iconView.getLocationOnScreen(iconLoc)
+            binding.navBubbleOverlay.getLocationOnScreen(overlayLoc)
+
+            val centerX = iconLoc[0] + iconView.width / 2f
+            val centerY = iconLoc[1] + iconView.height / 2f
+
+            val bubbleHalf = bubble.width / 2f
+            val targetX = centerX - overlayLoc[0] - bubbleHalf
+            val targetY = centerY - overlayLoc[1] - bubbleHalf
+
+            // Smoothly move bubble into place without vertical pop
+            bubble.animate().translationX(targetX).setDuration(160)
+                .setInterpolator(AccelerateDecelerateInterpolator()).start()
+            bubble.animate().translationY(targetY).setDuration(160)
+                .setInterpolator(AccelerateDecelerateInterpolator()).start()
+            // Optional subtle scale/alpha for feedback
+            bubble.scaleX = 0.9f
+            bubble.scaleY = 0.9f
+            bubble.alpha = 0.0f
+            bubble.animate().scaleX(1f).scaleY(1f).alpha(1f)
+                .setDuration(160).setInterpolator(AccelerateDecelerateInterpolator()).start()
+        }
+    }
+
+    private fun hideActiveNavBubble() {
+        val bubble = binding.activeNavBubble
+        if (bubble.visibility == View.VISIBLE) {
+            bubble.animate().alpha(0f).setDuration(120)
+                .withEndAction {
+                    bubble.visibility = View.GONE
+                    bubble.alpha = 1f
+                }.start()
+        }
+    }
+
+    private fun animateIconColor(icon: ImageView, toColor: Int) {
+        // Simplified: directly set color to avoid relying on PorterDuffColorFilter internals
+        icon.setColorFilter(toColor)
     }
 
     private fun setupViewMoreClickListeners() {
@@ -112,36 +242,51 @@ class MainActivity : AppCompatActivity() {
         
         // Show bottom navigation when returning to home
         showBottomNavigation()
+
+        // Reflect selection state
+        updateBottomNavSelection(SelectedTab.HOME)
     }
 
-    fun navigateToFragment(fragment: Fragment, title: String = "CricTech") {
-        if (currentFragment?.javaClass != fragment.javaClass) {
+    fun navigateToFragment(fragment: Fragment, title: String = "CricTech", addToBackStack: Boolean = false
+    ) {
+        if (currentFragment?.javaClass != fragment.javaClass || addToBackStack) {
             isOnHomeScreen = false
-            
-            // Store current fragment as previous for back navigation
-            if (currentFragment != null) {
+
+            // Store current fragment only if we're not adding to back stack
+            if (!addToBackStack && currentFragment != null) {
                 previousFragment = currentFragment
                 previousTitle = getCurrentTitle()
             }
-            
+
             currentFragment = fragment
 
-            // Hide home content, show fragment container
-            binding.homeContent.visibility = android.view.View.GONE
-            binding.fragmentContainer.visibility = android.view.View.VISIBLE
-            binding.mainHeader.visibility = android.view.View.VISIBLE
+            binding.homeContent.visibility = View.GONE
+            binding.fragmentContainer.visibility = View.VISIBLE
+            binding.mainHeader.visibility = View.VISIBLE
 
-            // Show back arrow instead of hamburger menu
             updateHeaderIcon(showBackArrow = true)
-
-            // Update header title
             updateHeaderTitle(title)
 
-            supportFragmentManager.beginTransaction()
+            val transaction = supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, fragment)
-                .commit()
+
+            if (addToBackStack) {
+                transaction.addToBackStack(null)
+            }
+
+            transaction.commit()
+
+            // Update bottom nav selection based on destination
+            when (fragment) {
+                is NewsFragment -> updateBottomNavSelection(SelectedTab.NEWS)
+                is TestRankingsFragment, is OdiRankingsFragment, is T20IRankingsFragment ->
+                    updateBottomNavSelection(SelectedTab.RANKINGS)
+                is ScheduleFragment -> updateBottomNavSelection(SelectedTab.SCHEDULE)
+                else -> {}
+            }
         }
     }
+
 
     private fun navigateFromDrawer(fragment: Fragment, title: String) {
         wasNavigatedFromDrawer = true
@@ -160,11 +305,17 @@ class MainActivity : AppCompatActivity() {
                     isDrawerOpen -> {
                         closeNavigationDrawer()
                     }
-                    // If not on home screen, check if we have a previous fragment
+                    // If not on home screen, check if we have fragments in backstack first
                     !isOnHomeScreen -> {
                         // Hide keyboard before navigating
                         hideKeyboard()
-                        if (shouldNavigateBackToPrevious()) {
+
+                        // Check if there are fragments in the back stack
+                        if (supportFragmentManager.backStackEntryCount > 0) {
+                            // Pop from back stack (this will handle CommentatorDetailFragment -> CommentatorsFragment)
+                            supportFragmentManager.popBackStack()
+                        } else if (shouldNavigateBackToPrevious()) {
+                            // Handle custom navigation for cricket topic fragments
                             navigateBackToPrevious()
                         } else if (wasNavigatedFromDrawer) {
                             // If we came from drawer, go back to home and open drawer
@@ -172,6 +323,7 @@ class MainActivity : AppCompatActivity() {
                             showHomeScreen()
                             openNavigationDrawer()
                         } else {
+                            // Default: go back to home
                             showHomeScreen()
                         }
                     }
@@ -250,11 +402,14 @@ class MainActivity : AppCompatActivity() {
         // Browse Players
         findViewById<View>(R.id.nav_item_browse_players).setOnClickListener {
             closeNavigationDrawer()
+            navigateFromDrawer(PlayersFragment(), "Browse Players")
+
         }
 
         // Browse Matches
         findViewById<View>(R.id.nav_item_browse_matches).setOnClickListener {
             closeNavigationDrawer()
+            navigateFromDrawer(BrowseMatchesFragment(), "Browse Matches")
         }
 
         // Teams
@@ -373,6 +528,7 @@ class MainActivity : AppCompatActivity() {
         // Report Issue
         findViewById<View>(R.id.nav_item_report_issue).setOnClickListener {
             closeNavigationDrawer()
+            navigateFromDrawer(ReportIssueFragment(), "Report Issue")
         }
 
         // Feedback
@@ -515,7 +671,27 @@ class MainActivity : AppCompatActivity() {
                 fragment is Law32Fragment ||
                 fragment is Law33Fragment ||
                 fragment is Law34Fragment ||
-                fragment is Law35Fragment
+                fragment is Law35Fragment ||
+                fragment is CommentatorDetailFragment ||
+                fragment is IndTestFragment ||
+                fragment is IndodiFragment ||
+                fragment is IndT20Fragment ||
+                fragment is AusTestFragment ||
+                fragment is AusOdiFragment ||
+                fragment is AusT20Fragment ||
+                fragment is EngTestFragment ||
+                fragment is EngOdiFragment ||
+                fragment is EngT20iFragment ||
+                fragment is NzTestFragment ||
+                fragment is NzOdiFragment ||
+                fragment is NzT20iFragment ||
+                fragment is WiTestFragment ||
+                fragment is WiOdiFragment ||
+                fragment is WiT20Fragment ||
+                fragment is CT25Fragment ||
+                fragment is WTC25Fragment ||
+                fragment is IndEngTestFragment ||
+                fragment is AusWiTestFragment
     }
 
     private fun setupExpandableSections() {
@@ -713,5 +889,10 @@ class MainActivity : AppCompatActivity() {
         currentFocusedView?.let {
             inputMethodManager.hideSoftInputFromWindow(it.windowToken, 0)
         }
+    }
+
+    fun setPreviousFragment(fragment: Fragment, title: String) {
+        previousFragment = fragment
+        previousTitle = title
     }
 }

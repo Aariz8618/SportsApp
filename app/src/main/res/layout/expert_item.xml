@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="6dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Image of Umpire -->
+        <ImageView
+            android:id="@+id/expertImage"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:scaleType="centerCrop" />
+
+        <!-- Country in Center -->
+        <TextView
+            android:id="@+id/expertSpecialization"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:background="#00BCD4"
+            android:text="Specialization"
+            android:fontFamily="@font/lato_bold"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:paddingVertical="6dp" />
+
+        <!-- Umpire Name at Bottom -->
+        <TextView
+            android:id="@+id/expertName"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:gravity="center"
+            android:text="Expert Name"
+            android:textColor="#4A148C"
+            android:textSize="18sp"
+            android:fontFamily="@font/lato_bold"
+            android:paddingBottom="8dp" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
+
