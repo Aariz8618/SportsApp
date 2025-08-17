@@ -98,8 +98,8 @@ android:fillViewport="true">
                 android:textSize="16sp" />
 
             <TextView
-                android:layout_width="6339dp"
-                android:layout_height="84dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/lato_black"
                 android:text="8.4 Junior cricket"
@@ -131,8 +131,10 @@ android:fillViewport="true">
                 android:text="@string/wickets10"
                 android:textSize="16sp" />
 
-
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 
+</LinearLayout>
+
+</ScrollView>

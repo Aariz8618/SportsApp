@@ -39,7 +39,7 @@
                     android:layout_marginBottom="16dp"
                     android:fontFamily="@font/lato"
                     android:lineSpacingExtra="4dp"
-                    android:text="@string/hit_wicket"
+                    android:text="@string/hit"
                     android:textSize="16sp" />
 
                 <TextView
@@ -48,7 +48,7 @@
                     android:layout_marginBottom="16dp"
                     android:fontFamily="@font/lato"
                     android:lineSpacingExtra="4dp"
-                    android:text="@string/hit_wicket2"
+                    android:text="@string/hit2"
                     android:textSize="16sp" />
 
                 <TextView
@@ -57,7 +57,7 @@
                     android:layout_marginBottom="16dp"
                     android:fontFamily="@font/lato"
                     android:lineSpacingExtra="4dp"
-                    android:text="@string/hit_wicket3"
+                    android:text="@string/hit3"
                     android:textSize="16sp" />
 
                 <TextView
@@ -66,7 +66,7 @@
                     android:layout_marginBottom="16dp"
                     android:fontFamily="@font/lato"
                     android:lineSpacingExtra="4dp"
-                    android:text="@string/hit_wicket4"
+                    android:text="@string/hit4"
                     android:textSize="16sp" />
 
                 <TextView
@@ -75,7 +75,7 @@
                     android:layout_marginBottom="16dp"
                     android:fontFamily="@font/lato"
                     android:lineSpacingExtra="4dp"
-                    android:text="@string/hit_wicket5"
+                    android:text="@string/hit5"
                     android:textSize="16sp" />
 
                 <TextView
@@ -84,7 +84,7 @@
                     android:layout_marginBottom="16dp"
                     android:fontFamily="@font/lato"
                     android:lineSpacingExtra="4dp"
-                    android:text="@string/hit_wicket6"
+                    android:text="@string/hit6"
                     android:textSize="16sp" />
 
                 <!-- Section 3.2 -->
@@ -102,7 +102,7 @@
                     android:layout_marginBottom="16dp"
                     android:fontFamily="@font/lato"
                     android:lineSpacingExtra="4dp"
-                    android:text="@string/hit_wicket7"
+                    android:text="@string/hit7"
                     android:textSize="16sp" />
 
                 <TextView
@@ -119,7 +119,7 @@
                     android:layout_marginBottom="16dp"
                     android:fontFamily="@font/lato"
                     android:lineSpacingExtra="4dp"
-                    android:text="@string/hit_wicket8"
+                    android:text="@string/hit8"
                     android:textSize="16sp" />
 
 
