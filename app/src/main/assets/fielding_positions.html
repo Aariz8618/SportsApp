@@ -791,7 +791,7 @@
     let isDragging = false;
     let offset = { x: 0, y: 0 };
     let currentlyShowingName = null;
-    let selectedPlayer = null;
+    let selectedPlayer = null; // kept for focus only; Android controls multi-select visuals
     let dragStartTime = 0;
     let zoomLevel = 1;
     let originalPositions = [];
@@ -921,20 +921,15 @@
     }
 
     function selectPlayer(element) {
-        // Remove selection from previously selected player
-        if (selectedPlayer) {
-            selectedPlayer.classList.remove('selected');
-        }
-
-        // If clicking the same player, deselect it
+        // Let Android handle multi-select visual state; we only notify and keep optional focus
         if (selectedPlayer === element) {
-            selectedPlayer = null;
-            console.log('Player deselected');
+            // keep focus as-is
         } else {
-            // Select the new player
             selectedPlayer = element;
-            selectedPlayer.classList.add('selected');
-            console.log('Player selected:', element.dataset.name);
+        }
+        const name = element?.dataset?.name;
+        if (name && window.AndroidBridge && typeof window.AndroidBridge.onFielderSingleTap === 'function') {
+            try { window.AndroidBridge.onFielderSingleTap(name); } catch (err) { console.error(err); }
         }
     }
 

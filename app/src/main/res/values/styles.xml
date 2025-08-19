@@ -40,9 +40,12 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-
-
-
-
-
+    <style name="CustomTabButtonStyle" parent="Widget.MaterialComponents.Button">
+        <item name="cornerRadius">24dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="iconPadding">8dp</item>
+        <item name="iconGravity">textStart</item>
+        <!-- Add other common attributes -->
+    </style>
 </resources>

@@ -343,7 +343,10 @@ class MainActivity : AppCompatActivity() {
                 // If we're not on home screen, act as back button
                 // Hide keyboard before navigating
                 hideKeyboard()
-                if (shouldNavigateBackToPrevious()) {
+                // First: if there are entries in the fragment back stack, pop them
+                if (supportFragmentManager.backStackEntryCount > 0) {
+                    supportFragmentManager.popBackStack()
+                } else if (shouldNavigateBackToPrevious()) {
                     navigateBackToPrevious()
                 } else if (wasNavigatedFromDrawer) {
                     // If we came from drawer, go back to home and open drawer
