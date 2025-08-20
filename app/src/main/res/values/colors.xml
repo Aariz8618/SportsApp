@@ -107,4 +107,30 @@
     <color name="error_color">#F44336</color>
     <color name="warning_color">#FF9800</color>
 
+    <!-- Primary Colors -->
+    <color name="primary_color_2.1">#1976D2</color>
+    <color name="primary_dark_2">#0D47A1</color>
+    <color name="primary_light">#42A5F5</color>
+
+    <!-- Background Colors -->
+    <color name="background_gradient">#F8F9FA</color>
+    <color name="input_background">#F5F7FA</color>
+
+    <!-- Status and Accent Colors -->
+    <color name="success_green_light">#81C784</color>
+
+    <!-- FAB Colors -->
+    <color name="fab_gradient_start">#1976D2</color>
+    <color name="fab_gradient_end">#2196F3</color>
+    <color name="fab_ripple">#BBDEFB</color>
+
+    <!-- Input Colors -->
+    <color name="input_stroke_normal">#E0E0E0</color>
+    <color name="input_stroke_focused">#1976D2</color>
+
+    <!-- Shadow and Overlay Colors -->
+    <color name="shadow_light">#10000000</color>
+    <color name="shadow_medium">#20000000</color>
+    <color name="overlay_light">#08000000</color>
+
 </resources>

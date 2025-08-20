@@ -1153,14 +1153,14 @@
 
         if (panLeftBtn) {
             panLeftBtn.addEventListener('click', () => {
-                panX -= step;
+                panX += step;
                 updateZoom();
             });
         }
 
         if (panRightBtn) {
-            panRightBtn.addEventListener('click', () => {
-                panX += step;
+             panRightBtn.addEventListener('click', () => {
+                panX -= step;
                 updateZoom();
             });
         }

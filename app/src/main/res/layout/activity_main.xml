@@ -998,11 +998,26 @@
 
     </LinearLayout>
 
+    <ImageButton
+        android:id="@+id/fab_chat"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="84dp"
+        android:background="@drawable/fab_logo_background"
+        android:src="@drawable/cricmate"
+        android:contentDescription="Chatbot"
+        android:elevation="8dp"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:padding="0dp"/>
+
+
     <!-- Enhanced Bottom Navigation -->
     <LinearLayout
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
-
         android:layout_height="64dp"
         android:orientation="horizontal"
         android:background="@drawable/nav_background"

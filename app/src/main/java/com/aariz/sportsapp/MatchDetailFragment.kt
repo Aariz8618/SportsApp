@@ -36,14 +36,14 @@ class MatchDetailFragment : Fragment() {
     private lateinit var tvMatchTeam2: TextView
     private lateinit var tvTeam1Score: TextView
     private lateinit var tvTeam2Score: TextView
-    private lateinit var tvHighestScore: TextView
-    private lateinit var tvHighestScorer: TextView
-    private lateinit var tvBestBowling: TextView
-    private lateinit var tvBestBowler: TextView
-    private lateinit var tvMargin: TextView
-    private lateinit var btnViewDetails: Button
-    private lateinit var btnViewSquad: Button
-    private lateinit var progressLoading: ProgressBar
+    private var tvHighestScore: TextView? = null
+    private var tvHighestScorer: TextView? = null
+    private var tvBestBowling: TextView? = null
+    private var tvBestBowler: TextView? = null
+    private var tvMargin: TextView? = null
+    private var btnViewDetails: Button? = null
+    private var btnViewSquad: Button? = null
+    private var progressLoading: ProgressBar? = null
     private lateinit var tabNavigation: TabLayout
 
     // API and Data
@@ -89,24 +89,27 @@ class MatchDetailFragment : Fragment() {
     private fun initializeViews(view: View) {
         try {
             // Bind views that exist in fragment_match_detail.xml
-            tvMatchDate = view.findViewById(R.id.tv_match_date_header) ?: throw IllegalStateException("tv_match_date_header not found")
-            tvMatchStatus = view.findViewById(R.id.tv_match_status)
-            tvMatchFormat = view.findViewById(R.id.tv_match_format)
+            tvMatchStatus = view.findViewById(R.id.badge_live)
+            tvMatchFormat = view.findViewById(R.id.badge_format)
             tvMatchResult = view.findViewById(R.id.tv_match_result)
-            tvVenueResult = view.findViewById(R.id.tv_venue_result)
-            tvMatchTeam1 = view.findViewById(R.id.tv_match_team1)
-            tvMatchTeam2 = view.findViewById(R.id.tv_match_team2)
-            tvTeam1Score = view.findViewById(R.id.tv_team1_score)
-            tvTeam2Score = view.findViewById(R.id.tv_team2_score)
-            tvHighestScore = view.findViewById(R.id.tv_highest_score)
-            tvHighestScorer = view.findViewById(R.id.tv_highest_scorer)
-            tvBestBowling = view.findViewById(R.id.tv_best_bowling)
-            tvBestBowler = view.findViewById(R.id.tv_best_bowler)
-            tvMargin = view.findViewById(R.id.tv_margin)
+            tvVenueResult = view.findViewById(R.id.tv_venue)
+            tvMatchDate = view.findViewById(R.id.tv_date_time)
+            tvMatchTeam1 = view.findViewById(R.id.tv_team_a_name)
+            tvMatchTeam2 = view.findViewById(R.id.tv_team_b_name)
+            tvTeam1Score = view.findViewById(R.id.tv_team_a_score)
+            tvTeam2Score = view.findViewById(R.id.tv_team_b_score)
+            // Optional highlight views are not present in this layout; keep as null
+            tvHighestScore = null
+            tvHighestScorer = null
+            tvBestBowling = null
+            tvBestBowler = null
+            tvMargin = null
+            // Optional elements (may not exist in this layout)
             btnViewDetails = view.findViewById(R.id.btn_view_details)
             btnViewSquad = view.findViewById(R.id.btn_view_squad)
             progressLoading = view.findViewById(R.id.progress_loading)
-            tabNavigation = view.findViewById(R.id.tab_navigation)
+            // Use the actual TabLayout ID from the layout
+            tabNavigation = view.findViewById(R.id.tabLayout)
 
             Log.d(TAG, "All views initialized successfully")
         } catch (e: Exception) {
@@ -132,12 +135,12 @@ class MatchDetailFragment : Fragment() {
     }
 
     private fun setupClickListeners() {
-        btnViewDetails.setOnClickListener {
+        btnViewDetails?.setOnClickListener {
             Log.d(TAG, "View Details button clicked")
             navigateToMatchDetailsScreen()
         }
 
-        btnViewSquad.setOnClickListener {
+        btnViewSquad?.setOnClickListener {
             Log.d(TAG, "View Squad button clicked")
             navigateToSquadScreen()
         }
@@ -285,15 +288,38 @@ class MatchDetailFragment : Fragment() {
             tvMatchStatus.text = normalizedStatus
             applyStatusChip(normalizedStatus)
 
-            // Venue
+            // Venue with more details
             tvVenueResult.text = matchInfo.venue ?: "Cricket Ground"
 
-            // Date
-            val formattedDate = formatMatchDate(matchInfo.date ?: matchInfo.dateTimeGMT ?: "")
-            tvMatchDate.text = formattedDate
+            // Enhanced date formatting
+            val dateText = buildString {
+                val formattedDate = formatMatchDate(matchInfo.date ?: matchInfo.dateTimeGMT ?: "")
+                append(formattedDate)
+                
+                // Add match time if available
+                matchInfo.dateTimeGMT?.let { gmtTime ->
+                    try {
+                        val timeFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
+                        val dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
+                        val date = dateFormat.parse(gmtTime.replace("Z", ""))
+                        date?.let {
+                            append(" • ${timeFormat.format(it)}")
+                        }
+                    } catch (e: Exception) {
+                        Log.w(TAG, "Error parsing time: $gmtTime", e)
+                    }
+                }
+            }
+            tvMatchDate.text = dateText
 
-            // Match format
-            tvMatchFormat.text = matchInfo.matchType ?: "ODI"
+            // Match format with series info
+            val formatText = buildString {
+                append(matchInfo.matchType?.uppercase() ?: "ODI")
+                matchInfo.series?.let { series ->
+                    append(" • $series")
+                }
+            }
+            tvMatchFormat.text = formatText
 
             // Teams
             val teams = matchInfo.teams ?: listOf("Team 1", "Team 2")
@@ -302,9 +328,20 @@ class MatchDetailFragment : Fragment() {
                 tvMatchTeam2.text = teams[1]
             }
 
-            // Result
-            val result = matchInfo.result ?: rawStatus.ifBlank { "Match in progress" }
-            tvMatchResult.text = result
+            // Enhanced result with toss info
+            val resultText = buildString {
+                val result = matchInfo.result ?: rawStatus.ifBlank { "Match in progress" }
+                append(result)
+                
+                // Add toss information
+                if (!matchInfo.tossWinner.isNullOrBlank() && !matchInfo.tossChoice.isNullOrBlank()) {
+                    append("\n🏏 ${matchInfo.tossWinner} won toss, elected to ${matchInfo.tossChoice}")
+                }
+                
+                // Add match started/ended status
+                // Removed matchStarted and matchEnded references
+            }
+            tvMatchResult.text = resultText
 
             // Store series ID for navigation
             seriesId = matchInfo.seriesId
@@ -378,14 +415,7 @@ class MatchDetailFragment : Fragment() {
                 val runs = batsman.r ?: 0
                 if (runs > highestScore) {
                     highestScore = runs
-                    highestScorer = batsman.name?.let { name ->
-                        // Add not out indicator if applicable
-                        if (batsman.dismissal?.contains("not out", true) == true) {
-                            "$runs*"
-                        } else {
-                            runs.toString()
-                        }
-                    } ?: "Unknown"
+                    highestScorer = batsman.name ?: "Unknown"
                 }
             }
 
@@ -410,11 +440,11 @@ class MatchDetailFragment : Fragment() {
         }
 
         // Update UI
-        tvHighestScore.text = if (highestScore > 0) highestScore.toString() else "0"
-        tvHighestScorer.text = highestScorer
-        tvBestBowling.text = bestBowlingFigures
-        tvBestBowler.text = bestBowler
-        tvMargin.text = marginValue
+        tvHighestScore?.text = if (highestScore > 0) highestScore.toString() else "0"
+        tvHighestScorer?.text = highestScorer
+        tvBestBowling?.text = bestBowlingFigures
+        tvBestBowler?.text = bestBowler
+        tvMargin?.text = marginValue
 
         Log.d(TAG, "Highlights - Highest: $highestScore by $highestScorer, Best bowling: $bestBowlingFigures by $bestBowler, Margin: $marginValue")
     }
@@ -508,16 +538,16 @@ class MatchDetailFragment : Fragment() {
         if (!isAdded) return
         tvTeam1Score.text = "0/0 (0.0 Ov)"
         tvTeam2Score.text = "0/0 (0.0 Ov)"
-        tvHighestScore.text = "0"
-        tvHighestScorer.text = "No Data"
-        tvBestBowling.text = "0/0"
-        tvBestBowler.text = "No Data"
-        tvMargin.text = "0"
+        tvHighestScore?.text = "0"
+        tvHighestScorer?.text = "No Data"
+        tvBestBowling?.text = "0/0"
+        tvBestBowler?.text = "No Data"
+        tvMargin?.text = "0"
     }
 
     private fun setLoading(visible: Boolean) {
         if (!isAdded) return
-        progressLoading.visibility = if (visible) View.VISIBLE else View.GONE
+        progressLoading?.visibility = if (visible) View.VISIBLE else View.GONE
         Log.d(TAG, "Loading indicator: $visible")
     }
 
