@@ -28,7 +28,7 @@
         </activity>
         <!-- Add PlayerDetailActivity -->
         <activity
-            android:name=".ui.PlayerDetailActivity"
+            android:name=".PlayerDetailActivity"
             android:exported="false"
             android:parentActivityName=".MainActivity" />
 
@@ -37,8 +37,7 @@
             android:name=".FullscreenImageActivity"
             android:exported="false"
             android:theme="@style/Theme.SportsApp.Fullscreen" />
-
-        <activity
+      <activity
             android:name=".FullScreenMemeActivity"
             android:exported="false"
             android:theme="@style/Theme.FullScreenMeme" />
@@ -52,6 +51,7 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths"/>
         </provider>
+
 
     </application>
 

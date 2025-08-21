@@ -17,6 +17,9 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        // Expose Gemini API key from gradle.properties/local.properties into BuildConfig
+        val geminiKey = project.findProperty("GEMINI_API_KEY") as String? ?: System.getenv("GEMINI_API_KEY") ?: ""
+        buildConfigField("String", "GEMINI_API_KEY", "\"$geminiKey\"")
     }
 
     buildTypes {
@@ -37,6 +40,7 @@ android {
     }
     buildFeatures{
         viewBinding = true
+        buildConfig = true
     }
 }
 
@@ -71,7 +75,11 @@ dependencies {
     implementation("androidx.viewpager2:viewpager2:1.0.0")
     implementation("com.github.chrisbanes:PhotoView:2.3.0")
     implementation("com.google.android.flexbox:flexbox:3.0.0")
+     // Gemini AI for chatbot
+    implementation("com.google.ai.client.generativeai:generativeai:0.7.0")
+    // Coroutines for async calls
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
 
-
+    
 }

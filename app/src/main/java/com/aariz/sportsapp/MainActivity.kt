@@ -25,10 +25,11 @@ import androidx.core.view.ViewCompat
 import android.animation.ValueAnimator
 import android.animation.ArgbEvaluator
 import com.aariz.sportsapp.databinding.ActivityMainBinding
-import com.aariz.sportsapp.ui.BrowseMatchesFragment
-import com.aariz.sportsapp.ui.ScheduleFragment
-import com.aariz.sportsapp.ui.players.PlayersFragment
+import com.aariz.sportsapp.BrowseMatchesFragment
+import com.aariz.sportsapp.ScheduleFragment
+import com.aariz.sportsapp.PlayersFragment
 import com.google.firebase.FirebaseApp
+import com.aariz.sportsapp.chat.ChatbotFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -52,6 +53,12 @@ class MainActivity : AppCompatActivity() {
 
         // Ensure the floating bubble overlay is drawn above everything
         binding.navBubbleOverlay.bringToFront()
+
+        // Bring chat FAB above content and bottom nav
+        binding.fabChat.bringToFront()
+        binding.fabChat.setOnClickListener {
+            navigateToFragment(ChatbotFragment(), title = "Cricket Chatbot", addToBackStack = true)
+        }
 
         // Show home screen by default
         showHomeScreen()
@@ -233,6 +240,7 @@ class MainActivity : AppCompatActivity() {
         binding.homeContent.visibility = View.VISIBLE
         binding.fragmentContainer.visibility = View.GONE
         binding.mainHeader.visibility = View.VISIBLE
+        binding.fabChat.visibility = View.VISIBLE
 
         // Show hamburger menu, hide back arrow
         updateHeaderIcon(showBackArrow = false)
@@ -262,10 +270,21 @@ class MainActivity : AppCompatActivity() {
 
             binding.homeContent.visibility = View.GONE
             binding.fragmentContainer.visibility = View.VISIBLE
-            binding.mainHeader.visibility = View.VISIBLE
+            // For Chatbot screen: hide black header and the global chat FAB
+            if (fragment is ChatbotFragment) {
+                binding.mainHeader.visibility = View.GONE
+                binding.fabChat.visibility = View.GONE
+                hideBottomNavigation()
+            } else {
+                binding.mainHeader.visibility = View.VISIBLE
+                binding.fabChat.visibility = View.VISIBLE
+                showBottomNavigation()
+            }
 
-            updateHeaderIcon(showBackArrow = true)
-            updateHeaderTitle(title)
+            if (binding.mainHeader.visibility == View.VISIBLE) {
+                updateHeaderIcon(showBackArrow = true)
+                updateHeaderTitle(title)
+            }
 
             val transaction = supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, fragment)
@@ -305,15 +324,20 @@ class MainActivity : AppCompatActivity() {
                     isDrawerOpen -> {
                         closeNavigationDrawer()
                     }
-                    // If not on home screen, check if we have fragments in backstack first
+                    // If not on home screen, navigate back appropriately
                     !isOnHomeScreen -> {
                         // Hide keyboard before navigating
                         hideKeyboard()
 
-                        // Check if there are fragments in the back stack
+                        // Check if there are fragments in the back stack first (e.g., Chatbot)
                         if (supportFragmentManager.backStackEntryCount > 0) {
-                            // Pop from back stack (this will handle CommentatorDetailFragment -> CommentatorsFragment)
+                            val wasChatbot = currentFragment is ChatbotFragment
+                            // Pop from back stack (e.g., Chatbot -> Home)
                             supportFragmentManager.popBackStack()
+                            // If we were on Chatbot, immediately restore the Home layout to avoid a blank screen
+                            if (wasChatbot) {
+                                showHomeScreen()
+                            }
                         } else if (shouldNavigateBackToPrevious()) {
                             // Handle custom navigation for cricket topic fragments
                             navigateBackToPrevious()
@@ -323,11 +347,11 @@ class MainActivity : AppCompatActivity() {
                             showHomeScreen()
                             openNavigationDrawer()
                         } else {
-                            // Default: go back to home
+                            // Default: go back to home screen instead of closing app
                             showHomeScreen()
                         }
                     }
-                    // Let the system handle the back press (exit app)
+                    // Only exit app when on home screen
                     else -> {
                         isEnabled = false
                         onBackPressedDispatcher.onBackPressed()
@@ -343,7 +367,10 @@ class MainActivity : AppCompatActivity() {
                 // If we're not on home screen, act as back button
                 // Hide keyboard before navigating
                 hideKeyboard()
-                if (shouldNavigateBackToPrevious()) {
+                // First: if there are entries in the fragment back stack, pop them
+                if (supportFragmentManager.backStackEntryCount > 0) {
+                    supportFragmentManager.popBackStack()
+                } else if (shouldNavigateBackToPrevious()) {
                     navigateBackToPrevious()
                 } else if (wasNavigatedFromDrawer) {
                     // If we came from drawer, go back to home and open drawer
@@ -685,13 +712,13 @@ class MainActivity : AppCompatActivity() {
                 fragment is NzTestFragment ||
                 fragment is NzOdiFragment ||
                 fragment is NzT20iFragment ||
-                                 fragment is WiTestFragment ||
-                 fragment is WiOdiFragment ||
-                 fragment is WiT20Fragment ||
-                 fragment is CT25Fragment ||
-                 fragment is WTC25Fragment ||
-                 fragment is IndEngTestFragment ||
-                 fragment is AusWiTestFragment
+                fragment is WiTestFragment ||
+                fragment is WiOdiFragment ||
+                fragment is WiT20Fragment ||
+                fragment is CT25Fragment ||
+                fragment is WTC25Fragment ||
+                fragment is IndEngTestFragment ||
+                fragment is AusWiTestFragment
     }
 
     private fun setupExpandableSections() {

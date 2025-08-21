@@ -5,59 +5,9 @@
     android:layout_height="match_parent"
     android:background="#F5F5F5">
 
-    <!-- Header Section with Gradient -->
-    <LinearLayout
-        android:id="@+id/headerSection"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#1A2332"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="20dp">
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            app:cardCornerRadius="50dp"
-            app:cardElevation="8dp">
-
-            <ImageView
-                android:id="@+id/ivPlayerImage"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#E8E8E8"
-                android:scaleType="centerCrop" />
-        </androidx.cardview.widget.CardView>
-
-        <TextView
-            android:id="@+id/tvPlayerName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:gravity="center"
-            android:text="Virat Kohli"
-            android:textColor="@android:color/white"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/tvPlayerRole"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/role_badge_bg"
-            android:paddingHorizontal="12dp"
-            android:paddingVertical="4dp"
-            android:text="Batsman"
-            android:textColor="@android:color/white"
-            android:textSize="14sp"
-            android:textStyle="bold" />
-    </LinearLayout>
-
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="220dp"
         android:clipToPadding="false"
         android:paddingHorizontal="16dp"
         android:paddingBottom="16dp">
@@ -66,6 +16,57 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <!-- Header Section moved inside scroll so it scrolls with content -->
+            <LinearLayout
+                android:id="@+id/headerSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#6B4EE6"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardCornerRadius="50dp"
+                    app:cardElevation="8dp">
+
+                    <ImageView
+                        android:id="@+id/ivPlayerImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="3dp"
+                        android:background="#E8E8E8"
+                        android:scaleType="centerCrop" />
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/tvPlayerName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center"
+                    android:text="Player Name"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvPlayerRole"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/role_badge_bg"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="4dp"
+                    android:text="Role"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
             <!-- Basic Information Card -->
             <androidx.cardview.widget.CardView
@@ -122,7 +123,7 @@
                                 android:id="@+id/tvBattingStyle"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Right Handed"
+                                android:text="N/A"
                                 android:textColor="#333333"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
@@ -160,7 +161,7 @@
                                 android:id="@+id/tvBowlingStyle"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Right-arm medium"
+                                android:text="N/A"
                                 android:textColor="#333333"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
@@ -198,7 +199,7 @@
                                 android:id="@+id/tvPlaceOfBirth"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Delhi, India"
+                                android:text="N/A"
                                 android:textColor="#333333"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
@@ -235,7 +236,7 @@
                                 android:id="@+id/tvCountry"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="India"
+                                android:text="N/A"
                                 android:textColor="#333333"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
@@ -243,6 +244,77 @@
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
+            <!-- Overall rating card removed as requested -->
+
+            <!-- Tabs Container -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardTabsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                app:cardCornerRadius="24dp"
+                app:cardUseCompatPadding="true"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_tabs_container"
+                    android:orientation="horizontal"
+                    android:padding="4dp">
+
+                    <TextView
+                        android:id="@+id/tabTest"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Test"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="#666666"
+                        android:background="@drawable/selector_tab_item"/>
+
+                    <TextView
+                        android:id="@+id/tabOdi"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="ODI"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="#666666"
+                        android:background="@drawable/selector_tab_item"/>
+
+                    <TextView
+                        android:id="@+id/tabT20i"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="T20I"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="#666666"
+                        android:background="@drawable/selector_tab_item"/>
+
+                    <TextView
+                        android:id="@+id/tabIpl"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="IPL"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="#666666"
+                        android:background="@drawable/selector_tab_item"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Format rating card removed as requested -->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -267,9 +339,9 @@
                         <!-- Test Cricket Stats -->
                         <androidx.cardview.widget.CardView
                             android:id="@+id/TestBatting"
-                            android:layout_width="300dp"
+                            android:layout_width="350dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="16dp"
+                            android:layout_marginEnd="10dp"
                             app:cardCornerRadius="12dp"
                             app:cardElevation="4dp"
                             app:cardUseCompatPadding="true">
@@ -530,13 +602,12 @@
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
 
-
                         <!-- T20 Cricket Stats -->
                         <androidx.cardview.widget.CardView
                             android:id="@+id/TestBowling"
-                            android:layout_width="300dp"
+                            android:layout_width="350dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="16dp"
+                            android:layout_marginEnd="10dp"
                             app:cardCornerRadius="12dp"
                             app:cardElevation="4dp"
                             app:cardUseCompatPadding="true">
@@ -817,9 +888,9 @@
                         <!-- ODI Cricket Stats -->
                         <androidx.cardview.widget.CardView
                             android:id="@+id/ODIBatting"
-                            android:layout_width="300dp"
+                            android:layout_width="350dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="16dp"
+                            android:layout_marginEnd="10dp"
                             app:cardCornerRadius="12dp"
                             app:cardElevation="4dp"
                             app:cardUseCompatPadding="true">
@@ -1083,7 +1154,7 @@
                         <!-- ODI Cricket Stats -->
                         <androidx.cardview.widget.CardView
                             android:id="@+id/ODIBowling"
-                            android:layout_width="300dp"
+                            android:layout_width="350dp"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="16dp"
                             app:cardCornerRadius="12dp"
@@ -1366,7 +1437,7 @@
                         <!-- T20I Cricket Stats -->
                         <androidx.cardview.widget.CardView
                             android:id="@+id/T20IBatting"
-                            android:layout_width="300dp"
+                            android:layout_width="350dp"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="16dp"
                             app:cardCornerRadius="12dp"
@@ -1631,7 +1702,7 @@
                         <!-- T20I Cricket Stats -->
                         <androidx.cardview.widget.CardView
                             android:id="@+id/T20IBowling"
-                            android:layout_width="300dp"
+                            android:layout_width="350dp"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="16dp"
                             app:cardCornerRadius="12dp"
@@ -1914,9 +1985,9 @@
                         <!-- IPL Cricket Stats -->
                         <androidx.cardview.widget.CardView
                             android:id="@+id/IPLBatting"
-                            android:layout_width="300dp"
+                            android:layout_width="350dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="16dp"
+                            android:layout_marginEnd="10dp"
                             app:cardCornerRadius="12dp"
                             app:cardElevation="4dp"
                             app:cardUseCompatPadding="true">
@@ -2180,7 +2251,7 @@
                         <!-- IPL Cricket Stats -->
                         <androidx.cardview.widget.CardView
                             android:id="@+id/IPLBowling"
-                            android:layout_width="300dp"
+                            android:layout_width="350dp"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="16dp"
                             app:cardCornerRadius="12dp"

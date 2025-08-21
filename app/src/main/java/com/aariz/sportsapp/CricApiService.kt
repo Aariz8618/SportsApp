@@ -48,7 +48,7 @@ interface CricApiService {
     @GET("series_squad")
     fun getSeriesSquad(
         @Query("apikey") apiKey: String,
-        @Query("id") seriesId: String
+        @Query("series_id") seriesId: String
     ): Call<SquadInfoResponse>
 
     // Scorecard endpoint (uses match id)

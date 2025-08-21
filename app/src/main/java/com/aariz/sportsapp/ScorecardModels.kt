@@ -37,7 +37,17 @@ data class Inning(
     val target: Int?,
     val rrr: Double?,
     @SerializedName("batsmen") val batsmen: List<Batsman>?,
-    @SerializedName("bowlers") val bowlers: List<Bowler>?
+    @SerializedName("bowlers") val bowlers: List<Bowler>?,
+    // Extras: sometimes a total int, sometimes expanded object
+    val extras: Int?,
+    val extrasData: ExtrasData?,
+    // Did not bat / yet to bat lists may come under different keys
+    @SerializedName(value = "didNotBat", alternate = ["dnb"]) val didNotBat: List<String>?,
+    @SerializedName(value = "yetToBat", alternate = ["ytb"]) val yetToBat: List<String>?,
+    // Fall of wickets
+    @SerializedName(value = "fows", alternate = ["fallOfWickets"]) val fows: List<Fow>?,
+    // Powerplays
+    val powerplay: Powerplay?
 )
 
 data class Batsman(
@@ -57,4 +67,30 @@ data class Bowler(
     val r: Int?,
     val w: Int?,
     val econ: Double?
+)
+
+// Expanded breakdown of extras when provided
+// All fields nullable; some APIs may omit or rename them
+data class ExtrasData(
+    val total: Int?,
+    @SerializedName(value = "byes", alternate = ["b"]) val byes: Int?,
+    @SerializedName(value = "legbyes", alternate = ["lb"]) val legByes: Int?,
+    @SerializedName(value = "wides", alternate = ["wd"]) val wides: Int?,
+    @SerializedName(value = "noballs", alternate = ["nb"]) val noBalls: Int?,
+    val penalty: Int?
+)
+
+// Fall of wicket entry
+data class Fow(
+    // Example format varies, keep common fields
+    val batter: String?,
+    val score: String?, // e.g., "120/3"
+    val over: String?   // e.g., "15.2"
+)
+
+// Powerplay ranges if available
+data class Powerplay(
+    val pp1: String?,
+    val pp2: String?,
+    val pp3: String?
 )

@@ -1,4 +1,4 @@
-package com.aariz.sportsapp.ui
+package com.aariz.sportsapp
 
 import android.os.Bundle
 import android.util.Log
@@ -54,6 +54,7 @@ class ScheduleFragment : Fragment() {
                     call: Call<CurrentMatchesResponse>,
                     response: Response<CurrentMatchesResponse>
                 ) {
+                    if (!isAdded) return
                     progressBar.visibility = View.GONE
                     Log.d("ScheduleFragment", "API Response received. Success: ${response.isSuccessful}, Code: ${response.code()}")
 
@@ -92,15 +93,20 @@ class ScheduleFragment : Fragment() {
                         Log.e("ScheduleFragment", "API response not successful or body is null. Response code: ${response.code()}")
                         Log.e("ScheduleFragment", "Response message: ${response.message()}")
                         Log.e("ScheduleFragment", "Response error body: ${response.errorBody()?.string()}")
-                        Toast.makeText(requireContext(), "Failed to load matches (Code: ${response.code()})", Toast.LENGTH_SHORT).show()
+                        context?.let { ctx ->
+                            Toast.makeText(ctx, "Failed to load matches (Code: ${response.code()})", Toast.LENGTH_SHORT).show()
+                        }
                     }
                 }
 
                 override fun onFailure(call: Call<CurrentMatchesResponse>, t: Throwable) {
+                    if (!isAdded) return
                     progressBar.visibility = View.GONE
                     Log.e("ScheduleFragment", "API call failed: ${t.message}")
                     Log.e("ScheduleFragment", "Exception: ", t)
-                    Toast.makeText(requireContext(), "Network Error: ${t.message}", Toast.LENGTH_SHORT).show()
+                    context?.let { ctx ->
+                        Toast.makeText(ctx, "Network Error: ${t.message}", Toast.LENGTH_SHORT).show()
+                    }
                 }
             })
     }
@@ -125,7 +131,9 @@ class ScheduleFragment : Fragment() {
                 navigateToMatchDetails(matchId, matchItem.name)
             } ?: run {
                 Log.w("ScheduleFragment", "No match ID available for clicked match")
-                Toast.makeText(requireContext(), "No match ID available", Toast.LENGTH_SHORT).show()
+                context?.let { ctx ->
+                    Toast.makeText(ctx, "No match ID available", Toast.LENGTH_SHORT).show()
+                }
             }
         }
 
