@@ -99,7 +99,7 @@ class UmpireDetailFragment : Fragment() {
                     view.findViewById<TextView>(R.id.umpireBorn)?.text = "April 24, 1971 – Colombo, Sri Lanka"
                     view.findViewById<TextView>(R.id.umpireEducation)?.text = "Sri Lanka Cricket"
                     view.findViewById<TextView>(R.id.umpireOccupation)?.text = "International Cricket Umpire, Former Cricketer"
-                    view.findViewById<TextView>(R.id.umpireHighlights)?.text = "Former Sri Lankan all-rounder. ICC Elite Panel member and World Cup final umpire."
+                    view.findViewById<TextView>(R.id.umpireHighlights)?.text = getString(R.string.dharamsenahighlights)
                 }
                 "Sharfuddoula" -> {
                     view.findViewById<TextView>(R.id.umpireBorn)?.text = "January 15, 1983 – Dhaka, Bangladesh"
