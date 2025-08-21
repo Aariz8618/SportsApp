@@ -8,10 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.aariz.sportsapp.R
 import com.aariz.sportsapp.models.MatchItem
 
-class ScheduleAdapter(
+class BrowseMatchesAdapter(
     private val matchList: List<MatchItem>,
-    private val onMatchClick: ((MatchItem) -> Unit)? = null
-) : RecyclerView.Adapter<ScheduleAdapter.MatchViewHolder>() {
+    private val onMatchClick: (MatchItem) -> Unit
+) : RecyclerView.Adapter<BrowseMatchesAdapter.MatchViewHolder>() {
 
     class MatchViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val matchName: TextView = itemView.findViewById(R.id.tvMatchName)
@@ -22,7 +22,7 @@ class ScheduleAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MatchViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_schedule_match, parent, false)
+            .inflate(R.layout.item_browse_match, parent, false)
         return MatchViewHolder(view)
     }
 
@@ -34,34 +34,41 @@ class ScheduleAdapter(
         holder.matchVenue.text = match.venue ?: "Venue: N/A"
         holder.matchStatus.text = match.status ?: "Status: N/A"
 
-        // Set click listener only for actual matches (not section headers)
-        if (match.id != null && !match.name.startsWith("===")) {
+        // Set click listener for matches that have an ID
+        if (match.id != null && match.name != "No matches available" && match.name != "Error loading matches") {
             holder.itemView.setOnClickListener {
-                onMatchClick?.invoke(match)
+                onMatchClick(match)
             }
-            // Add visual feedback for clickable items
             holder.itemView.isClickable = true
             holder.itemView.isFocusable = true
-            // You can add a ripple effect or change background here
+
+            // Add visual feedback for clickable items
+            holder.itemView.alpha = 1.0f
         } else {
             holder.itemView.setOnClickListener(null)
             holder.itemView.isClickable = false
             holder.itemView.isFocusable = false
 
-            // Style section headers differently
-            if (match.name.startsWith("===")) {
-                holder.matchName.textSize = 18f
-                holder.matchName.setTextColor(holder.itemView.context.getColor(R.color.primary_color))
-                // Hide other fields for section headers
-                holder.matchDate.visibility = View.GONE
-                holder.matchVenue.visibility = View.GONE
-                holder.matchStatus.visibility = View.GONE
-            } else {
-                // Reset styling for regular items
-                holder.matchName.textSize = 16f
-                holder.matchDate.visibility = View.VISIBLE
-                holder.matchVenue.visibility = View.VISIBLE
-                holder.matchStatus.visibility = View.VISIBLE
+            // Slightly dim non-clickable items
+            holder.itemView.alpha = 0.7f
+        }
+
+        // Color code by status
+        when {
+            match.status?.contains("live", true) == true ||
+                    match.status?.contains("in progress", true) == true -> {
+                holder.matchStatus.setTextColor(holder.itemView.context.getColor(android.R.color.holo_red_dark))
+            }
+            match.status?.contains("completed", true) == true ||
+                    match.status?.contains("finished", true) == true -> {
+                holder.matchStatus.setTextColor(holder.itemView.context.getColor(android.R.color.holo_green_dark))
+            }
+            match.status?.contains("upcoming", true) == true ||
+                    match.status?.contains("scheduled", true) == true -> {
+                holder.matchStatus.setTextColor(holder.itemView.context.getColor(android.R.color.holo_blue_dark))
+            }
+            else -> {
+                holder.matchStatus.setTextColor(holder.itemView.context.getColor(android.R.color.darker_gray))
             }
         }
     }

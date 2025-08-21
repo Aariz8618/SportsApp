@@ -1,5 +1,6 @@
 package com.aariz.sportsapp.adapters
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,7 +9,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.aariz.sportsapp.R
 import com.aariz.sportsapp.models.Player
+import com.aariz.sportsapp.ui.PlayerDetailActivity
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 
 class PlayerAdapter(
     private var playerList: List<Player>,
@@ -29,18 +32,46 @@ class PlayerAdapter(
 
     override fun onBindViewHolder(holder: PlayerViewHolder, position: Int) {
         val player = playerList[position]
-        holder.tvName.text = player.name
-        holder.tvCountry.text = player.country
 
-        Glide.with(holder.itemView.context)
-            .load(player.playerImg)
-            .placeholder(R.drawable.ic_player_placeholder)
-            .error(R.drawable.ic_player_placeholder)
-            .into(holder.ivImage)
+        // Populate player data
+        holder.tvName.text = player.name ?: "Unknown Player"
+        holder.tvCountry.text = player.country ?: "Unknown Country"
 
-        holder.itemView.setOnClickListener {
-            onPlayerClick?.invoke(player)
+        // Load image with better caching and error handling
+        val imageUrl = player.playerImg
+        if (!imageUrl.isNullOrEmpty()) {
+            Glide.with(holder.itemView.context)
+                .load(imageUrl)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .placeholder(R.drawable.ic_player_placeholder)
+                .error(R.drawable.ic_player_placeholder)
+                .centerCrop()
+                .into(holder.ivImage)
+        } else {
+            holder.ivImage.setImageResource(R.drawable.ic_player_placeholder)
         }
+
+        // Handle click events
+        holder.itemView.setOnClickListener {
+            // Use custom click listener if provided
+            if (onPlayerClick != null) {
+                onPlayerClick.invoke(player)
+            } else {
+                // Default behavior - navigate to PlayerDetailActivity
+                navigateToPlayerDetail(holder.itemView, player)
+            }
+        }
+    }
+
+    private fun navigateToPlayerDetail(view: View, player: Player) {
+        val context = view.context
+        val intent = Intent(context, PlayerDetailActivity::class.java).apply {
+            // Pass player ID - make sure to use the correct key name
+            putExtra("PLAYER_ID", player.id)
+            // You can also pass additional data if needed
+            putExtra("PLAYER_NAME", player.name)
+        }
+        context.startActivity(intent)
     }
 
     override fun getItemCount(): Int = playerList.size
@@ -48,5 +79,12 @@ class PlayerAdapter(
     fun updateData(newList: List<Player>) {
         playerList = newList
         notifyDataSetChanged()
+    }
+
+    // Optional: More efficient update method using DiffUtil
+    fun updateDataWithDiff(newList: List<Player>) {
+        // You can implement DiffUtil here for better performance
+        // For now, using the simple approach
+        updateData(newList)
     }
 }

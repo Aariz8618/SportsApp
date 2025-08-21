@@ -9,5 +9,6 @@ data class UpcomingMatch(
     val name: String?,
     val date: String?,
     val venue: String?,
-    val status: String?
+    val status: String?,
+    val id: String? = null  // Added ID field for match details
 )

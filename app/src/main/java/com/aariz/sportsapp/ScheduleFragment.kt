@@ -12,8 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.aariz.sportsapp.R
 import com.aariz.sportsapp.adapters.ScheduleAdapter
-import com.aariz.sportsapp.api.RetrofitInstance
+import com.aariz.sportsapp.api.CricApiClient
 import com.aariz.sportsapp.models.MatchItem
+import com.aariz.sportsapp.models.CurrentMatchesResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -23,14 +24,9 @@ class ScheduleFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var progressBar: ProgressBar
 
-    private val apiKey = "37abfde8-ac7d-4b87-98de-f602486ccb0b"
+    private val apiKey = "d048d0c6-efeb-4bf5-99e2-88f44cb23b82"
 
-    private val pastMatches = mutableListOf<MatchItem>()
-    private val liveMatches = mutableListOf<MatchItem>()
-    private val upcomingMatches = mutableListOf<MatchItem>()
-
-    private var currentLoaded = false
-    private var upcomingLoaded = false
+    private val currentMatches = mutableListOf<MatchItem>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,92 +41,108 @@ class ScheduleFragment : Fragment() {
 
         progressBar.visibility = View.VISIBLE
         fetchCurrentMatches()
+
         return view
     }
 
     private fun fetchCurrentMatches() {
-        RetrofitInstance.api.getCurrentMatches(apiKey, 0)
-            .enqueue(object : Callback<com.aariz.sportsapp.models.CurrentMatchesResponse> {
+        Log.d("ScheduleFragment", "Starting API call to fetch current matches...")
+
+        CricApiClient.apiService.getCurrentMatches(apiKey, 0)
+            .enqueue(object : Callback<CurrentMatchesResponse> {
                 override fun onResponse(
-                    call: Call<com.aariz.sportsapp.models.CurrentMatchesResponse>,
-                    response: Response<com.aariz.sportsapp.models.CurrentMatchesResponse>
+                    call: Call<CurrentMatchesResponse>,
+                    response: Response<CurrentMatchesResponse>
                 ) {
-                    if (response.isSuccessful) {
-                        response.body()?.data?.forEach {
-                            Log.d("ScheduleFragment", "Current Match: ${it.name} | Status: ${it.status}")
-                            when {
-                                it.status?.contains("live", true) == true || it.status?.contains("in progress", true) == true -> {
-                                    liveMatches.add(MatchItem(it.name ?: "", it.date, it.venue, it.status))
-                                }
-                                it.status?.contains("completed", true) == true || it.status?.contains("finished", true) == true -> {
-                                    pastMatches.add(MatchItem(it.name ?: "", it.date, it.venue, it.status))
-                                }
+                    progressBar.visibility = View.GONE
+                    Log.d("ScheduleFragment", "API Response received. Success: ${response.isSuccessful}, Code: ${response.code()}")
+
+                    if (response.isSuccessful && response.body() != null) {
+                        val responseBody = response.body()!!
+                        Log.d("ScheduleFragment", "Response body status: ${responseBody.status}")
+                        Log.d("ScheduleFragment", "Response body data size: ${responseBody.data?.size}")
+                        Log.d("ScheduleFragment", "Full response: $responseBody")
+
+                        currentMatches.clear()
+
+                        responseBody.data?.let { matchDataList ->
+                            Log.d("ScheduleFragment", "Processing ${matchDataList.size} matches from API...")
+
+                            matchDataList.forEachIndexed { index, match ->
+                                Log.d("ScheduleFragment", "Match $index: Name=${match.name}, Status=${match.status}, Date=${match.date}, ID=${match.id}")
+
+                                // TEMPORARILY SHOW ALL MATCHES (regardless of status) to debug what's available
+                                val matchItem = MatchItem(
+                                    name = match.name ?: "Unknown Match",
+                                    date = match.date,
+                                    venue = match.venue,
+                                    status = match.status,
+                                    id = match.id
+                                )
+                                currentMatches.add(matchItem)
+                                Log.d("ScheduleFragment", "Added match: ${matchItem.name}")
                             }
+                        } ?: run {
+                            Log.w("ScheduleFragment", "No data array in response")
                         }
+
+                        Log.d("ScheduleFragment", "Total matches loaded: ${currentMatches.size}")
+                        displayCurrentMatches()
+                    } else {
+                        Log.e("ScheduleFragment", "API response not successful or body is null. Response code: ${response.code()}")
+                        Log.e("ScheduleFragment", "Response message: ${response.message()}")
+                        Log.e("ScheduleFragment", "Response error body: ${response.errorBody()?.string()}")
+                        Toast.makeText(requireContext(), "Failed to load matches (Code: ${response.code()})", Toast.LENGTH_SHORT).show()
                     }
-                    currentLoaded = true
-                    fetchUpcomingMatches()
                 }
 
-                override fun onFailure(call: Call<com.aariz.sportsapp.models.CurrentMatchesResponse>, t: Throwable) {
-                    Toast.makeText(requireContext(), "Error: ${t.message}", Toast.LENGTH_SHORT).show()
-                    currentLoaded = true
-                    fetchUpcomingMatches()
+                override fun onFailure(call: Call<CurrentMatchesResponse>, t: Throwable) {
+                    progressBar.visibility = View.GONE
+                    Log.e("ScheduleFragment", "API call failed: ${t.message}")
+                    Log.e("ScheduleFragment", "Exception: ", t)
+                    Toast.makeText(requireContext(), "Network Error: ${t.message}", Toast.LENGTH_SHORT).show()
                 }
             })
     }
 
-    private fun fetchUpcomingMatches() {
-        RetrofitInstance.api.getMatchesList(apiKey, 0)
-            .enqueue(object : Callback<com.aariz.sportsapp.models.MatchesListResponse> {
-                override fun onResponse(
-                    call: Call<com.aariz.sportsapp.models.MatchesListResponse>,
-                    response: Response<com.aariz.sportsapp.models.MatchesListResponse>
-                ) {
-                    if (response.isSuccessful) {
-                        response.body()?.data?.forEach {
-                            Log.d("ScheduleFragment", "Upcoming Match: ${it.name} | Status: ${it.status}")
-                            if (it.status?.contains("upcoming", true) == true ||
-                                it.status?.contains("scheduled", true) == true ||
-                                it.status?.contains("match not started", true) == true
-                            ) {
-                                upcomingMatches.add(MatchItem(it.name ?: "", it.date, it.venue, it.status))
-                            }
-                        }
-                    }
-                    upcomingLoaded = true
-                    mergeAndDisplayMatches()
-                }
+    private fun displayCurrentMatches() {
+        Log.d("ScheduleFragment", "Displaying matches. Count: ${currentMatches.size}")
 
-                override fun onFailure(call: Call<com.aariz.sportsapp.models.MatchesListResponse>, t: Throwable) {
-                    Toast.makeText(requireContext(), "Error: ${t.message}", Toast.LENGTH_SHORT).show()
-                    upcomingLoaded = true
-                    mergeAndDisplayMatches()
-                }
-            })
-    }
+        val matchList = mutableListOf<MatchItem>()
 
-    private fun mergeAndDisplayMatches() {
-        if (currentLoaded && upcomingLoaded) {
-            val matchList = mutableListOf<MatchItem>()
-
-            if (pastMatches.isNotEmpty()) {
-                matchList.add(MatchItem("=== Past Matches ===", null, null, null))
-                matchList.addAll(pastMatches)
-            }
-            if (liveMatches.isNotEmpty()) {
-                matchList.add(MatchItem("=== Live Matches ===", null, null, null))
-                matchList.addAll(liveMatches)
-            }
-            if (upcomingMatches.isNotEmpty()) {
-                matchList.add(MatchItem("=== Upcoming Matches ===", null, null, null))
-                matchList.addAll(upcomingMatches)
-            }
-
-            recyclerView.adapter = ScheduleAdapter(matchList)
-            progressBar.visibility = View.GONE
-
-            Log.d("ScheduleFragment", "Past: ${pastMatches.size}, Live: ${liveMatches.size}, Upcoming: ${upcomingMatches.size}")
+        if (currentMatches.isNotEmpty()) {
+            matchList.add(MatchItem("=== All Matches (Debug Mode) ===", null, null, null, null))
+            matchList.addAll(currentMatches)
+            Log.d("ScheduleFragment", "Added ${currentMatches.size} matches to display list")
+        } else {
+            matchList.add(MatchItem("No matches returned from API", null, null, null, null))
+            Log.w("ScheduleFragment", "No matches to display")
         }
+
+        recyclerView.adapter = ScheduleAdapter(matchList) { matchItem ->
+            Log.d("ScheduleFragment", "Match clicked: ${matchItem.name}, ID: ${matchItem.id}")
+            matchItem.id?.let { matchId ->
+                navigateToMatchDetails(matchId, matchItem.name)
+            } ?: run {
+                Log.w("ScheduleFragment", "No match ID available for clicked match")
+                Toast.makeText(requireContext(), "No match ID available", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        Log.d("ScheduleFragment", "RecyclerView adapter set with ${matchList.size} total items")
+    }
+
+    private fun navigateToMatchDetails(matchId: String, matchName: String?) {
+        Log.d("ScheduleFragment", "Navigating to match details. ID: $matchId, Name: $matchName")
+        val matchDetailFragment = MatchDetailFragment().apply {
+            arguments = Bundle().apply {
+                putString("match_id", matchId)
+                putString("match_name", matchName ?: "Match Details")
+            }
+        }
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, matchDetailFragment)
+            .addToBackStack(null)
+            .commit()
     }
 }
