@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#121212">
+
+    <!-- Compact Header with black and orange theme -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:paddingTop="20dp"
+        android:background="@drawable/header_black_orange_background"
+        android:elevation="4dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerVertical="true">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CricMate"
+                android:textColor="#FF6B35"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/lato_black"
+                android:letterSpacing="0.02" />
+
+            <TextView
+                android:id="@+id/tv_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Your Cricket Assistant"
+                android:textColor="#CCCCCC"
+                android:textSize="11sp"
+                android:fontFamily="@font/lato_bold"
+                android:letterSpacing="0.01" />
+        </LinearLayout>
+
+        <!-- Status indicator -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Online"
+                android:textColor="#FF6B35"
+                android:textSize="10sp"
+                android:layout_marginEnd="6dp"
+                android:fontFamily="@font/lato_bold" />
+
+            <View
+                android:id="@+id/status_indicator"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:background="@drawable/status_indicator_orange" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- Messages list with black background -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_chat"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#1E1E1E"
+        android:clipToPadding="false"
+        android:paddingLeft="12dp"
+        android:paddingTop="12dp"
+        android:paddingRight="12dp"
+        android:paddingBottom="90dp"
+        android:scrollbarStyle="outsideOverlay"
+        android:fadeScrollbars="true"
+        app:stackFromEnd="true"
+        android:transcriptMode="normal" />
+
+    <!-- Input area with black and orange theme -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:paddingBottom="20dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/input_area_black_background"
+        android:elevation="8dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_input"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="12dp"
+            app:boxBackgroundMode="filled"
+            app:boxBackgroundColor="#2A2A2A"
+            app:boxCornerRadiusTopStart="24dp"
+            app:boxCornerRadiusTopEnd="24dp"
+            app:boxCornerRadiusBottomStart="24dp"
+            app:boxCornerRadiusBottomEnd="24dp"
+            app:boxStrokeWidth="1dp"
+            app:boxStrokeWidthFocused="2dp"
+            app:hintEnabled="false"
+            app:startIconDrawable="@null"
+            app:endIconMode="none"
+            android:elevation="2dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ask about cricket matches, players, stats..."
+                android:paddingStart="18dp"
+                android:paddingEnd="18dp"
+                android:paddingTop="14dp"
+                android:paddingBottom="14dp"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/bg_chat_bot_black_orange"
+                android:imeOptions="actionSend"
+                android:inputType="textCapSentences"
+                android:maxLines="3"
+                android:minHeight="48dp"
+                android:textSize="14sp"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#888888"
+                android:fontFamily="@font/lato"
+                android:lineSpacingExtra="2dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Send button with orange theme -->
+        <ImageButton
+            android:id="@+id/btn_send"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom|end"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/bg_chat_bot_black_orange"
+            android:src="@drawable/ic_send_enhanced"
+            android:contentDescription="Send"
+            android:elevation="8dp"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:padding="15dp"/>
+    </LinearLayout>
+
+</LinearLayout>

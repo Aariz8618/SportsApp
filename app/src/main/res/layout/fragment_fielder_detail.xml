@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@drawable/bg_page_gradient">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header Card with Title and Importance -->
+        <LinearLayout
+            android:id="@+id/headerCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="@drawable/bg_header_gradient"
+            android:elevation="4dp"
+            android:clipToPadding="false"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:id="@+id/tvPositionName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fielder Position"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvPositionSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Subtitle"
+                android:textColor="#A3A3A3"
+                android:textSize="14sp"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:id="@+id/tvPositionDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Details go here..."
+                android:textColor="#E5E7EB"
+                android:textSize="15sp"
+                android:layout_marginTop="12dp" />
+        </LinearLayout>
+
+        <!-- Action buttons with proper spacing (as a toggle group) -->
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/actionToggle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:singleSelection="true"
+            app:selectionRequired="false">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnViewOnMap"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:text="View on Field Map"
+                android:textAllCaps="false"
+                android:textSize="13sp"
+                android:checkable="true"
+                app:cornerRadius="12dp"
+                app:icon="@drawable/ic_calendar"
+                app:iconPadding="6dp"
+                app:iconSize="18dp"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="8dp"
+                android:textColor="@color/action_btn_text_tint"
+                app:iconTint="@color/action_btn_text_tint"
+                android:backgroundTint="@color/action_btn_bg_tint"
+                app:strokeColor="@color/action_btn_stroke_tint"
+                app:strokeWidth="1dp"
+                android:layout_marginEnd="8dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnComparePositions"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:text="Compare Positions"
+                android:textAllCaps="false"
+                android:textSize="13sp"
+                android:checkable="true"
+                app:cornerRadius="12dp"
+                app:icon="@drawable/ic_bar_chart"
+                app:iconPadding="6dp"
+                app:iconSize="18dp"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="8dp"
+                android:textColor="@color/action_btn_text_tint"
+                app:iconTint="@color/action_btn_text_tint"
+                android:backgroundTint="@color/action_btn_bg_tint"
+                app:strokeColor="@color/action_btn_stroke_tint"
+                app:strokeWidth="1dp"
+                android:layout_marginStart="8dp" />
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+
+            <!-- Segmented buttons acting as tabs -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardUseCompatPadding="true"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="#F3F4F6"
+                app:contentPadding="8dp">
+
+                <com.google.android.material.button.MaterialButtonToggleGroup
+                    android:id="@+id/toggleTabs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:singleSelection="true"
+                    app:selectionRequired="true"
+                    app:cornerRadius="20dp">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnTabOverview"
+                        style="@style/Widget.MaterialComponents.Button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="120dp"
+                        android:minHeight="60dp"
+                        android:layout_marginEnd="4dp"
+                        android:text="Overview"
+                        android:textSize="14sp"
+                        android:textAllCaps="false"
+                        android:checked="true"
+                        app:cornerRadius="15dp"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="14dp"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        app:rippleColor="@color/tab_ripple"
+                        android:textColor="@color/tab_text_color"
+                        app:iconTint="@color/tab_icon_tint"
+                        android:backgroundTint="@color/tab_bg_tint" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnTabTactics"
+                        style="@style/Widget.MaterialComponents.Button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="120dp"
+                        android:minHeight="60dp"
+                        android:layout_marginEnd="4dp"
+                        android:text="Tactics &amp; Strategy"
+                        android:textSize="14sp"
+                        android:textAllCaps="false"
+                        app:cornerRadius="15dp"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="14dp"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        app:rippleColor="@color/tab_ripple"
+                        android:textColor="@color/tab_text_color"
+                        app:iconTint="@color/tab_icon_tint"
+                        android:backgroundTint="@color/tab_bg_tint" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnTabStats"
+                        style="@style/Widget.MaterialComponents.Button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="120dp"
+                        android:minHeight="60dp"
+                        android:layout_marginEnd="4dp"
+                        android:text="Statistics"
+                        android:textSize="14sp"
+                        android:textAllCaps="false"
+                        app:cornerRadius="15dp"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="14dp"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        app:rippleColor="@color/tab_ripple"
+                        android:textColor="@color/tab_text_color"
+                        app:iconTint="@color/tab_icon_tint"
+                        android:backgroundTint="@color/tab_bg_tint" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnTabFamous"
+                        style="@style/Widget.MaterialComponents.Button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="120dp"
+                        android:minHeight="60dp"
+                        android:layout_marginEnd="0dp"
+                        android:text="Famous Fielders"
+                        android:textSize="14sp"
+                        android:textAllCaps="false"
+                        app:cornerRadius="15dp"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="14dp"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        app:rippleColor="@color/tab_ripple"
+                        android:textColor="@color/tab_text_color"
+                        app:iconTint="@color/tab_icon_tint"
+                        android:backgroundTint="@color/tab_bg_tint" />
+                </com.google.android.material.button.MaterialButtonToggleGroup>
+            </com.google.android.material.card.MaterialCardView>
+        </HorizontalScrollView>
+
+        <!-- Sections -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/sectionOverview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp"
+            app:cardUseCompatPadding="true"
+            app:cardBackgroundColor="#FFFFFFFF">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Title row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_eye"
+                        app:tint="#16A34A" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Key Skills Required"
+                        android:textColor="#111827"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:layout_marginStart="8dp"/>
+                </LinearLayout>
+
+                <!-- Skill rows -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Row template -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:background="@drawable/bg_row_soft"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="12dp"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="10dp">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Quick Reflexes"
+                            android:textColor="#111827"
+                            android:textSize="16sp"/>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <ImageView android:layout_width="8dp" android:layout_height="8dp" android:src="@drawable/dot_green" android:layout_marginStart="4dp"/>
+                            <ImageView android:layout_width="8dp" android:layout_height="8dp" android:src="@drawable/dot_green" android:layout_marginStart="4dp"/>
+                            <ImageView android:layout_width="8dp" android:layout_height="8dp" android:src="@drawable/dot_green" android:layout_marginStart="4dp"/>
+                            <ImageView android:layout_width="8dp" android:layout_height="8dp" android:src="@drawable/dot_green" android:layout_marginStart="4dp"/>
+                            <ImageView android:layout_width="8dp" android:layout_height="8dp" android:src="@drawable/dot_grey" android:layout_marginStart="4dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:background="@drawable/bg_row_soft"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="12dp"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="10dp">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Soft Hands"
+                            android:textColor="#111827"
+                            android:textSize="16sp"/>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <ImageView android:layout_width="8dp" android:layout_height="8dp" android:src="@drawable/dot_green" android:layout_marginStart="4dp"/>
+                            <ImageView android:layout_width="8dp" android:layout_height="8dp" android:src="@drawable/dot_green" android:layout_marginStart="4dp"/>
+                            <ImageView android:layout_width="8dp" android:layout_height="8dp" android:src="@drawable/dot_green" android:layout_marginStart="4dp"/>
+                            <ImageView android:layout_width="8dp" android:layout_height="8dp" android:src="@drawable/dot_green" android:layout_marginStart="4dp"/>
+                            <ImageView android:layout_width="8dp" android:layout_height="8dp" android:src="@drawable/dot_grey" android:layout_marginStart="4dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:background="@drawable/bg_row_soft"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="12dp"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="10dp">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Anticipation"
+                            android:textColor="#111827"
+                            android:textSize="16sp"/>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <ImageView android:layout_width="8dp" android:layout_height="8dp" android:src="@drawable/dot_green" android:layout_marginStart="4dp"/>
+                            <ImageView android:layout_width="8dp" android:layout_height="8dp" android:src="@drawable/dot_green" android:layout_marginStart="4dp"/>
+                            <ImageView android:layout_width="8dp" android:layout_height="8dp" android:src="@drawable/dot_green" android:layout_marginStart="4dp"/>
+                            <ImageView android:layout_width="8dp" android:layout_height="8dp" android:src="@drawable/dot_grey" android:layout_marginStart="4dp"/>
+                            <ImageView android:layout_width="8dp" android:layout_height="8dp" android:src="@drawable/dot_grey" android:layout_marginStart="4dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:background="@drawable/bg_row_soft"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="12dp"
+                        android:gravity="center_vertical">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Concentration"
+                            android:textColor="#111827"
+                            android:textSize="16sp"/>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <ImageView android:layout_width="8dp" android:layout_height="8dp" android:src="@drawable/dot_green" android:layout_marginStart="4dp"/>
+                            <ImageView android:layout_width="8dp" android:layout_height="8dp" android:src="@drawable/dot_green" android:layout_marginStart="4dp"/>
+                            <ImageView android:layout_width="8dp" android:layout_height="8dp" android:src="@drawable/dot_green" android:layout_marginStart="4dp"/>
+                            <ImageView android:layout_width="8dp" android:layout_height="8dp" android:src="@drawable/dot_green" android:layout_marginStart="4dp"/>
+                            <ImageView android:layout_width="8dp" android:layout_height="8dp" android:src="@drawable/dot_grey" android:layout_marginStart="4dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/sectionTactics"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp"
+            app:cardUseCompatPadding="true"
+            app:cardBackgroundColor="#FFFFFFFF"
+            android:visibility="gone">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tactics &amp; Strategy"
+                    android:textColor="#111827"
+                    android:textStyle="bold"
+                    android:textSize="18sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Standard, Attacking, Defensive positions with conditions."
+                    android:textColor="#374151"
+                    android:layout_marginTop="8dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/sectionStatistics"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp"
+            app:cardUseCompatPadding="true"
+            app:cardBackgroundColor="#FFFFFFFF"
+            android:visibility="gone">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Position Statistics"
+                    android:textColor="#111827"
+                    android:textStyle="bold"
+                    android:textSize="18sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Catches/Match, Success Rate, Drop Rate, Avg Catch Distance, Reaction Time"
+                    android:textColor="#374151"
+                    android:layout_marginTop="8dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/sectionFamous"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp"
+            app:cardUseCompatPadding="true"
+            app:cardBackgroundColor="#FFFFFFFF"
+            android:visibility="gone">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Famous Fielders"
+                    android:textColor="#111827"
+                    android:textStyle="bold"
+                    android:textSize="18sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Examples: Rahul Dravid, Mark Taylor, Mark Waugh"
+                    android:textColor="#374151"
+                    android:layout_marginTop="8dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</ScrollView>

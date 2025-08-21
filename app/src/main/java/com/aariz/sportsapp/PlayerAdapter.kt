@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.aariz.sportsapp.R
 import com.aariz.sportsapp.models.Player
-import com.aariz.sportsapp.ui.PlayerDetailActivity
+import com.aariz.sportsapp.PlayerDetailActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 

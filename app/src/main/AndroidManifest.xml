@@ -26,10 +26,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <!-- Add PlayerDetailActivity -->
         <activity
-            android:name=".ui.PlayerDetailActivity"
+            android:name=".PlayerDetailActivity"
             android:exported="false"
             android:parentActivityName=".MainActivity" />
 
@@ -38,10 +37,21 @@
             android:name=".FullscreenImageActivity"
             android:exported="false"
             android:theme="@style/Theme.SportsApp.Fullscreen" />
+      <activity
+            android:name=".FullScreenMemeActivity"
+            android:exported="false"
+            android:theme="@style/Theme.FullScreenMeme" />
 
-        <activity
-            android:name="com.aariz.sportsapp.ui.PlayerDetailActivity"
-            android:exported="false" />
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.aariz.sportsapp.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+
 
     </application>
 

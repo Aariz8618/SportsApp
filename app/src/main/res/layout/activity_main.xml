@@ -85,13 +85,17 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:paddingEnd="4dp">
+                        android:paddingEnd="4dp"
+                        >
 
                         <androidx.cardview.widget.CardView
                             android:id="@+id/cv_match_card_1"
                             android:layout_width="320dp"
                             android:layout_height="wrap_content"
-                            android:layout_margin="16dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginBottom="16dp"
                             app:cardCornerRadius="10dp"
                             app:cardElevation="6dp"
                             android:clickable="true"
@@ -271,208 +275,14 @@
 
                         </androidx.cardview.widget.CardView>
 
-                        <!-- Domestic scorecard card -->
-                        <androidx.cardview.widget.CardView
-                            android:id="@+id/cv_match_card_2"
-                            android:layout_width="320dp"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="16dp"
-                            app:cardCornerRadius="10dp"
-                            app:cardElevation="6dp"
-                            android:clickable="true"
-                            android:focusable="true"
-                            app:cardBackgroundColor="@color/card_background"
-                            android:foreground="?android:attr/selectableItemBackground">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
-
-                                <!-- Match Header -->
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical"
-                                    android:padding="8dp"
-                                    android:paddingBottom="4dp">
-
-                                    <TextView
-                                        android:id="@+id/ranji_match"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="Elite Group A • MUM vs BRD"
-                                        android:textSize="11sp"
-                                        android:textColor="@color/text_secondary"
-                                        android:textStyle="bold" />
-
-                                </LinearLayout>
-
-                                <!-- Teams and scores section -->
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:gravity="center_vertical"
-                                    android:paddingHorizontal="8dp"
-                                    android:paddingBottom="4dp">
-
-                                    <!-- MUMBAI Team -->
-                                    <LinearLayout
-                                        android:layout_width="0dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="2"
-                                        android:orientation="vertical"
-                                        android:gravity="start">
-
-                                        <LinearLayout
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:orientation="horizontal"
-                                            android:gravity="center_vertical"
-                                            android:layout_marginBottom="1dp">
-
-                                            <TextView
-                                                android:layout_width="24dp"
-                                                android:layout_height="24dp"
-                                                android:background="@drawable/mca"
-                                                android:textSize="16sp"
-                                                android:layout_marginEnd="8dp" />
-
-                                            <TextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:text="Mumbai"
-                                                android:textSize="14sp"
-                                                android:textColor="@color/text_primary"
-                                                android:textStyle="bold" />
-
-                                        </LinearLayout>
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="214 &amp; 177"
-                                            android:textSize="16sp"
-                                            android:textColor="@color/text_primary"
-                                            android:textStyle="bold" />
-
-                                    </LinearLayout>
-
-                                    <!-- VS Section -->
-                                    <LinearLayout
-                                        android:layout_width="0dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:orientation="vertical"
-                                        android:gravity="center">
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="VS"
-                                            android:textSize="12sp"
-                                            android:textColor="@color/text_secondary"
-                                            android:textStyle="bold" />
-
-                                    </LinearLayout>
-
-                                    <!-- BARODA Team -->
-                                    <LinearLayout
-                                        android:layout_width="0dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="2"
-                                        android:orientation="vertical"
-                                        android:gravity="end">
-
-                                        <LinearLayout
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:orientation="horizontal"
-                                            android:gravity="center_vertical"
-                                            android:layout_marginBottom="1dp">
-
-                                            <TextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:text="Baroda"
-                                                android:textSize="14sp"
-                                                android:textColor="@color/text_primary"
-                                                android:textStyle="bold"
-                                                android:layout_marginEnd="8dp" />
-
-                                            <TextView
-                                                android:layout_width="24dp"
-                                                android:layout_height="24dp"
-                                                android:background="@drawable/baroda"
-                                                android:textSize="16sp" />
-
-                                        </LinearLayout>
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="290 &amp; 185"
-                                            android:textSize="16sp"
-                                            android:textColor="@color/text_primary"
-                                            android:textStyle="bold" />
-
-                                    </LinearLayout>
-
-                                </LinearLayout>
-
-                                <!-- Match Result Section -->
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:gravity="center"
-                                    android:paddingHorizontal="8dp"
-                                    android:paddingBottom="4dp">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="Baroda won by 84 runs"
-                                        android:textSize="13sp"
-                                        android:textColor="@color/text_primary"
-                                        android:textStyle="bold"
-                                        android:gravity="center"
-                                        android:paddingHorizontal="8dp"
-                                        android:paddingVertical="2dp" />
-
-                                </LinearLayout>
-
-                                <!-- Schedule Button -->
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:gravity="end"
-                                    android:background="@color/background_light"
-                                    android:paddingVertical="3dp"
-                                    android:paddingHorizontal="8dp">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="SCHEDULE"
-                                        android:padding="3dp"
-                                        android:gravity="end"
-                                        android:textSize="13sp" />
-
-                                </LinearLayout>
-
-                            </LinearLayout>
-
-                        </androidx.cardview.widget.CardView>
-
                         <!-- IPL scorecard card -->
                         <androidx.cardview.widget.CardView
                             android:id="@+id/cv_match_card_3"
                             android:layout_width="320dp"
                             android:layout_height="wrap_content"
-                            android:layout_margin="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="16dp"
                             app:cardCornerRadius="10dp"
                             app:cardElevation="6dp"
                             android:clickable="true"
@@ -788,6 +598,42 @@
                                 android:background="#80000000"
                                 android:padding="8dp"
                                 android:elevation="2dp" />
+
+                            <FrameLayout
+                                android:id="@+id/nav_bubble_overlay"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:clickable="false"
+                                android:clipChildren="false"
+                                android:clipToPadding="false"
+                                android:focusable="false">
+
+                                <FrameLayout
+                                    android:id="@+id/active_nav_bubble"
+                                    android:layout_width="64dp"
+                                    android:layout_height="64dp"
+                                    android:layout_gravity="bottom|start"
+                                    android:background="@drawable/bg_nav_active_circle"
+                                    android:clickable="false"
+                                    android:clipChildren="false"
+                                    android:clipToPadding="false"
+                                    android:elevation="16dp"
+                                    android:focusable="false"
+                                    android:translationZ="16dp"
+                                    android:visibility="gone">
+
+                                    <ImageView
+                                        android:id="@+id/iv_active_nav"
+                                        android:layout_width="32dp"
+                                        android:layout_height="32dp"
+                                        android:layout_gravity="center"
+                                        android:clickable="false"
+                                        android:contentDescription="ActiveNav"
+                                        android:focusable="false"
+                                        android:scaleType="centerInside" />
+
+                                </FrameLayout>
+                            </FrameLayout>
 
                         </FrameLayout>
 
@@ -1152,11 +998,26 @@
 
     </LinearLayout>
 
+    <ImageButton
+        android:id="@+id/fab_chat"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="84dp"
+        android:background="@drawable/fab_logo_background"
+        android:src="@drawable/cricmate"
+        android:contentDescription="Chatbot"
+        android:elevation="8dp"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:padding="0dp"/>
+
+
     <!-- Enhanced Bottom Navigation -->
     <LinearLayout
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
-
         android:layout_height="64dp"
         android:orientation="horizontal"
         android:background="@drawable/nav_background"
@@ -1331,41 +1192,6 @@
     </LinearLayout>
 
     <!-- Floating active nav bubble overlay at root -->
-    <FrameLayout
-        android:id="@+id/nav_bubble_overlay"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipChildren="false"
-        android:clipToPadding="false"
-        android:clickable="false"
-        android:focusable="false">
-
-        <FrameLayout
-            android:id="@+id/active_nav_bubble"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_gravity="bottom|start"
-            android:visibility="gone"
-            android:background="@drawable/bg_nav_active_circle"
-            android:elevation="16dp"
-            android:translationZ="16dp"
-            android:clipChildren="false"
-            android:clipToPadding="false"
-            android:clickable="false"
-            android:focusable="false">
-
-            <ImageView
-                android:id="@+id/iv_active_nav"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_gravity="center"
-                android:scaleType="centerInside"
-                android:contentDescription="ActiveNav"
-                android:clickable="false"
-                android:focusable="false" />
-
-        </FrameLayout>
-    </FrameLayout>
 
     <!-- Navigation Drawer Overlay -->
     <include layout="@layout/nav_drawer_overlay" />

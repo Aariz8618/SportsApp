@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_light"
+    android:background="#F7FAFC"
     android:fillViewport="true">
 
     <LinearLayout
@@ -12,45 +12,752 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <androidx.cardview.widget.CardView
+        <!-- Header Section -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp"
-            app:cardBackgroundColor="@color/card_background">
+            android:background="@drawable/scoring_terms_header_bg"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:layout_marginBottom="24dp">
 
+            <!-- Cricket Ball Icon -->
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_cricket_ball"
+                android:layout_gravity="center"
+                android:layout_marginBottom="16dp"
+                app:tint="@color/white" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cricket Scoring &amp; Terms"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Complete guide to understanding cricket scoring and terminology"
+                android:textSize="16sp"
+                android:textColor="#CBD5E0"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <!-- Tab Layout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/tab_container_bg"
+            android:padding="4dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tab_scoring_system"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="📊 Scoring System"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:background="@drawable/tab_selected_bg"
+                android:gravity="center"
+                android:padding="12dp"
+                android:layout_marginEnd="4dp" />
+
+            <TextView
+                android:id="@+id/tab_cricket_terms"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="📚 Cricket Terms"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                android:background="@drawable/tab_unselected_bg"
+                android:gravity="center"
+                android:padding="12dp"
+                android:layout_marginStart="4dp" />
+
+        </LinearLayout>
+
+        <!-- Content Container -->
+        <LinearLayout
+            android:id="@+id/content_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Scoring System Content (Initially Visible) -->
             <LinearLayout
+                android:id="@+id/scoring_system_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="20dp">
+                android:visibility="visible">
 
-                <TextView
-                    android:id="@+id/tv_title"
+                <!-- Section Header -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Scoring &amp; Terms"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/text_primary"
-                    android:fontFamily="@font/lato_bold"
-                    android:layout_marginBottom="16dp"
-                    android:gravity="center" />
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="16dp">
 
-                <TextView
-                    android:id="@+id/tv_content"
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_running"
+                        android:layout_marginEnd="8dp"
+                        android:layout_gravity="center_vertical" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Runs Scoring System"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:textColor="#2D3748"
+                        android:layout_gravity="center_vertical" />
+
+                </LinearLayout>
+
+                <!-- Running Between Wickets -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Understanding cricket scoring and terminology is essential for following the game.\n\nBasic Scoring:\n• Single: 1 run (batsmen swap ends)\n• Double: 2 runs\n• Triple: 3 runs (rare)\n• Boundary: 4 runs (ball reaches boundary)\n• Six: 6 runs (ball crosses boundary in air)\n\nExtras (Awarded to batting team):\n• Wide: Ball bowled outside batter's reach (1 run + re-bowl)\n• No-ball: Illegal delivery (1 run + free hit in limited overs)\n• Bye: Runs scored without bat touching ball\n• Leg-bye: Runs scored off body (not bat)\n• Penalty: 5 runs for various infringements\n\nBowling Terms:\n• Over: 6 legal deliveries by one bowler\n• Maiden: Over with no runs scored\n• Hat-trick: 3 wickets in 3 consecutive balls\n• Yorker: Ball pitched at batsman's feet\n• Bouncer: High, short-pitched delivery\n\nBatting Terms:\n• Duck: Batsman out for 0 runs\n• Golden Duck: Out on first ball faced\n• Century: 100 runs by one batsman\n• Half-century: 50 runs by one batsman\n• Double Century: 200+ runs\n\nCommon Abbreviations:\n• LBW: Leg Before Wicket\n• DRS: Decision Review System\n• SR: Strike Rate (runs per 100 balls)\n• RR: Run Rate (runs per over)\n• RPO: Runs Per Over"
-                    android:textSize="16sp"
-                    android:textColor="@color/text_primary"
-                    android:fontFamily="@font/lato"
-                    android:lineSpacingExtra="4dp"
-                    android:justificationMode="inter_word" />
+                    android:orientation="vertical"
+                    android:background="@drawable/scoring_item_bg"
+                    android:padding="16dp"
+                    android:layout_marginBottom="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="8dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_running"
+                            android:layout_marginEnd="8dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Running Between Wickets"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="#2D3748" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1, 2, 3 runs"
+                            android:textSize="12sp"
+                            android:textColor="@color/white"
+                            android:background="@drawable/score_pill_bg"
+                            android:padding="6dp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Batsmen run to the opposite end after hitting the ball. They can run multiple times based on how far the ball goes."
+                        android:textSize="14sp"
+                        android:textColor="#718096" />
+
+                </LinearLayout>
+
+                <!-- Ball Hits Boundary (Ground) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/scoring_item_bg"
+                    android:padding="16dp"
+                    android:layout_marginBottom="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="8dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_boundary"
+                            android:layout_marginEnd="8dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Ball Hits Boundary (Ground)"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="#2D3748" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4 runs"
+                            android:textSize="12sp"
+                            android:textColor="@color/white"
+                            android:background="@drawable/score_pill_bg"
+                            android:padding="6dp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="When the ball touches or rolls across the boundary rope after bouncing on the ground."
+                        android:textSize="14sp"
+                        android:textColor="#718096" />
+
+                </LinearLayout>
+
+                <!-- Ball Crosses Boundary (Air) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/scoring_item_bg"
+                    android:padding="16dp"
+                    android:layout_marginBottom="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="8dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_six"
+                            android:layout_marginEnd="8dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Ball Crosses Boundary (Air)"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="#2D3748" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="6 runs"
+                            android:textSize="12sp"
+                            android:textColor="@color/white"
+                            android:background="@drawable/score_pill_bg"
+                            android:padding="6dp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="When the ball flies over the boundary rope without touching the ground first. This is called a six."
+                        android:textSize="14sp"
+                        android:textColor="#718096" />
+
+                </LinearLayout>
+
+                <!-- Wide Ball -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/scoring_item_bg"
+                    android:padding="16dp"
+                    android:layout_marginBottom="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="8dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_wide"
+                            android:layout_marginEnd="8dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Wide Ball"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="#2D3748" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="+1 extra run"
+                            android:textSize="12sp"
+                            android:textColor="@color/white"
+                            android:background="@drawable/score_pill_bg"
+                            android:padding="6dp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Ball bowled too wide for the batsman to reach. The batting team gets an extra run and the ball is bowled again."
+                        android:textSize="14sp"
+                        android:textColor="#718096" />
+
+                </LinearLayout>
+
+                <!-- No Ball -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/scoring_item_bg"
+                    android:padding="16dp"
+                    android:layout_marginBottom="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="8dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_no_ball"
+                            android:layout_marginEnd="8dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="No Ball"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="#2D3748" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="+1 extra run + Free Hit"
+                            android:textSize="12sp"
+                            android:textColor="@color/white"
+                            android:background="@drawable/score_pill_bg"
+                            android:padding="6dp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Illegal delivery (like bowling above waist height). Batting team gets extra run plus a free hit on next ball."
+                        android:textSize="14sp"
+                        android:textColor="#718096" />
+
+                </LinearLayout>
+
+                <!-- Bye -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/scoring_item_bg"
+                    android:padding="16dp"
+                    android:layout_marginBottom="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="8dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_bye"
+                            android:layout_marginEnd="8dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Bye"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="#2D3748" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1, 2, 3+ runs"
+                            android:textSize="12sp"
+                            android:textColor="@color/white"
+                            android:background="@drawable/score_pill_bg"
+                            android:padding="6dp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Runs taken when the ball doesn't touch the bat or batsman's body, but they still run between wickets."
+                        android:textSize="14sp"
+                        android:textColor="#718096" />
+
+                </LinearLayout>
+
+                <!-- Leg Bye -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/scoring_item_bg"
+                    android:padding="16dp"
+                    android:layout_marginBottom="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="8dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_bye"
+                            android:layout_marginEnd="8dp"
+                            app:tint="#FFB74D" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Leg Bye"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="#2D3748" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1, 2, 3+ runs"
+                            android:textSize="12sp"
+                            android:textColor="@color/white"
+                            android:background="@drawable/score_pill_bg"
+                            android:padding="6dp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Runs scored when the ball hits the batsman's body (not the bat) and they run between wickets."
+                        android:textSize="14sp"
+                        android:textColor="#718096" />
+
+                </LinearLayout>
+
+                <!-- Dot Ball -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/scoring_item_bg"
+                    android:padding="16dp"
+                    android:layout_marginBottom="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="8dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_dot_ball"
+                            android:layout_marginEnd="8dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Dot Ball"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="#2D3748" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0 runs"
+                            android:textSize="12sp"
+                            android:textColor="@color/white"
+                            android:background="@drawable/score_pill_bg"
+                            android:padding="6dp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="A ball where no runs are scored. It is called a dot because it is marked with a dot in the scorebook."
+                        android:textSize="14sp"
+                        android:textColor="#718096" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
-        </androidx.cardview.widget.CardView>
+            <!-- Cricket Terms Content (Initially Hidden) -->
+            <LinearLayout
+                android:id="@+id/cricket_terms_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <!-- Cricket Terminology Header -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:text="📚"
+                        android:textSize="20sp"
+                        android:gravity="center"
+                        android:layout_marginEnd="8dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cricket Terminology"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:textColor="#2D3748"
+                        android:layout_gravity="center_vertical" />
+
+                </LinearLayout>
+
+                <!-- Innings -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/scoring_item_bg"
+                    android:padding="16dp"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Innings"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#2D3748"
+                        android:layout_marginBottom="8dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="The batting turn of a team. In T20, each team gets one innings. In Test cricket, teams can have two innings each."
+                        android:textSize="14sp"
+                        android:textColor="#718096" />
+
+                </LinearLayout>
+
+                <!-- Over -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/scoring_item_bg"
+                    android:padding="16dp"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Over"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#2D3748"
+                        android:layout_marginBottom="8dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="A set of 6 legal deliveries bowled by one bowler from one end. After each over, bowling switches to the other end."
+                        android:textSize="14sp"
+                        android:textColor="#718096" />
+
+                </LinearLayout>
+
+                <!-- Powerplay -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/scoring_item_bg"
+                    android:padding="16dp"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Powerplay"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#2D3748"
+                        android:layout_marginBottom="8dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Fielding restrictions in the first 6 overs (T20) or 10 overs (ODI) where only 2 fielders are allowed outside the 30-yard circle."
+                        android:textSize="14sp"
+                        android:textColor="#718096" />
+
+                </LinearLayout>
+
+                <!-- Strike Rate -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/scoring_item_bg"
+                    android:padding="16dp"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Strike Rate"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#2D3748"
+                        android:layout_marginBottom="8dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Formula: (Runs / Balls) x 100. Measures how quickly a batsman scores runs. Higher is better for batsmen."
+                        android:textSize="14sp"
+                        android:textColor="#718096" />
+
+                </LinearLayout>
+
+                <!-- Economy Rate -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/scoring_item_bg"
+                    android:padding="16dp"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Economy Rate"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#2D3748"
+                        android:layout_marginBottom="8dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Average runs conceded per over by a bowler. Lower economy rates indicate better bowling performance."
+                        android:textSize="14sp"
+                        android:textColor="#718096" />
+
+                </LinearLayout>
+
+                <!-- Duck -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/scoring_item_bg"
+                    android:padding="16dp"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Duck"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#2D3748"
+                        android:layout_marginBottom="8dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Getting out on 0 runs. A Golden Duck is getting out on the first ball faced."
+                        android:textSize="14sp"
+                        android:textColor="#718096" />
+
+                </LinearLayout>
+
+                <!-- Hat-trick -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/scoring_item_bg"
+                    android:padding="16dp"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Hat-trick"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#2D3748"
+                        android:layout_marginBottom="8dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="A bowler taking 3 wickets in 3 consecutive balls. A rare and celebrated achievement."
+                        android:textSize="14sp"
+                        android:textColor="#718096" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
 

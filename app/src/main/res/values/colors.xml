@@ -28,6 +28,21 @@
     <!-- Status Colors -->
     <color name="success_green">#4CAF50</color>
     <color name="win_green">#2E7D32</color>
+    
+    <!-- New UI Colors -->
+    <color name="blue_500">#3B82F6</color>
+    <color name="blue_600">#2563EB</color>
+    <color name="green_500">#10B981</color>
+    <color name="green_600">#059669</color>
+    <color name="green_100">#DCFCE7</color>
+    <color name="orange_100">#FED7AA</color>
+    <color name="orange_50">#FFF7ED</color>
+    <color name="yellow_100">#FEF3C7</color>
+    <color name="yellow_50">#FEFCE8</color>
+    <color name="purple_600">#9333EA</color>
+    <color name="orange_gradient_start">#FED7AA</color>
+    <color name="yellow_gradient_start">#FEF3C7</color>
+    <color name="green_gradient_start">#10B981</color>
     <color name="live_red">#F44336</color>
     
     <!-- Surface Colors -->
@@ -40,6 +55,24 @@
     <color name="white">#FFFFFFFF</color>
     <color name="button_1">#001262</color>
     <color name="button_2">#D0A7A7</color>
+    
+    <!-- Format Specific Colors -->
+    <color name="test_cricket_red">#C62828</color>
+    <color name="test_cricket_red_light">#EF5350</color>
+    <color name="odi_cricket_blue">#1976D2</color>
+    <color name="odi_cricket_blue_light">#42A5F5</color>
+    <color name="t20_cricket_green">#388E3C</color>
+    <color name="t20_cricket_green_light">#66BB6A</color>
+    <color name="the_hundred_purple">#7B1FA2</color>
+    <color name="the_hundred_purple_light">#BA68C8</color>
+    
+    <!-- Scoring Terms Colors -->
+    <color name="scoring_header_dark">#1A202C</color>
+    <color name="scoring_card_border">#E2E8F0</color>
+    <color name="scoring_text_secondary">#718096</color>
+    <color name="scoring_text_primary">#2D3748</color>
+    <color name="tab_unselected">#A0AEC0</color>
+    <color name="tab_text_muted">#CBD5E0</color>
 
     <!-- Filter Container Colors -->
     <color name="filter_container_bg">#FFFFFF</color>
@@ -91,5 +124,31 @@
     <color name="success_color">#4CAF50</color>
     <color name="error_color">#F44336</color>
     <color name="warning_color">#FF9800</color>
+
+    <!-- Primary Colors -->
+    <color name="primary_color_2.1">#1976D2</color>
+    <color name="primary_dark_2">#0D47A1</color>
+    <color name="primary_light">#42A5F5</color>
+
+    <!-- Background Colors -->
+    <color name="background_gradient">#F8F9FA</color>
+    <color name="input_background">#F5F7FA</color>
+
+    <!-- Status and Accent Colors -->
+    <color name="success_green_light">#81C784</color>
+
+    <!-- FAB Colors -->
+    <color name="fab_gradient_start">#1976D2</color>
+    <color name="fab_gradient_end">#2196F3</color>
+    <color name="fab_ripple">#BBDEFB</color>
+
+    <!-- Input Colors -->
+    <color name="input_stroke_normal">#E0E0E0</color>
+    <color name="input_stroke_focused">#1976D2</color>
+
+    <!-- Shadow and Overlay Colors -->
+    <color name="shadow_light">#10000000</color>
+    <color name="shadow_medium">#20000000</color>
+    <color name="overlay_light">#08000000</color>
 
 </resources>

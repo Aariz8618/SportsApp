@@ -207,6 +207,146 @@ class RulesOfTheGameFragment : Fragment() {
         binding.root.findViewById<View>(R.id.law_title_14)?.setOnClickListener {
             mainActivity?.navigateToFragment(Law14Fragment(), "Law 14 - The Follow-on")
         }
+
+        // Law 15 - Declaration and Forfeiture
+        binding.root.findViewById<View>(R.id.law_title_15)?.setOnClickListener {
+            mainActivity?.navigateToFragment(Law15Fragment(), "Law 15 - Declaration and Forfeiture")
+        }
+
+        // Law 16 - The Result
+        binding.root.findViewById<View>(R.id.law_title_16)?.setOnClickListener {
+            mainActivity?.navigateToFragment(Law16Fragment(), "Law 16 - The Result")
+        }
+
+        // Law 17 - The Over
+        binding.root.findViewById<View>(R.id.law_title_17)?.setOnClickListener {
+            mainActivity?.navigateToFragment(Law17Fragment(), "Law 17 - The Over")
+        }
+
+        // Law 18 - Scoring Runs
+        binding.root.findViewById<View>(R.id.law_title_18)?.setOnClickListener {
+            mainActivity?.navigateToFragment(Law18Fragment(), "Law 18 - Scoring Runs")
+        }
+
+        // Law 19 - Boundaries
+        binding.root.findViewById<View>(R.id.law_title_19)?.setOnClickListener {
+            mainActivity?.navigateToFragment(Law19Fragment(), "Law 19 - Boundaries")
+        }
+
+        // Law 20 - Dead Ball
+        binding.root.findViewById<View>(R.id.law_title_20)?.setOnClickListener {
+            mainActivity?.navigateToFragment(Law20Fragment(), "Law 20 - Dead Ball")
+        }
+
+        // Law 21 - No Ball
+        binding.root.findViewById<View>(R.id.law_title_21)?.setOnClickListener {
+            mainActivity?.navigateToFragment(Law21Fragment(), "Law 21 - No Ball")
+        }
+
+        // Law 22 - Wide Ball
+        binding.root.findViewById<View>(R.id.law_title_22)?.setOnClickListener {
+            mainActivity?.navigateToFragment(Law22Fragment(), "Law 22 - Wide Ball")
+        }
+
+        // Law 23 - Bye and Leg Bye
+        binding.root.findViewById<View>(R.id.law_title_23)?.setOnClickListener {
+            mainActivity?.navigateToFragment(Law23Fragment(), "Law 23 - Bye and Leg Bye")
+        }
+
+        // Law 24 - Fielder's Absence; Substitutes
+        binding.root.findViewById<View>(R.id.law_title_24)?.setOnClickListener {
+            mainActivity?.navigateToFragment(Law24Fragment(), "Law 24 - Fielder's Absence; Substitutes")
+        }
+
+        // Law 25 - Batter's Innings; Runners
+        binding.root.findViewById<View>(R.id.law_title_25)?.setOnClickListener {
+            mainActivity?.navigateToFragment(Law25Fragment(), "Law 25 - Batter's Innings; Runners")
+        }
+
+        // Law 26 - Practice on the Field
+        binding.root.findViewById<View>(R.id.law_title_26)?.setOnClickListener {
+            mainActivity?.navigateToFragment(Law26Fragment(), "Law 26 - Practice on the Field")
+        }
+
+        // Law 27 - The Wicket-keeper
+        binding.root.findViewById<View>(R.id.law_title_27)?.setOnClickListener {
+            mainActivity?.navigateToFragment(Law27Fragment(), "Law 27 - The Wicket-keeper")
+        }
+
+        // Law 28 - The Fielder
+        binding.root.findViewById<View>(R.id.law_title_28)?.setOnClickListener {
+            mainActivity?.navigateToFragment(Law28Fragment(), "Law 28 - The Fielder")
+        }
+
+        // Law 29 - The Wicket is Down
+        binding.root.findViewById<View>(R.id.law_title_29)?.setOnClickListener {
+            mainActivity?.navigateToFragment(Law29Fragment(), "Law 29 - The Wicket is Down")
+        }
+
+        // Law 30 - Batter Out of his/her Ground
+        binding.root.findViewById<View>(R.id.law_title_30)?.setOnClickListener {
+            mainActivity?.navigateToFragment(Law30Fragment(), "Law 30 - Batter Out of Ground")
+        }
+
+        // Law 31 - Appeals
+        binding.root.findViewById<View>(R.id.law_title_31)?.setOnClickListener {
+            mainActivity?.navigateToFragment(Law31Fragment(), "Law 31 - Appeals")
+        }
+
+        // Law 32 - Bowled
+        binding.root.findViewById<View>(R.id.law_title_32)?.setOnClickListener {
+            mainActivity?.navigateToFragment(Law32Fragment(), "Law 32 - Bowled")
+        }
+
+        // Law 33 - Caught
+        binding.root.findViewById<View>(R.id.law_title_33)?.setOnClickListener {
+            mainActivity?.navigateToFragment(Law33Fragment(), "Law 33 - Caught")
+        }
+
+        // Law 34 - Hit the Ball Twice
+        binding.root.findViewById<View>(R.id.law_title_34)?.setOnClickListener {
+            mainActivity?.navigateToFragment(Law34Fragment(), "Law 34 - Hit the Ball Twice")
+        }
+
+        // Law 35 - Hit Wicket
+        binding.root.findViewById<View>(R.id.law_title_35)?.setOnClickListener {
+            mainActivity?.navigateToFragment(Law35Fragment(), "Law 35 - Hit Wicket")
+        }
+
+        // Law 36 - Leg Before Wicket
+        binding.root.findViewById<View>(R.id.law_title_36)?.setOnClickListener {
+            mainActivity?.navigateToFragment(Law36Fragment(), "Law 36 - Leg Before Wicket")
+        }
+
+        // Law 37 - Obstructing the Field
+        binding.root.findViewById<View>(R.id.law_title_37)?.setOnClickListener {
+            mainActivity?.navigateToFragment(Law37Fragment(), "Law 37 - Obstructing the Field")
+        }
+
+        // Law 38 - Run Out
+        binding.root.findViewById<View>(R.id.law_title_38)?.setOnClickListener {
+            mainActivity?.navigateToFragment(Law38Fragment(), "Law 38 - Run Out")
+        }
+
+        // Law 39 - Stumped
+        binding.root.findViewById<View>(R.id.law_title_39)?.setOnClickListener {
+            mainActivity?.navigateToFragment(Law39Fragment(), "Law 39 - Stumped")
+        }
+
+        // Law 40 - Timed Out
+        binding.root.findViewById<View>(R.id.law_title_40)?.setOnClickListener {
+            mainActivity?.navigateToFragment(Law40Fragment(), "Law 40 - Timed Out")
+        }
+
+        // Law 41 - Unfair Play
+        binding.root.findViewById<View>(R.id.law_title_41)?.setOnClickListener {
+            mainActivity?.navigateToFragment(Law41Fragment(), "Law 41 - Unfair Play")
+        }
+
+        // Law 42 - Players' Conduct
+        binding.root.findViewById<View>(R.id.law_title_42)?.setOnClickListener {
+            mainActivity?.navigateToFragment(Law42Fragment(), "Law 42 - Players' Conduct")
+        }
     }
 
     override fun onDestroyView() {

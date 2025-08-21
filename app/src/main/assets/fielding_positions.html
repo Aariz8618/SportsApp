@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    <title>Interactive Cricket Field - Complete Edition</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Reduce or pause heavy effects during interaction to keep frames smooth */
+        body.interacting .field-pattern,
+        body.interacting .stadium::before,
+        body.interacting .stadium,
+        body.interacting::before {
+            animation-play-state: paused !important;
+        }
+        body.interacting .player-icon,
+        body.interacting .position,
+        body.interacting .position-label {
+            transition: none !important;
+            box-shadow: none !important;
+        }
+        body.interacting .side-labels { opacity: 0 !important; }
+
+        body {
+            background:
+                radial-gradient(ellipse at center top, rgba(124, 179, 66, 0.15) 0%, transparent 50%),
+                linear-gradient(180deg,
+                    #e8f5e8 0%,
+                    #c8e6c8 25%,
+                    #a8d5a8 50%,
+                    #88c488 75%,
+                    #689f38 100%
+                );
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            user-select: none;
+            margin: 0;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* Subtle stadium atmosphere */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 15% 15%, rgba(255, 255, 255, 0.1) 0%, transparent 25%),
+                radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.1) 0%, transparent 25%),
+                radial-gradient(circle at 15% 85%, rgba(255, 255, 255, 0.08) 0%, transparent 30%),
+                radial-gradient(circle at 85% 85%, rgba(255, 255, 255, 0.08) 0%, transparent 30%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Simplified stadium structure */
+        .stadium {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: min(95vw, 95vh);
+            height: min(95vw, 95vh);
+            max-width: 900px;
+            max-height: 900px;
+            background:
+                radial-gradient(circle at center,
+                    transparent 60%,
+                    rgba(76, 175, 80, 0.2) 65%,
+                    rgba(56, 142, 60, 0.3) 75%,
+                    rgba(46, 125, 50, 0.4) 85%,
+                    rgba(27, 94, 32, 0.5) 95%
+                );
+            border-radius: 50%;
+            z-index: -2;
+        }
+
+        /* Stadium crowd effect */
+        .stadium::before {
+            content: '';
+            position: absolute;
+            top: 8%;
+            left: 8%;
+            right: 8%;
+            bottom: 8%;
+            background:
+                conic-gradient(from 0deg,
+                    rgba(76, 175, 80, 0.3) 0deg,
+                    rgba(139, 195, 74, 0.25) 60deg,
+                    rgba(104, 159, 56, 0.3) 120deg,
+                    rgba(76, 175, 80, 0.25) 180deg,
+                    rgba(139, 195, 74, 0.3) 240deg,
+                    rgba(104, 159, 56, 0.25) 300deg,
+                    rgba(76, 175, 80, 0.3) 360deg
+                );
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+
+        /* Wrapper that holds the entire scene so panning moves everything (stadium + field) */
+        .field-scene {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 10;
+            will-change: transform;
+            transform: translateZ(0);
+            contain: layout paint style size;
+            pointer-events: none; /* scene itself shouldn't block clicks */
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) translateZ(0);
+            width: min(85vw, 85vh);
+            height: min(85vw, 85vh);
+            max-width: 700px;
+            max-height: 700px;
+            z-index: 10;
+            will-change: transform;
+            contain: layout paint style size;
+            transform-origin: center center;
+            pointer-events: auto; /* allow interactions inside */
+        }
+
+        .field-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background:
+                radial-gradient(circle at center,
+                    #81c784 0%,
+                    #66bb6a 25%,
+                    #4caf50 50%,
+                    #43a047 75%,
+                    #388e3c 100%
+                );
+            box-shadow:
+                0 0 40px rgba(76, 175, 80, 0.4),
+                inset 0 0 60px rgba(0, 0, 0, 0.15);
+            overflow: visible;
+            border: 6px solid #4caf50;
+            position: relative;
+            cursor: grab;
+            will-change: transform;
+            transform: translateZ(0);
+            contain: layout paint style size;
+        }
+
+        .field-container:active {
+            cursor: grabbing;
+        }
+
+        /* Field lighting effect */
+        .field-container::before {
+            content: '';
+            position: absolute;
+            top: -5%;
+            left: -5%;
+            right: -5%;
+            bottom: -5%;
+            background:
+                radial-gradient(ellipse at center,
+                    rgba(255, 255, 255, 0.2) 0%,
+                    rgba(255, 255, 255, 0.1) 40%,
+                    transparent 70%
+                );
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .field-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1) 1px, transparent 2px),
+                radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.08) 1px, transparent 2px),
+                radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.08) 1px, transparent 2px),
+                radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.1) 1px, transparent 2px),
+                linear-gradient(45deg,
+                    transparent 48%, rgba(255, 255, 255, 0.05) 49%,
+                    rgba(255, 255, 255, 0.05) 51%, transparent 52%
+                );
+            background-size: 25px 25px, 35px 35px, 30px 30px, 40px 40px, 80px 80px;
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .pitch {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: min(70px, 12%);
+            height: min(180px, 30%);
+            background:
+                linear-gradient(45deg,
+                    #d4af37 0%, #daa520 25%, #b8860b 50%, #cd853f 75%, #d2691e 100%
+                );
+            border-radius: 8px;
+            border: 4px solid #8b4513;
+            box-shadow:
+                0 0 30px rgba(218, 165, 32, 0.6),
+                inset 0 0 30px rgba(255, 255, 255, 0.2),
+                0 5px 20px rgba(0, 0, 0, 0.3);
+            z-index: 6;
+        }
+
+        .pitch::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 10px;
+            right: 10px;
+            bottom: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            border-radius: 4px;
+            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+
+        .circle-30 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60%;
+            height: 60%;
+            border: 3px dashed rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            z-index: 5;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+
+        .position {
+            position: absolute;
+            width: min(28px, 4.5%);
+            height: min(28px, 4.5%);
+            cursor: move;
+            transition: transform 0.15s ease;
+            z-index: 15;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            will-change: transform;
+        }
+
+        /* Fixed positions styling */
+        .position.fixed {
+            cursor: move !important;
+            opacity: 0.8;
+        }
+
+        .position.fixed .player-icon {
+            border-color: #ff5722 !important;
+            box-shadow: 0 3px 8px rgba(255, 87, 34, 0.4) !important;
+        }
+
+        .position.fixed .player-icon::before {
+            background: #d32f2f !important;
+        }
+
+        .position.dragging {
+            z-index: 1000;
+            transform: scale(1.4);
+        }
+
+        .position.name-visible {
+            z-index: 999;
+        }
+
+        .position.batsman .player-icon {
+            background: radial-gradient(circle at 30% 30%, #ffcdd2 0%, #f44336 40%, #d32f2f 70%, #b71c1c 100%);
+        }
+
+        .position.bowler .player-icon {
+            background: radial-gradient(circle at 30% 30%, #c8e6c8 0%, #4caf50 40%, #388e3c 70%, #2e7d32 100%);
+        }
+
+        .position.wicketkeeper .player-icon {
+            background: radial-gradient(circle at 30% 30%, #fff3e0 0%, #ff9800 40%, #f57c00 70%, #e65100 100%);
+        }
+
+        .player-icon {
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 30% 30%,
+                    #ffecb3 0%, #ffc107 40%, #ff8f00 70%, #e65100 100%
+                );
+            border-radius: 50%;
+            border: 3px solid #ffffff;
+            position: relative;
+            transition: transform 0.15s ease;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .player-icon::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 25%;
+            height: 25%;
+            background: #2c3e50;
+            border-radius: 50%;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+        }
+
+        .player-icon::after {
+            content: '';
+            position: absolute;
+            bottom: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 35%;
+            background: linear-gradient(180deg, #1976d2 0%, #1565c0 100%);
+            border-radius: 50% 50% 0 0;
+            box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.2);
+        }
+
+        .position-label {
+            position: absolute;
+            color: #2e7d32;
+            font-size: clamp(11px, 2.2vw, 14px);
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
+            white-space: nowrap;
+            pointer-events: none;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            line-height: 1.2;
+            opacity: 0;
+            visibility: hidden;
+            background:
+                linear-gradient(135deg,
+                    rgba(255, 255, 255, 0.95) 0%,
+                    rgba(248, 249, 250, 0.9) 100%
+                );
+            padding: 6px 10px;
+            border-radius: 6px;
+            border: 1px solid rgba(76, 175, 80, 0.5);
+            min-width: max-content;
+            z-index: 1001;
+            left: 18px;
+            top: -12px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Fixed position label styling */
+        .position.fixed .position-label {
+            border-color: #ff5722 !important;
+            background: linear-gradient(135deg, rgba(255, 235, 238, 0.95) 0%, rgba(255, 205, 210, 0.9) 100%) !important;
+        }
+
+        /* Selected position styling */
+        .position.selected {
+            z-index: 998;
+        }
+
+        .position.selected .player-icon {
+            border-color: #ff9800 !important;
+            border-width: 4px !important;
+            background: radial-gradient(circle at 30% 30%, #fff3e0 0%, #ff9800 40%, #f57c00 70%, #e65100 100%) !important;
+            box-shadow: 0 0 15px rgba(255, 152, 0, 0.6) !important;
+            transform: scale(1.1);
+        }
+
+        .position.selected .position-label {
+            border-color: #ff9800 !important;
+            background: linear-gradient(135deg, rgba(255, 243, 224, 0.95) 0%, rgba(255, 224, 178, 0.9) 100%) !important;
+            color: #e65100 !important;
+        }
+
+        .position.name-visible .position-label {
+            opacity: 1 !important;
+            visibility: visible !important;
+            color: #2e7d32;
+            border-color: #4caf50;
+            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
+        }
+
+        .position.dragging .position-label {
+            opacity: 1;
+            visibility: visible;
+            color: #2e7d32;
+            border-color: #4caf50;
+            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
+        }
+
+        .boundary-dots {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            border-radius: 50%;
+            z-index: 4;
+        }
+
+        .boundary-dot {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background:
+                radial-gradient(circle,
+                    rgba(255, 255, 255, 0.9) 0%,
+                    rgba(255, 255, 255, 0.6) 70%,
+                    transparent 100%
+                );
+            box-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+        }
+
+        .side-labels {
+            position: absolute;
+            font-size: clamp(18px, 3.5vw, 24px);
+            font-weight: bold;
+            color: rgba(46, 125, 50, 0.8);
+            text-shadow: 2px 2px 6px rgba(255, 255, 255, 0.7);
+            z-index: 8;
+            pointer-events: none;
+            user-select: none;
+            letter-spacing: 2px;
+            background:
+                linear-gradient(135deg,
+                    rgba(255, 255, 255, 0.8) 0%,
+                    rgba(248, 249, 250, 0.6) 100%
+                );
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 1px solid rgba(76, 175, 80, 0.4);
+        }
+
+        /* Zoom Controls */
+        .zoom-controls {
+            position: fixed;
+            top: 12px;
+            right: 12px;
+            display: flex;
+            gap: 8px;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(76, 175, 80, 0.4);
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 2000;
+        }
+
+        .zoom-controls button {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+            color: #2e7d32;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease;
+        }
+
+        .zoom-controls button:hover {
+            background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+            transform: translateY(-1px);
+        }
+
+        .zoom-controls button:active {
+            transform: translateY(1px);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Pan Controls (fixed at bottom center) */
+        .pan-controls {
+            position: fixed;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(76, 175, 80, 0.4);
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 2000;
+        }
+
+        .pan-controls button {
+            width: 44px;
+            height: 36px;
+            border-radius: 8px;
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+            color: #2e7d32;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease;
+        }
+
+        .pan-controls button:hover {
+            background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+            transform: translateY(-1px);
+        }
+
+        .pan-controls button:active {
+            transform: translateY(1px);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Instructions Panel */
+        .instructions-panel {
+            position: fixed;
+            top: 12px;
+            left: 12px;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(76, 175, 80, 0.4);
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 2000;
+            max-width: 280px;
+        }
+
+        .instructions-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #2e7d32;
+            margin-bottom: 8px;
+            text-align: center;
+            border-bottom: 2px solid rgba(76, 175, 80, 0.3);
+            padding-bottom: 6px;
+        }
+
+        .instructions-list {
+            font-size: 13px;
+            color: #388e3c;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .off-side {
+            left: 25%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .leg-side {
+            right: 25%;
+            top: 50%;
+            transform: translate(50%, -50%);
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                width: min(95vw, 95vh);
+                height: min(95vw, 95vh);
+            }
+
+            .instructions-panel {
+                top: 8px;
+                left: 8px;
+                padding: 8px 12px;
+                max-width: 200px;
+            }
+
+            .instructions-title {
+                font-size: 14px;
+                margin-bottom: 6px;
+            }
+
+            .instructions-list {
+                font-size: 11px;
+            }
+
+            .zoom-controls {
+                top: 8px;
+                right: 8px;
+                padding: 6px;
+                gap: 6px;
+            }
+
+            .zoom-controls button {
+                width: 32px;
+                height: 32px;
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 5px;
+            }
+
+            .container {
+                width: min(98vw, 98vh);
+                height: min(98vw, 98vh);
+            }
+
+            .position-label {
+                left: 15px;
+                top: -10px;
+                font-size: 10px;
+                padding: 3px 6px;
+            }
+
+            .instructions-panel {
+                top: 5px;
+                left: 5px;
+                padding: 6px 10px;
+                max-width: 180px;
+            }
+
+            .instructions-title {
+                font-size: 13px;
+                margin-bottom: 4px;
+            }
+
+            .instructions-list {
+                font-size: 10px;
+                line-height: 1.5;
+            }
+
+            .zoom-controls {
+                top: 5px;
+                right: 5px;
+                padding: 4px;
+                gap: 4px;
+            }
+
+            .zoom-controls button {
+                width: 28px;
+                height: 28px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="field-scene">
+    <div class="stadium"></div>
+
+    <div class="container">
+        <div class="field-container">
+            <div class="field-pattern"></div>
+            <div class="side-labels off-side">Off Side</div>
+            <div class="side-labels leg-side">Leg Side</div>
+
+        <div class="boundary-dots" id="boundaryDots"></div>
+        <div class="circle-30"></div>
+
+        <div class="pitch"></div>
+
+            <!-- All positions will be created by JavaScript -->
+        </div>
+    </div>
+</div>
+
+<!-- Zoom Controls -->
+<div class="zoom-controls">
+    <button id="resetZoom" title="Reset Zoom">⌂</button>
+    <button id="zoomOut" title="Zoom Out">−</button>
+    <button id="zoomIn" title="Zoom In">+</button>
+</div>
+
+<!-- Pan Controls -->
+<div class="pan-controls">
+    <button id="panLeft" title="Move Left">◀</button>
+    <button id="panRight" title="Move Right">▶</button>
+    <!-- If you later want up/down, add similar buttons for panUp/panDown -->
+  </div>
+
+<!-- Instructions Panel -->
+<div class="instructions-panel">
+    <div class="instructions-title">Instructions</div>
+    <div class="instructions-list">
+        • Single click on a player to view the position name<br>
+        • Double click on a player to view the position detail
+    </div>
+</div>
+
+<script>
+    // Complete field positions with all cricket fielding positions
+    const fieldPositions = [
+        // Batsmen (fixed positions)
+        { name: "Striker", x: 50, y: 42, fixed: true, type: "batsman" },
+        { name: "Non Striker", x: 50, y: 58, fixed: true, type: "batsman" },
+
+        // Bowler and Wicket Keeper (primary positions)
+        { name: "Bowler", x: 51, y: 66, fixed: true, type: "bowler" },
+        { name: "Wicket Keeper", x: 50, y: 30, fixed: true, type: "wicketkeeper" },
+
+        // Slip Cordon (behind wicket keeper on off side) - FIXED POSITIONS
+        { name: "1st Slip", x: 45, y: 29, fixed: true },
+        { name: "2nd Slip", x: 43, y: 30, fixed: true },
+        { name: "3rd Slip", x: 41, y: 31, fixed: true },
+        { name: "4th Slip", x: 39, y: 33, fixed: true },
+        { name: "Gully", x: 35, y: 30, fixed: true },
+
+        // Close-in fielders (Off side)
+        { name: "Silly Point", x: 43, y: 42, fixed: true },
+        { name: "Silly Mid Off", x: 43, y: 53, fixed: true },
+        { name: "Short Cover", x: 33, y: 58, fixed: true },
+        { name: "Point", x: 21, y: 46, fixed: true },
+        { name: "Cover Point", x: 21, y: 53, fixed: true },
+        { name: "Backward Point", x: 22, y: 38, fixed: true },
+
+        // Close-in fielders (Leg side)
+        { name: "Short Leg", x: 57, y: 42, fixed: true },
+        { name: "Leg Slip", x: 58, y: 34, fixed: true },
+        { name: "Silly Mid On", x: 57, y: 54, fixed: true },
+        { name: "Short Mid Wicket", x: 72, y: 50, fixed: true },
+        { name: "Square Leg", x: 79, y: 45, fixed: true },
+        { name: "Backward Short Leg", x: 65, y: 30, fixed: true },
+        { name: "Forward Short Leg", x: 38, y: 49, fixed: true },
+
+        // Ring fielders (Off side)
+        { name: "Cover", x: 23, y: 63, fixed: true },
+        { name: "Extra Cover", x: 31, y: 73, fixed: true },
+        { name: "Mid Off", x: 42, y: 69, fixed: true },
+
+        // Ring fielders (Leg side)
+        { name: "Mid On", x: 59, y: 68, fixed: true },
+        { name: "Mid Wicket", x: 77, y: 62, fixed: true },
+        { name: "Forward Square Leg", x: 80, y: 51, fixed: true },
+
+        // Fine positions
+        { name: "Fine Leg", x: 71, y: 18, fixed: true },
+        { name: "Short Fine Leg", x: 70, y: 26, fixed: true },
+        { name: "Third Man", x: 21, y: 18, fixed: true },
+
+        // Deep fielders (Off side)
+        { name: "Long Off", x: 30, y: 90, fixed: true },
+        { name: "Deep Extra Cover", x: 20, y: 83, fixed: true },
+        { name: "Deep Cover", x: 10, y: 70, fixed: true },
+        { name: "Deep Point", x: 6, y: 45, fixed: true },
+        { name: "Deep Backward Point", x: 10, y: 30, fixed: true },
+
+        // Deep fielders (Leg side)
+        { name: "Long On", x: 73, y: 89, fixed: true },
+        { name: "Deep Mid Wicket", x: 92, y: 65, fixed: true },
+        { name: "Deep Square Leg", x: 95, y: 45, fixed: true },
+        { name: "Deep Backward Square Leg", x: 92, y: 36, fixed: true },
+        { name: "Deep Fine Leg", x: 79, y: 16, fixed: true },
+
+        // Cow Corner and other deep positions
+        { name: "Deep Mid On", x: 61, y: 75, fixed: true },
+        { name: "Cow Corner", x: 83, y: 80, fixed: true },
+
+        // Straight positions
+        { name: "Long Stop", x: 49, y: 5, fixed: true },
+        { name: "Straight Hit", x: 51, y: 94, fixed: true },
+
+        // Additional specialist positions
+        { name: "Fly Slip", x: 38, y: 25, fixed: true },
+        { name: "Deep Gully", x: 29, y: 33, fixed: true }
+    ];
+
+    let draggedElement = null;
+    let isDragging = false;
+    let offset = { x: 0, y: 0 };
+    let currentlyShowingName = null;
+    let selectedPlayer = null; // kept for focus only; Android controls multi-select visuals
+    let dragStartTime = 0;
+    let zoomLevel = 1;
+    let originalPositions = [];
+    let panX = 0;
+    let panY = 0;
+
+    function createFieldPositions() {
+        const container = document.querySelector('.field-container');
+
+        // Store original positions for reset
+        originalPositions = fieldPositions.map(pos => ({...pos}));
+
+        fieldPositions.forEach((pos, index) => {
+            const position = document.createElement('div');
+            position.className = `position ${pos.type || ''}`;
+
+            // Add fixed class if position is fixed
+            if (pos.fixed) {
+                position.classList.add('fixed');
+            }
+
+            position.style.left = `${pos.x}%`;
+            position.style.top = `${pos.y}%`;
+            position.style.transform = 'translate(-50%, -50%)';
+            position.dataset.name = pos.name;
+            position.dataset.index = index;
+            position.dataset.fixed = pos.fixed || false;
+
+            // Create player icon
+            const playerIcon = document.createElement('div');
+            playerIcon.className = 'player-icon';
+            position.appendChild(playerIcon);
+
+            const label = document.createElement('div');
+            label.className = 'position-label';
+            label.textContent = pos.name;
+            position.appendChild(label);
+
+            container.appendChild(position);
+
+            // Add drag functionality (only for non-fixed positions)
+            addDragFunctionality(position);
+
+            // Register double-click and double-tap to open details
+            registerDoubleTap(position);
+
+            // Update label position for better placement
+            updateLabelPosition(position);
+        });
+    }
+
+    function addDragFunctionality(element) {
+        // Only add drag functionality if not fixed
+        const isFixed = element.dataset.fixed === 'true';
+
+        if (!isFixed) {
+            element.addEventListener('mousedown', startDrag);
+            element.addEventListener('touchstart', startDrag, { passive: false });
+        }
+
+        element.addEventListener('click', handleNameToggle);
+
+        // Update label position on creation
+        updateLabelPosition(element);
+    }
+
+    // Double-click (desktop) and double-tap (mobile) support
+    function registerDoubleTap(element) {
+        // Desktop double-click
+        element.addEventListener('dblclick', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const name = element.dataset.name;
+            if (window.AndroidBridge && typeof window.AndroidBridge.onFielderDoubleTap === 'function') {
+                try { window.AndroidBridge.onFielderDoubleTap(name); } catch (err) { console.error(err); }
+            } else {
+                console.log('Double-tapped:', name);
+            }
+        });
+
+        // Mobile double-tap
+        let lastTapTime = 0;
+        element.addEventListener('touchend', (e) => {
+            const currentTime = Date.now();
+            const tapGap = currentTime - lastTapTime;
+            if (tapGap > 0 && tapGap < 300) {
+                e.preventDefault();
+                e.stopPropagation();
+                const name = element.dataset.name;
+                if (window.AndroidBridge && typeof window.AndroidBridge.onFielderDoubleTap === 'function') {
+                    try { window.AndroidBridge.onFielderDoubleTap(name); } catch (err) { console.error(err); }
+                } else {
+                    console.log('Double-tapped:', name);
+                }
+                lastTapTime = 0;
+            } else {
+                lastTapTime = currentTime;
+            }
+        });
+    }
+
+    function handleNameToggle(e) {
+        // Don't toggle name if this was a drag operation
+        if (isDragging || (Date.now() - dragStartTime < 150)) {
+            return;
+        }
+
+        e.preventDefault();
+        e.stopPropagation();
+
+        const clickedElement = e.currentTarget;
+
+        // Handle player selection
+        selectPlayer(clickedElement);
+
+        // If this element is already showing its name, hide it
+        if (currentlyShowingName === clickedElement) {
+            console.log('Hiding name for:', clickedElement.dataset.name);
+            hideAllNames();
+            return;
+        }
+
+        // Hide any currently showing name and show this one
+        console.log('Showing name for:', clickedElement.dataset.name);
+        hideAllNames();
+        showName(clickedElement);
+    }
+
+    function selectPlayer(element) {
+        // Let Android handle multi-select visual state; we only notify and keep optional focus
+        if (selectedPlayer === element) {
+            // keep focus as-is
+        } else {
+            selectedPlayer = element;
+        }
+        const name = element?.dataset?.name;
+        if (name && window.AndroidBridge && typeof window.AndroidBridge.onFielderSingleTap === 'function') {
+            try { window.AndroidBridge.onFielderSingleTap(name); } catch (err) { console.error(err); }
+        }
+    }
+
+    function showName(element) {
+        currentlyShowingName = element;
+        element.classList.add('name-visible');
+        console.log('Name visible class added to:', element.dataset.name);
+    }
+
+    function hideAllNames() {
+        if (currentlyShowingName) {
+            console.log('Hiding name for:', currentlyShowingName.dataset.name);
+            currentlyShowingName.classList.remove('name-visible');
+            currentlyShowingName = null;
+        }
+
+        // Fallback: remove class from all elements
+        document.querySelectorAll('.position.name-visible').forEach(pos => {
+            pos.classList.remove('name-visible');
+        });
+    }
+
+    function updateLabelPosition(element) {
+        const label = element.querySelector('.position-label');
+        if (!label) return;
+
+        const fieldRect = document.querySelector('.field-container').getBoundingClientRect();
+        const elementStyle = element.style;
+
+        // Get position percentages
+        const x = parseFloat(elementStyle.left);
+        const y = parseFloat(elementStyle.top);
+
+        let offsetX = 18;
+        let offsetY = -12;
+
+        // Adjust horizontal position if near right edge
+        if (x > 75) {
+            offsetX = -label.offsetWidth - 18;
+            if (label.offsetWidth === 0) {
+                // Fallback if width not calculated yet
+                offsetX = -90;
+            }
+        }
+
+        // Adjust vertical position if near top edge
+        if (y < 25) {
+            offsetY = 30;
+        }
+
+        // Adjust if near bottom edge
+        if (y > 85) {
+            offsetY = -40;
+        }
+
+        // Adjust if near left edge
+        if (x < 25) {
+            offsetX = 25;
+        }
+
+        label.style.left = `${offsetX}px`;
+        label.style.top = `${offsetY}px`;
+    }
+
+    function startDrag(e) {
+        // Check if the position is fixed
+        const isFixed = e.currentTarget.dataset.fixed === 'true';
+        if (isFixed) {
+            console.log('Cannot move fixed position:', e.currentTarget.dataset.name);
+            return;
+        }
+
+        e.preventDefault();
+        isDragging = true;
+        dragStartTime = Date.now();
+        draggedElement = e.currentTarget;
+        draggedElement.classList.add('dragging');
+
+        const rect = draggedElement.getBoundingClientRect();
+        const fieldRect = document.querySelector('.field-container').getBoundingClientRect();
+
+        if (e.type === 'mousedown') {
+            offset.x = e.clientX - rect.left - rect.width / 2;
+            offset.y = e.clientY - rect.top - rect.height / 2;
+        } else {
+            offset.x = e.touches[0].clientX - rect.left - rect.width / 2;
+            offset.y = e.touches[0].clientY - rect.top - rect.height / 2;
+        }
+
+        document.addEventListener('mousemove', drag);
+        document.addEventListener('mouseup', stopDrag);
+        document.addEventListener('touchmove', drag, { passive: false });
+        document.addEventListener('touchend', stopDrag);
+
+        // Add interaction class to body for performance
+        document.body.classList.add('interacting');
+    }
+
+    function drag(e) {
+        if (!isDragging || !draggedElement) return;
+
+        e.preventDefault();
+        const fieldRect = document.querySelector('.field-container').getBoundingClientRect();
+
+        let clientX, clientY;
+        if (e.type === 'mousemove') {
+            clientX = e.clientX;
+            clientY = e.clientY;
+        } else {
+            clientX = e.touches[0].clientX;
+            clientY = e.touches[0].clientY;
+        }
+
+        const x = ((clientX - fieldRect.left - offset.x) / fieldRect.width) * 100;
+        const y = ((clientY - fieldRect.top - offset.y) / fieldRect.height) * 100;
+
+        // Keep within bounds
+        const boundedX = Math.max(5, Math.min(95, x));
+        const boundedY = Math.max(5, Math.min(95, y));
+
+        // Check if within circular boundary (increased radius to accommodate boundary fielders)
+        const centerX = 50;
+        const centerY = 50;
+        const distance = Math.sqrt((boundedX - centerX) ** 2 + (boundedY - centerY) ** 2);
+
+        // Allow all positions within the circular boundary (47% radius to match boundary dots)
+        if (distance <= 47) {
+            draggedElement.style.left = `${boundedX}%`;
+            draggedElement.style.top = `${boundedY}%`;
+
+            // Update position in fieldPositions array
+            const index = parseInt(draggedElement.dataset.index);
+            if (!isNaN(index) && fieldPositions[index]) {
+                fieldPositions[index].x = boundedX;
+                fieldPositions[index].y = boundedY;
+            }
+
+            updateLabelPosition(draggedElement);
+        }
+    }
+
+    function stopDrag() {
+        if (!isDragging) return;
+
+        isDragging = false;
+        if (draggedElement) {
+            draggedElement.classList.remove('dragging');
+            // Don't clear currentlyShowingName here - let it persist
+            draggedElement = null;
+        }
+
+        document.removeEventListener('mousemove', drag);
+        document.removeEventListener('mouseup', stopDrag);
+        document.removeEventListener('touchmove', drag);
+        document.removeEventListener('touchend', stopDrag);
+
+        // Remove interaction class from body
+        document.body.classList.remove('interacting');
+    }
+
+    function createBoundaryDots() {
+        const container = document.getElementById('boundaryDots');
+        const numDots = 72; // Optimized for performance
+
+        for (let i = 0; i < numDots; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'boundary-dot';
+
+            const angle = (i / numDots) * 2 * Math.PI;
+            const radius = 47;
+            const x = 50 + radius * Math.cos(angle);
+            const y = 50 + radius * Math.sin(angle);
+
+            dot.style.left = `${x}%`;
+            dot.style.top = `${y}%`;
+            dot.style.transform = 'translate(-50%, -50%)';
+
+            container.appendChild(dot);
+        }
+    }
+
+    // Zoom functionality
+    function setupZoomControls() {
+        const container = document.querySelector('.container');
+        const zoomInBtn = document.getElementById('zoomIn');
+        const zoomOutBtn = document.getElementById('zoomOut');
+        const resetZoomBtn = document.getElementById('resetZoom');
+
+        zoomInBtn.addEventListener('click', () => {
+            zoomLevel = Math.min(zoomLevel * 1.2, 3);
+            updateZoom();
+        });
+
+        zoomOutBtn.addEventListener('click', () => {
+            zoomLevel = Math.max(zoomLevel / 1.2, 0.5);
+            updateZoom();
+        });
+
+        resetZoomBtn.addEventListener('click', () => {
+            zoomLevel = 1;
+            panX = 0;
+            panY = 0;
+            updateZoom();
+        });
+
+        // Mouse wheel zoom
+        container.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            const delta = e.deltaY > 0 ? 0.9 : 1.1;
+            zoomLevel = Math.max(0.5, Math.min(3, zoomLevel * delta));
+            updateZoom();
+        });
+    }
+
+    // Pan functionality (left/right buttons)
+    function setupPanControls() {
+        const panLeftBtn = document.getElementById('panLeft');
+        const panRightBtn = document.getElementById('panRight');
+
+        const step = 40; // pixels per click
+
+        if (panLeftBtn) {
+            panLeftBtn.addEventListener('click', () => {
+                panX += step;
+                updateZoom();
+            });
+        }
+
+        if (panRightBtn) {
+             panRightBtn.addEventListener('click', () => {
+                panX -= step;
+                updateZoom();
+            });
+        }
+    }
+
+    // FIXED: This function now correctly reads the current positions
+    function logAllPositions() {
+        const positions = document.querySelectorAll('.position');
+        console.log('=== CURRENT FIELD POSITIONS ===');
+
+        const positionArray = [];
+        positions.forEach(pos => {
+            const name = pos.dataset.name;
+            // Correctly parse the percentage values and round them
+            const x = Math.round(parseFloat(pos.style.left.replace('%', '')));
+            const y = Math.round(parseFloat(pos.style.top.replace('%', '')));
+
+            const isFixed = pos.dataset.fixed === 'true';
+
+            const positionData = {
+                name: name,
+                x: x,
+                y: y
+            };
+
+            if (isFixed) {
+                positionData.fixed = true;
+            }
+
+            positionArray.push(positionData);
+
+            console.log(`${name}: x=${x}%, y=${y}%${isFixed ? ' (fixed)' : ''}`);
+        });
+
+        console.log('\n=== COPY-PASTE FORMAT ===');
+        console.log('const fieldPositions = [');
+        positionArray.forEach((pos, index) => {
+            const fixed = pos.fixed ? ', fixed: true' : '';
+            const comma = index < positionArray.length - 1 ? ',' : '';
+            console.log(`    { name: "${pos.name}", x: ${pos.x}, y: ${pos.y}${fixed} }${comma}`);
+        });
+        console.log('];');
+
+        return positionArray;
+    }
+
+    function updateZoom() {
+        const scene = document.querySelector('.field-scene');
+        const instructions = document.querySelector('.instructions-panel');
+        const panControls = document.querySelector('.pan-controls');
+
+        // Apply transform to the whole scene (stadium + container)
+        if (scene) {
+            scene.style.transform = `translate(${panX}px, ${panY}px) scale(${zoomLevel})`;
+        }
+
+        // Show instructions only at default zoom
+        if (instructions) {
+            instructions.style.display = (zoomLevel === 1) ? 'block' : 'none';
+        }
+
+        // Show arrows only when zoomed (in or out)
+        if (panControls) {
+            panControls.style.display = (zoomLevel === 1) ? 'none' : 'flex';
+        }
+    }
+
+    // Keyboard shortcuts
+    function setupKeyboardShortcuts() {
+        document.addEventListener('keydown', (e) => {
+            switch(e.key) {
+                case 'Escape':
+                    hideAllNames();
+                    // Also deselect any selected player
+                    if (selectedPlayer) {
+                        selectedPlayer.classList.remove('selected');
+                        selectedPlayer = null;
+                        console.log('Player deselected via Escape');
+                    }
+                    break;
+                case '+':
+                case '=':
+                    if (e.ctrlKey || e.metaKey) {
+                        e.preventDefault();
+                        zoomLevel = Math.min(zoomLevel * 1.2, 3);
+                        updateZoom();
+                    }
+                    break;
+                case '-':
+                case '_':
+                    if (e.ctrlKey || e.metaKey) {
+                        e.preventDefault();
+                        zoomLevel = Math.max(zoomLevel / 1.2, 0.5);
+                        updateZoom();
+                    }
+                    break;
+                case '0':
+                    if (e.ctrlKey || e.metaKey) {
+                        e.preventDefault();
+                        zoomLevel = 1;
+                        panX = 0;
+                        panY = 0;
+                        updateZoom();
+                    }
+                    break;
+            }
+        });
+    }
+
+    // Touch gestures for mobile
+    function setupTouchGestures() {
+        // Pinch-to-zoom disabled intentionally. Keep single-finger interactions for dragging players only.
+        // No listeners needed here so that two-finger pinch does nothing in WebView.
+    }
+
+    function getTouchDistance(touch1, touch2) {
+        const dx = touch1.clientX - touch2.clientX;
+        const dy = touch1.clientY - touch2.clientY;
+        return Math.sqrt(dx * dx + dy * dy);
+    }
+
+    // Hide context menu on right click
+    function setupContextMenu() {
+        document.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+        });
+    }
+
+    // Performance optimization: Intersection Observer for position labels
+    function setupIntersectionObserver() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const label = entry.target.querySelector('.position-label');
+                if (label) {
+                    if (entry.isIntersecting) {
+                        label.style.display = 'block';
+                    } else {
+                        label.style.display = 'none';
+                    }
+                }
+            });
+        }, {
+            root: document.querySelector('.field-container'),
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.position').forEach(position => {
+            observer.observe(position);
+        });
+    }
+
+    // Initialize everything
+    function init() {
+        createBoundaryDots();
+        createFieldPositions();
+        setupZoomControls();
+        setupPanControls();
+        setupKeyboardShortcuts();
+        setupTouchGestures();
+        setupContextMenu();
+
+        // Add slight delay for label positioning after DOM is fully rendered
+        setTimeout(() => {
+            document.querySelectorAll('.position').forEach(updateLabelPosition);
+        }, 100);
+
+        // Ensure initial transform applied
+        updateZoom();
+
+        console.log('Cricket field initialized with', fieldPositions.length, 'positions');
+        console.log('Fixed positions (cannot be moved):', fieldPositions.filter(p => p.fixed).map(p => p.name).join(', '));
+        console.log('Controls: Click to select/show names, drag to move (non-fixed), double-click for details');
+        console.log('Shortcuts: Ctrl+/- (zoom), Ctrl+0 (reset zoom), Esc (hide names & deselect)');
+    }
+
+    // Start when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+</script>
+</body>
+</html>

@@ -1,192 +1,393 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f5f5f5">
+    android:fitsSystemWindows="true"
+    tools:context=".MatchDetailFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!-- AppBar with collapsing header and tabs -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:fitsSystemWindows="true"
+        android:background="@android:color/white"
+        app:elevation="4dp">
 
-        <!-- Tabs: Summary | Scorecard -->
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tab_navigation"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:tabIndicatorFullWidth="false"
-            app:tabIndicatorColor="@color/button_1"
-            app:tabSelectedTextColor="@android:color/black"
-            app:tabTextColor="@android:color/darker_gray"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/tab_summary"
-                android:text="Summary" />
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/tab_scorecard"
-                android:text="Scorecard" />
-        </com.google.android.material.tabs.TabLayout>
-
-        <!-- Match Status Card -->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/card_match_status"
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsingToolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="8dp"
-            app:cardBackgroundColor="@android:color/white"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tab_navigation">
+            android:fitsSystemWindows="true"
+            app:contentScrim="@color/design_default_color_primary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-            <LinearLayout
+            <!-- Full Header (shown when expanded) -->
+            <ScrollView
+                android:id="@+id/header_full"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp"
-                android:gravity="center"
-                android:background="@drawable/header_gradient">
+                android:fillViewport="true"
+                android:background="@android:color/white"
+                app:layout_collapseMode="parallax"
+                app:layout_collapseParallaxMultiplier="0.5">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp">
+
+                    <!-- Title and status row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="12dp">
+
+                        <TextView
+                            android:id="@+id/tv_match_title"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Australia vs South Africa"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginStart="8dp">
+
+                            <TextView
+                                android:id="@+id/badge_live"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="10dp"
+                                android:paddingTop="6dp"
+                                android:paddingBottom="6dp"
+                                android:text="LIVE"
+                                android:textStyle="bold"
+                                android:textColor="@android:color/white"
+                                android:backgroundTintMode="src_in"
+                                android:background="@drawable/bg_badge_red" />
+
+                            <TextView
+                                android:id="@+id/badge_format"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="10dp"
+                                android:paddingTop="6dp"
+                                android:paddingBottom="6dp"
+                                android:text="ODI"
+                                android:textColor="@color/teal_700"
+                                android:background="@drawable/bg_badge_light" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Series / venue / time row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingBottom="16dp">
+
+                        <TextView
+                            android:id="@+id/tv_series"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="South Africa tour of Australia 2025"
+                            android:textColor="@android:color/darker_gray"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginTop="6dp">
+
+                            <TextView
+                                android:id="@+id/tv_venue"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Cairns"
+                                android:textColor="@android:color/secondary_text_light" />
+
+                            <TextView
+                                android:id="@+id/tv_date_time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Aug 19, 2025 • 14:30 IST"
+                                android:textColor="@android:color/secondary_text_light" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Team score cards -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:divider="@android:color/transparent"
+                        android:showDividers="middle">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2"
+                            android:baselineAligned="false">
+
+                            <!-- Team A Card -->
+                            <com.google.android.material.card.MaterialCardView
+                                android:id="@+id/card_team_a"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginEnd="8dp"
+                                app:cardUseCompatPadding="true"
+                                app:cardElevation="2dp"
+                                app:strokeWidth="1dp"
+                                app:strokeColor="@android:color/darker_gray">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:padding="12dp">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:gravity="center_vertical">
+
+                                        <ImageView
+                                            android:id="@+id/img_team_a"
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
+                                            android:scaleType="centerCrop"
+                                            android:src="@drawable/ic_team_placeholder"
+                                            android:contentDescription="Team A" />
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="vertical"
+                                            android:layout_marginStart="8dp">
+
+                                            <TextView
+                                                android:id="@+id/tv_team_a_name"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="Australia"
+                                                android:textStyle="bold"
+                                                android:textColor="@android:color/black" />
+
+                                            <TextView
+                                                android:id="@+id/tv_team_a_short"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="AUS"
+                                                android:textColor="@android:color/darker_gray" />
+                                        </LinearLayout>
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:id="@+id/tv_team_a_score"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:text="Yet to bat"
+                                        android:textStyle="bold"
+                                        android:textSize="22sp"
+                                        android:layout_marginTop="8dp" />
+
+                                    <TextView
+                                        android:id="@+id/tv_team_a_overs_rr"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:text="Second innings"
+                                        android:textColor="@android:color/darker_gray"
+                                        android:layout_marginTop="4dp" />
+                                </LinearLayout>
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <!-- Team B Card -->
+                            <com.google.android.material.card.MaterialCardView
+                                android:id="@+id/card_team_b"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="8dp"
+                                app:cardUseCompatPadding="true"
+                                app:cardElevation="2dp"
+                                app:strokeWidth="1dp"
+                                app:strokeColor="@android:color/darker_gray">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:padding="12dp">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:gravity="center_vertical">
+
+                                        <ImageView
+                                            android:id="@+id/img_team_b"
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
+                                            android:scaleType="centerCrop"
+                                            android:src="@drawable/ic_team_placeholder"
+                                            android:contentDescription="Team B" />
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="vertical"
+                                            android:layout_marginStart="8dp">
+
+                                            <TextView
+                                                android:id="@+id/tv_team_b_name"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="South Africa"
+                                                android:textStyle="bold"
+                                                android:textColor="@android:color/black" />
+
+                                            <TextView
+                                                android:id="@+id/tv_team_b_short"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="RSA"
+                                                android:textColor="@android:color/darker_gray" />
+                                        </LinearLayout>
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:id="@+id/tv_team_b_score"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:text="24/0"
+                                        android:textStyle="bold"
+                                        android:textSize="22sp"
+                                        android:layout_marginTop="8dp" />
+
+                                    <TextView
+                                        android:id="@+id/tv_team_b_overs_rr"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:text="5.4 overs • RR 4.24"
+                                        android:textColor="@android:color/darker_gray"
+                                        android:layout_marginTop="4dp" />
+                                </LinearLayout>
+                            </com.google.android.material.card.MaterialCardView>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Toss & Conditions -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="12dp">
+
+                        <TextView
+                            android:id="@+id/tv_toss"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Australia won the toss and elected to bowl"
+                            android:textColor="@android:color/black"
+                            android:background="@drawable/bg_info_chip"
+                            android:padding="12dp" />
+
+                        <TextView
+                            android:id="@+id/tv_conditions"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Pitch: Good batting • Weather: Sunny, 28°C"
+                            android:textColor="@android:color/black"
+                            android:background="@drawable/bg_info_chip_alt"
+                            android:padding="12dp"
+                            android:layout_marginTop="8dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+
+            <!-- Mini Header (shown when collapsed; keep simple toolbar-like row) -->
+            <LinearLayout
+                android:id="@+id/header_mini"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:background="@android:color/white"
+                app:layout_collapseMode="pin"
+                tools:visibility="visible"
+                android:visibility="gone">
 
                 <TextView
-                    android:id="@+id/tv_match_status"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tv_mini_title"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="LIVE"
+                    android:layout_weight="1"
+                    android:text="AUS vs RSA"
                     android:textStyle="bold"
-                    android:textColor="@android:color/white"
-                    android:textSize="18sp"
-                    android:background="@drawable/status_chip_live"
-                    android:paddingHorizontal="14dp"
-                    android:paddingVertical="6dp"
-                    tools:text="Completed" />
+                    android:textColor="@android:color/black" />
 
                 <TextView
-                    android:id="@+id/tv_series_name"
+                    android:id="@+id/tv_mini_score"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="India vs Australia Test Series"
-                    android:textSize="15sp"
-                    android:textColor="@android:color/white"
-                    android:textStyle="bold"
-                    tools:text="India vs Australia Test Series" />
-
+                    android:text="RSA 24/0 (5.4)"
+                    android:textColor="@android:color/holo_green_dark"
+                    android:textStyle="bold" />
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
 
-        <LinearLayout
-            android:id="@+id/ll_match_title"
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="12dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/card_match_status"
-            app:layout_constraintHorizontal_chainStyle="packed">
+            android:background="@android:color/white"
+            app:tabIndicatorFullWidth="false"
+            app:tabMode="scrollable"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@color/teal_700"
+            app:tabSelectedTextColor="@color/teal_700"
+            app:tabTextColor="@android:color/darker_gray" />
 
-            <TextView
-                android:id="@+id/tv_match_team1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="India"
-                android:layout_weight="1"
-                android:gravity="start|center_vertical"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+    </com.google.android.material.appbar.AppBarLayout>
 
-            <TextView
-                android:id="@+id/tv_vs"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" vs "
-                android:textSize="24sp"
-                android:textStyle="bold" />
+    <!-- Tabs content -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:listitem="@layout/item_placeholder" />
 
-            <TextView
-                android:id="@+id/tv_match_team2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Australia"
-                android:layout_weight="1"
-                android:gravity="end|center_vertical"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/tv_match_format"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="ODI"
-            android:textSize="14sp"
-            android:textColor="@android:color/white"
-            android:background="@android:color/darker_gray"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
-            android:paddingTop="4dp"
-            android:paddingBottom="4dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ll_match_title"
-            tools:text="T20" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_view_details"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:background="@color/button_1"
-            android:fontFamily="@font/lato_bold"
-            android:text="View Match Info"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toStartOf="@id/btn_view_squad"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_match_format" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_view_squad"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:background="@color/button_1"
-            android:fontFamily="@font/lato_bold"
-            android:text="View Squads"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/btn_view_details"
-            app:layout_constraintTop_toBottomOf="@id/ll_match_title" />
-
-        <TextView
-            android:id="@+id/tv_match_result"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:gravity="center"
-            android:text="India won by 5 wickets"
-            android:textSize="20sp"
-            android:textStyle="italic"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_view_squad" />
-
-        <!-- Loading Indicator -->
-        <ProgressBar
-            android:id="@+id/progress_loading"
-            style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Large"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
