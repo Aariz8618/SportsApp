@@ -53,10 +53,6 @@
                 android:resource="@xml/file_paths"/>
         </provider>
 
-        <activity
-            android:name="com.aariz.sportsapp.ui.PlayerDetailActivity"
-            android:exported="false" />
-
     </application>
 
 </manifest>
