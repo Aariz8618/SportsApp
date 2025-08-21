@@ -1,0 +1,5 @@
+<!-- pitch_background.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#D4AF37"/>
+    <stroke android:width="2dp" android:color="#B8860B"/>
+</shape>

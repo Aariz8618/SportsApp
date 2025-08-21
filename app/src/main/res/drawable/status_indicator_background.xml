@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Shadow -->
+    <item android:top="1dp" android:left="1dp">
+        <shape android:shape="oval">
+            <solid android:color="@color/shadow_medium" />
+        </shape>
+    </item>
+    <!-- Main circle -->
+    <item android:bottom="1dp" android:right="1dp">
+        <shape android:shape="oval">
+            <solid android:color="@color/success_green" />
+        </shape>
+    </item>
+    <!-- Inner glow -->
+    <item android:top="2dp" android:left="2dp" android:bottom="3dp" android:right="3dp">
+        <shape android:shape="oval">
+            <solid android:color="@color/success_green_light" />
+        </shape>
+    </item>
+</layer-list>

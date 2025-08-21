@@ -42,12 +42,21 @@ class UmpiresFragment : Fragment() {
             Umpire("Steve Bucknor", "Jamaica", R.drawable.buckner),
             Umpire("Brian Jerling", "South Africa", R.drawable.brian),
             Umpire("Bruce Oxenford", "Australia", R.drawable.bruce)
+        )
 
-            )
-
-        adapter = UmpireAdapter(umpireList)
+        adapter = UmpireAdapter(umpireList) { selectedUmpire ->
+            openUmpireDetail(selectedUmpire)
+        }
         recyclerView.adapter = adapter
 
         return view
+    }
+
+    private fun openUmpireDetail(umpire: Umpire) {
+        val fragment = UmpireDetailFragment.newInstance(umpire)
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .addToBackStack(null)
+            .commit()
     }
 }
