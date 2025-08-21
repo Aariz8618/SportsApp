@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tvBreakdownTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Rating Breakdown"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:paddingBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/tvBreakdownFormat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Format: Test"
+        android:textSize="14sp"
+        android:paddingBottom="8dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="8dp">
+
+        <TextView
+            android:id="@+id/tvBattingComponent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Batting: 80"
+            android:paddingVertical="6dp"/>
+
+        <TextView
+            android:id="@+id/tvBowlingComponent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bowling: 70"
+            android:paddingVertical="6dp"/>
+
+        <TextView
+            android:id="@+id/tvFieldingComponent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fielding: 75"
+            android:paddingVertical="6dp"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/btnClose"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:text="Close"
+        android:textStyle="bold"
+        android:layout_marginTop="12dp"
+        android:background="#EFEFF5"/>
+</LinearLayout>

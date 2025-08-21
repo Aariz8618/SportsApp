@@ -324,12 +324,12 @@ class MainActivity : AppCompatActivity() {
                     isDrawerOpen -> {
                         closeNavigationDrawer()
                     }
-                    // If not on home screen, check if we have fragments in backstack first
+                    // If not on home screen, navigate back appropriately
                     !isOnHomeScreen -> {
                         // Hide keyboard before navigating
                         hideKeyboard()
 
-                        // Check if there are fragments in the back stack
+                        // Check if there are fragments in the back stack first (e.g., Chatbot)
                         if (supportFragmentManager.backStackEntryCount > 0) {
                             val wasChatbot = currentFragment is ChatbotFragment
                             // Pop from back stack (e.g., Chatbot -> Home)
@@ -347,11 +347,11 @@ class MainActivity : AppCompatActivity() {
                             showHomeScreen()
                             openNavigationDrawer()
                         } else {
-                            // Default: go back to home
+                            // Default: go back to home screen instead of closing app
                             showHomeScreen()
                         }
                     }
-                    // Let the system handle the back press (exit app)
+                    // Only exit app when on home screen
                     else -> {
                         isEnabled = false
                         onBackPressedDispatcher.onBackPressed()

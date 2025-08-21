@@ -17,6 +17,7 @@ class PlayerDetailActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPlayerDetailBinding
     private val apiKey = "d048d0c6-efeb-4bf5-99e2-88f44cb23b82"
+    private var currentFormat: String = "test"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,6 +70,8 @@ class PlayerDetailActivity : AppCompatActivity() {
 
                             populatePlayerInfo(detail)
                             populateAllStats(detail)
+                            setupTabs()
+                            selectFormat("test")
                         } else {
                             Log.e("PlayerDetail", "Response body or data is null")
                             showError("No player data found")
@@ -349,5 +352,39 @@ class PlayerDetailActivity : AppCompatActivity() {
         binding.IPL4w5w10wvalue.text = "${fourWickets ?: "N/A"}/${fiveWickets ?: "N/A"}"
 
         Log.d("PlayerDetail", "IPL bowling stats populated")
+    }
+
+    private fun setupTabs() {
+        binding.tabTest.setOnClickListener { selectFormat("test") }
+        binding.tabOdi.setOnClickListener { selectFormat("odi") }
+        binding.tabT20i.setOnClickListener { selectFormat("t20") }
+        binding.tabIpl.setOnClickListener { selectFormat("ipl") }
+    }
+
+    private fun selectFormat(format: String) {
+        currentFormat = format
+        // Visual state
+        binding.tabTest.isSelected = format == "test"
+        binding.tabOdi.isSelected = format == "odi"
+        binding.tabT20i.isSelected = format == "t20"
+        binding.tabIpl.isSelected = format == "ipl"
+
+        // Toggle stats visibility
+        val showTest = format == "test"
+        val showOdi = format == "odi"
+        val showT20 = format == "t20"
+        val showIpl = format == "ipl"
+
+        binding.TestBatting.visibility = if (showTest) View.VISIBLE else View.GONE
+        binding.TestBowling.visibility = if (showTest) View.VISIBLE else View.GONE
+
+        binding.ODIBatting.visibility = if (showOdi) View.VISIBLE else View.GONE
+        binding.ODIBowling.visibility = if (showOdi) View.VISIBLE else View.GONE
+
+        binding.T20IBatting.visibility = if (showT20) View.VISIBLE else View.GONE
+        binding.T20IBowling.visibility = if (showT20) View.VISIBLE else View.GONE
+
+        binding.IPLBatting.visibility = if (showIpl) View.VISIBLE else View.GONE
+        binding.IPLBowling.visibility = if (showIpl) View.VISIBLE else View.GONE
     }
 }

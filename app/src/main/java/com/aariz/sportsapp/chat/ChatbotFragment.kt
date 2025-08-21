@@ -17,6 +17,7 @@ class ChatbotFragment : Fragment() {
 
     private val adapter = ChatAdapter()
     private val repo by lazy { CricketChatRepository() }
+    private lateinit var layoutManager: LinearLayoutManager
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,12 +30,21 @@ class ChatbotFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.rvChat.layoutManager = LinearLayoutManager(requireContext()).apply { stackFromEnd = true }
+
+        // Setup RecyclerView with proper configuration
+        layoutManager = LinearLayoutManager(requireContext()).apply {
+            stackFromEnd = true
+            reverseLayout = false
+        }
+        binding.rvChat.layoutManager = layoutManager
         binding.rvChat.adapter = adapter
 
         // Welcome message
         if (savedInstanceState == null) {
-            addBotMessage("🏏 Welcome to CricketBot! I'm here to help you with live scores, match updates, player stats, and everything cricket. How can I assist you today?")
+            // Post the welcome message to ensure RecyclerView is fully initialized
+            binding.rvChat.post {
+                addBotMessage("🏏 Welcome to CricketBot! I'm here to help you with live scores, match updates, player stats, and everything cricket. How can I assist you today?")
+            }
         }
 
         // Send actions
@@ -42,7 +52,6 @@ class ChatbotFragment : Fragment() {
         binding.etInput.setOnEditorActionListener { _, _, _ ->
             sendMessage(); true
         }
-
     }
 
     private fun sendMessage() {
@@ -53,11 +62,9 @@ class ChatbotFragment : Fragment() {
         // Show user message
         addUserMessage(text)
 
-
         lifecycleScope.launch {
             val answer = repo.answer(text)
-            // Typing indicator OFF and show bot answer
-
+            // Show bot answer
             addBotMessage(answer)
         }
     }
@@ -80,14 +87,19 @@ class ChatbotFragment : Fragment() {
 
     private fun addUserMessage(text: String) {
         adapter.submit(ChatMessage(role = ChatMessage.Role.USER, text = text))
-        binding.rvChat.scrollToPosition(adapter.itemCount - 1)
+        // Ensure smooth scroll to bottom
+        binding.rvChat.post {
+            binding.rvChat.smoothScrollToPosition(adapter.itemCount - 1)
+        }
     }
 
     private fun addBotMessage(text: String) {
         adapter.submit(ChatMessage(role = ChatMessage.Role.BOT, text = text))
-        binding.rvChat.scrollToPosition(adapter.itemCount - 1)
+        // Ensure smooth scroll to bottom
+        binding.rvChat.post {
+            binding.rvChat.smoothScrollToPosition(adapter.itemCount - 1)
+        }
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()
