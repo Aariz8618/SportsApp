@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.aariz.sportsapp.data.GroundRepo
 
 class GroundsFragment : Fragment() {
 
@@ -50,7 +51,14 @@ class GroundsFragment : Fragment() {
 
         recyclerView = view.findViewById(R.id.recyclerViewGrounds)
         recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
-        groundAdapter = GroundAdapter(groundList)
+        groundAdapter = GroundAdapter(groundList) { ground ->
+            val detail = GroundRepo.detailFor(ground)
+            (activity as? MainActivity)?.navigateToFragment(
+                GroundProfileFragment.newInstance(ground, detail),
+                title = ground.name,
+                addToBackStack = true
+            )
+        }
         recyclerView.adapter = groundAdapter
 
         return view
