@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("com.google.gms.google-services")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -71,8 +72,14 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
     // Gson for JSON parsing
     implementation("com.google.code.gson:gson:2.10.1")
-    // Gemini AI for chatbot
+    implementation("androidx.viewpager2:viewpager2:1.0.0")
+    implementation("com.github.chrisbanes:PhotoView:2.3.0")
+    implementation("com.google.android.flexbox:flexbox:3.0.0")
+     // Gemini AI for chatbot
     implementation("com.google.ai.client.generativeai:generativeai:0.7.0")
     // Coroutines for async calls
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+
+
+    
 }
