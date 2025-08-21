@@ -1,0 +1,787 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/groundProfileScroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="0dp">
+
+        <!-- Content starts -->
+
+        <!-- Hero Section -->
+        <FrameLayout
+            android:id="@+id/heroSection"
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:background="#169e85">
+
+            <ImageView
+                android:id="@+id/ivHeroImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/content_desc_ground_cover"
+                tools:src="@drawable/ic_menu_gallery" />
+
+            <!-- Gradient overlay (bottom) -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:layout_gravity="bottom"
+                android:background="@drawable/bg_hero_bottom_gradient" />
+
+
+            <!-- Ground name + location -->
+            <LinearLayout
+                android:id="@+id/headerContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_margin="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvGroundName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    tools:text="Ground Name" />
+
+                <LinearLayout
+                    android:id="@+id/locationRow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="6dp">
+
+                    <ImageView
+                        android:id="@+id/ivLocationIcon"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:tint="@android:color/white"
+                        android:src="@android:drawable/ic_dialog_map"
+                        tools:ignore="UseAppTint" />
+
+                    <TextView
+                        android:id="@+id/tvLocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"
+                        tools:text="Location" />
+                </LinearLayout>
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- Quick Stats -->
+        <LinearLayout
+            android:id="@+id/quickStats"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:background="#f8f9fa"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvCapacity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#2c3e50"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:text="50000" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Capacity"
+                    android:textColor="#6c757d"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/tvEstablished"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#2c3e50"
+                    tools:text="1982" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="11sp"
+                    android:textColor="#6c757d"
+                    android:text="Established" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/tvMatches"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#2c3e50"
+                    tools:text="125" />
+                <TextView
+                    android:id="@+id/tvMatchesLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="11sp"
+                    android:textColor="#6c757d"
+                    android:text="Matches" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Section container -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Average Scores Card -->
+            <LinearLayout
+                android:id="@+id/cardAverageScores"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@android:color/white"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp"
+                android:elevation="4dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Average Scores"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#2c3e50"
+                    android:layout_marginBottom="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="6dp">
+                    <!-- Test averages: label on left, 2 lines on right -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="6dp">
+                        <TextView
+                            android:id="@+id/tvAvgTestLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Test:"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:textColor="#495057"
+                            android:layout_marginEnd="8dp" />
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/tvAvgTestRightLine1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="14sp"
+                                android:textColor="#495057"
+                                tools:text="1st inn 285 | 2nd inn 220" />
+                            <TextView
+                                android:id="@+id/tvAvgTestRightLine2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="14sp"
+                                android:textColor="#495057"
+                                android:layout_marginTop="2dp"
+                                tools:text="3rd inn 210 | 4th inn 180" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/tvAvgOdi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textColor="#495057"
+                        android:layout_marginBottom="4dp"
+                        tools:text="ODI: 1st inn 265 | 2nd inn 240" />
+                    <TextView
+                        android:id="@+id/tvAvgT20"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textColor="#495057"
+                        tools:text="T20I: 1st inn 165 | 2nd inn155" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Pitch Characteristics Card -->
+            <LinearLayout
+                android:id="@+id/cardPitch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@android:color/white"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp"
+                android:elevation="4dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pitch Characteristics"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#2c3e50"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/tvPitchSummary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="#495057"
+                    android:layout_marginBottom="8dp"
+                    tools:text="A balanced pitch that offers assistance to both batsmen and bowlers" />
+
+                <LinearLayout
+                    android:id="@+id/tagRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:id="@+id/tagPitchPrimary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#28a745"
+                        android:textColor="@android:color/white"
+                        android:padding="8dp"
+                        android:textSize="12sp"
+                        tools:text="Balanced" />
+
+                    <TextView
+                        android:id="@+id/tagConditionPrimary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#fd7e14"
+                        android:textColor="@android:color/white"
+                        android:padding="8dp"
+                        android:textSize="12sp"
+                        android:layout_marginStart="8dp"
+                        tools:text="Good Weather" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Notable Records Card -->
+            <LinearLayout
+                android:id="@+id/cardRecords"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@android:color/white"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp"
+                android:elevation="4dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Notable Records"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#2c3e50"
+                    android:layout_marginBottom="8dp" />
+
+                <LinearLayout
+                    android:id="@+id/recordsGrid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <!-- Record Item 1 -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:padding="8dp"
+                            android:background="#f8f9fa"
+                            android:layout_margin="4dp">
+                            <TextView
+                                android:id="@+id/tvRecord1Type"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="12sp"
+                                android:textColor="#6c757d"
+                                android:maxLines="2"
+                                android:ellipsize="end"
+                                tools:text="Highest Score" />
+                            <TextView
+                                android:id="@+id/tvRecord1Value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="#2c3e50"
+                                tools:text="375" />
+                            <TextView
+                                android:id="@+id/tvRecord1Detail"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="10sp"
+                                android:textStyle="bold"
+                                android:textColor="#6c757d"
+                                tools:text="vs England 2016" />
+                        </LinearLayout>
+
+                        <!-- Record Item 2 -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:padding="8dp"
+                            android:background="#f8f9fa"
+                            android:layout_margin="4dp">
+                            <TextView
+                                android:id="@+id/tvRecord2Type"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="12sp"
+                                android:textColor="#6c757d"
+                                android:maxLines="2"
+                                android:ellipsize="end"
+                                tools:text="Best Bowling" />
+                            <TextView
+                                android:id="@+id/tvRecord2Value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="#2c3e50"
+                                tools:text="8/43" />
+                            <TextView
+                                android:id="@+id/tvRecord2Detail"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="10sp"
+                                android:textStyle="bold"
+                                android:textColor="#6c757d"
+                                tools:text="J. Anderson 2014" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <!-- Record Item 3 -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:padding="8dp"
+                            android:background="#f8f9fa"
+                            android:layout_margin="4dp">
+                            <TextView
+                                android:id="@+id/tvRecord3Type"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="12sp"
+                                android:textColor="#6c757d"
+                                android:maxLines="2"
+                                android:ellipsize="end"
+                                tools:text="Highest Individual" />
+                            <TextView
+                                android:id="@+id/tvRecord3Value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="#2c3e50"
+                                tools:text="248*" />
+                            <TextView
+                                android:id="@+id/tvRecord3Detail"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="10sp"
+                                android:textStyle="bold"
+                                android:textColor="#6c757d"
+                                tools:text="V. Kohli 2019" />
+                        </LinearLayout>
+
+                        <!-- Record Item 4 -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:padding="8dp"
+                            android:background="#f8f9fa"
+                            android:layout_margin="4dp">
+                            <TextView
+                                android:id="@+id/tvRecord4Type"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="12sp"
+                                android:textColor="#6c757d"
+                                android:maxLines="2"
+                                android:ellipsize="end"
+                                tools:text="Most Runs" />
+                            <TextView
+                                android:id="@+id/tvRecord4Value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="#2c3e50"
+                                tools:text="1,250" />
+                            <TextView
+                                android:id="@+id/tvRecord4Detail"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="10sp"
+                                android:textStyle="bold"
+                                android:textColor="#6c757d"
+                                tools:text="S. Tendulkar" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Wiki-style History -->
+            <LinearLayout
+                android:id="@+id/cardWiki"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@android:color/white"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp"
+                android:elevation="4dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="History"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:layout_marginBottom="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp"
+                    android:background="#f8f9fa"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Quick Facts"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#2c3e50"
+                        android:layout_marginBottom="8dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="4dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Owner:"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="#495057"
+                            android:layout_weight="1" />
+                        <TextView
+                            android:id="@+id/tvOwner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:textColor="#495057"
+                            android:layout_weight="2"
+                            tools:text="State Cricket Board" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="4dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Opened:"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="#495057"
+                            android:layout_weight="1" />
+                        <TextView
+                            android:id="@+id/tvOpenedYear"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:textColor="#495057"
+                            android:layout_weight="2"
+                            tools:text="1982" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="4dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="First Test:"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="#495057"
+                            android:layout_weight="1" />
+                        <TextView
+                            android:id="@+id/tvFirstTest"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:textColor="#495057"
+                            android:layout_weight="2"
+                            tools:text="March 15, 1985" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Capacity:"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="#495057"
+                            android:layout_weight="1" />
+                        <TextView
+                            android:id="@+id/tvCapacityInfo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:textColor="#495057"
+                            android:layout_weight="2"
+                            tools:text="50,000" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvHistory1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:lineHeight="22dp"
+                    android:textColor="#212529"
+                    android:layout_marginBottom="12dp"
+                    tools:text="The ground was established in 1982 as part of the city's cricket infrastructure development plan. It was designed to accommodate international matches and has since become one of the premier cricket venues in the region." />
+
+                <TextView
+                    android:id="@+id/tvHistory2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:lineHeight="22dp"
+                    android:textColor="#212529"
+                    android:layout_marginBottom="12dp"
+                    tools:text="The first international match was held in 1985, marking a significant milestone in the ground's history. Over the years, it has hosted numerous memorable encounters and has been witness to several record-breaking performances." />
+
+                <TextView
+                    android:id="@+id/tvHistory3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:lineHeight="22dp"
+                    android:textColor="#212529"
+                    android:layout_marginBottom="12dp"
+                    tools:text="Recent renovations have enhanced the facilities and increased the capacity, making it one of the most modern cricket stadiums in the country. The ground continues to be a favorite venue for both players and spectators." />
+
+                <TextView
+                    android:id="@+id/tvReferences"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textStyle="italic"
+                    android:textColor="#72777d"
+                    android:paddingTop="8dp"
+                    android:layout_marginTop="8dp"
+                    tools:text="References: Cricket Board Archives, Stadium Management Records" />
+            </LinearLayout>
+
+            
+            <!-- Ground Records by Format -->
+            <LinearLayout
+                android:id="@+id/cardFormatRecords"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@android:color/white"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp"
+                android:elevation="4dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ground Records "
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#2c3e50"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Test -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tests"
+                    android:textStyle="bold"
+                    android:textColor="#2c3e50"
+                    android:layout_marginTop="4dp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="6dp">
+                    <TextView
+                        android:id="@+id/tvTestMostRuns"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textColor="#495057"
+                        tools:text="Most runs: -" />
+                    <TextView
+                        android:id="@+id/tvTestMostWkts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:textSize="14sp"
+                        android:textColor="#495057"
+                        tools:text="Most wkts: -" />
+                </LinearLayout>
+
+                <!-- ODI -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ODIs"
+                    android:textStyle="bold"
+                    android:textColor="#2c3e50" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="6dp">
+                    <TextView
+                        android:id="@+id/tvOdiMostRuns"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textColor="#495057"
+                        tools:text="Most runs: -" />
+                    <TextView
+                        android:id="@+id/tvOdiMostWkts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:textSize="14sp"
+                        android:textColor="#495057"
+                        tools:text="Most wkts: -" />
+                </LinearLayout>
+
+                <!-- T20I -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="T20Is"
+                    android:textStyle="bold"
+                    android:textColor="#2c3e50" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tvT20MostRuns"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textColor="#495057"
+                        tools:text="Most runs: -" />
+                    <TextView
+                        android:id="@+id/tvT20MostWkts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:textSize="14sp"
+                        android:textColor="#495057"
+                        tools:text="Most wkts: -" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout> <!-- Close section container -->
+        <!-- Content ends -->
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
