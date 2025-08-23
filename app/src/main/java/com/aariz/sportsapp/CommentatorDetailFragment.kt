@@ -52,49 +52,49 @@ class CommentatorDetailFragment : Fragment() {
                     view.findViewById<TextView>(R.id.commentatorBorn)?.text = "July 19, 1961 – Hyderabad, India"
                     view.findViewById<TextView>(R.id.commentatorEducation)?.text = "Osmania University, IIM Ahmedabad"
                     view.findViewById<TextView>(R.id.commentatorOccupation)?.text = "Cricket Commentator, Journalist"
-                    view.findViewById<TextView>(R.id.commentatorHighlights)?.text = "Known as the 'Voice of Indian Cricket', worked in multiple ICC events."
+                    view.findViewById<TextView>(R.id.commentatorHighlights)?.text = getString(R.string.bhogle_highlights)
                 }
                 "Ian Bishop" -> {
                     view.findViewById<TextView>(R.id.commentatorBorn)?.text = "October 24, 1967 – Trinidad and Tobago"
                     view.findViewById<TextView>(R.id.commentatorEducation)?.text = "University of the West Indies"
                     view.findViewById<TextView>(R.id.commentatorOccupation)?.text = "Cricket Commentator, Former Cricketer"
-                    view.findViewById<TextView>(R.id.commentatorHighlights)?.text = "Renowned for sharp insights and calm presentation during live matches."
+                    view.findViewById<TextView>(R.id.commentatorHighlights)?.text = getString(R.string.bishop_highlights)
                 }
                 "Nasser Hussain" -> {
                     view.findViewById<TextView>(R.id.commentatorBorn)?.text = "March 28, 1968 – Madras, India"
                     view.findViewById<TextView>(R.id.commentatorEducation)?.text = "Durham University"
                     view.findViewById<TextView>(R.id.commentatorOccupation)?.text = "Cricket Commentator, Former England Captain"
-                    view.findViewById<TextView>(R.id.commentatorHighlights)?.text = "Known for tactical analysis and strong opinions in commentary."
+                    view.findViewById<TextView>(R.id.commentatorHighlights)?.text = getString(R.string.nasser_highlights)
                 }
-                "Michael Atherton" -> {
+                "Michael Holding" -> {
                     view.findViewById<TextView>(R.id.commentatorBorn)?.text = "March 23, 1968 – Manchester, England"
                     view.findViewById<TextView>(R.id.commentatorEducation)?.text = "University of Cambridge"
                     view.findViewById<TextView>(R.id.commentatorOccupation)?.text = "Cricket Commentator, Journalist"
-                    view.findViewById<TextView>(R.id.commentatorHighlights)?.text = "Expert in explaining technical details and match strategy."
+                    view.findViewById<TextView>(R.id.commentatorHighlights)?.text = getString(R.string.holding_highlights)
                 }
                 "Mark Nicholas" -> {
                     view.findViewById<TextView>(R.id.commentatorBorn)?.text = "September 29, 1957 – Westminster, London"
                     view.findViewById<TextView>(R.id.commentatorEducation)?.text = "Bradfield College"
                     view.findViewById<TextView>(R.id.commentatorOccupation)?.text = "Cricket Commentator, TV Presenter"
-                    view.findViewById<TextView>(R.id.commentatorHighlights)?.text = "Famous for charismatic presenting style and storytelling."
+                    view.findViewById<TextView>(R.id.commentatorHighlights)?.text = getString(R.string.nicholas_highlights)
                 }
                 "Simon Doull" -> {
                     view.findViewById<TextView>(R.id.commentatorBorn)?.text = "August 6, 1969 – Pukekohe, New Zealand"
                     view.findViewById<TextView>(R.id.commentatorEducation)?.text = "Local New Zealand Schools"
                     view.findViewById<TextView>(R.id.commentatorOccupation)?.text = "Cricket Commentator, Former Cricketer"
-                    view.findViewById<TextView>(R.id.commentatorHighlights)?.text = "Covers global cricket leagues, known for T20 commentary."
+                    view.findViewById<TextView>(R.id.commentatorHighlights)?.text = getString(R.string.doull_highlights)
                 }
                 "Sanjay Manjrekar" -> {
                     view.findViewById<TextView>(R.id.commentatorBorn)?.text = "July 12, 1965 – Mangalore, India"
                     view.findViewById<TextView>(R.id.commentatorEducation)?.text = "Mumbai University"
                     view.findViewById<TextView>(R.id.commentatorOccupation)?.text = "Cricket Commentator, Former Batsman"
-                    view.findViewById<TextView>(R.id.commentatorHighlights)?.text = "Analyzes batting techniques and match tactics."
+                    view.findViewById<TextView>(R.id.commentatorHighlights)?.text = getString(R.string.manjrekar_highlights)
                 }
                 "Pommie Mbangwa" -> {
                     view.findViewById<TextView>(R.id.commentatorBorn)?.text = "June 26, 1976 – Bulawayo, Zimbabwe"
                     view.findViewById<TextView>(R.id.commentatorEducation)?.text = "Falcon College"
                     view.findViewById<TextView>(R.id.commentatorOccupation)?.text = "Cricket Commentator, Former Bowler"
-                    view.findViewById<TextView>(R.id.commentatorHighlights)?.text = "Brings humor and passion into cricket broadcasting."
+                    view.findViewById<TextView>(R.id.commentatorHighlights)?.text = getString(R.string.pommie_highlights)
                 }
             }
         }
