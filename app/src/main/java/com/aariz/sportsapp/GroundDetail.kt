@@ -2,10 +2,6 @@ package com.aariz.sportsapp
 
 import java.io.Serializable
 
-/**
- * Expert-style detail model for binding to fragment_ground_profile.xml
- * Fill this with real data and pass to GroundProfileFragment.newInstance().
- */
 data class GroundDetail(
     // Header / quick stats
     val badgeText: String? = null,
