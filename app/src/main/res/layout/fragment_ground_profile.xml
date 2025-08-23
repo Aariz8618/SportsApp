@@ -57,6 +57,23 @@
                     android:textStyle="bold"
                     tools:text="Ground Name" />
 
+                <!-- Optional badge (e.g., Configured size: SCG) -->
+                <TextView
+                    android:id="@+id/tvBadge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:background="@drawable/bg_tab_selected"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    tools:text="Configured size: SCG" />
+
                 <LinearLayout
                     android:id="@+id/locationRow"
                     android:layout_width="wrap_content"
@@ -361,7 +378,7 @@
                                 android:textColor="#6c757d"
                                 android:maxLines="2"
                                 android:ellipsize="end"
-                                tools:text="Highest Score" />
+                                tools:text="Highest Test total" />
                             <TextView
                                 android:id="@+id/tvRecord1Value"
                                 android:layout_width="wrap_content"
@@ -369,7 +386,7 @@
                                 android:textSize="16sp"
                                 android:textStyle="bold"
                                 android:textColor="#2c3e50"
-                                tools:text="375" />
+                                tools:text="657/7d" />
                             <TextView
                                 android:id="@+id/tvRecord1Detail"
                                 android:layout_width="wrap_content"
@@ -377,7 +394,7 @@
                                 android:textSize="10sp"
                                 android:textStyle="bold"
                                 android:textColor="#6c757d"
-                                tools:text="vs England 2016" />
+                                tools:text="IND vs AUS,2001" />
                         </LinearLayout>
 
                         <!-- Record Item 2 -->
@@ -397,7 +414,7 @@
                                 android:textColor="#6c757d"
                                 android:maxLines="2"
                                 android:ellipsize="end"
-                                tools:text="Best Bowling" />
+                                tools:text="Lowest Test total" />
                             <TextView
                                 android:id="@+id/tvRecord2Value"
                                 android:layout_width="wrap_content"
@@ -405,7 +422,7 @@
                                 android:textSize="16sp"
                                 android:textStyle="bold"
                                 android:textColor="#2c3e50"
-                                tools:text="8/43" />
+                                tools:text="90" />
                             <TextView
                                 android:id="@+id/tvRecord2Detail"
                                 android:layout_width="wrap_content"
@@ -413,7 +430,7 @@
                                 android:textSize="10sp"
                                 android:textStyle="bold"
                                 android:textColor="#6c757d"
-                                tools:text="J. Anderson 2014" />
+                                tools:text="IND vs WI,1974" />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -440,7 +457,7 @@
                                 android:textColor="#6c757d"
                                 android:maxLines="2"
                                 android:ellipsize="end"
-                                tools:text="Highest Individual" />
+                                tools:text="Best BBI Test" />
                             <TextView
                                 android:id="@+id/tvRecord3Value"
                                 android:layout_width="wrap_content"
@@ -448,7 +465,7 @@
                                 android:textSize="16sp"
                                 android:textStyle="bold"
                                 android:textColor="#2c3e50"
-                                tools:text="248*" />
+                                tools:text="9/87" />
                             <TextView
                                 android:id="@+id/tvRecord3Detail"
                                 android:layout_width="wrap_content"
@@ -456,7 +473,7 @@
                                 android:textSize="10sp"
                                 android:textStyle="bold"
                                 android:textColor="#6c757d"
-                                tools:text="V. Kohli 2019" />
+                                tools:text="J.Bumrah vs AUS,2021" />
                         </LinearLayout>
 
                         <!-- Record Item 4 -->
@@ -476,7 +493,7 @@
                                 android:textColor="#6c757d"
                                 android:maxLines="2"
                                 android:ellipsize="end"
-                                tools:text="Most Runs" />
+                                tools:text="Highest Score Test" />
                             <TextView
                                 android:id="@+id/tvRecord4Value"
                                 android:layout_width="wrap_content"
@@ -484,7 +501,7 @@
                                 android:textSize="16sp"
                                 android:textStyle="bold"
                                 android:textColor="#2c3e50"
-                                tools:text="1,250" />
+                                tools:text="254*" />
                             <TextView
                                 android:id="@+id/tvRecord4Detail"
                                 android:layout_width="wrap_content"
@@ -492,7 +509,7 @@
                                 android:textSize="10sp"
                                 android:textStyle="bold"
                                 android:textColor="#6c757d"
-                                tools:text="S. Tendulkar" />
+                                tools:text="S. Tendulkar vs AUS 2011" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>

@@ -36,6 +36,15 @@ class GroundProfileFragment : Fragment() {
         view.findViewById<TextView>(R.id.tvGroundName)?.text = name ?: ""
         view.findViewById<TextView>(R.id.tvLocation)?.text = location ?: ""
         view.findViewById<ImageView>(R.id.ivHeroImage)?.apply { if (imageResId != 0) setImageResource(imageResId) }
+        view.findViewById<TextView>(R.id.tvBadge)?.apply {
+            val badge = detail?.badgeText
+            if (!badge.isNullOrBlank()) {
+                text = badge
+                visibility = View.VISIBLE
+            } else {
+                visibility = View.GONE
+            }
+        }
 
         // Quick stats
         view.findViewById<TextView>(R.id.tvCapacity)?.text = detail?.capacity ?: "-"
