@@ -1,5 +1,6 @@
 package com.aariz.sportsapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -60,36 +61,43 @@ class HighlightsFragment : Fragment() {
     }
 
     private fun setupData() {
+        // Sample public MP4 URLs
+        val video1 = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+        val video2 = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
+        val video3 = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4"
+        val video4 = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4"
+        val video5 = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
+
         highlights = listOf(
             HighlightShow(
-                title = "Don't Touch My DAUGHTER",
-                subtitle = "Don't Touch My Daughters",
-                category = "Drama Unlimited",
-                imageUrl = "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=400&h=600&fit=crop"
+                title = "AUSTRALIA vs SOUTH AFRICA\n1st ODI",
+                subtitle = "Highlights",
+                imageUrl = "https://static.cricbuzz.com/a/img/v1/i1/c740195/australias-batting-vs-south-africa-1st-odi.jpg?d=low&p=det",
+                videoUrl = video1
             ),
             HighlightShow(
-                title = "Secret Romance",
-                subtitle = "When Love Meets Mystery",
-                category = "Romance Special",
-                imageUrl = "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=400&h=600&fit=crop"
+                title = "AUSTRALIA vs SOUTH AFRICA\n 2nd ODI",
+                subtitle = "Highlights",
+                imageUrl = "https://static.cricbuzz.com/a/img/v1/i1/c741490/highlights-australia-vs-south-africa-2nd-odi.jpg?d=low&p=det",
+                videoUrl = video2
             ),
             HighlightShow(
-                title = "The Crown Prince",
-                subtitle = "Royal Hearts Collide",
-                category = "Historical Drama",
-                imageUrl = "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=600&fit=crop"
+                title = "AUSTRALIA vs SOUTH AFRICA\n1st T20I",
+                subtitle = "Highlights",
+                imageUrl = "https://static.cricbuzz.com/a/img/v1/i1/c736178/south-africas-batting-v-australia-1st-t20i.jpg?d=low&p=det",
+                videoUrl = video3
             ),
             HighlightShow(
-                title = "Memory Lane",
-                subtitle = "Lost in Time",
-                category = "Fantasy Romance",
-                imageUrl = "https://images.unsplash.com/photo-1519058082700-08a0b56da9b4?w=400&h=600&fit=crop"
+                title = "AUSTRALIA vs SOUTH AFRICA\n2nd T20I",
+                subtitle = "Highlights",
+                imageUrl = "https://static.cricbuzz.com/a/img/v1/1080x608/i1/c736886/highlights-australia-vs-south-africa-2nd-t20i.jpg",
+                videoUrl = video4
             ),
             HighlightShow(
-                title = "Midnight Cafe",
-                subtitle = "Stories After Dark",
-                category = "Slice of Life",
-                imageUrl = "https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=400&h=600&fit=crop"
+                title = "AUSTRALIA vs SOUTH AFRICA\n3rd T20I",
+                subtitle = "Highlights",
+                imageUrl = "https://img1.hotstarext.com/image/upload/f_auto/sources/r1/cms/prod/4639/1755356664639-i",
+                videoUrl = video5
             )
         )
     }
@@ -97,9 +105,14 @@ class HighlightsFragment : Fragment() {
     private fun setupCarousel() {
         try {
             val pagerAdapter = HighlightPagerAdapter(highlights) { highlightShow ->
-                // Handle highlight click
-                Log.d(TAG, "Clicked on highlight: ${highlightShow.title}")
-                // Add your navigation logic here
+                // Navigate to player screen
+                val ctx = requireContext()
+                val intent = Intent(ctx, HighlightPlayerActivity::class.java).apply {
+                    putExtra(HighlightPlayerActivity.EXTRA_TITLE, highlightShow.title)
+                    putExtra(HighlightPlayerActivity.EXTRA_SUBTITLE, highlightShow.subtitle)
+                    putExtra(HighlightPlayerActivity.EXTRA_VIDEO_URL, highlightShow.videoUrl)
+                }
+                startActivity(intent)
             }
 
             binding.viewPagerHighlights.adapter = pagerAdapter
@@ -108,13 +121,11 @@ class HighlightsFragment : Fragment() {
                     super.onPageSelected(position)
                     currentSlide = position
                     updateIndicators(position)
-                    updateCategoryText(position)
                 }
             })
 
             createIndicators(highlights.size)
             updateIndicators(0)
-            updateCategoryText(0)
             startAutoSlide()
         } catch (e: Exception) {
             Log.e(TAG, "Error setting up carousel: ${e.message}", e)
@@ -153,15 +164,6 @@ class HighlightsFragment : Fragment() {
         }
     }
 
-    private fun updateCategoryText(position: Int) {
-        try {
-            val txt: TextView = binding.txtCategory
-            txt.text = highlights.getOrNull(position)?.category ?: ""
-        } catch (e: Exception) {
-            Log.e(TAG, "Error updating category text: ${e.message}", e)
-        }
-    }
-
     private fun startAutoSlide() {
         stopAutoSlide()
         autoSlideRunnable = object : Runnable {
@@ -192,32 +194,34 @@ class HighlightsFragment : Fragment() {
 
             // Other Shows
             val other = listOf(
-                SimpleShow("Marry My Husband", "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=200&h=300&fit=crop", "Romance"),
-                SimpleShow("FOREVER LOVE", "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=200&h=300&fit=crop", "Drama")
+                SimpleShow("ABD’s 31-Ball Masterclass", "https://www.zapcricket.com/cdn/shop/articles/WhatsApp_Image_2024-02-01_at_05.12.07.webp?v=1706745388" ),
+                SimpleShow("Malinga’s Four-in-Four Magic", "https://img1.hscicdn.com/image/upload/f_auto/lsci/db/PICTURES/CMS/294200/294235.6.jpg")
             )
             setupRecyclerView(binding.rvOtherShows, other, space)
 
             // WorldCup Finals
-            val trending = listOf(
-                SimpleShow("THRILLING", "https://images.unsplash.com/photo-1489599735188-c2aa296c4a52?w=300&h=400&fit=crop", "THRILLER"),
-                SimpleShow("SCI-FI", "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=300&h=400&fit=crop", "SCI-FI")
+            val worldcup = listOf(
+                SimpleShow("WORLD CUP 2019 FINAL\n ENG vs NZ ", "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202407/eoin-morgans-england-140215708-16x9_0.jpg?VersionId=9_SpKCvU_e8favxXvHS8lSAy0x7MLLO_&size=690:388"),
+                SimpleShow("WORLD CUP 2023 FINAL\n AUS vs IND", "https://e0.365dm.com/23/11/768x432/skysports-cricket-world-cup-final_6365829.jpg?20231119165739"),
+                SimpleShow("ASIA CUP FINAL 2023\n IND vs SL", "https://www.hindustantimes.com/ht-img/img/2023/09/17/optimize/CRICKET-ASIA-2023-IND-SRI-ODI-PODIUM-6_1694958650972_1694958654821.jpg")
             )
-            setupRecyclerView(binding.rvTrendingShows, trending, space)
+            setupRecyclerView(binding.rvTrendingShows, worldcup, space)
 
             // IPL Finals
-            val best = listOf(
-                SimpleShow("CHAM", "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=200&h=300&fit=crop", "DRAMA"),
-                SimpleShow("V", "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=200&h=300&fit=crop", "SCI-FI")
+            val ipl = listOf(
+                SimpleShow("IPL FINAL 2012\n KKR vs CSK","https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjvGggJYIWYq8kdt6xYLPL_aLNFziIQRaY6Dyn-m-PIYy-ctNcJ5V5zBh5dIVQA5FTwCYiDz5rbGR9zHE0a4wQyn_Y-xS6u8XR05EpqlcufRe72NE1ERzhUcKNQOWHCPPJMd7eXS_eIEL0/s900/146018.6.jpg"),
+                SimpleShow("IPL FINAL 2013\n MI vs CSK", "https://www.hindustantimes.com/ht-img/img/2023/05/04/1600x900/mi-2013_1683198503255_1683198507333.jpg"),
+                SimpleShow("IPL FINAL 2018\n CSK vs SRH", "https://documents.iplt20.com/bcci/videos/1746379013_JRV_0142.jpg" )
             )
-            setupRecyclerView(binding.rvBestChoices, best, space)
+            setupRecyclerView(binding.rvBestChoices, ipl, space)
 
             //Key Moments
-            val billionaire = listOf(
-                SimpleShow("CEO's Secret", "https://www.google.com/imgres?q=ipl%20final%20images&imgurl=https%3A%2F%2Fwww.aljazeera.com%2Fwp-content%2Fuploads%2F2024%2F05%2FAP24147688418889-1716750725.jpg%3Fresize%3D1800%252C1800&imgrefurl=https%3A%2F%2Fwww.aljazeera.com%2Fsports%2Fliveblog%2F2024%2F5%2F26%2Flive-kolkata-knight-riders-vs-sunrisers-hyderabad-ipl-2024-final&docid=81z7eO1xNOTQsM&tbnid=7IsPtTo5wjYaMM&vet=12ahUKEwja2rqCrKCPAxW9UGcHHTpkB1UQM3oECCIQAA..i&w=1800&h=1800&hcb=2&ved=2ahUKEwja2rqCrKCPAxW9UGcHHTpkB1UQM3oECCIQAA"),
-                SimpleShow("Rich Love", "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=200&fit=crop"),
-                SimpleShow("Diamond Heart", "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=200&fit=crop")
+            val key_moments = listOf(
+                SimpleShow("Shami’s Semifinal Storm", "https://i.ytimg.com/vi/5QI90uLry_g/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLD8MAZX85Ycf5YH3NwySB6g4z2yVA"),
+                SimpleShow("Big Show’s Greatest Show", "https://images.indianexpress.com/2023/11/maxwell-vs-AFG.jpg"),
+                SimpleShow("The Chase Master Strikes Again", "https://img1.hscicdn.com/image/upload/f_auto/lsci/db/PICTURES/CMS/348000/348082.6.jpg")
             )
-            setupRecyclerView(binding.rvBillionaire, billionaire, space)
+            setupRecyclerView(binding.rvBillionaire, key_moments, space)
 
         } catch (e: Exception) {
             Log.e(TAG, "Error setting up lists: ${e.message}", e)
@@ -236,9 +240,8 @@ class HighlightsFragment : Fragment() {
                 false
             )
             recyclerView.adapter = HorizontalCardAdapter(items) { show ->
-                // Handle item click
+                // For now, these items do not have video URLs. You can map them to videos later.
                 Log.d(TAG, "Clicked on show: ${show.title}")
-                // Add your navigation logic here
             }
             recyclerView.addItemDecoration(SpacingItemDecoration(spacing))
         } catch (e: Exception) {

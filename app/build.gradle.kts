@@ -81,6 +81,8 @@ dependencies {
     // Coroutines for async calls
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
+    // Media3 ExoPlayer for existing highlights playback
+    implementation("androidx.media3:media3-exoplayer:1.4.1")
+    implementation("androidx.media3:media3-ui:1.4.1")
 
-    
 }

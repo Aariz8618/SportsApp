@@ -23,32 +23,35 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:background="@drawable/bg_app_gradient"
+                android:background="@drawable/bg_chat_bot_black_orange"
                 android:padding="8dp"
                 android:clipToPadding="false"
                 android:layout_marginBottom="12dp"
                 android:backgroundTintMode="src_over"
                 android:alpha="0.95">
 
+                <ImageButton
+                    android:id="@+id/btnSearch"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/ic_search"
+                    android:contentDescription="Search"
+                    app:tint="@android:color/white" />
+
                 <EditText
                     android:id="@+id/etSearch"
                     android:layout_width="0dp"
                     android:layout_height="48dp"
                     android:layout_weight="1"
-                    android:hint="Search dramas, movies, actors..."
-                    android:paddingStart="12dp"
+                    android:hint="Search Finals, Key moments..."
+                    android:paddingStart="8dp"
                     android:textColorHint="@color/text_secondary"
-                    android:textColor="@color/text_primary"
+                    android:textColor="@color/white"
                     android:background="@android:color/transparent" />
 
-                <ImageButton
-                    android:id="@+id/btnSearch"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:background="@drawable/bg_tab_selected"
-                    android:contentDescription="Search"
-                    android:src="@android:drawable/ic_menu_search"
-                    app:tint="@android:color/white" />
             </LinearLayout>
 
             <!-- ViewPager2 for Highlights Carousel -->
@@ -80,36 +83,14 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <!-- Category header under carousel -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:layout_marginBottom="8dp">
-
-                <View
-                    android:layout_width="3dp"
-                    android:layout_height="24dp"
-                    android:background="@drawable/bg_tab_selected"
-                    android:layout_marginEnd="8dp" />
-
-                <TextView
-                    android:id="@+id/txtCategory"
-                    android:layout_width="0dp"
+            <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Category"
+                    android:text="Record Breakers"
                     android:textStyle="bold"
+                    android:textColor="@color/text_primary"
                     android:textSize="16sp"
-                    android:textColor="@color/text_primary" />
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@android:drawable/ic_media_next"
-                    app:tint="@color/text_secondary" />
-            </LinearLayout>
+                    android:layout_marginBottom="8dp" />
 
             <!-- Other Shows (2 cards) -->
             <androidx.recyclerview.widget.RecyclerView
@@ -120,29 +101,6 @@
                 android:nestedScrollingEnabled="false"
                 android:layout_marginBottom="16dp" />
 
-            <!-- My Drama section header -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="8dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="My Drama"
-                    android:textStyle="bold"
-                    android:textColor="@color/text_primary"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Spark Me Tenderly"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="12sp" />
-            </LinearLayout>
 
             <!-- Most Trending -->
             <TextView
@@ -184,7 +142,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Key Moments"
+                android:text="Epic Performances"
                 android:textStyle="bold"
                 android:textColor="@color/text_primary"
                 android:textSize="16sp"

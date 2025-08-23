@@ -89,6 +89,24 @@ data class PlayerDetail(
         }?.value?.trim() ?: "0"
     }
 
+    fun getNotOuts(matchType: String = "test"): String {
+        return stats?.find {
+            it.fn == "batting" && it.matchtype == matchType && it.stat?.trim() == "no"
+        }?.value?.trim() ?: "0"
+    }
+
+    fun getHighScore(matchType: String = "test"): String {
+        return stats?.find {
+            it.fn == "batting" && it.matchtype == matchType && it.stat?.trim() == "hs"
+        }?.value?.trim() ?: "-"
+    }
+
+    fun getDoubleHundreds(matchType: String = "test"): String {
+        return stats?.find {
+            it.fn == "batting" && it.matchtype == matchType && it.stat?.trim() == "200"
+        }?.value?.trim() ?: "0"
+    }
+
     // Bowling specific stats
     fun getBowlingRuns(matchType: String = "test"): String {
         return stats?.find {
@@ -100,6 +118,18 @@ data class PlayerDetail(
         return stats?.find {
             it.fn == "bowling" && it.matchtype == matchType && it.stat?.trim() == "econ"
         }?.value?.trim() ?: "0.0"
+    }
+
+    fun getBowlingStrikeRate(matchType: String = "test"): String {
+        return stats?.find {
+            it.fn == "bowling" && it.matchtype == matchType && it.stat?.trim() == "sr"
+        }?.value?.trim() ?: "0"
+    }
+
+    fun getBallsBowled(matchType: String = "test"): String {
+        return stats?.find {
+            it.fn == "bowling" && it.matchtype == matchType && it.stat?.trim() == "balls"
+        }?.value?.trim() ?: "0"
     }
 
     fun getBestBowlingInnings(matchType: String = "test"): String {

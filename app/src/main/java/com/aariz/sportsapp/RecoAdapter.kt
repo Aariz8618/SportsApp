@@ -18,7 +18,6 @@ class RecoAdapter(
     inner class VH(view: View) : RecyclerView.ViewHolder(view) {
         val image: ImageView = view.findViewById(R.id.imagePoster)
         val title: TextView = view.findViewById(R.id.txtTitle)
-        val category: TextView? = view.findViewById(R.id.txtCategory) // Optional category field
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
@@ -30,8 +29,6 @@ class RecoAdapter(
         val item = items[position]
         holder.title.text = item.title
 
-        // Set category if the TextView exists in the layout
-        holder.category?.text = item.category
 
         // Load image with Glide
         Glide.with(holder.image.context)
