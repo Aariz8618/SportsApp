@@ -9,14 +9,24 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.OptIn
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.media3.common.MediaItem
 import androidx.media3.common.util.UnstableApi
 import androidx.media3.exoplayer.ExoPlayer
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.aariz.sportsapp.adapters.HorizontalCardAdapter
 import com.aariz.sportsapp.databinding.ActivityHighlightPlayerBinding
 import com.aariz.sportsapp.model.SimpleShow
+import com.cloudinary.android.MediaManager
+import com.cloudinary.android.callback.UploadCallback
+import kotlinx.coroutines.launch
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.GET
+import kotlin.Int
+
 
 class HighlightPlayerActivity : ComponentActivity() {
 
@@ -34,6 +44,38 @@ class HighlightPlayerActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
+        val config = HashMap<String, String>()
+        config["cloud_name"] = "dvqhrnvc4"
+        config["api_key"] = "251656799157299"
+        config["api_secret"] = "0iEj7vGIV5b1e4dVWnYcPz86Nk4"
+        MediaManager.init(this, config)
+
+        // Now you can call MediaManager.get()
+        val filePath = """C:\Users\Aariz Kazi\Downloads\Australia v South Africa 2025-26  Second ODI -.mp4"""
+//        val signatureFromServer = "1c4fa8abfcc6a4b8e084a16d846a273e6536f576"
+//        val timestampFromServer = 1756019224
+//        MediaManager.get().upload(filePath)
+//            .option("resource_type", "video")
+//            .option("upload_preset", "ml_default")
+//            .option("signature", signatureFromServer)
+//            .option("timestamp", timestampFromServer)
+//            .callback(object : UploadCallback {
+//                override fun onStart(requestId: String) {Toast.makeText(this@HighlightPlayerActivity, "Upload started...", Toast.LENGTH_SHORT).show()
+//                }
+//                override fun onProgress(requestId: String, bytes: Long, totalBytes: Long) {}
+//                override fun onSuccess(requestId: String, resultData: Map<*, *>) {Toast.makeText(this@HighlightPlayerActivity, "File uploaded successfully!", Toast.LENGTH_SHORT).show()
+//                }
+//                override fun onError(requestId: String, error: com.cloudinary.android.callback.ErrorInfo) {Toast.makeText(this@HighlightPlayerActivity, "Upload failed: ${error.description}", Toast.LENGTH_LONG).show()
+//                }
+//                override fun onReschedule(requestId: String, error: com.cloudinary.android.callback.ErrorInfo) {}
+//            })
+//            .dispatch()
+
+//        val filePath = """C:\Users\Aariz Kazi\Downloads\Australia v South Africa 2025-26  Second ODI -.mp4"""
+        uploadVideo(filePath)
+
+
         binding = ActivityHighlightPlayerBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -49,6 +91,73 @@ class HighlightPlayerActivity : ComponentActivity() {
             binding.rvSuggestions)
 
         initializePlayer()
+    }
+
+    interface CloudinaryApi {
+        @GET("get-signature")
+        suspend fun getSignature(): SignatureResponse
+    }
+
+    data class SignatureResponse(val signature: String, val timestamp: Long)
+    private fun uploadVideo(filePath: String) {
+        val retrofit = Retrofit.Builder()
+            .baseUrl("http://localhost:3000/")  // your Node server
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        val api = retrofit.create(CloudinaryApi::class.java)
+
+        lifecycleScope.launch {
+            try {
+                val response = api.getSignature()
+                MediaManager.get().upload(filePath)
+                    .option("resource_type", "video")
+                    .option("upload_preset", "ml_default")
+                    .option("signature", response.signature)
+                    .option("timestamp", response.timestamp)
+                    .callback(object : UploadCallback {
+                        override fun onStart(requestId: String) {
+                            Toast.makeText(
+                                this@HighlightPlayerActivity,
+                                "Upload started...",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+
+                        override fun onProgress(requestId: String, bytes: Long, totalBytes: Long) {}
+                        override fun onSuccess(requestId: String, resultData: Map<*, *>) {
+                            Toast.makeText(
+                                this@HighlightPlayerActivity,
+                                "File uploaded successfully!",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+
+                        override fun onError(
+                            requestId: String,
+                            error: com.cloudinary.android.callback.ErrorInfo
+                        ) {
+                            Toast.makeText(
+                                this@HighlightPlayerActivity,
+                                "Upload failed: ${error.description}",
+                                Toast.LENGTH_LONG
+                            ).show()
+                        }
+
+                        override fun onReschedule(
+                            requestId: String,
+                            error: com.cloudinary.android.callback.ErrorInfo
+                        ) {
+                        }
+                    })
+                    .dispatch()
+            } catch (e: Exception) {
+                Toast.makeText(
+                    this@HighlightPlayerActivity,
+                    "Error fetching signature",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
     }
 
     private fun setupSuggestions(rv: RecyclerView?) {
