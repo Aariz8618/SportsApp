@@ -87,28 +87,14 @@ class BrowseMatchesFragment : Fragment() {
         }
 
         recyclerView.adapter = BrowseMatchesAdapter(allMatches) { matchItem ->
-            // Handle match click - navigate to match details
-            matchItem.id?.let { matchId ->
-                navigateToMatchDetails(matchId, matchItem.name)
-            } ?: run {
-                Toast.makeText(requireContext(), "Match details not available", Toast.LENGTH_SHORT).show()
-            }
+            // Handle match click - navigate to full-screen placeholder instead of details
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, NotAvailableFragment())
+                .addToBackStack(null)
+                .commit()
         }
 
         Log.d("BrowseMatchesFragment", "Displaying ${allMatches.size} matches")
-    }
-
-    private fun navigateToMatchDetails(matchId: String, matchName: String?) {
-        val matchDetailFragment = MatchDetailFragment().apply {
-            arguments = Bundle().apply {
-                putString("match_id", matchId)
-                putString("match_name", matchName ?: "Match Details")
-            }
-        }
-        parentFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, matchDetailFragment)
-            .addToBackStack(null)
-            .commit()
     }
 
     private fun showError(message: String) {

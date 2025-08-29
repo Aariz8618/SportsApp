@@ -5,8 +5,7 @@
     android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context=".MatchDetailFragment">
+    android:fitsSystemWindows="true">
 
     <!-- AppBar with collapsing header and tabs -->
     <com.google.android.material.appbar.AppBarLayout
