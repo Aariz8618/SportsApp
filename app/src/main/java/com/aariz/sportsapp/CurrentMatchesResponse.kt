@@ -1,5 +1,7 @@
 package com.aariz.sportsapp.models
 
+import com.google.gson.annotations.SerializedName
+
 data class CurrentMatchesResponse(
     val status: String?,
     val data: List<MatchData>?,
@@ -14,11 +16,20 @@ data class MatchData(
     val date: String?,           // Match date
     val dateTimeGMT: String?,    // GMT format date-time
     val matchType: String?,      // ODI, T20, Test
-    val teams: List<String>?,    // Team names
+    val teams: List<String>?,    // Team names (older variant)
     val score: List<ScoreData>?, // List of innings scores
     val series_id: String?,      // Series identifier
     val fantasyEnabled: Boolean?,
-    val bbbEnabled: Boolean?
+    val bbbEnabled: Boolean?,
+    // Newer/alternate fields from API samples
+    val ms: String?,                    // match state (e.g., fixture)
+    val t1: String?,                    // Team 1 name (e.g., "Barbados Royals [BR]")
+    val t2: String?,                    // Team 2 name
+    val t1s: String?,                   // Team 1 score string
+    val t2s: String?,                   // Team 2 score string
+    val t1img: String?,                 // Team 1 image URL
+    val t2img: String?,                 // Team 2 image URL
+    @SerializedName("series") val seriesName: String? // e.g., "Caribbean Premier League 2025"
 )
 
 data class ScoreData(

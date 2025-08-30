@@ -40,7 +40,8 @@ class MainActivity : AppCompatActivity() {
     private var isOnHomeScreen = true
     private var isDrawerOpen = false
     private var wasNavigatedFromDrawer = false
-    
+    private var homeScorecardAdapter: com.aariz.sportsapp.adapters.HomeScorecardAdapter? = null
+    private var homeScorecards: MutableList<com.aariz.sportsapp.adapters.HomeScorecardItem> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,6 +66,8 @@ class MainActivity : AppCompatActivity() {
 
         setupBottomNavigation()
         setupViewMoreClickListeners()
+        setupHomeScorecardsRecycler()
+        fetchHomeScorecards()
         setupBackPressHandler()
         setupHeaderNavigation()
         setupNavigationDrawer()
@@ -232,6 +235,225 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun setupHomeScorecardsRecycler() {
+        val lm = androidx.recyclerview.widget.LinearLayoutManager(this, androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL, false)
+        binding.rvHomeScorecards.layoutManager = lm
+        // Pager-like snapping and equal-width cards with side peeking
+        val snapHelper = androidx.recyclerview.widget.PagerSnapHelper()
+        snapHelper.attachToRecyclerView(binding.rvHomeScorecards)
+        binding.rvHomeScorecards.setPadding(dpToPx(12), 0, dpToPx(12), 0)
+        binding.rvHomeScorecards.clipToPadding = false
+
+        // Ensure visible spacing between adjacent cards
+        binding.rvHomeScorecards.addItemDecoration(object : androidx.recyclerview.widget.RecyclerView.ItemDecoration() {
+            override fun getItemOffsets(
+                outRect: android.graphics.Rect,
+                view: android.view.View,
+                parent: androidx.recyclerview.widget.RecyclerView,
+                state: androidx.recyclerview.widget.RecyclerView.State
+            ) {
+                val position = parent.getChildAdapterPosition(view)
+                val space = dpToPx(8)
+                val last = (parent.adapter?.itemCount ?: 0) - 1
+                outRect.left = if (position == 0) 0 else space / 2
+                outRect.right = if (position == last) 0 else space / 2
+            }
+        })
+
+        // Adapter and click action
+        homeScorecardAdapter = com.aariz.sportsapp.adapters.HomeScorecardAdapter(
+            emptyList(),
+            onClick = { _ ->
+                // On click of a scorecard, navigate to Not Available for now
+                navigateToFragment(NotAvailableFragment(), "Not Available", addToBackStack = true)
+                hideBottomNavigation()
+            },
+            onScheduleClick = {
+                // Navigate to ScheduleFragment when user taps 'Schedule' on a card
+                navigateToFragment(ScheduleFragment(), "Match Schedule", addToBackStack = true)
+            }
+        )
+        binding.rvHomeScorecards.adapter = homeScorecardAdapter
+
+        // Show placeholder cards immediately so home isn't blank
+        val placeholders = List(5) {
+            com.aariz.sportsapp.adapters.HomeScorecardItem(
+                matchId = null,
+                matchType = null,
+                status = "",
+                t1 = "",
+                t2 = "",
+                t1s = "",
+                t2s = "",
+                t1imgUrl = null,
+                t2imgUrl = null,
+                series = "",
+                isPlaceholder = true
+            )
+        }
+        homeScorecardAdapter?.submitList(placeholders)
+    }
+
+    private fun fetchHomeScorecards(offset: Int = 0) {
+        val apiKey = "d048d0c6-efeb-4bf5-99e2-88f44cb23b82"
+        val call: retrofit2.Call<com.aariz.sportsapp.models.CurrentMatchesResponse> = com.aariz.sportsapp.api.CricApiClient.apiService.getCurrentMatches(apiKey, offset)
+        call.enqueue(object : retrofit2.Callback<com.aariz.sportsapp.models.CurrentMatchesResponse> {
+            override fun onResponse(
+                call: retrofit2.Call<com.aariz.sportsapp.models.CurrentMatchesResponse>,
+                response: retrofit2.Response<com.aariz.sportsapp.models.CurrentMatchesResponse>
+            ) {
+                val body = response.body()
+                val list = body?.data ?: emptyList()
+                val items = mapMatchesToScorecards(list).toMutableList()
+                homeScorecards = items
+                homeScorecardAdapter?.submitList(items)
+
+                // Fetch team images per match using scorecard endpoint only if missing
+                items.forEach { item ->
+                    val matchId = item.matchId
+                    val needImages = item.t1imgUrl.isNullOrEmpty() || item.t2imgUrl.isNullOrEmpty()
+                    if (needImages && !matchId.isNullOrBlank()) {
+                        fetchTeamImagesForMatch(apiKey, matchId, item.t1, item.t2)
+                    }
+                }
+            }
+
+            override fun onFailure(
+                call: retrofit2.Call<com.aariz.sportsapp.models.CurrentMatchesResponse>,
+                t: Throwable
+            ) {
+                // Keep existing placeholders; optionally you can show a toast/log here
+            }
+        })
+    }
+
+    private fun mapMatchesToScorecards(matches: List<com.aariz.sportsapp.models.MatchData>): List<com.aariz.sportsapp.adapters.HomeScorecardItem> {
+        return matches.mapNotNull { m ->
+            // Prefer newer fields t1/t2 if present; else fall back to teams list
+            val t1 = m.t1 ?: m.teams?.getOrNull(0)
+            val t2 = m.t2 ?: m.teams?.getOrNull(1)
+            if (t1 == null || t2 == null) return@mapNotNull null
+
+            // Prefer provided score strings; else compute from innings
+            val t1sRaw = m.t1s ?: getTeamScoreString(t1, m.score)
+            val t2sRaw = m.t2s ?: getTeamScoreString(t2, m.score)
+
+            // Determine batting order: the team that appears first in the score list goes on top
+            val scores = m.score ?: emptyList()
+            fun firstIndexFor(team: String): Int {
+                val key = team.lowercase()
+                return scores.indexOfFirst { sc ->
+                    val inn = sc.inning?.lowercase() ?: return@indexOfFirst false
+                    inn.contains(key)
+                }
+            }
+            val idx1 = firstIndexFor(t1)
+            val idx2 = firstIndexFor(t2)
+
+            val displayT1: String
+            val displayT2: String
+            val displayT1s: String
+            val displayT2s: String
+            val displayT1img: String?
+            val displayT2img: String?
+
+            val t1img = m.t1img
+            val t2img = m.t2img
+
+            if (idx1 >= 0 && idx2 >= 0 && idx2 < idx1) {
+                // Team 2 batted first -> put team2 on top
+                displayT1 = t2
+                displayT2 = t1
+                displayT1s = t2sRaw
+                displayT2s = t1sRaw
+                displayT1img = t2img
+                displayT2img = t1img
+            } else {
+                // Default or team1 batted first -> keep order
+                displayT1 = t1
+                displayT2 = t2
+                displayT1s = t1sRaw
+                displayT2s = t2sRaw
+                displayT1img = t1img
+                displayT2img = t2img
+            }
+
+            val seriesDisplay = m.seriesName ?: m.name ?: m.series_id
+            com.aariz.sportsapp.adapters.HomeScorecardItem(
+                matchId = m.id,
+                matchType = m.matchType,
+                status = m.status ?: "",
+                t1 = displayT1,
+                t2 = displayT2,
+                t1s = displayT1s,
+                t2s = displayT2s,
+                t1imgUrl = displayT1img,
+                t2imgUrl = displayT2img,
+                series = seriesDisplay
+            )
+        }
+    }
+
+    private fun getTeamScoreString(team: String?, scores: List<com.aariz.sportsapp.models.ScoreData>?): String {
+        if (team.isNullOrBlank() || scores.isNullOrEmpty()) return ""
+        // Find the most recent innings for this team by matching team name in the inning field
+        val entry = scores.lastOrNull { sc ->
+            val inn = sc.inning?.lowercase() ?: return@lastOrNull false
+            val teamKey = team.lowercase()
+            inn.contains(teamKey)
+        } ?: return ""
+        val r = entry.r ?: return ""
+        val w = entry.w ?: 0
+        val o = entry.o ?: 0.0
+        // Format overs: drop trailing .0
+        val oversStr = if (o % 1.0 == 0.0) o.toInt().toString() else o.toString()
+        // Single line: e.g. 160/6 (20)
+        return "$r/$w ($oversStr)"
+    }
+
+    private fun fetchTeamImagesForMatch(apiKey: String, matchId: String, t1: String?, t2: String?) {
+        val call = com.aariz.sportsapp.api.CricApiClient.apiService.getScorecard(apiKey, matchId)
+        call.enqueue(object : retrofit2.Callback<com.aariz.sportsapp.models.ScorecardResponse> {
+            override fun onResponse(
+                call: retrofit2.Call<com.aariz.sportsapp.models.ScorecardResponse>,
+                response: retrofit2.Response<com.aariz.sportsapp.models.ScorecardResponse>
+            ) {
+                val data = response.body()?.data
+                val teamInfo = data?.teamInfo ?: emptyList()
+                var t1Url: String? = null
+                var t2Url: String? = null
+                if (teamInfo.isNotEmpty()) {
+                    // Match by shortName or name
+                    teamInfo.forEach { info ->
+                        val name = info.name?.lowercase()
+                        val shortName = info.shortName?.lowercase()
+                        if (t1 != null && (name == t1.lowercase() || shortName == t1.lowercase())) t1Url = info.img
+                        if (t2 != null && (name == t2.lowercase() || shortName == t2.lowercase())) t2Url = info.img
+                    }
+                    // If not matched, assign first/second images as fallback
+                    if (t1Url == null) t1Url = teamInfo.getOrNull(0)?.img
+                    if (t2Url == null) t2Url = teamInfo.getOrNull(1)?.img
+                }
+
+                // Update the item in the list and refresh adapter
+                val idx = homeScorecards.indexOfFirst { it.matchId == matchId }
+                if (idx >= 0) {
+                    val old = homeScorecards[idx]
+                    val updated = old.copy(t1imgUrl = t1Url, t2imgUrl = t2Url)
+                    homeScorecards[idx] = updated
+                    homeScorecardAdapter?.submitList(homeScorecards.toList())
+                }
+            }
+
+            override fun onFailure(
+                call: retrofit2.Call<com.aariz.sportsapp.models.ScorecardResponse>,
+                t: Throwable
+            ) {
+                // Ignore; placeholders will remain
+            }
+        })
+    }
+
     fun showHomeScreen() {
         isOnHomeScreen = true
         currentFragment = null
@@ -331,11 +553,12 @@ class MainActivity : AppCompatActivity() {
 
                         // Check if there are fragments in the back stack first (e.g., Chatbot)
                         if (supportFragmentManager.backStackEntryCount > 0) {
+                            val willBeEmpty = supportFragmentManager.backStackEntryCount == 1
                             val wasChatbot = currentFragment is ChatbotFragment
-                            // Pop from back stack (e.g., Chatbot -> Home)
+                            // Pop from back stack (e.g., NotAvailable -> Home layout)
                             supportFragmentManager.popBackStack()
-                            // If we were on Chatbot, immediately restore the Home layout to avoid a blank screen
-                            if (wasChatbot) {
+                            // If this pop leaves no fragments, restore Home layout immediately
+                            if (willBeEmpty || wasChatbot) {
                                 showHomeScreen()
                             }
                         } else if (shouldNavigateBackToPrevious()) {
@@ -369,7 +592,12 @@ class MainActivity : AppCompatActivity() {
                 hideKeyboard()
                 // First: if there are entries in the fragment back stack, pop them
                 if (supportFragmentManager.backStackEntryCount > 0) {
+                    val willBeEmpty = supportFragmentManager.backStackEntryCount == 1
                     supportFragmentManager.popBackStack()
+                    if (willBeEmpty) {
+                        showHomeScreen()
+                        return@setOnClickListener
+                    }
                 } else if (shouldNavigateBackToPrevious()) {
                     navigateBackToPrevious()
                 } else if (wasNavigatedFromDrawer) {

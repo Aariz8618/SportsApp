@@ -44,8 +44,8 @@ class ScheduleAdapter(
             holder.matchName.text = match.name ?: "Match Name N/A"
             holder.matchCount.text = if (!match.matchCount.isNullOrEmpty()) "Match ${match.matchCount}" else ""
 
-            // Set match type
-            holder.matchType.text = match.matchType ?: "T20"
+            // Set match type in uppercase
+            holder.matchType.text = (match.matchType ?: "T20").uppercase()
 
             // Set other views with null safety
             holder.matchDate.text = match.date ?: "Date: N/A"
@@ -54,18 +54,7 @@ class ScheduleAdapter(
             // Handle match status with null safety
             val originalStatus = match.status ?: ""
             val statusLower = originalStatus.lowercase()
-            val statusCode = originalStatus.trim().toIntOrNull()
             when {
-                // Numeric codes mapping: 1=UPCOMING, 2=LIVE, 3=COMPLETED (common in many feeds)
-                statusCode == 2 -> {
-                    setStatus(holder, "LIVE", R.drawable.live_status_background, match.result ?: "In Progress")
-                }
-                statusCode == 3 -> {
-                    setStatus(holder, "COMPLETED", R.drawable.completed_status_background, match.result ?: "Match Ended")
-                }
-                statusCode == 1 -> {
-                    setStatus(holder, "UPCOMING", R.drawable.upcoming_status_background, "Match starts at ${match.date ?: "TBD"}")
-                }
                 statusLower.contains("live") || statusLower.contains("in progress") -> {
                     setStatus(holder, "LIVE", R.drawable.live_status_background, match.result ?: "In Progress")
                 }
