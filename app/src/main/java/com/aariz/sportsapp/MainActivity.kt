@@ -212,7 +212,7 @@ class MainActivity : AppCompatActivity() {
     private fun setupViewMoreClickListeners() {
         // Gallery "View More" click listener
         binding.tvGalleryViewMore.setOnClickListener {
-            navigateToFragment(GalleryFragment(), "Photo Gallery")
+            navigateToFragment(GalleryFragment(), "Photo Gallery", addToBackStack = true)
             hideBottomNavigation()
         }
 
@@ -510,6 +510,14 @@ class MainActivity : AppCompatActivity() {
 
             val transaction = supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, fragment)
+
+            // If we're navigating between filtered (cricket topic) fragments and adding to back stack,
+            // pop the current filtered fragment so back goes directly to Gallery.
+            if (addToBackStack && isCricketTopicFragment(currentFragment) && isCricketTopicFragment(fragment)) {
+                if (supportFragmentManager.backStackEntryCount > 0) {
+                    supportFragmentManager.popBackStack()
+                }
+            }
 
             if (addToBackStack) {
                 transaction.addToBackStack(null)
