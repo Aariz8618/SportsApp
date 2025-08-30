@@ -45,6 +45,11 @@
             android:exported="false"
             android:theme="@style/Theme.FullScreenMeme" />
 
+        <!-- Highlight player screen -->
+        <activity
+            android:name=".HighlightPlayerActivity"
+            android:exported="false" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.aariz.sportsapp.fileprovider"

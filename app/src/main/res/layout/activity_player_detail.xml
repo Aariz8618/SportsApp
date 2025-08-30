@@ -9,7 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
-        android:paddingHorizontal="16dp"
         android:paddingBottom="16dp">
 
         <LinearLayout
@@ -245,21 +244,71 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Overall rating card removed as requested -->
+            <!-- Overall rating card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardOverallRating"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="20dp"
+                    android:gravity="center"
+                    android:background="#FF6F61">
+
+                    <TextView
+                        android:id="@+id/tvOverallTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Overall Career Rating"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:id="@+id/tvOverallRating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="-"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:textSize="36sp"/>
+
+                    <TextView
+                        android:id="@+id/tvOverallSubtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="out of 100 • Tap to see breakdown"
+                        android:textColor="#FFFFFF"
+                        android:alpha="0.9"
+                        android:textSize="12sp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
             <!-- Tabs Container -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardTabsContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="16dp"
                 app:cardCornerRadius="24dp"
-                app:cardUseCompatPadding="true"
+                android:layout_marginHorizontal="15dp"
+                app:cardUseCompatPadding="false"
+                app:cardPreventCornerOverlap="true"
                 app:cardElevation="2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:background="@drawable/bg_tabs_container"
                     android:orientation="horizontal"
                     android:padding="4dp">
@@ -269,6 +318,7 @@
                         android:layout_width="0dp"
                         android:layout_height="40dp"
                         android:layout_weight="1"
+                        android:includeFontPadding="false"
                         android:gravity="center"
                         android:text="Test"
                         android:textSize="12sp"
@@ -281,6 +331,7 @@
                         android:layout_width="0dp"
                         android:layout_height="40dp"
                         android:layout_weight="1"
+                        android:includeFontPadding="false"
                         android:gravity="center"
                         android:text="ODI"
                         android:textSize="12sp"
@@ -293,6 +344,7 @@
                         android:layout_width="0dp"
                         android:layout_height="40dp"
                         android:layout_weight="1"
+                        android:includeFontPadding="false"
                         android:gravity="center"
                         android:text="T20I"
                         android:textSize="12sp"
@@ -305,6 +357,7 @@
                         android:layout_width="0dp"
                         android:layout_height="40dp"
                         android:layout_weight="1"
+                        android:includeFontPadding="false"
                         android:gravity="center"
                         android:text="IPL"
                         android:textSize="12sp"
@@ -314,7 +367,55 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Format rating card removed as requested -->
+            <!-- Format rating card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardFormatRating"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingVertical="16dp"
+                    android:paddingHorizontal="20dp"
+                    android:gravity="center"
+                    android:background="#4CAF50">
+
+                    <TextView
+                        android:id="@+id/tvFormatHeader"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Format Rating"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:id="@+id/tvFormatRating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="-"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:textSize="28sp"/>
+
+                    <TextView
+                        android:id="@+id/tvFormatSubtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Tap for breakdown"
+                        android:textColor="#FFFFFF"
+                        android:alpha="0.9"
+                        android:textSize="12sp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -325,7 +426,6 @@
                 <HorizontalScrollView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
                     android:fillViewport="false"
                     android:scrollbars="none">
 
@@ -342,6 +442,7 @@
                             android:layout_width="350dp"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="10dp"
+                            android:layout_marginStart="10dp"
                             app:cardCornerRadius="12dp"
                             app:cardElevation="4dp"
                             app:cardUseCompatPadding="true">
@@ -363,12 +464,12 @@
 
                                 <GridLayout
                                     android:layout_width="match_parent"
-                                    android:layout_height="190dp"
+                                    android:layout_height="220dp"
                                     android:layout_gravity="center"
                                     android:background="#F2F1F1"
                                     android:columnCount="3"
                                     android:padding="12dp"
-                                    android:rowCount="3">
+                                    android:rowCount="4">
 
                                     <!-- Row 1 -->
                                     <LinearLayout
@@ -582,6 +683,82 @@
                                         android:orientation="vertical">
 
                                         <TextView
+                                            android:id="@+id/test200"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="200"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/test200value"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="-" />
+
+                                    </LinearLayout>
+
+                                    <!--Row 5-->
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:layout_rowWeight="1"
+                                        android:layout_columnWeight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/testNotOut"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="NO"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/testNotOutvalue"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="-" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:layout_rowWeight="1"
+                                        android:layout_columnWeight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/testHS"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="HS"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/testHSvalue"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="-" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:layout_rowWeight="1"
+                                        android:layout_columnWeight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
                                             android:id="@+id/test4s6s"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
@@ -594,7 +771,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:gravity="center"
-                                            android:text="1065/8" />
+                                            android:text="-" />
 
                                     </LinearLayout>
 
@@ -602,7 +779,7 @@
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
 
-                        <!-- T20 Cricket Stats -->
+                        <!-- Test Cricket Stats -->
                         <androidx.cardview.widget.CardView
                             android:id="@+id/TestBowling"
                             android:layout_width="350dp"
@@ -629,12 +806,12 @@
 
                                 <GridLayout
                                     android:layout_width="match_parent"
-                                    android:layout_height="190dp"
+                                    android:layout_height="220dp"
                                     android:layout_gravity="center"
                                     android:background="#F2F1F1"
                                     android:columnCount="3"
                                     android:padding="12dp"
-                                    android:rowCount="3">
+                                    android:rowCount="4">
 
                                     <!-- Row 1 -->
                                     <LinearLayout
@@ -798,6 +975,31 @@
                                         android:orientation="vertical">
 
                                         <TextView
+                                            android:id="@+id/testSRbowl"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="SR"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/testSRbowlvalue"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="-" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:layout_rowWeight="1"
+                                        android:layout_columnWeight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
                                             android:id="@+id/testBBI"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
@@ -810,7 +1012,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:gravity="center"
-                                            android:text="1" />
+                                            android:text="-" />
 
                                     </LinearLayout>
 
@@ -835,7 +1037,33 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:gravity="center"
-                                            android:text="38" />
+                                            android:text="-" />
+
+                                    </LinearLayout>
+
+                                    <!-- Row 4 -->
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:layout_rowWeight="1"
+                                        android:layout_columnWeight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/testballs"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="Balls"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/testballsvalue"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="-" />
 
                                     </LinearLayout>
 
@@ -848,19 +1076,44 @@
                                         android:orientation="vertical">
 
                                         <TextView
-                                            android:id="@+id/test4w5w10w"
+                                            android:id="@+id/test5w"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:gravity="center"
-                                            android:text="4w/5w/10w"
+                                            android:text="5w"
                                             android:textStyle="bold" />
 
                                         <TextView
-                                            android:id="@+id/test4w5w10wvalue"
+                                            android:id="@+id/test5wvalue"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:gravity="center"
-                                            android:text="374/117" />
+                                            android:text="-" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:layout_rowWeight="1"
+                                        android:layout_columnWeight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/test10w"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="10w"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/test10wvalue"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="-" />
 
                                     </LinearLayout>
 
@@ -873,7 +1126,6 @@
                 <HorizontalScrollView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
                     android:fillViewport="false"
                     android:scrollbars="none">
 
@@ -891,6 +1143,7 @@
                             android:layout_width="350dp"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="10dp"
+                            android:layout_marginStart="10dp"
                             app:cardCornerRadius="12dp"
                             app:cardElevation="4dp"
                             app:cardUseCompatPadding="true">
@@ -912,12 +1165,12 @@
 
                                 <GridLayout
                                     android:layout_width="match_parent"
-                                    android:layout_height="190dp"
+                                    android:layout_height="220dp"
                                     android:layout_gravity="center"
                                     android:background="#F2F1F1"
                                     android:columnCount="3"
                                     android:padding="12dp"
-                                    android:rowCount="3">
+                                    android:rowCount="4">
 
                                     <!-- Row 1 -->
                                     <LinearLayout
@@ -1131,7 +1384,83 @@
                                         android:orientation="vertical">
 
                                         <TextView
-                                            android:id="@+id/odi4s6s"
+                                            android:id="@+id/odi200"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="200"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/odi200value"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="-" />
+
+                                    </LinearLayout>
+
+                                    <!--Row 5-->
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:layout_rowWeight="1"
+                                        android:layout_columnWeight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/ODINotOut"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="NO"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/ODINotOutvalue"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="-" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:layout_rowWeight="1"
+                                        android:layout_columnWeight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/ODIHS"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="HS"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/ODIHSvalue"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="-" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:layout_rowWeight="1"
+                                        android:layout_columnWeight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/ODI4s6s"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:gravity="center"
@@ -1139,11 +1468,11 @@
                                             android:textStyle="bold" />
 
                                         <TextView
-                                            android:id="@+id/odi4s6svalue"
+                                            android:id="@+id/ODI4s6svalue"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:gravity="center"
-                                            android:text="1377/124" />
+                                            android:text="-" />
 
                                     </LinearLayout>
 
@@ -1178,12 +1507,12 @@
 
                                 <GridLayout
                                     android:layout_width="match_parent"
-                                    android:layout_height="190dp"
+                                    android:layout_height="220dp"
                                     android:layout_gravity="center"
                                     android:background="#F2F1F1"
                                     android:columnCount="3"
                                     android:padding="12dp"
-                                    android:rowCount="3">
+                                    android:rowCount="4">
 
                                     <!-- Row 1 -->
                                     <LinearLayout
@@ -1347,7 +1676,32 @@
                                         android:orientation="vertical">
 
                                         <TextView
-                                            android:id="@+id/odiBBI"
+                                            android:id="@+id/ODISRbowl"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="SR"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/ODISRbowlvalue"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="-" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:layout_rowWeight="1"
+                                        android:layout_columnWeight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/ODIBBI"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:gravity="center"
@@ -1355,11 +1709,11 @@
                                             android:textStyle="bold" />
 
                                         <TextView
-                                            android:id="@+id/odiBBIvalue"
+                                            android:id="@+id/ODIBBIvalue"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:gravity="center"
-                                            android:text="1" />
+                                            android:text="-" />
 
                                     </LinearLayout>
 
@@ -1372,7 +1726,7 @@
                                         android:orientation="vertical">
 
                                         <TextView
-                                            android:id="@+id/odiBBM"
+                                            android:id="@+id/ODIBBM"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:gravity="center"
@@ -1380,11 +1734,37 @@
                                             android:textStyle="bold" />
 
                                         <TextView
-                                            android:id="@+id/odiBBMvalue"
+                                            android:id="@+id/ODIBBMvalue"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:gravity="center"
-                                            android:text="38" />
+                                            android:text="-" />
+
+                                    </LinearLayout>
+
+                                    <!-- Row 4 -->
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:layout_rowWeight="1"
+                                        android:layout_columnWeight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/ODIballs"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="Balls"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/ODIballsvalue"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="-" />
 
                                     </LinearLayout>
 
@@ -1397,19 +1777,44 @@
                                         android:orientation="vertical">
 
                                         <TextView
-                                            android:id="@+id/odi4w5w10w"
+                                            android:id="@+id/ODI5w"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:gravity="center"
-                                            android:text="4w/5w/10w"
+                                            android:text="5w"
                                             android:textStyle="bold" />
 
                                         <TextView
-                                            android:id="@+id/odi4w5w10wvalue"
+                                            android:id="@+id/ODI5wvalue"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:gravity="center"
-                                            android:text="374/117" />
+                                            android:text="-" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:layout_rowWeight="1"
+                                        android:layout_columnWeight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/ODI10w"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="10w"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/ODI10wvalue"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="-" />
 
                                     </LinearLayout>
 
@@ -1422,7 +1827,6 @@
                 <HorizontalScrollView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
                     android:fillViewport="false"
                     android:scrollbars="none">
 
@@ -1440,6 +1844,7 @@
                             android:layout_width="350dp"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="16dp"
+                            android:layout_marginStart="10dp"
                             app:cardCornerRadius="12dp"
                             app:cardElevation="4dp"
                             app:cardUseCompatPadding="true">
@@ -1461,12 +1866,12 @@
 
                                 <GridLayout
                                     android:layout_width="match_parent"
-                                    android:layout_height="190dp"
+                                    android:layout_height="220dp"
                                     android:layout_gravity="center"
                                     android:background="#F2F1F1"
                                     android:columnCount="3"
                                     android:padding="12dp"
-                                    android:rowCount="3">
+                                    android:rowCount="4">
 
                                     <!-- Row 1 -->
                                     <LinearLayout
@@ -1679,6 +2084,82 @@
                                         android:orientation="vertical">
 
                                         <TextView
+                                            android:id="@+id/T20200"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="200"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/T20200value"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="-" />
+
+                                    </LinearLayout>
+
+                                    <!--Row 4-->
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:layout_rowWeight="1"
+                                        android:layout_columnWeight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/T20NotOut"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="NO"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/T20NotOutvalue"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="-" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:layout_rowWeight="1"
+                                        android:layout_columnWeight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/T20HS"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="HS"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/T20HSvalue"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="-" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:layout_rowWeight="1"
+                                        android:layout_columnWeight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
                                             android:id="@+id/T204s6s"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
@@ -1691,9 +2172,10 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:gravity="center"
-                                            android:text="1377/124" />
+                                            android:text="-" />
 
                                     </LinearLayout>
+
 
                                 </GridLayout>
                             </LinearLayout>
@@ -1726,12 +2208,12 @@
 
                                 <GridLayout
                                     android:layout_width="match_parent"
-                                    android:layout_height="190dp"
+                                    android:layout_height="220dp"
                                     android:layout_gravity="center"
                                     android:background="#F2F1F1"
                                     android:columnCount="3"
                                     android:padding="12dp"
-                                    android:rowCount="3">
+                                    android:rowCount="4">
 
                                     <!-- Row 1 -->
                                     <LinearLayout
@@ -1895,6 +2377,31 @@
                                         android:orientation="vertical">
 
                                         <TextView
+                                            android:id="@+id/T20SRbowl"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="SR"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/T20SRbowlvalue"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="-" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:layout_rowWeight="1"
+                                        android:layout_columnWeight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
                                             android:id="@+id/T20BBI"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
@@ -1907,7 +2414,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:gravity="center"
-                                            android:text="1" />
+                                            android:text="-" />
 
                                     </LinearLayout>
 
@@ -1932,7 +2439,33 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:gravity="center"
-                                            android:text="38" />
+                                            android:text="-" />
+
+                                    </LinearLayout>
+
+                                    <!-- Row 4 -->
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:layout_rowWeight="1"
+                                        android:layout_columnWeight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/T20balls"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="Balls"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/T20ballsvalue"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="-" />
 
                                     </LinearLayout>
 
@@ -1945,19 +2478,44 @@
                                         android:orientation="vertical">
 
                                         <TextView
-                                            android:id="@+id/T204w5w10w"
+                                            android:id="@+id/T205w"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:gravity="center"
-                                            android:text="4w/5w/10w"
+                                            android:text="5w"
                                             android:textStyle="bold" />
 
                                         <TextView
-                                            android:id="@+id/T204w5w10wvalue"
+                                            android:id="@+id/T205wvalue"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:gravity="center"
-                                            android:text="374/117" />
+                                            android:text="-" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:layout_rowWeight="1"
+                                        android:layout_columnWeight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/T2010w"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="10w"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/T2010wvalue"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="-" />
 
                                     </LinearLayout>
 
@@ -1970,7 +2528,6 @@
                 <HorizontalScrollView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
                     android:fillViewport="false"
                     android:scrollbars="none">
 
@@ -1988,6 +2545,7 @@
                             android:layout_width="350dp"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="10dp"
+                            android:layout_marginStart="10dp"
                             app:cardCornerRadius="12dp"
                             app:cardElevation="4dp"
                             app:cardUseCompatPadding="true">
@@ -2009,12 +2567,12 @@
 
                                 <GridLayout
                                     android:layout_width="match_parent"
-                                    android:layout_height="190dp"
+                                    android:layout_height="220dp"
                                     android:layout_gravity="center"
                                     android:background="#F2F1F1"
                                     android:columnCount="3"
                                     android:padding="12dp"
-                                    android:rowCount="3">
+                                    android:rowCount="4">
 
                                     <!-- Row 1 -->
                                     <LinearLayout
@@ -2228,6 +2786,82 @@
                                         android:orientation="vertical">
 
                                         <TextView
+                                            android:id="@+id/IPL200"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="200"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/IPL200value"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="-" />
+
+                                    </LinearLayout>
+
+                                    <!--Row 5-->
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:layout_rowWeight="1"
+                                        android:layout_columnWeight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/IPLNotOut"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="NO"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/IPLNotOutvalue"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="-" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:layout_rowWeight="1"
+                                        android:layout_columnWeight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/IPLHS"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="HS"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/IPLHSvalue"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="-" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:layout_rowWeight="1"
+                                        android:layout_columnWeight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
                                             android:id="@+id/IPL4s6s"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
@@ -2240,7 +2874,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:gravity="center"
-                                            android:text="1377/124" />
+                                            android:text="-" />
 
                                     </LinearLayout>
 
@@ -2275,12 +2909,12 @@
 
                                 <GridLayout
                                     android:layout_width="match_parent"
-                                    android:layout_height="190dp"
+                                    android:layout_height="220dp"
                                     android:layout_gravity="center"
                                     android:background="#F2F1F1"
                                     android:columnCount="3"
                                     android:padding="12dp"
-                                    android:rowCount="3">
+                                    android:rowCount="4">
 
                                     <!-- Row 1 -->
                                     <LinearLayout
@@ -2444,7 +3078,32 @@
                                         android:orientation="vertical">
 
                                         <TextView
-                                            android:id="@+id/IPLbbi"
+                                            android:id="@+id/IPLSRbowl"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="SR"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/IPLSRbowlvalue"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="-" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:layout_rowWeight="1"
+                                        android:layout_columnWeight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/IPLBBI"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:gravity="center"
@@ -2452,11 +3111,11 @@
                                             android:textStyle="bold" />
 
                                         <TextView
-                                            android:id="@+id/IPLbbivalue"
+                                            android:id="@+id/IPLBBIvalue"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:gravity="center"
-                                            android:text="1" />
+                                            android:text="-" />
 
                                     </LinearLayout>
 
@@ -2469,7 +3128,7 @@
                                         android:orientation="vertical">
 
                                         <TextView
-                                            android:id="@+id/IPLbbm"
+                                            android:id="@+id/IPLBBM"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:gravity="center"
@@ -2477,11 +3136,37 @@
                                             android:textStyle="bold" />
 
                                         <TextView
-                                            android:id="@+id/IPLbbmvalue"
+                                            android:id="@+id/IPLBBMvalue"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:gravity="center"
-                                            android:text="38" />
+                                            android:text="-" />
+
+                                    </LinearLayout>
+
+                                    <!-- Row 4 -->
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:layout_rowWeight="1"
+                                        android:layout_columnWeight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/IPLballs"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="Balls"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/IPLballsvalue"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="-" />
 
                                     </LinearLayout>
 
@@ -2494,19 +3179,44 @@
                                         android:orientation="vertical">
 
                                         <TextView
-                                            android:id="@+id/IPL4w5w10w"
+                                            android:id="@+id/IPL5w"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:gravity="center"
-                                            android:text="4w/5w/10w"
+                                            android:text="5w"
                                             android:textStyle="bold" />
 
                                         <TextView
-                                            android:id="@+id/IPL4w5w10wvalue"
+                                            android:id="@+id/IPL5wvalue"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:gravity="center"
-                                            android:text="374/117" />
+                                            android:text="-" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:layout_rowWeight="1"
+                                        android:layout_columnWeight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/IPL10w"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="10w"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/IPL10wvalue"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="-" />
 
                                     </LinearLayout>
 

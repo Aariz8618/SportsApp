@@ -147,8 +147,51 @@
     <color name="input_stroke_focused">#1976D2</color>
 
     <!-- Shadow and Overlay Colors -->
-    <color name="shadow_light">#10000000</color>
     <color name="shadow_medium">#20000000</color>
     <color name="overlay_light">#08000000</color>
+
+    <color name="card_background2">#FFFFFF</color>
+    <color name="background_light2">#e1f5fe</color>
+    <color name="text_primary2">#1a237e</color>
+    <color name="text_secondary2">#3949ab</color>
+
+    <!-- Blue palette colors for enhanced scorecard -->
+    <color name="score_primary">#2e7d32</color>
+    <color name="score_secondary">#d32f2f</color>
+    <color name="status_color">#FFFFFF</color>
+    <color name="accent_color2">#3f51b5</color>
+    <color name="divider_color2">#5c6bc0</color>
+
+    <!-- Beautiful blue gradient colors from your palette -->
+    <color name="light_blue_1">#b3e5fc</color>
+    <color name="light_blue_2">#81d4fa</color>
+    <color name="medium_blue_1">#5c6bc0</color>
+    <color name="medium_blue_2">#3f51b5</color>
+    <color name="dark_blue_1">#3949ab</color>
+    <color name="dark_blue_2">#283593</color>
+    <color name="darkest_blue">#1a237e</color>
+
+    <!-- Status colors with blue theme -->
+    <color name="status_ended">#5c6bc0</color>
+    <color name="status_live">#f44336</color>
+    <color name="status_upcoming">#3f51b5</color>
+
+    <!-- Team highlight colors -->
+    <color name="winning_team">#c5e1a5</color>
+    <color name="losing_team">#ffcdd2</color>
+
+    <!-- Background variations -->
+    <color name="light_gray">#e1f5fe</color>
+    <color name="border_light">#5c6bc0</color>
+    <color name="shadow_light">#1A000000</color>
+
+    <!-- Additional blue palette colors -->
+    <color name="very_light_blue">#e1f5fe</color>
+    <color name="cyan_tint">#b3e5fc</color>
+    <color name="sky_blue">#81d4fa</color>
+    <color name="indigo_light">#5c6bc0</color>
+    <color name="indigo_medium">#3f51b5</color>
+    <color name="indigo_dark">#3949ab</color>
+    <color name="navy_blue">#1a237e</color>
 
 </resources>

@@ -1,41 +1,207 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="10dp"
-    android:background="@drawable/edittext_background"
-    android:layout_marginBottom="8dp">
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginVertical="8dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="6dp"
+    app:cardBackgroundColor="@android:color/white">
 
-    <TextView
-        android:id="@+id/tvMatchName"
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Match Name"
-        android:textStyle="bold"
-        android:textSize="16sp" />
+        android:orientation="vertical"
+        android:padding="0dp">
 
-    <TextView
-        android:id="@+id/tvMatchDate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Date"
-        android:textSize="14sp" />
+        <!-- Main Content Container -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="12dp">
 
-    <TextView
-        android:id="@+id/tvMatchVenue"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Venue"
-        android:textSize="14sp" />
+            <!-- Header Section with Teams -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
 
-    <TextView
-        android:id="@+id/tvMatchStatus"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Status"
-        android:textColor="@android:color/holo_green_dark"
-        android:textStyle="bold"
-        android:textSize="14sp" />
+                <TextView
+                    android:id="@+id/tvMatchStatus2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:text="LIVE"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:textSize="11sp"
+                    android:background="@drawable/live_status_background"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="5dp"
+                    android:minWidth="50dp"
+                    android:gravity="center"
+                    android:letterSpacing="0.05"
+                    android:visibility="visible" />
 
-</LinearLayout>
+                <TextView
+                    android:id="@+id/tvMatchName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toStartOf="@id/tvMatchStatus2"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginEnd="12dp"
+                    android:text="India vs Australia"
+                    android:textStyle="bold"
+                    android:textSize="19sp"
+                    android:textColor="#1A1A1A"
+                    android:maxLines="2"
+                    android:ellipsize="end"
+                    android:letterSpacing="0.02"
+                    android:visibility="visible" />
+
+            </RelativeLayout>
+
+            <!-- Match Info Grid -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:baselineAligned="false">
+
+                <!-- Left Column - Date Info -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginEnd="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="8dp">
+
+                        <ImageView
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:src="@drawable/ic_calendar"
+                            android:layout_marginEnd="8dp"
+                            android:contentDescription="Date" />
+
+                        <TextView
+                            android:id="@+id/tvMatchDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Dec 15, 2024"
+                            android:textSize="13sp"
+                            android:textColor="#4A5568"
+                            android:textStyle="normal"
+                            android:maxLines="1"
+                            android:ellipsize="end" />
+
+                    </LinearLayout>
+
+                    <!-- Venue Info -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:src="@drawable/ic_location"
+                            android:layout_marginEnd="8dp"
+                            android:contentDescription="Venue" />
+
+                        <TextView
+                            android:id="@+id/tvMatchVenue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="MCG, Melbourne"
+                            android:textSize="13sp"
+                            android:textColor="#4A5568"
+                            android:maxLines="2"
+                            android:ellipsize="end" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- Right Column - Match Type & Format -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:orientation="vertical"
+                    android:gravity="end">
+
+                    <TextView
+                        android:id="@+id/tvMatchtype"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="T20I"
+                        android:textStyle="bold"
+                        android:textSize="12sp"
+                        android:textColor="#2D3748"
+                        android:background="@drawable/match_format_bg"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="3dp"
+                        android:layout_marginBottom="6dp" />
+
+                    <TextView
+                        android:id="@+id/tvMatchCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Match 1"
+                        android:textSize="11sp"
+                        android:textColor="#718096"
+                        android:textStyle="normal" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tvMatchStatus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Upcoming"
+                android:fontFamily="@font/lato_bold"
+                android:background="@drawable/live_indicator_bg"
+                android:textColor="#000000"
+                android:textStyle="normal"
+                android:textSize="14sp"
+                android:paddingVertical="6dp"
+                android:paddingHorizontal="10dp"
+                android:gravity="start"
+                android:letterSpacing="0.05"
+                />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

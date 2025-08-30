@@ -60,6 +60,7 @@ dependencies {
     implementation("androidx.coordinatorlayout:coordinatorlayout:1.2.0")
     implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation("androidx.recyclerview:recyclerview:1.3.2")
+    implementation("androidx.gridlayout:gridlayout:1.0.0")
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     implementation(platform("com.google.firebase:firebase-bom:34.0.0"))
     implementation("com.google.firebase:firebase-analytics")
@@ -79,6 +80,13 @@ dependencies {
     implementation("com.google.ai.client.generativeai:generativeai:0.7.0")
     // Coroutines for async calls
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+
+    // Media3 ExoPlayer for existing highlights playback
+    implementation("androidx.media3:media3-exoplayer:1.4.1")
+    implementation("androidx.media3:media3-ui:1.4.1")
+    implementation("androidx.media3:media3-common:1.4.1")
+    implementation("com.cloudinary:cloudinary-android:3.0.2")
+
 
 
 }

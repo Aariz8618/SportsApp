@@ -10,7 +10,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.aariz.sportsapp.R
 import com.aariz.sportsapp.adapters.ScheduleAdapter
 import com.aariz.sportsapp.api.CricApiClient
 import com.aariz.sportsapp.models.MatchItem
@@ -31,7 +30,7 @@ class ScheduleFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         val view = inflater.inflate(R.layout.fragment_schedule, container, false)
 
         recyclerView = view.findViewById(R.id.rvSchedule)
@@ -72,13 +71,25 @@ class ScheduleFragment : Fragment() {
                             matchDataList.forEachIndexed { index, match ->
                                 Log.d("ScheduleFragment", "Match $index: Name=${match.name}, Status=${match.status}, Date=${match.date}, ID=${match.id}")
 
+                                // Create result string from score data if available
+                                val result = if (!match.score.isNullOrEmpty()) {
+                                    match.score.joinToString(" & ") { score ->
+                                        "${score.inning ?: ""}: ${score.r ?: 0}/${score.w ?: 0} (${score.o ?: 0.0} ov)"
+                                    }
+                                } else {
+                                    null
+                                }
+
                                 // TEMPORARILY SHOW ALL MATCHES (regardless of status) to debug what's available
                                 val matchItem = MatchItem(
                                     name = match.name ?: "Unknown Match",
                                     date = match.date,
                                     venue = match.venue,
                                     status = match.status,
-                                    id = match.id
+                                    id = match.id,
+                                    matchType = match.matchType,
+                                    matchCount = null, // This might come from series data or match numbering
+                                    result = result
                                 )
                                 currentMatches.add(matchItem)
                                 Log.d("ScheduleFragment", "Added match: ${matchItem.name}")
@@ -92,7 +103,11 @@ class ScheduleFragment : Fragment() {
                     } else {
                         Log.e("ScheduleFragment", "API response not successful or body is null. Response code: ${response.code()}")
                         Log.e("ScheduleFragment", "Response message: ${response.message()}")
-                        Log.e("ScheduleFragment", "Response error body: ${response.errorBody()?.string()}")
+                        try {
+                            Log.e("ScheduleFragment", "Response error body: ${response.errorBody()?.string()}")
+                        } catch (e: Exception) {
+                            Log.e("ScheduleFragment", "Error reading error body: ${e.message}")
+                        }
                         context?.let { ctx ->
                             Toast.makeText(ctx, "Failed to load matches (Code: ${response.code()})", Toast.LENGTH_SHORT).show()
                         }
@@ -117,40 +132,35 @@ class ScheduleFragment : Fragment() {
         val matchList = mutableListOf<MatchItem>()
 
         if (currentMatches.isNotEmpty()) {
-            matchList.add(MatchItem("=== All Matches (Debug Mode) ===", null, null, null, null))
             matchList.addAll(currentMatches)
             Log.d("ScheduleFragment", "Added ${currentMatches.size} matches to display list")
         } else {
-            matchList.add(MatchItem("No matches returned from API", null, null, null, null))
+            matchList.add(MatchItem(
+                name = "No matches returned from API",
+                date = null,
+                venue = null,
+                status = null,
+                id = null,
+                matchType = null,
+                matchCount = null,
+                result = null
+            ))
             Log.w("ScheduleFragment", "No matches to display")
         }
 
         recyclerView.adapter = ScheduleAdapter(matchList) { matchItem ->
             Log.d("ScheduleFragment", "Match clicked: ${matchItem.name}, ID: ${matchItem.id}")
-            matchItem.id?.let { matchId ->
-                navigateToMatchDetails(matchId, matchItem.name)
-            } ?: run {
-                Log.w("ScheduleFragment", "No match ID available for clicked match")
-                context?.let { ctx ->
-                    Toast.makeText(ctx, "No match ID available", Toast.LENGTH_SHORT).show()
-                }
+            // Navigate to full-screen placeholder instead of details
+            try {
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container, NotAvailableFragment())
+                    .addToBackStack(null)
+                    .commit()
+            } catch (e: Exception) {
+                Log.e("ScheduleFragment", "Error navigating to NotAvailableFragment: ${e.message}")
             }
         }
 
         Log.d("ScheduleFragment", "RecyclerView adapter set with ${matchList.size} total items")
-    }
-
-    private fun navigateToMatchDetails(matchId: String, matchName: String?) {
-        Log.d("ScheduleFragment", "Navigating to match details. ID: $matchId, Name: $matchName")
-        val matchDetailFragment = MatchDetailFragment().apply {
-            arguments = Bundle().apply {
-                putString("match_id", matchId)
-                putString("match_name", matchName ?: "Match Details")
-            }
-        }
-        parentFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, matchDetailFragment)
-            .addToBackStack(null)
-            .commit()
     }
 }
