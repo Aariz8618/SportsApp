@@ -38,6 +38,9 @@
             android:exported="false"
             android:theme="@style/Theme.SportsApp.Fullscreen" />
       <activity
+            android:name="com.aariz.sportsapp.ui.PlayerDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".FullScreenMemeActivity"
             android:exported="false"
             android:theme="@style/Theme.FullScreenMeme" />
