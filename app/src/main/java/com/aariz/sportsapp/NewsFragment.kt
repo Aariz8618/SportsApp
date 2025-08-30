@@ -8,8 +8,6 @@ import androidx.fragment.app.Fragment
 import com.aariz.sportsapp.databinding.FragmentNewsBinding
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.cardview.widget.CardView
-import android.view.LayoutInflater.from
 import com.aariz.sportsapp.R
 
 class NewsFragment : Fragment() {
@@ -25,7 +23,8 @@ class NewsFragment : Fragment() {
         val location: String,
         val image: String,
         val content: String,
-        val headerColorRes: Int
+
+        val headerImageName: String
     )
 
     private val newsData by lazy {
@@ -36,8 +35,9 @@ class NewsFragment : Fragment() {
                 category = "CPL 2025",
                 time = "2 hours ago",
                 location = "Caribbean",
-                image = "",
-                headerColorRes = R.color.green_600,
+                image = "🏏",
+
+                headerImageName = "news_kings",
                 content = """Saint Lucia Kings blazed to victory over the St Kitts and Nevis Patriots in commanding fashion to go top of the table in the Caribbean Premier League, 2025. In the chase of 178, Tim Seifert (68 off 45) and Johnson Charles (47 off 17) gave the Kings the ideal foundation to complete the chase with ease. Earlier, it was Tabraiz Shamsi who ended with figures of 4-0-17-2, another star performer in Kings' win.
 
 On a good pitch to bat on, the Patriots didn't get off to a flier but were circumspect in their approach with timely boundaries scored by Andre Fletcher. First, off Khary Pierre before hitting four in a row off Keon Gaston but his partner Evin Lewis fell for 18 in the last over of the PowerPlay. Usually, under fire for his strike-rate Mohammad Rizwan hit 10 runs off his first three deliveries in a clear signal of intent.
@@ -58,8 +58,8 @@ Tim David and Chase then found the boundary twice to seal a comfortable win for 
                 category = "International",
                 time = "6 hours ago",
                 location = "Jersey",
-                image = "",
-                headerColorRes = R.color.error_color,
+                image = "⚖️",
+                headerImageName = "news_png",
                 content = """Papua New Guinea player Kipling Doriga has been charged with robbery following an incident in the early hours of Monday morning (25th August) in St Heliers, the capital of Jersey. Doriga was a member of the PNG squad contesting the second round of the ongoing CWC Challenge League on the Island, a crowd dependency of the UK.
 
 The 29 year-old keeper-batter has made 97 appearances for PNG, including at the 2021 and 2024 T20 World Cups.
@@ -72,8 +72,8 @@ Doriga appeared before the Magistate's court on Wednesday morning, and is unders
                 category = "International",
                 time = "8 hours ago",
                 location = "Harare",
-                image = "",
-                headerColorRes = R.color.orange_100,
+                image = "🏥",
+                headerImageName = "news_ervine",
                 content = """Zimbabwe captain Craig Ervine has been ruled out of the two-match ODI series against Sri Lanka due to a calf injury. In Ervine's absence, Sean Williams will lead Zimbabwe in the ODI series which begins today. Zimbabwe are yet to announce any replacement.
 
 Ervine suffered a grade 2 strain in his left calf along with a chronic and resolving Grade I strain in his right calf on the eve of the match at the Harare Sports Club. It was confirmed by an MRI scan on Thursday (August 28).
@@ -86,8 +86,8 @@ Zimbabwe and Sri Lanka are slated to play two ODIs and three T20Is from August 2
                 category = "Asia Cup",
                 time = "12 hours ago",
                 location = "Sri Lanka",
-                image = "",
-                headerColorRes = R.color.blue_600,
+                image = "🏆",
+                headerImageName = "news_hasaranga",
                 content = """Sri Lanka have named Wanindu Hasaranga in their 16-member squad for Asia Cup T20 2025, though the leg-spinning allrounder's participation is subject to fitness clearance. Hasaranga has been sidelined since picking up a hamstring injury during the ODI series against Bangladesh in July, which subsequently ruled him out of the T20I series against them and both the ODI and T20I squads for the tour of Zimbabwe."""
             ),
             NewsItem(
@@ -96,8 +96,8 @@ Zimbabwe and Sri Lanka are slated to play two ODIs and three T20Is from August 2
                 category = "Analysis",
                 time = "1 day ago",
                 location = "South Africa",
-                image = "",
-                headerColorRes = R.color.purple_600,
+                image = "📊",
+                headerImageName = "news_breetzke_stubbs",
                 content = """Matthew Breetzke scored more runs in his last five innings than Tristan Stubbs did in his last 15. These things happen; players slide into and out of form throughout their careers.
 
 But here's a stat to startle - Stubbs, who is among the most athletic and electrifying fielders in world cricket, has dropped six catches in his last five games.
@@ -119,6 +119,14 @@ Doubtless Prince's conversations with Breetzke are starkly different.
 "I've been impressed with the intensity of his training. We were joking with him in training before the ODI series that he's got to put that bat on ice because it was smashing it. It's great to see a player transform that sort of training form into how he plays in matches. and go and play."""
             )
         )
+    }
+
+    private fun applyAlpha(color: Int, alpha: Float): Int {
+        val a = (android.graphics.Color.alpha(color) * alpha).toInt()
+        val r = android.graphics.Color.red(color)
+        val g = android.graphics.Color.green(color)
+        val b = android.graphics.Color.blue(color)
+        return android.graphics.Color.argb(a, r, g, b)
     }
 
     override fun onCreateView(
@@ -149,7 +157,9 @@ Doubtless Prince's conversations with Breetzke are starkly different.
         newsData.forEach { item ->
             val card = inflater.inflate(R.layout.item_news_card, container, false)
 
-            val header = card.findViewById<LinearLayout>(R.id.card_header)
+            val header = card.findViewById<View>(R.id.card_header)
+            val headerImage = card.findViewById<android.widget.ImageView>(R.id.card_header_image)
+            val headerScrim = card.findViewById<View>(R.id.card_header_scrim)
             val emoji = card.findViewById<TextView>(R.id.card_emoji)
             val category = card.findViewById<TextView>(R.id.card_category)
             val heading = card.findViewById<TextView>(R.id.card_heading)
@@ -158,7 +168,12 @@ Doubtless Prince's conversations with Breetzke are starkly different.
             val excerpt = card.findViewById<TextView>(R.id.card_excerpt)
             val readMore = card.findViewById<TextView>(R.id.card_read_more)
 
-            header.setBackgroundColor(requireContext().getColor(item.headerColorRes))
+            // Load header image by name; fallback to placeholder
+            val resId = resources.getIdentifier(item.headerImageName, "drawable", requireContext().packageName)
+            if (resId != 0) headerImage.setImageResource(resId) else headerImage.setImageResource(R.drawable.news_header_placeholder)
+            // Tint scrim with item color at ~60% alpha
+
+
             emoji.text = item.image
             category.text = item.category
             heading.text = item.heading
@@ -190,7 +205,12 @@ Doubtless Prince's conversations with Breetzke are starkly different.
         binding.detailCategory.text = item.category
         binding.detailHeading.text = item.heading
         binding.detailMeta.text = "${item.time} • ${item.location}"
-        binding.detailHeader.setBackgroundColor(requireContext().getColor(item.headerColorRes))
+        // Load header image in detail
+        run {
+            val resId = resources.getIdentifier(item.headerImageName, "drawable", requireContext().packageName)
+            if (resId != 0) binding.detailHeaderImage.setImageResource(resId)
+            else binding.detailHeaderImage.setImageResource(R.drawable.news_header_placeholder)
+        }
 
         // Content
         binding.detailContent.text = item.content

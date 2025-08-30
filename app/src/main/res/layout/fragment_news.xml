@@ -16,81 +16,13 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Header -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:background="@color/primary_color"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:id="@+id/headerEmoji"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="🏏"
-                        android:textSize="24sp"
-                        android:layout_marginEnd="8dp"
-                        android:textColor="@android:color/white" />
-
-                    <TextView
-                        android:id="@+id/headerTitle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Cricket News"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:textColor="@android:color/white" />
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/headerSubtitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Stay updated with latest cricket news"
-                    android:textSize="13sp"
-                    android:textColor="@android:color/white" />
-            </LinearLayout>
-
-            <!-- Breaking banner -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:padding="12dp"
-                android:background="@android:color/holo_red_dark"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="⚠️"
-                    android:textSize="16sp"
-                    android:layout_marginEnd="8dp"
-                    android:textColor="@android:color/white" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Breaking: Saint Lucia Kings top CPL table with dominant win"
-                    android:textStyle="bold"
-                    android:textSize="14sp"
-                    android:textColor="@android:color/white" />
-            </LinearLayout>
-
             <!-- List container (populated in code) -->
             <LinearLayout
                 android:id="@+id/news_list_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="16dp" />
+                android:padding="12dp" />
 
             <!-- Detail container (toggled visible in code) -->
             <LinearLayout
@@ -100,68 +32,85 @@
                 android:orientation="vertical"
                 android:visibility="gone">
 
-                <!-- Detail header -->
-                <LinearLayout
+                <!-- Detail header with background image and scrim -->
+                <FrameLayout
                     android:id="@+id/detail_header"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    android:background="@color/primary_color">
+                    android:layout_height="wrap_content">
 
-                    <Button
-                        android:id="@+id/btn_back"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Back to News"
-                        android:textAllCaps="false"
-                        android:backgroundTint="@android:color/transparent"
-                        android:textColor="@android:color/white" />
+                    <ImageView
+                        android:id="@+id/detail_header_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="@string/app_name" />
+
+                    <View
+                        android:id="@+id/detail_header_scrim"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#80000000" />
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="8dp"
-                        android:gravity="center_vertical">
-
-                        <TextView
-                            android:id="@+id/detail_emoji"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="🏏"
-                            android:textSize="28sp"
-                            android:textColor="@android:color/white"
-                            android:layout_marginEnd="8dp" />
-
-                        <TextView
-                            android:id="@+id/detail_category"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Category"
-                            android:textColor="@android:color/white"
-                            android:background="@android:color/transparent" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/detail_heading"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Heading"
-                        android:textColor="@android:color/white"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        android:layout_marginTop="8dp" />
+                        android:orientation="vertical"
+                        android:padding="16dp">
 
-                    <TextView
-                        android:id="@+id/detail_meta"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Time • Location"
-                        android:textColor="@android:color/white"
-                        android:textSize="12sp"
-                        android:layout_marginTop="4dp" />
-                </LinearLayout>
+                        <Button
+                            android:id="@+id/btn_back"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Back to News"
+                            android:textAllCaps="false"
+                            android:backgroundTint="@android:color/transparent"
+                            android:textColor="@android:color/white" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:id="@+id/detail_emoji"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="🏏"
+                                android:textSize="28sp"
+                                android:textColor="@android:color/white"
+                                android:layout_marginEnd="8dp" />
+
+                            <TextView
+                                android:id="@+id/detail_category"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Category"
+                                android:textColor="@android:color/white"
+                                android:background="@android:color/transparent" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/detail_heading"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Heading"
+                            android:textColor="@android:color/white"
+                            android:textStyle="bold"
+                            android:textSize="20sp"
+                            android:layout_marginTop="8dp" />
+
+                        <TextView
+                            android:id="@+id/detail_meta"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Time • Location"
+                            android:textColor="@android:color/white"
+                            android:textSize="12sp"
+                            android:layout_marginTop="4dp" />
+                    </LinearLayout>
+                </FrameLayout>
 
                 <!-- Detail content -->
                 <LinearLayout
